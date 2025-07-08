@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import {
   Card,
@@ -17,10 +17,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { Star } from "lucide-vue-next";
+import { Star, User } from "lucide-vue-next";
 
 interface ReviewProps {
-  image: string;
   name: string;
   userName: string;
   comment: string;
@@ -29,52 +28,39 @@ interface ReviewProps {
 
 const reviewList: ReviewProps[] = [
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe",
-    userName: "Product Manager",
-    comment:
-      "El curso superó mis expectativas y ahora aplico IA en mi día a día.",
+    name: "Camila Rodríguez",
+    userName: "Ingeniera de datos",
+    comment: "El curso fue más de lo que esperaba, aprendí muchísimo.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Sophia Collins",
-    userName: "Cybersecurity Analyst",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ",
+    name: "Juan Carlos Gómez",
+    userName: "Desarrollador de software",
+    comment: "Superó todas mis expectativas, lo recomiendo completamente.",
+    rating: 5.0,
+  },
+  {
+    name: "Valentina Torres",
+    userName: "Analista de negocios",
+    comment: "Aprendí más de lo que imaginaba, excelente contenido.",
     rating: 4.8,
   },
-
   {
-    image: "https://github.com/shadcn.png",
-    name: "Adam Johnson",
-    userName: "Chief Technology Officer",
-    comment:
-      "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    name: "Andrés Pérez",
+    userName: "Emprendedor",
+    comment: "Más de lo que esperaba, me abrió muchas puertas.",
     rating: 4.9,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ethan Parker",
-    userName: "Data Scientist",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    name: "Laura Martínez",
+    userName: "Estudiante de ingeniería",
+    comment: "Me encantó, es justo lo que necesitaba para entender la IA.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ava Mitchell",
-    userName: "IT Project Manager",
-    comment:
-      "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud incididunt consectetur adipiscing elit.",
-    rating: 5.0,
-  },
-  {
-    image: "https://github.com/shadcn.png",
-    name: "Isabella Reed",
-    userName: "DevOps Engineer",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Carlos Hernández",
+    userName: "Especialista en marketing",
+    comment: "El curso superó mis expectativas, muy completo.",
     rating: 4.9,
   },
 ];
@@ -123,11 +109,9 @@ const reviewList: ReviewProps[] = [
             <CardHeader>
               <div class="flex flex-row items-center gap-4">
                 <Avatar>
-                  <AvatarImage
-                    src="https://www.radix-vue.com/logo.svg"
-                    alt="@radix-vue"
-                  />
-                  <AvatarFallback>SV</AvatarFallback>
+                  <AvatarFallback>
+                    <User class="size-6" />
+                  </AvatarFallback>
                 </Avatar>
 
                 <div class="flex flex-col">
