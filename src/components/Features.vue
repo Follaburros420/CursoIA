@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ToolsShowcase from "./tools/ToolsShowcase.vue";
 
 import {
   Paintbrush,
@@ -123,6 +124,8 @@ const iconMap: Record<
         </Card>
       </div>
     </div>
+
+    <ToolsShowcase />
   </section>
 </template>
 
