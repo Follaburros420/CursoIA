@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 
 import { Check } from "lucide-vue-next";
+import { tilt as vTilt } from "@/directives/tilt";
 
 enum PopularPlan {
   NO = 0,
@@ -86,6 +87,7 @@ const plans: PlanProps[] = [
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
       <Card
+        v-tilt
         v-for="{
           title,
           popular,
@@ -95,10 +97,13 @@ const plans: PlanProps[] = [
           benefitList,
         } in plans"
         :key="title"
-        :class="{
-          'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
-            popular === PopularPlan?.YES,
-        }"
+        :class="[
+          'relative group bg-gray-50 dark:bg-black border-black/10 dark:border-white/20 hover:shadow-2xl hover:shadow-emerald-500/10 transition-shadow p-6 rounded-xl',
+          {
+            'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
+              popular === PopularPlan?.YES,
+          },
+        ]"
       >
         <CardHeader>
           <CardTitle class="pb-2">
