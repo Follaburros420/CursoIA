@@ -4,6 +4,7 @@ const mode = useColorMode();
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { BackgroundLines } from "@/components/ui/background-lines";
 import { ArrowRight } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 </script>
@@ -24,19 +25,16 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
           <span> Inscripciones abiertas </span>
         </Badge>
 
-        <div
-          class="max-w-screen-md mx-auto text-center text-5xl md:text-6xl font-bold"
+        <BackgroundLines
+          class="max-w-screen-md mx-auto text-center flex flex-col items-center justify-center px-4"
         >
-          <h1>
+          <h1 class="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white py-4 relative z-20">
             Domina la
-            <span
-              class="text-transparent bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text"
-              >Inteligencia Artificial
-            </span>
+            <span class="text-transparent bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text">Inteligencia Artificial</span>
             para abogados
             <span class="block">de cero a experto</span>
           </h1>
-        </div>
+        </BackgroundLines>
 
         <p class="max-w-screen-sm mx-auto text-xl text-muted-foreground">
           Aprende desde los fundamentos hasta implementar automatizaciones legales con herramientas open source.
