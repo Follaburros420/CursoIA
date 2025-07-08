@@ -5,6 +5,7 @@ const mode = useColorMode();
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-vue-next";
+import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 </script>
 
 <template>
@@ -42,8 +43,9 @@ import { ArrowRight } from "lucide-vue-next";
         </p>
 
         <div class="space-y-4 md:space-y-0 md:space-x-4">
-          <Button class="w-5/6 md:w-1/4 font-bold group/arrow" as-child>
-            <a href="#contact">
+          <Button class="w-5/6 md:w-1/4 font-bold group/arrow flex items-center" as-child>
+            <a href="#contact" class="flex items-center">
+              <WhatsappIcon class="size-5 mr-2" />
               Agenda tu reunión
             </a>
             <ArrowRight
