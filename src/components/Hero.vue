@@ -33,6 +33,7 @@ import { ArrowRight } from "lucide-vue-next";
               >Inteligencia Artificial
             </span>
             para abogados
+            <span class="block">de cero a experto</span>
           </h1>
         </div>
 
