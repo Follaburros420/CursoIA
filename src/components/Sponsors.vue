@@ -2,13 +2,11 @@
 import { Marquee } from "@selemondev/vue3-marquee";
 import "@selemondev/vue3-marquee/dist/style.css";
 
-import {
-  Crown,
-  Vegan,
-  Ghost,
-  Puzzle,
-  Cookie,
-} from "lucide-vue-next";
+import N8nIcon from "@/icons/N8nIcon.vue";
+import QdrantIcon from "@/icons/QdrantIcon.vue";
+import SupabaseIcon from "@/icons/SupabaseIcon.vue";
+import ChatwootIcon from "@/icons/ChatwootIcon.vue";
+import RedisIcon from "@/icons/RedisIcon.vue";
 
 interface sponsorsProps {
   icon: string;
@@ -16,26 +14,19 @@ interface sponsorsProps {
 }
 
 const sponsors: sponsorsProps[] = [
-  { icon: "crown", name: "n8n" },
-  { icon: "vegan", name: "qdrant" },
-  { icon: "ghost", name: "supabase" },
-  { icon: "puzzle", name: "chatwoot" },
-  { icon: "cookie", name: "redis" },
+  { icon: "n8n", name: "n8n" },
+  { icon: "qdrant", name: "qdrant" },
+  { icon: "supabase", name: "supabase" },
+  { icon: "chatwoot", name: "chatwoot" },
+  { icon: "redis", name: "redis" },
 ];
 
-const iconMap: Record<
-  string,
-  | typeof Crown
-  | typeof Vegan
-  | typeof Ghost
-  | typeof Puzzle
-  | typeof Cookie
-> = {
-  crown: Crown,
-  vegan: Vegan,
-  ghost: Ghost,
-  puzzle: Puzzle,
-  cookie: Cookie,
+const iconMap: Record<string, any> = {
+  n8n: N8nIcon,
+  qdrant: QdrantIcon,
+  supabase: SupabaseIcon,
+  chatwoot: ChatwootIcon,
+  redis: RedisIcon,
 };
 </script>
 
@@ -61,7 +52,6 @@ const iconMap: Record<
             <component
               :is="iconMap[icon]"
               class="mr-2"
-              stroke-width="3"
             />
             {{ name }}
           </div>
