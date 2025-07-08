@@ -19,7 +19,7 @@ enum PopularPlan {
 interface PlanProps {
   title: string;
   popular: PopularPlan;
-  price: number;
+  price: string;
   description: string;
   buttonText: string;
   benefitList: string[];
@@ -29,7 +29,7 @@ const plans: PlanProps[] = [
   {
     title: "Básico",
     popular: 0,
-    price: 0,
+    price: "Gratis",
     description:
       "Acceso limitado a recursos gratuitos y comunidad.",
     buttonText: "Comenzar gratis",
@@ -42,7 +42,7 @@ const plans: PlanProps[] = [
   {
     title: "Profesional",
     popular: 1,
-    price: 45,
+    price: "267K",
     description:
       "Curso completo con sesiones en vivo y tutorías.",
     buttonText: "Inscribirme",
@@ -55,7 +55,7 @@ const plans: PlanProps[] = [
   {
     title: "Empresarial",
     popular: 0,
-    price: 120,
+    price: "A convenir",
     description:
       "Formación personalizada para equipos de trabajo.",
     buttonText: "Contáctanos",
@@ -108,8 +108,7 @@ const plans: PlanProps[] = [
           <CardDescription class="pb-4">{{ description }}</CardDescription>
 
           <div>
-            <span class="text-3xl font-bold">${{ price }}</span>
-            <span class="text-muted-foreground"> /month</span>
+            <span class="text-3xl font-bold">{{ price }}</span>
           </div>
         </CardHeader>
 

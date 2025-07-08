@@ -7,7 +7,6 @@ import {
   Vegan,
   Ghost,
   Puzzle,
-  Squirrel,
   Cookie,
 } from "lucide-vue-next";
 
@@ -21,7 +20,6 @@ const sponsors: sponsorsProps[] = [
   { icon: "vegan", name: "qdrant" },
   { icon: "ghost", name: "supabase" },
   { icon: "puzzle", name: "chatwoot" },
-  { icon: "squirrel", name: "gohighlevel" },
   { icon: "cookie", name: "redis" },
 ];
 
@@ -31,14 +29,12 @@ const iconMap: Record<
   | typeof Vegan
   | typeof Ghost
   | typeof Puzzle
-  | typeof Squirrel
   | typeof Cookie
 > = {
   crown: Crown,
   vegan: Vegan,
   ghost: Ghost,
   puzzle: Puzzle,
-  squirrel: Squirrel,
   cookie: Cookie,
 };
 </script>
