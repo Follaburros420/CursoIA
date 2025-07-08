@@ -26,7 +26,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 
 import { ChevronsDown, Menu } from "lucide-vue-next";
-import GithubIcon from "@/icons/GithubIcon.vue";
 import ToggleTheme from "./ToggleTheme.vue";
 
 interface RouteProps {
@@ -89,7 +88,7 @@ const isOpen = ref<boolean>(false);
       <ChevronsDown
         class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
       />
-      CursoIA</a
+      LexIA</a
     >
     <!-- Mobile -->
     <div class="flex items-center lg:hidden">
@@ -115,7 +114,7 @@ const isOpen = ref<boolean>(false);
                   <ChevronsDown
                     class="bg-gradient-to-tr from-primary/70 via-primary to-primary/70 rounded-lg size-9 mr-2 border text-white"
                   />
-                  CursoIA
+                  LexIA
                 </a>
               </SheetTitle>
             </SheetHeader>
@@ -200,20 +199,7 @@ const isOpen = ref<boolean>(false);
     <div class="hidden lg:flex">
       <ToggleTheme />
 
-      <Button
-        as-child
-        size="sm"
-        variant="ghost"
-        aria-label="View on GitHub"
-      >
-        <a
-          aria-label="View on GitHub"
-          href="https://github.com/leoMirandaa/shadcn-vue-landing-page.git"
-          target="_blank"
-        >
-          <GithubIcon class="size-5" />
-        </a>
-      </Button>
+      
     </div>
   </header>
 </template>

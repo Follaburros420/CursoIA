@@ -12,6 +12,7 @@ import Community from "./components/Community.vue";
 import Contact from "./components/Contact.vue";
 import FAQ from "./components/FAQ.vue";
 import Footer from "./components/Footer.vue";
+import WhatsappFloating from "./components/WhatsappFloating.vue";
 </script>
 
 <template>
@@ -28,4 +29,5 @@ import Footer from "./components/Footer.vue";
   <Contact />
   <FAQ />
   <Footer />
+  <WhatsappFloating />
 </template>

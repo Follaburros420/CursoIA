@@ -9,7 +9,7 @@ import {
 
 import { Button } from "@/components/ui/button";
 
-import DiscordIcon from "@/icons/DiscordIcon.vue";
+import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 </script>
 
 <template>
@@ -27,7 +27,7 @@ import DiscordIcon from "@/icons/DiscordIcon.vue";
             <CardTitle class="text-4xl md:text-5xl font-bold">
               <Component
                 class="w-20 h-20 m-auto mb-4"
-                :is="DiscordIcon"
+                :is="WhatsappIcon"
               />
               ¿Listo para unirte a nuestra
               <span
@@ -38,16 +38,16 @@ import DiscordIcon from "@/icons/DiscordIcon.vue";
             </CardTitle>
           </CardHeader>
           <CardContent class="lg:w-[80%] text-xl text-muted-foreground">
-            Únete a nuestro Discord para compartir y aprender junto a otros profesionales.
+            Únete a nuestro grupo de WhatsApp para compartir y aprender junto a otros profesionales.
           </CardContent>
 
           <CardFooter>
             <Button as-child>
               <a
-                href="https://discord.com/"
+                href="https://wa.me/16191234567"
                 target="_blank"
               >
-                Unirme a Discord
+                Unirme a WhatsApp
               </a>
             </Button>
           </CardFooter>

@@ -2,45 +2,33 @@
 import { Marquee } from "@selemondev/vue3-marquee";
 import "@selemondev/vue3-marquee/dist/style.css";
 
-import {
-  Crown,
-  Vegan,
-  Ghost,
-  Puzzle,
-  Squirrel,
-  Cookie,
-} from "lucide-vue-next";
-
 interface sponsorsProps {
-  icon: string;
+  src: string;
   name: string;
 }
 
 const sponsors: sponsorsProps[] = [
-  { icon: "crown", name: "n8n" },
-  { icon: "vegan", name: "qdrant" },
-  { icon: "ghost", name: "supabase" },
-  { icon: "puzzle", name: "chatwoot" },
-  { icon: "squirrel", name: "gohighlevel" },
-  { icon: "cookie", name: "redis" },
+  {
+    src: "https://avatars.githubusercontent.com/u/45487735?s=200&v=4",
+    name: "n8n",
+  },
+  {
+    src: "https://avatars.githubusercontent.com/u/80626549?s=200&v=4",
+    name: "qdrant",
+  },
+  {
+    src: "https://avatars.githubusercontent.com/u/54469796?s=200&v=4",
+    name: "supabase",
+  },
+  {
+    src: "https://avatars.githubusercontent.com/u/52213156?s=200&v=4",
+    name: "chatwoot",
+  },
+  {
+    src: "https://avatars.githubusercontent.com/u/15251326?s=200&v=4",
+    name: "redis",
+  },
 ];
-
-const iconMap: Record<
-  string,
-  | typeof Crown
-  | typeof Vegan
-  | typeof Ghost
-  | typeof Puzzle
-  | typeof Squirrel
-  | typeof Cookie
-> = {
-  crown: Crown,
-  vegan: Vegan,
-  ghost: Ghost,
-  puzzle: Puzzle,
-  squirrel: Squirrel,
-  cookie: Cookie,
-};
 </script>
 
 <template>
@@ -58,15 +46,11 @@ const iconMap: Record<
         innerClassName="gap-[3rem]"
       >
         <div
-          v-for="{ icon, name } in sponsors"
+          v-for="{ src, name } in sponsors"
           :key="name"
         >
           <div class="flex items-center text-xl md:text-2xl font-medium">
-            <component
-              :is="iconMap[icon]"
-              class="mr-2"
-              stroke-width="3"
-            />
+            <img :src="src" :alt="name" class="h-8 w-8 mr-2" />
             {{ name }}
           </div>
         </div>
