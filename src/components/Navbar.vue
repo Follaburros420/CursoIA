@@ -42,36 +42,36 @@ interface FeatureProps {
 const routeList: RouteProps[] = [
   {
     href: "#testimonials",
-    label: "Testimonials",
+    label: "Testimonios",
   },
   {
     href: "#team",
-    label: "Team",
+    label: "Equipo",
   },
   {
     href: "#contact",
-    label: "Contact",
+    label: "Contacto",
   },
   {
     href: "#faq",
-    label: "FAQ",
+    label: "Preguntas",
   },
 ];
 
 const featureList: FeatureProps[] = [
   {
-    title: "Showcase Your Value ",
-    description: "Highlight how your product solves user problems.",
+    title: "Potencia tu práctica",
+    description: "Descubre cómo la IA puede optimizar tareas legales diarias.",
   },
   {
-    title: "Build Trust",
+    title: "Fortalece la confianza",
     description:
-      "Leverages social proof elements to establish trust and credibility.",
+      "Aprende a usar datos y automatizaciones para ofrecer un mejor servicio.",
   },
   {
-    title: "Capture Leads",
+    title: "Capta nuevos clientes",
     description:
-      "Make your lead capture form visually appealing and strategically.",
+      "Implementa soluciones que atraigan y retengan clientes potenciales.",
   },
 ];
 
@@ -93,7 +93,7 @@ const isOpen = ref<boolean>(false);
       <ChevronsDown
         class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
       />
-      ShadcnVue</a
+      CursoIA</a
     >
     <!-- Mobile -->
     <div class="flex items-center lg:hidden">
@@ -119,7 +119,7 @@ const isOpen = ref<boolean>(false);
                   <ChevronsDown
                     class="bg-gradient-to-tr from-primary/70 via-primary to-primary/70 rounded-lg size-9 mr-2 border text-white"
                   />
-                  ShadcnVue
+                  CursoIA
                 </a>
               </SheetTitle>
             </SheetHeader>
@@ -156,7 +156,7 @@ const isOpen = ref<boolean>(false);
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger class="bg-card text-base">
-            Features
+            Características
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <div class="grid w-[600px] grid-cols-2 gap-5 p-4">

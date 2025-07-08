@@ -21,7 +21,7 @@ import Separator from "./ui/separator/Separator.vue";
               class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
             />
 
-            <h3 class="text-2xl">Shadcn-Vue</h3>
+            <h3 class="text-2xl">CursoIA</h3>
           </a>
         </div>
 

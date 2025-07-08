@@ -11,31 +11,31 @@ interface HowItWorksProps {
 
 const HowItWorksList: HowItWorksProps[] = [
   {
-    badgeTitle: "Contribute",
-    title: "Make a Difference with Every Contribution",
+    badgeTitle: "1",
+    title: "Solicita tu entrevista",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, quasi sint reiciendis quidem iure.",
+      "Agenda una reunión de 20 minutos para evaluar tu perfil y objetivos.",
     image: "roboto.png",
   },
   {
-    badgeTitle: "Discover",
-    title: "Create an Impact with Every Choice",
+    badgeTitle: "2",
+    title: "Aprende las bases",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, sint reiciendis quidem iure veritatis optio facere tenetur.",
+      "Domina los conceptos esenciales de IA aplicados al derecho.",
     image: "runner.png",
   },
   {
-    badgeTitle: "Innovate",
-    title: "Make Every Action Count",
+    badgeTitle: "3",
+    title: "Implementa automatizaciones",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, odit similique quasi sint.",
+      "Crea flujos de trabajo automáticos con herramientas open source.",
     image: "pacheco.png",
   },
   {
-    badgeTitle: "Collaborate",
-    title: "Tackle this challenge together",
+    badgeTitle: "4",
+    title: "Aplica en tu despacho",
     description:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem fugiat, quasi sint reiciendis quidem iure.",
+      "Recibe acompañamiento para llevar la IA a tu práctica profesional.",
     image: "gamestation.png",
   },
 ];
@@ -48,11 +48,11 @@ const HowItWorksList: HowItWorksProps[] = [
   >
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-        How It Works
+        ¿Cómo funciona?
       </h2>
 
       <h2 class="text-3xl md:text-4xl text-center font-bold">
-        Step-by-Step Process
+        Proceso del curso
       </h2>
     </div>
 

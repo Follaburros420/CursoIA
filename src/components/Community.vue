@@ -29,17 +29,16 @@ import DiscordIcon from "@/icons/DiscordIcon.vue";
                 class="w-20 h-20 m-auto mb-4"
                 :is="DiscordIcon"
               />
-              Ready to join this
+              ¿Listo para unirte a nuestra
               <span
                 class="text-transparent bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text"
               >
-                Community?
+                comunidad?
               </span>
             </CardTitle>
           </CardHeader>
           <CardContent class="lg:w-[80%] text-xl text-muted-foreground">
-            Join our vibrant Discord community! Connect, share, and grow with
-            like-minded enthusiasts. Click to dive in! 🚀
+            Únete a nuestro Discord para compartir y aprender junto a otros profesionales.
           </CardContent>
 
           <CardFooter>
@@ -48,7 +47,7 @@ import DiscordIcon from "@/icons/DiscordIcon.vue";
                 href="https://discord.com/"
                 target="_blank"
               >
-                Join Discord
+                Unirme a Discord
               </a>
             </Button>
           </CardFooter>
