@@ -2,33 +2,14 @@
 import { Marquee } from "@selemondev/vue3-marquee";
 import "@selemondev/vue3-marquee/dist/style.css";
 
+
 interface sponsorsProps {
   src: string;
   name: string;
 }
 
 const sponsors: sponsorsProps[] = [
-  {
-    src: "https://avatars.githubusercontent.com/u/45487735?s=200&v=4",
-    name: "n8n",
-  },
-  {
-    src: "https://avatars.githubusercontent.com/u/80626549?s=200&v=4",
-    name: "qdrant",
-  },
-  {
-    src: "https://avatars.githubusercontent.com/u/54469796?s=200&v=4",
-    name: "supabase",
-  },
-  {
-    src: "https://avatars.githubusercontent.com/u/52213156?s=200&v=4",
-    name: "chatwoot",
-  },
-  {
-    src: "https://avatars.githubusercontent.com/u/15251326?s=200&v=4",
-    name: "redis",
-  },
-];
+
 </script>
 
 <template>
