@@ -73,7 +73,7 @@ const iconMap: Record<
     id="sponsors"
     class="max-w-[75%] mx-auto pb-24 sm:pb-32"
   >
-    <h2 class="text-lg md:text-xl text-center mb-6">Our Platinum Sponsors</h2>
+    <h2 class="text-lg md:text-xl text-center mb-6">Nuestros patrocinadores</h2>
 
     <div class="mx-auto">
       <Marquee

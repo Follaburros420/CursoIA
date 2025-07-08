@@ -21,25 +21,25 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: "Custom Domain Integration",
+    title: "Fundamentos de IA",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit adipisicing.",
+      "Comprende las bases tecnológicas y legales para aplicar IA.",
     pro: 0,
   },
   {
-    title: "Social Media Integrations",
+    title: "Automatización de documentos",
     description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae, dicta.",
+      "Aprende a generar contratos y escritos de forma automática.",
     pro: 0,
   },
   {
-    title: "Email Marketing Integrations",
-    description: "Lorem dolor sit amet adipisicing.",
+    title: "Análisis de jurisprudencia",
+    description: "Utiliza modelos para extraer y resumir sentencias.",
     pro: 0,
   },
   {
-    title: "SEO Optimization",
-    description: "Lorem ipsum dolor sit amet consectetur.",
+    title: "Integración con herramientas open source",
+    description: "Configura pipelines de trabajo sin pagar licencias.",
     pro: 1,
   },
 ];
@@ -51,15 +51,14 @@ const serviceList: ServiceProps[] = [
     class="container py-24 sm:py-32"
   >
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      Services
+      Módulos del curso
     </h2>
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      Grow Your Business
+      Lleva tu práctica al siguiente nivel
     </h2>
     <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      From marketing and sales to operations and strategy, we have the expertise
-      to help you achieve your goals.
+      Te guiamos paso a paso para incorporar IA en tu día a día profesional.
     </h3>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 

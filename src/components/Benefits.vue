@@ -19,27 +19,27 @@ interface BenefitsProps {
 const benefitList: BenefitsProps[] = [
   {
     icon: "blocks",
-    title: "Build Brand Trust",
+    title: "Ahorra tiempo valioso",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Automatiza tareas repetitivas y dedica tus esfuerzos a casos estratégicos.",
   },
   {
     icon: "lineChart",
-    title: "More Leads",
+    title: "Mejora la productividad",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, natus consectetur.",
+      "Implementa flujos de trabajo eficientes apoyados en IA.",
   },
   {
     icon: "wallet",
-    title: "Higher Conversions",
+    title: "Reduce costos",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus consectetur. A odio velit cum aliquam",
+      "Utiliza herramientas open source sin invertir en licencias costosas.",
   },
   {
     icon: "sparkle",
-    title: "Test Marketing Ideas",
+    title: "Diferénciate en el mercado",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur dolores.",
+      "Ofrece servicios innovadores basados en inteligencia artificial.",
   },
 ];
 
@@ -68,15 +68,13 @@ const iconMap: Record<
   >
     <div class="grid lg:grid-cols-2 place-items-center lg:gap-24">
       <div>
-        <h2 class="text-lg text-primary mb-2 tracking-wider">Benefits</h2>
+        <h2 class="text-lg text-primary mb-2 tracking-wider">Beneficios</h2>
 
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Your Shortcut to Success
+          Ventajas de unirte
         </h2>
         <p class="text-xl text-muted-foreground mb-8">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non ducimus
-          reprehenderit architecto rerum similique facere odit deleniti
-          necessitatibus quo quae.
+          Conoce cómo la inteligencia artificial puede impulsar tu desarrollo profesional en el campo legal.
         </p>
       </div>
 
