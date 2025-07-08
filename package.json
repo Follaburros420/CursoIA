@@ -39,8 +39,7 @@
     "vanilla-tilt": "^1.8.1",
     "vee-validate": "^4.13.2",
     "vue": "^3.5.12",
-    "zod": "^3.23.8",
-    "globe.gl": "^2.42.0"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "^20.14.5",
