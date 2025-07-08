@@ -2,10 +2,12 @@
 import { Button } from "./ui/button";
 import { Card } from "./ui/card";
 import { tilt as vTilt } from "@/directives/tilt";
+import VideoPreview from "./VideoPreview.vue";
 </script>
 
 <template>
-  <section id="contact" class="container py-24 sm:py-32 flex justify-center">
+  <section id="contact" class="container py-24 sm:py-32 flex flex-col items-center gap-8">
+    <VideoPreview />
     <Card
       v-tilt
       class="bg-gray-50 relative group dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-6 border">
