@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import {
   Card,
@@ -17,10 +17,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { Star } from "lucide-vue-next";
+import { Star, User } from "lucide-vue-next";
 
 interface ReviewProps {
-  image: string;
   name: string;
   userName: string;
   comment: string;
@@ -29,52 +28,39 @@ interface ReviewProps {
 
 const reviewList: ReviewProps[] = [
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe",
-    userName: "Product Manager",
-    comment:
-      "El curso superó mis expectativas y ahora aplico IA en mi día a día.",
-    rating: 5.0,
-  },
-  {
-    image: "https://github.com/shadcn.png",
-    name: "Sophia Collins",
-    userName: "Cybersecurity Analyst",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna. ",
-    rating: 4.8,
-  },
-
-  {
-    image: "https://github.com/shadcn.png",
-    name: "Adam Johnson",
-    userName: "Chief Technology Officer",
-    comment:
-      "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    name: "Camila Rodríguez",
+    userName: "Abogada de familia",
+    comment: "El contenido fue claro y fácil de aplicar en mi práctica diaria.",
     rating: 4.9,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ethan Parker",
-    userName: "Data Scientist",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod labore et dolore magna aliqua. Ut enim ad minim veniam.",
+    name: "Juan Carlos Gómez",
+    userName: "Abogado penalista",
+    comment: "Las explicaciones sencillas permiten ver resultados de inmediato.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Ava Mitchell",
-    userName: "IT Project Manager",
-    comment:
-      "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud incididunt consectetur adipiscing elit.",
+    name: "Valentina Torres",
+    userName: "Abogada constitucionalista",
+    comment: "Material conciso y práctico que integré en casos constitucionales.",
+    rating: 4.8,
+  },
+  {
+    name: "Andrés Pérez",
+    userName: "Abogado laboral",
+    comment: "Los ejemplos fueron útiles y directos para mi trabajo diario.",
+    rating: 4.9,
+  },
+  {
+    name: "Laura Martínez",
+    userName: "Abogada civil",
+    comment: "La metodología me ayuda a implementar la IA en mis procesos.",
     rating: 5.0,
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "Isabella Reed",
-    userName: "DevOps Engineer",
-    comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    name: "Carlos Hernández",
+    userName: "Abogado administrativo",
+    comment: "Todo está bien estructurado y sencillo de poner en práctica.",
     rating: 4.9,
   },
 ];
@@ -123,11 +109,9 @@ const reviewList: ReviewProps[] = [
             <CardHeader>
               <div class="flex flex-row items-center gap-4">
                 <Avatar>
-                  <AvatarImage
-                    src="https://www.radix-vue.com/logo.svg"
-                    alt="@radix-vue"
-                  />
-                  <AvatarFallback>SV</AvatarFallback>
+                  <AvatarFallback>
+                    <User class="size-6" />
+                  </AvatarFallback>
                 </Avatar>
 
                 <div class="flex flex-col">
