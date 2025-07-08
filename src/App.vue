@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import Navbar from "./components/Navbar.vue";
 import Hero from "./components/Hero.vue";
-import GlobeDemo from "./components/GlobeDemo.vue";
 import Benefits from "./components/Benefits.vue";
 import Features from "./components/Features.vue";
 import Services from "./components/Services.vue";
@@ -19,7 +18,6 @@ import WhatsappFloating from "./components/WhatsappFloating.vue";
 <template>
   <Navbar />
   <Hero />
-  <GlobeDemo />
   <Sponsors />
   <Benefits />
   <Features />
