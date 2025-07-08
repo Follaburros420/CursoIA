@@ -27,48 +27,42 @@ interface PlanProps {
 
 const plans: PlanProps[] = [
   {
-    title: "Free",
+    title: "Básico",
     popular: 0,
     price: 0,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Start Free Trial",
+      "Acceso limitado a recursos gratuitos y comunidad.",
+    buttonText: "Comenzar gratis",
     benefitList: [
-      "1 team member",
-      "1 GB storage",
-      "Upto 2 pages",
-      "Community support",
-      "AI assistance",
+      "1 usuario",
+      "Material de introducción",
+      "Acceso a comunidad",
     ],
   },
   {
-    title: "Premium",
+    title: "Profesional",
     popular: 1,
     price: 45,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Get starterd",
+      "Curso completo con sesiones en vivo y tutorías.",
+    buttonText: "Inscribirme",
     benefitList: [
-      "4 team member",
-      "8 GB storage",
-      "Upto 6 pages",
-      "Priority support",
-      "AI assistance",
+      "Acceso total al contenido",
+      "Soporte prioritario",
+      "Ejemplos prácticos",
     ],
   },
   {
-    title: "Enterprise",
+    title: "Empresarial",
     popular: 0,
     price: 120,
     description:
-      "Lorem ipsum dolor sit, amet ipsum consectetur adipisicing elit.",
-    buttonText: "Contact US",
+      "Formación personalizada para equipos de trabajo.",
+    buttonText: "Contáctanos",
     benefitList: [
-      "10 team member",
-      "20 GB storage",
-      "Upto 10 pages",
-      "Phone & email support",
-      "AI assistance",
+      "Capacitación in-house",
+      "Consultoría dedicada",
+      "Acceso a actualizaciones",
     ],
   },
 ];
@@ -77,17 +71,17 @@ const plans: PlanProps[] = [
 <template>
   <section class="container py-24 sm:py-32">
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      Pricing
+      Planes
     </h2>
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      Get unlimitted access
+      Elige la opción que se adapte a ti
     </h2>
 
     <h3
       class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground pb-14"
     >
-      Lorem ipsum dolor sit amet consectetur adipisicing reiciendis.
+      Accede a materiales y soporte según tus necesidades.
     </h3>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">

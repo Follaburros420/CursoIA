@@ -33,7 +33,7 @@ const reviewList: ReviewProps[] = [
     name: "John Doe",
     userName: "Product Manager",
     comment:
-      "Wow Vue + Shadcn-Vue is awesome!. This template lets me change colors, fonts and images to match my brand identity. ",
+      "El curso superó mis expectativas y ahora aplico IA en mi día a día.",
     rating: 5.0,
   },
   {
@@ -87,11 +87,11 @@ const reviewList: ReviewProps[] = [
   >
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-        Testimonials
+        Testimonios
       </h2>
 
       <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-        Hear What Our 1000+ Clients Say
+        Lo que opinan nuestros alumnos
       </h2>
     </div>
 

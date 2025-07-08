@@ -9,7 +9,6 @@ import {
   Puzzle,
   Squirrel,
   Cookie,
-  Drama,
 } from "lucide-vue-next";
 
 interface sponsorsProps {
@@ -18,34 +17,12 @@ interface sponsorsProps {
 }
 
 const sponsors: sponsorsProps[] = [
-  {
-    icon: "crown",
-    name: "Acmebrand",
-  },
-  {
-    icon: "vegan",
-    name: "Acmelogo",
-  },
-  {
-    icon: "ghost",
-    name: "Acmesponsor",
-  },
-  {
-    icon: "puzzle",
-    name: "Acmeipsum",
-  },
-  {
-    icon: "squirrel",
-    name: "Acme",
-  },
-  {
-    icon: "cookie",
-    name: "Accmee",
-  },
-  {
-    icon: "drama",
-    name: "Acmetech",
-  },
+  { icon: "crown", name: "n8n" },
+  { icon: "vegan", name: "qdrant" },
+  { icon: "ghost", name: "supabase" },
+  { icon: "puzzle", name: "chatwoot" },
+  { icon: "squirrel", name: "gohighlevel" },
+  { icon: "cookie", name: "redis" },
 ];
 
 const iconMap: Record<
@@ -56,7 +33,6 @@ const iconMap: Record<
   | typeof Puzzle
   | typeof Squirrel
   | typeof Cookie
-  | typeof Drama
 > = {
   crown: Crown,
   vegan: Vegan,
@@ -64,7 +40,6 @@ const iconMap: Record<
   puzzle: Puzzle,
   squirrel: Squirrel,
   cookie: Cookie,
-  drama: Drama,
 };
 </script>
 
@@ -73,7 +48,7 @@ const iconMap: Record<
     id="sponsors"
     class="max-w-[75%] mx-auto pb-24 sm:pb-32"
   >
-    <h2 class="text-lg md:text-xl text-center mb-6">Our Platinum Sponsors</h2>
+    <h2 class="text-lg md:text-xl text-center mb-6">Herramientas que aprenderás</h2>
 
     <div class="mx-auto">
       <Marquee

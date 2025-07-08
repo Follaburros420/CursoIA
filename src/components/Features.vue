@@ -21,39 +21,39 @@ interface FeaturesProps {
 const featureList: FeaturesProps[] = [
   {
     icon: "tabletSmartphone",
-    title: "Mobile Friendly",
+    title: "Aplicaciones prácticas",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam, consectetur.",
+      "Ejemplos reales de IA aplicada a casos y procesos legales.",
   },
   {
     icon: "badgeCheck",
-    title: "Social Proof",
+    title: "Casos de éxito",
     description:
-      "Lorem ipsum dolor sit amet consectetur. Natus consectetur, odio ea accusamus aperiam.",
+      "Analiza proyectos jurídicos que han mejorado con IA.",
   },
   {
     icon: "goal",
-    title: "Targeted Content",
+    title: "Automatización",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. odio ea accusamus aperiam.",
+      "Aprende a diseñar flujos automáticos para tu despacho.",
   },
   {
     icon: "pictureInPicture",
-    title: "Strong Visuals",
+    title: "Recursos abiertos",
     description:
-      "Lorem elit. A odio velit cum aliquam. Natus consectetur dolores, odio ea accusamus aperiam.",
+      "Utiliza herramientas y librerías open source sin costo.",
   },
   {
     icon: "mousePointerClick",
-    title: "Clear CTA",
+    title: "Asesoría personalizada",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing. odio ea accusamus consectetur.",
+      "Guiamos tu proceso de adopción de IA paso a paso.",
   },
   {
     icon: "newspaper",
-    title: "Clear Headline",
+    title: "Actualización constante",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio velit cum aliquam. Natus consectetur.",
+      "Mantente al día con las últimas tendencias en IA y derecho.",
   },
 ];
 
@@ -85,17 +85,15 @@ const iconMap: Record<
     class="container py-24 sm:py-32"
   >
     <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
-      Features
+      Contenido del curso
     </h2>
 
     <h2 class="text-3xl md:text-4xl text-center font-bold mb-4">
-      What Makes Us Different
+      Todo lo que aprenderás
     </h2>
 
     <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
-      fugiat, odit similique quasi sint reiciendis quidem iure veritatis optio
-      facere tenetur.
+      Desde conceptos básicos de IA hasta la automatización de flujos legales.
     </h3>
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
