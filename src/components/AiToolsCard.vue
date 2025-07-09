@@ -23,8 +23,6 @@
         </div>
       </div>
     </div>
-    <h3 class="text-lg font-semibold text-gray-800 dark:text-white py-2">Modelos de IA</h3>
-    <p class="text-sm font-normal text-neutral-600 dark:text-neutral-400">Conoce los modelos que exploraremos durante el curso.</p>
   </div>
 </template>
 
