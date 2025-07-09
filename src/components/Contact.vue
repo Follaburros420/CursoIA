@@ -26,8 +26,10 @@ import VideoPreview from "./VideoPreview.vue";
           alt="Pedro Ardila" />
       </div>
       <div class="flex justify-end items-center mt-6">
-        <Button class="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold">
-          Contáctame sin compromiso
+        <Button class="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold" as-child>
+          <a href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">
+            Contáctame sin compromiso
+          </a>
         </Button>
       </div>
     </Card>

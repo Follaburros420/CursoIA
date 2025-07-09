@@ -4,7 +4,7 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 
 <template>
   <a
-    href="https://wa.me/16191234567"
+    href="https://wa.me/message/22XPE3IWTKONL1"
     target="_blank"
     class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
     aria-label="Hablar por WhatsApp"
