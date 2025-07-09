@@ -42,8 +42,8 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
           Aprende desde los fundamentos hasta implementar automatizaciones legales con herramientas open source.
         </p>
 
-        <div class="space-y-4 md:space-y-0 md:space-x-4">
-          <Button class="w-5/6 md:w-1/4 font-bold group/arrow flex items-center" as-child>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Button class="w-60 font-bold group/arrow flex items-center" as-child>
             <a href="#contact" class="flex items-center">
               <WhatsappIcon class="size-5 mr-2" />
               Agenda tu reunión
@@ -56,7 +56,7 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
           <Button
             as-child
             variant="secondary"
-            class="w-5/6 md:w-1/4 font-bold"
+            class="w-60 font-bold"
           >
             <a href="#features">Ver programa</a>
           </Button>

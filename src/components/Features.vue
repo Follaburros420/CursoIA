@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import AiToolsCard from "./AiToolsCard.vue";
 
 import {
   Paintbrush,
@@ -122,6 +123,10 @@ const iconMap: Record<
           </CardContent>
         </Card>
       </div>
+    </div>
+
+    <div class="mt-12 flex justify-center">
+      <AiToolsCard />
     </div>
   </section>
 </template>

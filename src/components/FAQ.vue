@@ -1,48 +1,5 @@
 <script setup lang="ts">
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
-interface FAQProps {
-  question: string;
-  answer: string;
-  value: string;
-}
-
-const FAQList: FAQProps[] = [
-  {
-    question: "¿Necesito conocimientos previos de IA?",
-    answer: "No, comenzamos desde cero y te guiamos paso a paso.",
-    value: "item-1",
-  },
-  {
-    question: "¿Las clases son en vivo?",
-    answer:
-      "Sí, contarás con sesiones en directo y material grabado.",
-    value: "item-2",
-  },
-  {
-    question:
-      "¿Obtendré certificado al finalizar?",
-    answer:
-      "Sí, recibirás un certificado de aprovechamiento del curso.",
-    value: "item-3",
-  },
-  {
-    question: "¿Cómo agendo la reunión?",
-    answer: "Al completar el formulario recibirás un enlace de calendario.",
-    value: "item-4",
-  },
-  {
-    question:
-      "¿Puedo inscribir a mi equipo?",
-    answer: "Sí, contamos con planes para empresas y despachos.",
-    value: "item-5",
-  },
-];
+// No script logic required for static FAQ details
 </script>
 
 <template>
@@ -58,29 +15,32 @@ const FAQList: FAQProps[] = [
       </h2>
     </div>
 
-    <Accordion
-      type="single"
-      collapsible
-      class="AccordionRoot"
-    >
-      <AccordionItem
-        v-for="{ question, answer, value } in FAQList"
-        :key="value"
-        :value="value"
-      >
-        <AccordionTrigger class="text-left"> {{ question }} </AccordionTrigger>
+    <div class="space-y-4">
+      <details>
+        <summary><strong>¿Necesito conocimientos previos de IA?</strong></summary>
+        No, arrancamos desde los fundamentos: entenderás qué es la IA y cómo aplicarla al derecho antes de pasar a integraciones prácticas y automatizaciones.
+      </details>
+      <details>
+        <summary><strong>¿El curso está diseñado para verlo a mi ritmo?</strong></summary>
+        Sí. Todo el contenido está disponible on-demand, para que avances cuando quieras, sin clases en vivo ni horarios fijos.
+      </details>
+      <details>
+        <summary><strong>¿Qué herramientas aprenderé?</strong></summary>
+        Trabajaremos con soluciones <strong>open-source</strong>, escalables y ampliamente usadas en la industria legal (p. ej. supabase, n8n, Qdrant), de modo que puedas implementarlas en tu despacho sin costos de licencia.
+      </details>
+      <details>
+        <summary><strong>¿Cómo potenciará mi práctica como abogado?</strong></summary>
+        Con flujos de trabajo automatizados que liberan tiempo de tareas repetitivas (búsqueda de información, generación de borradores, seguimiento de plazos), mejorarás tu eficiencia, reducirás errores y tendrás más espacio para el trabajo estratégico.
+      </details>
+      <details>
+        <summary><strong>¿Puedo inscribir a mi equipo?</strong></summary>
+        Sí. El <strong>Plan Empresarial</strong> está diseñado para despachos y áreas legales: incluye integración a medida, consultoría dedicada y acceso colaborativo para todo tu equipo.
+      </details>
+    </div>
 
-        <AccordionContent>{{ answer }}</AccordionContent>
-      </AccordionItem>
-    </Accordion>
-
-    <h3 class="font-medium mt-4">
+    <p class="font-medium mt-4">
       ¿Aún tienes dudas?
-      <a
-        href="#contact"
-        class="text-muted-foreground underline"
-        >Contáctanos</a
-      >
-    </h3>
+      <a href="#contacto" class="text-muted-foreground underline">Contáctanos</a>
+    </p>
   </section>
 </template>
