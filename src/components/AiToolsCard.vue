@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BrainCog } from 'lucide-vue-next'
+// no external icons used
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import { BrainCog } from 'lucide-vue-next'
           <ClaudeLogo class="h-4 w-4" />
         </div>
         <div class="h-12 w-12 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] animate-float2">
-          <BrainCog class="h-6 w-6 dark:text-white" />
+          <OllamaLogo class="h-6 w-6 dark:text-white" />
         </div>
         <div class="h-16 w-16 rounded-full flex items-center justify-center bg-[rgba(248,248,248,0.01)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] animate-float3">
           <OpenAILogo class="h-8 w-8 dark:text-white" />
@@ -23,8 +23,8 @@ import { BrainCog } from 'lucide-vue-next'
         </div>
       </div>
     </div>
-    <h3 class="text-lg font-semibold text-gray-800 dark:text-white py-2">Herramientas de IA</h3>
-    <p class="text-sm font-normal text-neutral-600 dark:text-neutral-400">Conoce algunas plataformas que utilizaremos durante el curso.</p>
+    <h3 class="text-lg font-semibold text-gray-800 dark:text-white py-2">Modelos de IA</h3>
+    <p class="text-sm font-normal text-neutral-600 dark:text-neutral-400">Conoce los modelos que exploraremos durante el curso.</p>
   </div>
 </template>
 
@@ -45,6 +45,12 @@ export const GeminiLogo = defineComponent({
   name: 'GeminiLogo',
   props: { class: { type: String, default: '' } },
   template: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" :class="class"><path d="M16 8.016A8.522 8.522 0 008.016 16h-.032A8.521 8.521 0 000 8.016v-.032A8.521 8.521 0 007.984 0h.032A8.522 8.522 0 0016 7.984v.032z" fill="url(#prefix__paint0_radial_980_20147)"/><defs><radialGradient id="prefix__paint0_radial_980_20147" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(16.1326 5.4553 -43.70045 129.2322 1.588 6.503)"><stop offset=".067" stop-color="#9168C0"/><stop offset=".343" stop-color="#5684D1"/><stop offset=".672" stop-color="#1BA1E3"/></radialGradient></defs></svg>`
+})
+
+export const OllamaLogo = defineComponent({
+  name: 'OllamaLogo',
+  props: { class: { type: String, default: '' } },
+  template: `<svg :class="class" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#C1694F" d="M6.755 2.246c-.443-.368-1.05-.976-1.629-1.299-.497-.277-.247.918.173 1.391.421.473 1.824 1.342 2.455 1.815.631.473.936.398.315-.473-.649-.911-1.314-1.434-1.314-1.434z"/><path fill="#D99E82" d="M8.191.736c.328.339.735 2.394.735 2.394s1.282.092 2.407.786c4.5 2.776 2.542 9.542 3.944 11.102.432.48 9.681-1.643 14.222.544 3.844 1.852 3.083 4.646 4.083 5.271.758.474-2 1.25-2.578-2.313-.506 11.147-1.072 13.867-1.672 16.354-.339 1.406-1.979 1.601-1.792-.333.1-1.027.463-7.223-.583-8.792-.75-1.125-4.708 2.417-11.707 1.773-.485 4.276-1.097 7.136-1.272 7.519-.562 1.229-1.863 1.218-1.676-.009.187-1.228.447-4.949-.884-9.01-5.626-3.98-1.626-14.189-3.253-16.146-.362-.435-2.647-.981-3.314-1.048-.666-.067-1.265-.172-1.664-.239-.4-.067-.994-1.776-.927-2.242s.394-.623 1.26-.956.988-.222.942-.728c-.097-1.052 2.183-1.774 3.481-1.645-.133-.133-1.08-1.786-1.354-2.393-.35-.774 1.068-.442 1.602.111z"/><path fill="#C1694F" d="M2.901 6.241c.068.342-.394.394-.315.69.079.296.536 1.256.95 1.157.414-.099.909-.07.224.259-.522.25-.847.012-.847.012s-.772-1.473-.693-1.894c.08-.419.661-.322.681-.224z"/><path fill="#292F33" d="M7.58 4.805c0 .405-.328.733-.733.733s-.732-.328-.732-.733c0-.405.367-.31.772-.31s.693-.095.693.31zM2.22 6.146c.062-.462 1.54-.335 1.005.138-.335.296-1.104.591-1.005-.138z"/><path fill="#C1694F" d="M7.473.846c.497.129 1.105 2.281.909 2.311-.256.04-1.517-2.468-.909-2.311zm2.472 5.846s1.009 1.324.252 2.269c-.756.946-2.333.63-2.333.63s1.513-.441 1.891-1.198c.379-.755.19-1.701.19-1.701z"/></svg>`
 })
 export const MetaIconOutline = defineComponent({
   name: 'MetaIconOutline',
