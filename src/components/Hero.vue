@@ -44,7 +44,7 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 
         <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
           <Button class="w-60 font-bold group/arrow flex items-center" as-child>
-            <a href="#contact" class="flex items-center">
+            <a href="https://wa.me/message/22XPE3IWTKONL1" class="flex items-center" target="_blank">
               <WhatsappIcon class="size-5 mr-2" />
               Agenda tu reunión
             </a>

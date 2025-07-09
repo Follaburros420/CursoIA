@@ -44,7 +44,7 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
           <CardFooter>
             <Button as-child>
               <a
-                href="https://chat.whatsapp.com/"
+                href="https://chat.whatsapp.com/KZbQbOVM5ihF9gJ215zLuT?mode=r_c"
                 target="_blank"
               >
                 Unirme a WhatsApp
