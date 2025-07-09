@@ -32,25 +32,25 @@ const plans: PlanProps[] = [
     popular: 0,
     price: "Gratis",
     description:
-      "Acceso limitado a recursos gratuitos y comunidad.",
+      "Introducción gratuita al uso de IA en el ámbito legal.",
     buttonText: "Comenzar gratis",
     benefitList: [
-      "1 usuario",
-      "Material de introducción",
-      "Acceso a comunidad",
+      "Acceso a fundamentos de IA para el sector legal",
+      "Material teórico de introducción",
+      "Acceso a comunidad de apoyo",
     ],
   },
   {
     title: "Profesional",
     popular: 1,
-    price: "267K",
+    price: "99K",
     description:
-      "Curso completo con sesiones en vivo y tutorías.",
-    buttonText: "Inscribirme",
+      "Enseña a integrar automatizaciones con herramientas open-source.",
+    buttonText: "Inscribirme al lanzamiento",
     benefitList: [
-      "Acceso total al contenido",
+      "Sesiones prácticas y ejemplos aplicados a despachos legales",
       "Soporte prioritario",
-      "Ejemplos prácticos",
+      "Precio original: 267K COP",
     ],
   },
   {
@@ -58,12 +58,12 @@ const plans: PlanProps[] = [
     popular: 0,
     price: "A convenir",
     description:
-      "Formación personalizada para equipos de trabajo.",
+      "Formación in-house y consultoría dedicada para equipos jurídicos.",
     buttonText: "Contáctanos",
     benefitList: [
-      "Capacitación in-house",
-      "Consultoría dedicada",
-      "Acceso a actualizaciones",
+      "Integración a medida de IA y flujos de trabajo automáticos",
+      "Acceso a actualizaciones y roadmap",
+      "Formación in-house y consultoría dedicada",
     ],
   },
 ];
