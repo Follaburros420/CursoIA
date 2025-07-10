@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    image: aprenderia-app
+    container_name: aprenderia_app
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aprenderia.rule=Host(`www.aprenderia.site`)"
+      - "traefik.http.services.aprenderia.loadbalancer.server.port=80"
+    networks:
+      - web
+
+networks:
+  web:
+    external: true

@@ -134,8 +134,11 @@ const plans: PlanProps[] = [
           <Button
             :variant="popular === PopularPlan?.NO ? 'secondary' : 'default'"
             class="w-full"
+            as-child
           >
-            {{ buttonText }}
+            <a href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">
+              {{ buttonText }}
+            </a>
           </Button>
         </CardFooter>
       </Card>
