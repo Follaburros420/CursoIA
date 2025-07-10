@@ -63,7 +63,7 @@ const serviceList: ServiceProps[] = [
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 
     <div
-      class="grid sm:grid-cols-2 lg:grid-cols-2 gap-4 w-full lg:w-[60%] mx-auto"
+      class="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full lg:w-[60%] mx-auto"
     >
       <div
         v-for="{ title, description, pro } in serviceList"
