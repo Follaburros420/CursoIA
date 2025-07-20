@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const videoId = 'GJyouJYGWPg';
+const videoId = '1dPhWNbfZ6I';
 </script>
 
 <template>
