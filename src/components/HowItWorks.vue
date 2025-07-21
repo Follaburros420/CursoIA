@@ -42,58 +42,49 @@ const HowItWorksList: HowItWorksProps[] = [
 </script>
 
 <template>
-  <section
-    id="features"
-    class="container py-24 sm:py-32"
-  >
+  <section id="features" class="container py-24 sm:py-32">
     <div class="text-center mb-8">
       <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
         ¿Cómo funciona?
       </h2>
-
       <h2 class="text-3xl md:text-4xl text-center font-bold">
         Proceso del curso
       </h2>
     </div>
 
-    <div class="lg:w-[80%] mx-auto relative">
+<div class="w-full px-4 lg:w-[80%] mx-auto relative overflow-hidden">
       <div
-        v-for="(
-          { badgeTitle, title, description, image }, index
-        ) in HowItWorksList"
+        v-for="({ badgeTitle, title, description, image }, index) in HowItWorksList"
         :key="title"
         :class="[
-          'flex mb-8 items-center',
-          { ' flex-row-reverse': index % 2 !== 0 },
+          'flex flex-col items-center mb-8',
+          index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
         ]"
       >
-        <Card class="h-full bg-transparent border-0 shadow-none">
+        <Card class="h-full bg-transparent border-0 shadow-none w-full md:w-1/2">
           <CardHeader>
             <div class="pb-4">
               <Badge>{{ badgeTitle }}</Badge>
             </div>
-
-            <CardTitle>
+            <CardTitle class="text-xl font-semibold">
               {{ title }}
             </CardTitle>
           </CardHeader>
-
-          <CardContent class="text-muted-foreground w-[80%]">
+          <CardContent class="text-muted-foreground">
             {{ description }}
           </CardContent>
         </Card>
 
         <img
           :src="image"
-          :alt="`Image describing ${title} `"
-          className="w-[150px]  md:w-[250px] lg:w-[300px] mx-auto -scale-x-100 "
+          :alt="'Illustration for ' + title"
+class="max-w-full w-[150px] md:w-[250px] lg:w-[300px] mx-auto md:mx-0 -scale-x-100 mt-4 md:mt-0"
         />
+
         <div
           :class="[
-            '-z-10 absolute right-0 w-44 h-72  lg:w-64 lg:h-80 rounded-full bg-primary/15 dark:bg-primary/10 blur-3xl',
-            {
-              'left-0': index % 2 !== 0,
-            },
+            '-z-10 absolute right-0 w-44 h-72 lg:w-64 lg:h-80 rounded-full bg-primary/15 dark:bg-primary/10 blur-3xl',
+            { 'left-0': index % 2 !== 0 }
           ]"
         ></div>
       </div>
