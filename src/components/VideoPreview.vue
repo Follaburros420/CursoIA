@@ -4,10 +4,10 @@ const videoId = '1dPhWNbfZ6I';
 
 <template>
   <section class="container py-12">
-    <div class="video-wrapper max-w-screen-md mx-auto">
+    <div class="video-wrapper max-w-screen-lg mx-auto">
       <iframe
-        width="560"
-        height="315"
+        width="100%"
+        height="480"
         :src="'https://www.youtube.com/embed/' + videoId"
         title="Video de YouTube"
         frameborder="0"

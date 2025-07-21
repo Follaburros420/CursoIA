@@ -47,10 +47,10 @@ import { Scale } from "lucide-vue-next";
           <Scale class="w-5 h-5" />
         </div>
         <AccordionTrigger class="text-white pl-10 md:pl-12 [&>svg]:hidden">
-          <strong>¿El curso está diseñado para verlo a mi ritmo?</strong>
+          <strong>¿Como está diseñado el curso?</strong>
         </AccordionTrigger>
         <AccordionContent class="text-white/80 pt-2">
-          Sí. Todo el contenido está disponible on-demand, para que avances cuando quieras, sin clases en vivo ni horarios fijos.
+          El curso combina sesiones presenciales programadas según tu disponibilidad con retroalimentación detallada al día siguiente para reforzar lo aprendido, asistencia 24/7 vía chat para resolver dudas en tiempo real y una completa biblioteca de materiales (guías, vídeos y plantillas) que te permitirán aplicar la inteligencia artificial de manera práctica en tu carrera de abogado.
         </AccordionContent>
       </AccordionItem>
 
@@ -67,7 +67,7 @@ import { Scale } from "lucide-vue-next";
           <strong>¿Qué herramientas aprenderé?</strong>
         </AccordionTrigger>
         <AccordionContent class="text-white/80 pt-2">
-          Trabajaremos con soluciones <strong>open-source</strong>, escalables y ampliamente usadas en la industria legal (p. ej. Supabase, n8n, Qdrant), para que puedas implementarlas en tu despacho sin costos de licencia.
+          Conocerás como sacarle máximo provecho a las herramientas mas poderosas actualemente disponibles en el mercado, además conocerás soluciones <strong>open-source</strong>, escalables y ampliamente usadas en la industria legal (p. ej. Olama,Supabase, n8n, Qdrant, etc...), para que puedas implementarlas facilmente en tu despacho y sin costos de licencia.
         </AccordionContent>
       </AccordionItem>
 
@@ -84,7 +84,7 @@ import { Scale } from "lucide-vue-next";
           <strong>¿Cómo potenciará mi práctica como abogado?</strong>
         </AccordionTrigger>
         <AccordionContent class="text-white/80 pt-2">
-          Con flujos de trabajo automatizados que liberan tiempo de tareas repetitivas (búsqueda de información, generación de borradores, seguimiento de plazos), mejorarás tu eficiencia y tendrás más espacio para trabajo estratégico.
+          Con el conocimiento adecuado sacarás máximo provecho a la inteligencia artificial, además podrás implementar flujos de trabajo automatizados que liberan tiempo de tareas repetitivas (búsqueda de información, generación de borradores, seguimiento de plazos), mejorarás tu eficiencia y tendrás más espacio para trabajo estratégico.
         </AccordionContent>
       </AccordionItem>
 

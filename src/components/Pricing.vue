@@ -43,14 +43,14 @@ const plans: PlanProps[] = [
   {
     title: "Profesional",
     popular: 1,
-    price: "99K",
+    price: "60 USD",
     description:
-      "Enseña a integrar automatizaciones con herramientas open-source.",
+      "Aprende como integrar de manera correcta y efectiva la inteligencia artificial en tu trabajo",
     buttonText: "Inscribirme al lanzamiento",
     benefitList: [
       "Sesiones prácticas y ejemplos aplicados a despachos legales",
       "Soporte prioritario",
-      "Precio original: 267K COP",
+      "Precio original: 100 USD",
     ],
   },
   {
