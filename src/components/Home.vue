@@ -16,16 +16,15 @@ import Team from './Team.vue';
 <template>
   <div>
     <Hero />
-    <HowItWorks />
     <Pricing />
     <FAQ />
-    <VideoPreview />
+    <Sponsors />
     <Benefits />
     <Community />
+    <HowItWorks />
     <Services />
     <Testimonials />
-    <Team />
-    <Sponsors />
+    <VideoPreview />
     <Contact />
   </div>
 </template>
