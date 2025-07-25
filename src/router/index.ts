@@ -3,7 +3,14 @@ import FreePlan from '../components/FreePlan.vue';
 import ProfessionalPlan from '../components/ProfessionalPlan.vue';
 import EbookForm from '../components/EbookForm.vue';
 
+import Hero from '../components/Hero.vue';
+
 const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    name: 'Home',
+    component: Hero,
+  },
   {
     path: '/plan-gratuito',
     name: 'FreePlan',
