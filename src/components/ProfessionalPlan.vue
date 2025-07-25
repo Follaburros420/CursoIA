@@ -17,10 +17,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
-
 function goToPayment() {
   // Aquí iría la lógica para conectar con la pasarela de pago
   // Por ahora, solo redirigimos a un enlace de ejemplo
