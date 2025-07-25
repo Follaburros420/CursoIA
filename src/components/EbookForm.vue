@@ -5,9 +5,14 @@
         <img src="/ebook.png" alt="Ebook" class="rounded shadow-lg" />
       </div>
       <div class="md:w-1/2">
-        <h1 class="text-3xl font-bold mb-6">Descarga tu Ebook Gratis</h1>
-        
-        <form @submit.prevent="submitForm" class="space-y-4">
+      <section class="mb-8 text-center">
+        <h1 class="text-4xl font-extrabold mb-4">Descarga tu Ebook Gratis</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
+          Highlights del libro para abogados que quieren saber de IA:
+        </p>
+      </section>
+      
+      <form @submit.prevent="submitForm" class="space-y-4">
           <div>
             <label for="firstName" class="block text-sm font-medium mb-1">Nombre</label>
             <input

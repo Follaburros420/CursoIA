@@ -10,21 +10,20 @@ import Contact from './Contact.vue';
 import Testimonials from './Testimonials.vue';
 import Services from './Services.vue';
 import Sponsors from './Sponsors.vue';
-import Team from './Team.vue';
 </script>
 
 <template>
   <div>
     <Hero />
+    <HowItWorks />
     <Pricing />
     <FAQ />
-    <Sponsors />
+    <VideoPreview />
     <Benefits />
     <Community />
-    <HowItWorks />
     <Services />
     <Testimonials />
-    <VideoPreview />
+    <Sponsors />
     <Contact />
   </div>
 </template>
