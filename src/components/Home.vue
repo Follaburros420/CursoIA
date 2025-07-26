@@ -1,29 +1,27 @@
 <script setup lang="ts">
 import Hero from './Hero.vue';
-import FAQ from './FAQ.vue';
-import Pricing from './Pricing.vue';
 import HowItWorks from './HowItWorks.vue';
-import VideoPreview from './VideoPreview.vue';
 import Benefits from './Benefits.vue';
-import Community from './Community.vue';
+import Pricing from './Pricing.vue';
+import FAQ from './FAQ.vue';
 import Contact from './Contact.vue';
 import Testimonials from './Testimonials.vue';
-import Services from './Services.vue';
+import Community from './Community.vue';
 import Sponsors from './Sponsors.vue';
+import Services from './Services.vue';
 </script>
 
 <template>
   <div>
     <Hero />
-    <HowItWorks />
-    <Pricing />
-    <FAQ />
-    <VideoPreview />
-    <Benefits />
-    <Community />
     <Services />
-    <Testimonials />
     <Sponsors />
+    <HowItWorks />
+    <Benefits />
+    <Pricing />
+    <Community />
+    <Testimonials />
+    <FAQ />
     <Contact />
   </div>
 </template>

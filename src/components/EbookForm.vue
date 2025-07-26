@@ -117,23 +117,16 @@ async function submitForm() {
   };
 
   try {
-    // Send to first webhook
-    const res1 = await fetch('https://appn8n.coinestate.com.co/webhook-test/6c847cfd-50eb-4e00-a15f-670442efe8f8', {
+    // Send to ebook webhook via local API
+    const res = await fetch('/api/ebook', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
 
-    const res2 = await fetch('https://webhook.coinestate.com.co/webhook/6c847cfd-50eb-4e00-a15f-670442efe8f8', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res1.ok || !res2.ok) {
-      const errorText1 = await res1.text();
-      const errorText2 = await res2.text();
-      throw new Error(`Error en el envío de datos: ${res1.status} - ${errorText1} | ${res2.status} - ${errorText2}`);
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`Error en el envío de datos: ${res.status} - ${errorText}`);
     }
 
     successMessage.value = '¡Gracias! Revisa tu correo para descargar el Ebook.';

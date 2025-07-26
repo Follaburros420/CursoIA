@@ -11,6 +11,17 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 <template>
   <section class="container">
     <div
+      v-if="$route.path === '/politica-de-privacidad'"
+      class="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32"
+    >
+      <div class="text-center space-y-8">
+        <a href="/" class="inline-block">
+          <img src="/logo.png" alt="Logo" class="mx-auto" />
+        </a>
+      </div>
+    </div>
+    <div
+      v-else
       class="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32"
     >
       <div class="text-center space-y-8">

@@ -60,7 +60,10 @@ import Separator from "./ui/separator/Separator.vue";
         </div>
       </div>
 
-      <Separator class="my-6" />
+<div class="text-left mb-4">
+  <a href="/politica-de-privacidad" class="text-primary hover:underline">Política de privacidad</a>
+</div>
+<Separator class="my-6" />
       <section className="">
         <h3 class="">
           &copy; 2024 Designed and developed by

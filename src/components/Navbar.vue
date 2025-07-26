@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from "vue";
-
 import { useColorMode } from "@vueuse/core";
 const mode = useColorMode();
 mode.value = "dark";
@@ -39,18 +38,9 @@ interface FeatureProps {
 }
 
 const routeList: RouteProps[] = [
-  {
-    href: "#testimonials",
-    label: "Testimonios",
-  },
-  {
-    href: "#contact",
-    label: "Contacto",
-  },
-  {
-    href: "#faq",
-    label: "Preguntas",
-  },
+  { href: "#testimonials", label: "Testimonios" },
+  { href: "#contact", label: "Contacto" },
+  { href: "#faq", label: "Preguntas" },
 ];
 
 const featureList: FeatureProps[] = [
@@ -74,30 +64,40 @@ const isOpen = ref<boolean>(false);
 </script>
 
 <template>
+  <!-- Navbar especializado para Política de Privacidad -->
   <header
+    v-if="$route.path === '/politica-de-privacidad'"
+    class="w-[90%] mx-auto sticky top-5 border z-40 rounded-2xl bg-card shadow-md"
+  >
+    <div class="flex justify-center items-center p-2">
+      <a href="/">
+        <img src="/logo.png" alt="LexIA Logo" class="h-12 mx-auto" />
+      </a>
+    </div>
+  </header>
+
+  <!-- Navbar estándar para el resto de rutas -->
+  <header
+    v-else
     :class="{
       'shadow-light': mode === 'light',
       'shadow-dark': mode === 'dark',
-      'w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2 bg-card shadow-md': true,
+      'w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2 bg-card shadow-md':
+        true,
     }"
   >
-    <a
-      href="/"
-      class="font-bold text-lg flex items-center"
-    >
+    <a href="/" class="font-bold text-lg flex items-center">
       <ChevronsDown
         class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
       />
-      LexIA</a
-    >
-    <!-- Mobile -->
+      LexIA
+    </a>
+
+    <!-- Mobile menu -->
     <div class="flex items-center lg:hidden">
       <Sheet v-model:open="isOpen">
         <SheetTrigger as-child>
-          <Menu
-            @click="isOpen = true"
-            class="cursor-pointer"
-          />
+          <Menu @click="isOpen = true" class="cursor-pointer" />
         </SheetTrigger>
 
         <SheetContent
@@ -107,10 +107,7 @@ const isOpen = ref<boolean>(false);
           <div>
             <SheetHeader class="mb-4 ml-4">
               <SheetTitle class="flex items-center">
-                <a
-                  href="/"
-                  class="flex items-center"
-                >
+                <a href="/" class="flex items-center">
                   <ChevronsDown
                     class="bg-gradient-to-tr from-primary/70 via-primary to-primary/70 rounded-lg size-9 mr-2 border text-white"
                   />
@@ -127,10 +124,7 @@ const isOpen = ref<boolean>(false);
                 variant="ghost"
                 class="justify-start text-base"
               >
-                <a
-                  @click="isOpen = false"
-                  :href="href"
-                >
+                <a @click="isOpen = false" :href="href">
                   {{ label }}
                 </a>
               </Button>
@@ -139,14 +133,13 @@ const isOpen = ref<boolean>(false);
 
           <SheetFooter class="flex-col sm:flex-col justify-start items-start">
             <Separator class="mb-2" />
-
             <ToggleTheme />
           </SheetFooter>
         </SheetContent>
       </Sheet>
     </div>
 
-    <!-- Desktop -->
+    <!-- Desktop menu -->
     <NavigationMenu class="hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
@@ -198,8 +191,6 @@ const isOpen = ref<boolean>(false);
 
     <div class="hidden lg:flex">
       <ToggleTheme />
-
-      
     </div>
   </header>
 </template>

@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import FreePlan from '../components/FreePlan.vue';
 import ProfessionalPlan from '../components/ProfessionalPlan.vue';
 import EbookForm from '../components/EbookForm.vue';
+import PrivacyPolicy from '../components/PrivacyPolicy.vue';
 
 import Home from '../components/Home.vue';
 
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/ebook-gratis',
     name: 'EbookForm',
     component: EbookForm,
+  },
+  {
+    path: '/politica-de-privacidad',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy,
   },
 ];
 
