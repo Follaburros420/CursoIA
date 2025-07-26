@@ -1,11 +1,11 @@
-import crypto from 'crypto';
+const crypto = require('crypto');
 
 // Helper: generate SHA256 signature
 function generateSignature(payload) {
   return crypto.createHash('sha256').update(payload).digest('hex');
 }
 
-export default function handler(req, res) {
+module.exports = function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -64,4 +64,4 @@ export default function handler(req, res) {
     console.error('Error creating Wompi redirect session:', error);
     return res.status(500).json({ error: 'Error generating checkout URL' });
   }
-}
+};
