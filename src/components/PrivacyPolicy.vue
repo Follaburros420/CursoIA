@@ -54,6 +54,5 @@
 </template>
 
 <script setup lang="ts">
-import Footer from './Footer.vue';
 // Componente estático: no se requieren datos ni lógica adicional
 </script>
