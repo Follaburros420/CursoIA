@@ -50,7 +50,6 @@
         privacidad@ejemplo.com.
       </p>
     </div>
-    <Footer />
   </div>
 </template>
 

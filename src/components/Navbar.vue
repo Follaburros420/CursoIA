@@ -64,21 +64,7 @@ const isOpen = ref<boolean>(false);
 </script>
 
 <template>
-  <!-- Navbar especializado para Política de Privacidad -->
   <header
-    v-if="$route.path === '/politica-de-privacidad'"
-    class="w-[90%] mx-auto sticky top-5 border z-40 rounded-2xl bg-card shadow-md"
-  >
-    <div class="flex justify-center items-center p-2">
-      <a href="/">
-        <img src="/logo.png" alt="LexIA Logo" class="h-12 mx-auto" />
-      </a>
-    </div>
-  </header>
-
-  <!-- Navbar estándar para el resto de rutas -->
-  <header
-    v-else
     :class="{
       'shadow-light': mode === 'light',
       'shadow-dark': mode === 'dark',

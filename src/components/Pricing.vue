@@ -43,23 +43,23 @@ const plans: PlanProps[] = [
   {
     title: "Profesional",
     popular: 1,
-    price: "60 USD",
+    price: "200 USD",
     description:
       "Aprende como integrar de manera correcta y efectiva la inteligencia artificial en tu trabajo",
-    buttonText: "Inscribirme al lanzamiento",
+    buttonText: "¿Que contiene?",
     benefitList: [
-      "Sesiones prácticas y ejemplos aplicados a despachos legales",
+      "Sesiones prácticas en vivo y ejemplos aplicados a despachos legales",
       "Soporte prioritario",
-      "Precio original: 100 USD",
+      "Precio original: 500 USD",
     ],
   },
   {
-    title: "Empresarial",
+    title: "Élite",
     popular: 0,
-    price: "A convenir",
+    price: "870 USD",
     description:
       "Formación in-house y consultoría dedicada para equipos jurídicos.",
-    buttonText: "Contáctanos",
+    buttonText: "Conoce más",
     benefitList: [
       "Integración a medida de IA y flujos de trabajo automáticos",
       "Acceso a actualizaciones y roadmap",
@@ -136,7 +136,10 @@ const plans: PlanProps[] = [
             class="w-full"
             as-child
           >
-            <a href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">
+            <router-link v-if="title === 'Profesional'" to="/plan-profesional">
+              {{ buttonText }}
+            </router-link>
+            <a v-else href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">
               {{ buttonText }}
             </a>
           </Button>
