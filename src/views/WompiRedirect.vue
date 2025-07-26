@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 import { CheckCircle, XCircle, Clock, ArrowLeft } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-const route = useRoute();
 const router = useRouter();
 
 const status = ref<'loading' | 'success' | 'error' | 'pending'>('loading');

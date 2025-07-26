@@ -9,7 +9,7 @@ interface Props {
   features: string[];
 }
 
-const props = withDefaults(defineProps<Props>(), {
+withDefaults(defineProps<Props>(), {
   title: "CURSO DE IA PARA ABOGADOS – PLAN PROFESIONAL",
   subtitle: "⚖️ Aprende a utilizar la IA en el mundo jurídico y diferénciate en tu ejercicio profesional.",
   features: () => ['5 módulos intensivos', 'Certificado oficial', 'Contenido 100% práctico']

@@ -42,7 +42,7 @@ const mockResponses = {
     output: `Hola! Recibí tu mensaje: "${data.message}". Soy tu asistente de IA especializado en cursos legales. ¿En qué más puedo ayudarte?`
   }),
   
-  ebook: (data: any) => ({
+  ebook: (_data: any) => ({
     success: true,
     message: 'Ebook submission processed successfully'
   })

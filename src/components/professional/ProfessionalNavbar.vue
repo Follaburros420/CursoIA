@@ -1,16 +1,13 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import { useColorMode } from "@vueuse/core";
 import { useRouter } from "vue-router";
 
-const mode = useColorMode();
 const router = useRouter();
 
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -27,13 +24,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-import { 
-  ChevronsDown, 
-  Menu, 
-  ArrowLeft, 
+import {
+  Menu,
+  ArrowLeft,
   ShoppingCart,
   BookOpen,
-  Users,
   HelpCircle,
   Award,
   Clock
