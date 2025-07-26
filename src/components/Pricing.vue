@@ -136,7 +136,16 @@ const plans: PlanProps[] = [
             class="w-full"
             as-child
           >
-            <router-link v-if="title === 'Profesional'" to="/plan-profesional">
+            <router-link
+              v-if="title === 'Profesional'"
+              to="/plan-profesional"
+            >
+              {{ buttonText }}
+            </router-link>
+            <router-link v-else-if="title === 'Básico'" to="/plan-gratuito">
+              {{ buttonText }}
+            </router-link>
+            <router-link v-else-if="title === 'Élite'" to="/elite">
               {{ buttonText }}
             </router-link>
             <a v-else href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">

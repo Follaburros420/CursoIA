@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import FreePlan from '../components/FreePlan.vue';
 import ProfessionalPlan from '../components/ProfessionalPlan.vue';
+import ElitePlan from '../components/ElitePlan.vue';
 import EbookForm from '../components/EbookForm.vue';
 import PrivacyPolicy from '../components/PrivacyPolicy.vue';
 
@@ -21,6 +22,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/plan-profesional',
     name: 'ProfessionalPlan',
     component: ProfessionalPlan,
+  },
+  {
+    path: '/elite',
+    name: 'ElitePlan',
+    component: ElitePlan,
   },
   {
     path: '/ebook-gratis',
