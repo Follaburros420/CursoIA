@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useColorMode } from "@vueuse/core";
 const mode = useColorMode();
 

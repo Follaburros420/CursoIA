@@ -2,11 +2,10 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Crown, 
-  Users, 
-  Calendar, 
-  Database, 
-  Zap,
+  Crown,
+  Users,
+  Calendar,
+  Database,
   BookOpen,
   ArrowRight,
   Star,

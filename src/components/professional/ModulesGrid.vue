@@ -2,12 +2,11 @@
 import { Badge } from "@/components/ui/badge";
 import { 
   Brain, 
-  Wrench, 
-  Search, 
-  FileText, 
+  Wrench,
+  Search,
+  FileText,
   Cog,
   Clock,
-  Users,
   Award
 } from "lucide-vue-next";
 

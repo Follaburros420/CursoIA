@@ -7,20 +7,13 @@ import {
   Crown, 
   Mail, 
   MessageCircle, 
-  Shield, 
+  Shield,
   Clock,
   ArrowUp,
-  ExternalLink,
-  Users,
-  Calendar,
-  CheckCircle
+  ExternalLink
 } from "lucide-vue-next";
 
 const router = useRouter();
-
-const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-};
 
 const goHome = () => {
   router.push('/');

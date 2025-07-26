@@ -1,16 +1,13 @@
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import { useColorMode } from "@vueuse/core";
 import { useRouter } from "vue-router";
 
-const mode = useColorMode();
 const router = useRouter();
 
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";

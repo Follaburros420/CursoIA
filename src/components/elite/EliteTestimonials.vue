@@ -2,12 +2,11 @@
 import { Badge } from "@/components/ui/badge";
 import { 
   Quote, 
-  Star, 
+  Star,
   Users,
   TrendingUp,
   Clock,
   CheckCircle,
-  Building,
   User
 } from "lucide-vue-next";
 

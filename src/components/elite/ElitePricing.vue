@@ -3,11 +3,10 @@ import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Crown, 
-  Clock, 
+  Crown,
+  Clock,
   Users,
   Calendar,
-  DollarSign,
   Shield,
   Zap,
   ArrowRight,
@@ -41,7 +40,7 @@ const updateCountdown = () => {
   }
 };
 
-let countdownInterval: number;
+let countdownInterval: NodeJS.Timeout;
 
 onMounted(() => {
   updateCountdown();

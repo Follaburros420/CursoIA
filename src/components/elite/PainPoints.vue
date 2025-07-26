@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
 import { 
-  Clock, 
-  AlertTriangle, 
+  Clock,
+  AlertTriangle,
   DollarSign,
-  FileText,
   Target,
   TrendingDown,
   Zap
