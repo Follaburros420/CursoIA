@@ -2,6 +2,22 @@
 import { ref } from "vue";
 import { useColorMode } from "@vueuse/core";
 const mode = useColorMode();
+
+// Navbar scroll state
+const isScrolled = ref(false);
+
+// Handle scroll for navbar background
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 20;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll, { passive: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 mode.value = "dark";
 
 import {
@@ -65,18 +81,19 @@ const isOpen = ref<boolean>(false);
 
 <template>
   <header
-    :class="{
-      'shadow-light': mode === 'light',
-      'shadow-dark': mode === 'dark',
-      'w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl top-5 mx-auto sticky border z-40 rounded-2xl flex justify-between items-center p-2 bg-card shadow-md':
-        true,
-    }"
+    :class="[
+      'w-[90%] md:w-[70%] lg:w-[75%] lg:max-w-screen-xl mx-auto sticky border z-50 rounded-2xl flex justify-between items-center bg-card/95 backdrop-blur-lg transition-all duration-300',
+      isScrolled
+        ? 'top-2 p-3 shadow-2xl bg-card/98 backdrop-blur-xl w-[95%] md:w-[80%] lg:w-[85%]'
+        : 'top-5 p-2 shadow-lg hover:shadow-xl hover:scale-[1.01]',
+      mode === 'light' ? 'shadow-light' : 'shadow-dark'
+    ]"
   >
-    <a href="/" class="font-bold text-lg flex items-center">
+    <a href="/" class="font-bold text-lg flex items-center group transition-all duration-300 hover:scale-105">
       <ChevronsDown
-        class="bg-gradient-to-tr from-primary via-primary/70 to-primary rounded-lg w-9 h-9 mr-2 border text-white"
+        class="bg-gradient-to-tr from-orange-500 via-orange-600 to-orange-700 rounded-lg w-9 h-9 mr-2 border text-white transition-all duration-300 group-hover:rotate-180 group-hover:shadow-lg group-hover:shadow-orange-500/25"
       />
-      LexIA
+      <span class="transition-all duration-300 group-hover:text-orange-600">LexIA</span>
     </a>
 
     <!-- Mobile menu -->
@@ -93,11 +110,11 @@ const isOpen = ref<boolean>(false);
           <div>
             <SheetHeader class="mb-4 ml-4">
               <SheetTitle class="flex items-center">
-                <a href="/" class="flex items-center">
+                <a href="/" class="flex items-center group transition-all duration-300 hover:scale-105">
                   <ChevronsDown
-                    class="bg-gradient-to-tr from-primary/70 via-primary to-primary/70 rounded-lg size-9 mr-2 border text-white"
+                    class="bg-gradient-to-tr from-orange-500 via-orange-600 to-orange-700 rounded-lg size-9 mr-2 border text-white transition-all duration-300 group-hover:rotate-180"
                   />
-                  LexIA
+                  <span class="transition-all duration-300 group-hover:text-orange-600">LexIA</span>
                 </a>
               </SheetTitle>
             </SheetHeader>
@@ -108,7 +125,7 @@ const isOpen = ref<boolean>(false);
                 :key="label"
                 as-child
                 variant="ghost"
-                class="justify-start text-base"
+                class="justify-start text-base transition-all duration-200 hover:bg-orange-500/10 hover:text-orange-600 hover:translate-x-1"
               >
                 <a @click="isOpen = false" :href="href">
                   {{ label }}
@@ -129,7 +146,7 @@ const isOpen = ref<boolean>(false);
     <NavigationMenu class="hidden lg:block">
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger class="bg-card text-base">
+          <NavigationMenuTrigger class="bg-card text-base transition-all duration-200 hover:text-orange-600 hover:scale-105 hover:bg-orange-500/5">
             Características
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -164,7 +181,7 @@ const isOpen = ref<boolean>(false);
               :key="label"
               as-child
               variant="ghost"
-              class="justify-start text-base"
+              class="justify-start text-base transition-all duration-200 hover:bg-orange-500/10 hover:text-orange-600 hover:scale-105"
             >
               <a :href="href">
                 {{ label }}

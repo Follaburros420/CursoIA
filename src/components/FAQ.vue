@@ -5,7 +5,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
 <template>
   <section id="faq" class="w-full max-w-lg mx-auto py-16 sm:py-24 px-4">
     <div class="text-center mb-8">
-      <h2 class="text-lg text-primary mb-2 tracking-wider">Preguntas frecuentes</h2>
+      <h2 class="text-lg text-orange-600 mb-2 tracking-wider">Preguntas frecuentes</h2>
       <h2 class="text-3xl md:text-4xl font-bold">Resuelve tus dudas</h2>
     </div>
     <Accordion type="single" collapsible>
@@ -42,7 +42,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/
     </Accordion>
     <p class="font-medium mt-6">
       ¿Aún tienes dudas?
-      <a href="#contacto" class="text-primary underline">Contáctanos</a>
+      <a href="#contacto" class="text-orange-600 underline">Contáctanos</a>
     </p>
   </section>
 </template>

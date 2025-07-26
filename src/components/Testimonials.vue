@@ -72,7 +72,7 @@ const reviewList: ReviewProps[] = [
     class="container py-24 sm:py-32"
   >
     <div class="text-center mb-8">
-      <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
+      <h2 class="text-lg text-orange-600 text-center mb-2 tracking-wider">
         Testimonios
       </h2>
 
@@ -96,11 +96,11 @@ const reviewList: ReviewProps[] = [
           <Card class="bg-muted/50 dark:bg-card">
             <CardContent class="pt-6 pb-0">
               <div class="flex gap-1 pb-6">
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
-                <Star class="size-4 fill-primary text-primary" />
+                <Star class="size-4 fill-orange-500 text-orange-500" />
+                <Star class="size-4 fill-orange-500 text-orange-500" />
+                <Star class="size-4 fill-orange-500 text-orange-500" />
+                <Star class="size-4 fill-orange-500 text-orange-500" />
+                <Star class="size-4 fill-orange-500 text-orange-500" />
               </div>
 
               "{{ review.comment }}"

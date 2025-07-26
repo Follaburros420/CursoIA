@@ -4,6 +4,7 @@ import ProfessionalPlan from '../components/ProfessionalPlan.vue';
 import ElitePlan from '../components/ElitePlan.vue';
 import EbookForm from '../components/EbookForm.vue';
 import PrivacyPolicy from '../components/PrivacyPolicy.vue';
+import WompiRedirect from '../views/WompiRedirect.vue';
 
 import Home from '../components/Home.vue';
 
@@ -37,6 +38,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/politica-de-privacidad',
     name: 'PrivacyPolicy',
     component: PrivacyPolicy,
+  },
+  {
+    path: '/pagos/wompi/redirect',
+    name: 'WompiRedirect',
+    component: WompiRedirect,
   },
 ];
 

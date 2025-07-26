@@ -71,7 +71,7 @@ const plans: PlanProps[] = [
 
 <template>
   <section class="container py-24 sm:py-32">
-    <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
+    <h2 class="text-lg text-orange-600 text-center mb-2 tracking-wider">
       Planes
     </h2>
 
@@ -100,7 +100,7 @@ const plans: PlanProps[] = [
         :class="[
           'relative group bg-gray-50 dark:bg-black border-black/10 dark:border-white/20 hover:shadow-2xl hover:shadow-emerald-500/10 transition-shadow p-6 rounded-xl',
           {
-            'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-primary lg:scale-[1.1]':
+            'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[1.5px] border-orange-500 lg:scale-[1.1]':
               popular === PopularPlan?.YES,
           },
         ]"
@@ -124,7 +124,7 @@ const plans: PlanProps[] = [
               :key="benefit"
               class="flex"
             >
-              <Check class="text-primary mr-2" />
+              <Check class="text-orange-600 mr-2" />
               <h3>{{ benefit }}</h3>
             </span>
           </div>

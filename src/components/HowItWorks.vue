@@ -44,7 +44,7 @@ const HowItWorksList: HowItWorksProps[] = [
 <template>
   <section id="features" class="container py-24 sm:py-32">
     <div class="text-center mb-8">
-      <h2 class="text-lg text-primary text-center mb-2 tracking-wider">
+      <h2 class="text-lg text-orange-600 text-center mb-2 tracking-wider">
         ¿Cómo funciona?
       </h2>
       <h2 class="text-3xl md:text-4xl text-center font-bold">
@@ -83,7 +83,7 @@ class="max-w-full w-[150px] md:w-[250px] lg:w-[300px] mx-auto md:mx-0 -scale-x-1
 
         <div
           :class="[
-            '-z-10 absolute right-0 w-44 h-72 lg:w-64 lg:h-80 rounded-full bg-primary/15 dark:bg-primary/10 blur-3xl',
+            '-z-10 absolute right-0 w-44 h-72 lg:w-64 lg:h-80 rounded-full bg-orange-500/15 dark:bg-orange-500/10 blur-3xl',
             { 'left-0': index % 2 !== 0 }
           ]"
         ></div>

@@ -68,7 +68,7 @@ const iconMap: Record<
   >
     <div class="grid lg:grid-cols-2 place-items-center lg:gap-24">
       <div>
-        <h2 class="text-lg text-primary mb-2 tracking-wider">Beneficios</h2>
+        <h2 class="text-lg text-orange-600 mb-2 tracking-wider">Beneficios</h2>
 
         <h2 class="text-3xl md:text-4xl font-bold mb-4">
           Ventajas de unirte
@@ -87,7 +87,7 @@ const iconMap: Record<
           <CardHeader>
             <div class="flex justify-between">
               <component
-                class="size-8 mb-6 text-primary"
+                class="size-8 mb-6 text-orange-600"
                 :is="iconMap[icon]"
               />
 

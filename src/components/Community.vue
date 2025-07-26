@@ -31,7 +31,7 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
               />
               ¿Listo para unirte a nuestra
               <span
-                class="text-transparent bg-gradient-to-r from-[#D247BF] to-primary bg-clip-text"
+                class="text-transparent bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text"
               >
                 comunidad?
               </span>

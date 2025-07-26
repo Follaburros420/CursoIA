@@ -1,40 +1,91 @@
-<template>
-  <section class="py-12 bg-gray-50 dark:bg-black">
-    <div class="max-w-4xl mx-auto p-6 bg-white dark:bg-black rounded-lg shadow-lg">
-      <h1 class="text-5xl font-extrabold mb-8 text-center text-primary uppercase tracking-wide">
-        Curso de IA para Abogados - Plan Élite
-      </h1>
-      <div class="text-center mb-6 space-y-2">
-        <p class="text-lg text-gray-700 dark:text-gray-300">
-          Formación in-house y consultoría dedicada para equipos jurídicos.
-        </p>
-      </div>
-      <div class="flex flex-col md:flex-row items-center gap-8">
-        <img src="/bot.png" alt="Plan Élite" class="w-full md:w-1/2 rounded-lg shadow" />
-        <div class="md:w-1/2 space-y-4">
-          <p class="text-lg leading-relaxed text-gray-700">
-            Orientado a firmas y departamentos que buscan una integración profunda de la inteligencia artificial en sus procesos.
-          </p>
-          <ul class="list-disc list-inside marker:text-orange-500 text-gray-700 space-y-1">
-            <li>Integración a medida de IA y flujos de trabajo automáticos</li>
-            <li>Acceso a actualizaciones y roadmap</li>
-            <li>Formación in-house y consultoría dedicada</li>
-          </ul>
-          <a
-            href="https://wa.me/message/22XPE3IWTKONL1"
-            target="_blank"
-            class="w-full inline-block mt-4 py-3 text-center bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold rounded-lg hover:from-orange-600 hover:to-orange-500 transition"
-          >
-            Contactar asesor
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { apiService } from '@/services/api';
 
-<style scoped>
-.text-primary {
-  color: theme('colors.orange.500');
+// Import Elite components
+import EliteNavbar from './elite/EliteNavbar.vue';
+import EliteHero from './elite/EliteHero.vue';
+import PainPoints from './elite/PainPoints.vue';
+import EliteSolution from './elite/EliteSolution.vue';
+import EliteBenefits from './elite/EliteBenefits.vue';
+import EliteCurriculum from './elite/EliteCurriculum.vue';
+import EliteTestimonials from './elite/EliteTestimonials.vue';
+import ElitePricing from './elite/ElitePricing.vue';
+import EliteFAQ from './elite/EliteFAQ.vue';
+import EliteFooter from './elite/EliteFooter.vue';
+
+const loading = ref(false);
+const originalAmount = ref(120000000); // 1,200 USD in centavos
+const amountInCents = ref(originalAmount.value);
+
+async function handleReserveSpot() {
+  loading.value = true;
+  try {
+    const reference = `ELITE_PLAN_${Date.now()}`;
+    const response = await apiService.wompiCreateSession({
+      amount_in_cents: amountInCents.value,
+      currency: 'USD',
+      reference,
+      redirect_url: `${window.location.origin}/pagos/wompi/redirect`
+    });
+    const { checkoutUrl } = response;
+    console.log('Redirecting to checkout:', checkoutUrl);
+    window.location.href = checkoutUrl;
+  } catch (error) {
+    console.error('Error iniciando pago:', error);
+    alert('Error al iniciar pago. Por favor, intenta de nuevo.');
+  } finally {
+    loading.value = false;
+  }
 }
-</style>
+</script>
+
+<template>
+  <div class="min-h-screen bg-background">
+    <!-- Elite Navbar -->
+    <EliteNavbar @reserve-spot="handleReserveSpot" />
+
+    <!-- Hero Section -->
+    <div class="pt-20">
+      <EliteHero @reserve-spot="handleReserveSpot" />
+    </div>
+
+    <!-- Pain Points Section -->
+    <div id="pain-points">
+      <PainPoints />
+    </div>
+
+    <!-- Solution Section -->
+    <div id="solution">
+      <EliteSolution @get-started="handleReserveSpot" />
+    </div>
+
+    <!-- Benefits Section -->
+    <div id="benefits">
+      <EliteBenefits />
+    </div>
+
+    <!-- Curriculum Section -->
+    <div id="curriculum" class="scroll-mt-20">
+      <EliteCurriculum />
+    </div>
+
+    <!-- Testimonials Section -->
+    <div id="testimonials" class="scroll-mt-20">
+      <EliteTestimonials />
+    </div>
+
+    <!-- Pricing Section -->
+    <div id="pricing" class="scroll-mt-20">
+      <ElitePricing @reserve-spot="handleReserveSpot" />
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq" class="scroll-mt-20">
+      <EliteFAQ @reserve-spot="handleReserveSpot" />
+    </div>
+
+    <!-- Elite Footer -->
+    <EliteFooter @reserve-spot="handleReserveSpot" />
+  </div>
+</template>
