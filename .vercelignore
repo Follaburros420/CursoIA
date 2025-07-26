@@ -1,0 +1,11 @@
+# Files to ignore during Vercel build
+test-api.js
+deploy.sh
+VERCEL_SETUP.md
+TROUBLESHOOTING.md
+LOCALHOST_FIX.md
+.env.local
+.env.example
+dev-server.js
+node_modules
+.git
