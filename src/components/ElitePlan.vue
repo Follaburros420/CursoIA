@@ -39,17 +39,7 @@ async function handleReserveSpot() {
   }
 }
 
-// Handle Wompi widget events
-function handlePaymentSuccess(transactionId: string) {
-  console.log('✅ Elite payment successful:', transactionId);
-  alert(`¡Reserva exitosa! ID de transacción: ${transactionId}`);
-  window.location.href = `/pagos/wompi/redirect?id=${transactionId}&status=APPROVED`;
-}
-
-function handlePaymentError(error: string) {
-  console.error('❌ Elite payment error:', error);
-  alert(`Error en la reserva: ${error}`);
-}
+// Removed unused payment handlers - WompiButton handles everything directly
 </script>
 
 <template>
@@ -91,8 +81,6 @@ function handlePaymentError(error: string) {
     <div id="pricing" class="scroll-mt-20">
       <ElitePricing
         @reserve-spot="handleReserveSpot"
-        @payment-success="handlePaymentSuccess"
-        @payment-error="handlePaymentError"
       />
     </div>
 

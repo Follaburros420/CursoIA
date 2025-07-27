@@ -28,8 +28,6 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   checkout: [];
-  paymentSuccess: [transactionId: string];
-  paymentError: [error: string];
 }>();
 
 // State
@@ -45,22 +43,7 @@ const formatCurrency = (amount: number) => {
   });
 };
 
-// Removed unused function - now using WompiWidget directly
-
-// Wompi widget handlers
-const handlePaymentSuccess = (transactionId: string) => {
-  console.log('✅ Payment successful:', transactionId);
-  emit('paymentSuccess', transactionId);
-};
-
-const handlePaymentError = (error: string) => {
-  console.error('❌ Payment error:', error);
-  emit('paymentError', error);
-};
-
-const handlePaymentLoading = (loading: boolean) => {
-  console.log('⏳ Payment loading:', loading);
-};
+// Removed unused functions - WompiButton handles everything directly
 
 const handleScroll = () => {
   if (!props.showSticky || !mainElement.value) return;

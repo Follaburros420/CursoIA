@@ -94,22 +94,9 @@ const urgencyIndicators = [
 
 const emit = defineEmits<{
   reserveSpot: [];
-  paymentSuccess: [transactionId: string];
-  paymentError: [error: string];
 }>();
 
-// Removed unused function - now using WompiWidget directly
-
-// Wompi widget handlers
-const handlePaymentSuccess = (transactionId: string) => {
-  console.log('✅ Elite payment successful:', transactionId);
-  emit('paymentSuccess', transactionId);
-};
-
-const handlePaymentError = (error: string) => {
-  console.error('❌ Elite payment error:', error);
-  emit('paymentError', error);
-};
+// Removed unused functions - WompiButton handles everything directly
 </script>
 
 <template>

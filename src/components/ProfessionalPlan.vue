@@ -55,18 +55,7 @@ async function handleCheckout() {
   }
 }
 
-// Handle Wompi widget events
-function handlePaymentSuccess(transactionId: string) {
-  console.log('✅ Payment successful:', transactionId);
-  alert(`¡Pago exitoso! ID de transacción: ${transactionId}`);
-  // Redirect to success page or update UI
-  window.location.href = `/pagos/wompi/redirect?id=${transactionId}&status=APPROVED`;
-}
-
-function handlePaymentError(error: string) {
-  console.error('❌ Payment error:', error);
-  alert(`Error en el pago: ${error}`);
-}
+// Removed unused payment handlers - WompiButton handles everything directly
 </script>
 
 <template>
@@ -118,8 +107,6 @@ function handlePaymentError(error: string) {
             :original-amount="originalAmount"
             :loading="loading"
             @checkout="handleCheckout"
-            @payment-success="handlePaymentSuccess"
-            @payment-error="handlePaymentError"
           />
         </div>
       </div>
