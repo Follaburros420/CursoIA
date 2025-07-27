@@ -106,7 +106,6 @@ async function handleCheckout() {
             :amount="currentAmount"
             :original-amount="originalAmount"
             :loading="loading"
-            @checkout="handleCheckout"
           />
         </div>
       </div>

@@ -92,11 +92,7 @@ const urgencyIndicators = [
   }
 ];
 
-const emit = defineEmits<{
-  reserveSpot: [];
-}>();
-
-// Removed unused functions - WompiButton handles everything directly
+// Removed unused emit and functions - WompiButton handles everything directly
 </script>
 
 <template>

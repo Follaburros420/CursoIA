@@ -79,9 +79,7 @@ async function handleReserveSpot() {
 
     <!-- Pricing Section -->
     <div id="pricing" class="scroll-mt-20">
-      <ElitePricing
-        @reserve-spot="handleReserveSpot"
-      />
+      <ElitePricing />
     </div>
 
     <!-- FAQ Section -->

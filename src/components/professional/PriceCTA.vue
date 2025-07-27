@@ -26,9 +26,7 @@ const props = withDefaults(defineProps<Props>(), {
   showSticky: true
 });
 
-const emit = defineEmits<{
-  checkout: [];
-}>();
+// Removed unused emit - WompiButton handles everything directly
 
 // State
 const isSticky = ref(false);
