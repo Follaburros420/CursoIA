@@ -73,9 +73,8 @@ onMounted(() => {
 
 // Computed values
 const publicKey = computed(() => import.meta.env.VITE_WOMPI_PUBLIC_KEY);
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const redirectUrl = computed(() => props.redirectUrl || `${window.location.origin}/pagos/wompi/redirect`);
-const isReady = computed(() => !isLoading.value && signature.value && reference.value && publicKey.value);
+const isReady = computed(() => !isLoading.value && signature.value && reference.value && publicKey.value && redirectUrl.value);
 </script>
 
 <template>

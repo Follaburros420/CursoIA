@@ -25,9 +25,10 @@
     "preview": "vite preview",
     "test:api": "node test-api.js",
     "verify": "node verify-deployment.js",
+    "pre-build": "node pre-build-check.js",
     "deploy": "bash deploy.sh",
     "vercel:dev": "vercel dev",
-    "vercel:deploy": "npm run verify && vercel --prod"
+    "vercel:deploy": "npm run pre-build && npm run build && vercel --prod"
   },
   "dependencies": {
     "@selemondev/vue3-marquee": "^0.0.8",
