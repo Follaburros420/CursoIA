@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import { apiService } from '@/services/api';
 
 // Import Elite components
-import EliteNavbar from './elite/EliteNavbar.vue';
+import UnifiedNavbar from './UnifiedNavbar.vue';
 import EliteHero from './elite/EliteHero.vue';
 import PainPoints from './elite/PainPoints.vue';
 import EliteSolution from './elite/EliteSolution.vue';
@@ -38,12 +38,24 @@ async function handleReserveSpot() {
     loading.value = false;
   }
 }
+
+// Handle Wompi widget events
+function handlePaymentSuccess(transactionId: string) {
+  console.log('✅ Elite payment successful:', transactionId);
+  alert(`¡Reserva exitosa! ID de transacción: ${transactionId}`);
+  window.location.href = `/pagos/wompi/redirect?id=${transactionId}&status=APPROVED`;
+}
+
+function handlePaymentError(error: string) {
+  console.error('❌ Elite payment error:', error);
+  alert(`Error en la reserva: ${error}`);
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-background">
-    <!-- Elite Navbar -->
-    <EliteNavbar @reserve-spot="handleReserveSpot" />
+    <!-- Unified Navbar -->
+    <UnifiedNavbar variant="elite" :show-back-button="true" custom-title="Elite Program" />
 
     <!-- Hero Section -->
     <div class="pt-20">
@@ -77,7 +89,11 @@ async function handleReserveSpot() {
 
     <!-- Pricing Section -->
     <div id="pricing" class="scroll-mt-20">
-      <ElitePricing @reserve-spot="handleReserveSpot" />
+      <ElitePricing
+        @reserve-spot="handleReserveSpot"
+        @payment-success="handlePaymentSuccess"
+        @payment-error="handlePaymentError"
+      />
     </div>
 
     <!-- FAQ Section -->

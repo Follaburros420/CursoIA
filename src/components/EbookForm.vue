@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="min-h-screen bg-background">
+    <UnifiedNavbar variant="default" :show-back-button="true" />
+    <div class="pt-20">
     <div class="p-6 max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
       <div class="md:w-1/2">
         <img src="/ebook.png" alt="Ebook" class="rounded shadow-lg" />
@@ -80,10 +82,12 @@
     <FAQ />
     <VideoPreview />
   </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { reactive, ref, computed } from 'vue';
+import UnifiedNavbar from './UnifiedNavbar.vue';
 
 const form = reactive({
   firstName: '',

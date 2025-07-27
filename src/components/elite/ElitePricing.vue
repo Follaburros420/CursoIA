@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import WompiWidget from "@/components/WompiWidget.vue";
 import { 
   Crown,
   Clock,
@@ -94,11 +95,24 @@ const urgencyIndicators = [
 ];
 
 const emit = defineEmits<{
-  reserveSpot: []
+  reserveSpot: [];
+  paymentSuccess: [transactionId: string];
+  paymentError: [error: string];
 }>();
 
 const handleReserveSpot = () => {
   emit('reserveSpot');
+};
+
+// Wompi widget handlers
+const handlePaymentSuccess = (transactionId: string) => {
+  console.log('✅ Elite payment successful:', transactionId);
+  emit('paymentSuccess', transactionId);
+};
+
+const handlePaymentError = (error: string) => {
+  console.error('❌ Elite payment error:', error);
+  emit('paymentError', error);
 };
 </script>
 
@@ -235,15 +249,13 @@ const handleReserveSpot = () => {
 
             <!-- Main CTA -->
             <div class="space-y-4 mb-8">
-              <Button 
-                @click="handleReserveSpot"
-                size="lg"
-                class="w-full py-6 text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 group"
-              >
-                <Crown class="w-6 h-6 mr-3" />
-                ¡Aprovecha tu descuento y asegura tu plaza!
-                <ArrowRight class="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" />
-              </Button>
+              <WompiWidget
+                :amount="120000000"
+                currency="USD"
+                button-text="¡Reservar Plaza Elite!"
+                @success="handlePaymentSuccess"
+                @error="handlePaymentError"
+              />
               
               <p class="text-center text-sm text-muted-foreground">
                 <span class="font-semibold text-red-500">Solo quedan 8 cupos</span> disponibles

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { apiService } from '@/services/api';
 // Import new components
-import ProfessionalNavbar from './professional/ProfessionalNavbar.vue';
+import UnifiedNavbar from './UnifiedNavbar.vue';
 import ProfessionalHero from './professional/ProfessionalHero.vue';
 import DescriptionCTA from './professional/DescriptionCTA.vue';
 import ModulesGrid from './professional/ModulesGrid.vue';
@@ -54,12 +54,25 @@ async function handleCheckout() {
     loading.value = false;
   }
 }
+
+// Handle Wompi widget events
+function handlePaymentSuccess(transactionId: string) {
+  console.log('✅ Payment successful:', transactionId);
+  alert(`¡Pago exitoso! ID de transacción: ${transactionId}`);
+  // Redirect to success page or update UI
+  window.location.href = `/pagos/wompi/redirect?id=${transactionId}&status=APPROVED`;
+}
+
+function handlePaymentError(error: string) {
+  console.error('❌ Payment error:', error);
+  alert(`Error en el pago: ${error}`);
+}
 </script>
 
 <template>
   <div class="min-h-screen bg-background">
-    <!-- Professional Navbar -->
-    <ProfessionalNavbar />
+    <!-- Unified Navbar -->
+    <UnifiedNavbar variant="professional" :show-back-button="true" />
 
     <!-- Hero Section -->
     <div class="pt-20">
@@ -105,6 +118,8 @@ async function handleCheckout() {
             :original-amount="originalAmount"
             :loading="loading"
             @checkout="handleCheckout"
+            @payment-success="handlePaymentSuccess"
+            @payment-error="handlePaymentError"
           />
         </div>
       </div>

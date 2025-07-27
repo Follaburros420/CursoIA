@@ -60,10 +60,12 @@ const toggleExpanded = () => {
 };
 
 const openChat = () => {
+  console.log('🤖 Opening chat...');
   isChatOpen.value = true;
   isMinimized.value = false;
   isExpanded.value = false;
   showWelcomeBubble.value = false;
+  console.log('🤖 Chat state:', { isChatOpen: isChatOpen.value, isMinimized: isMinimized.value });
 
   // Add welcome message if no messages
   if (messages.value.length === 0) {
@@ -243,7 +245,7 @@ onUnmounted(() => {
               <!-- Option button -->
               <button
                 v-if="option.id === 'chatbot'"
-                @click="openChat"
+                @click="() => { console.log('🔘 Chatbot button clicked!'); openChat(); }"
                 class="w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 p-1"
                 :aria-label="option.label"
               >

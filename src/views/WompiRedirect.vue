@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import UnifiedNavbar from '../components/UnifiedNavbar.vue';
 import { CheckCircle, XCircle, Clock, ArrowLeft } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -46,7 +47,9 @@ const goToSupport = () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background flex items-center justify-center p-4">
+  <div class="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
+    <UnifiedNavbar variant="default" :show-back-button="true" />
+    <div class="flex items-center justify-center p-4 pt-24">
     <Card class="w-full max-w-md">
       <CardHeader class="text-center">
         <div class="mx-auto mb-4">
@@ -113,5 +116,6 @@ const goToSupport = () => {
         </div>
       </CardContent>
     </Card>
+    </div>
   </div>
 </template>

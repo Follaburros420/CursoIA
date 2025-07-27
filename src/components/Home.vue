@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import UnifiedNavbar from './UnifiedNavbar.vue';
 import Hero from './Hero.vue';
 import HowItWorks from './HowItWorks.vue';
 import Benefits from './Benefits.vue';
@@ -13,6 +14,7 @@ import Services from './Services.vue';
 
 <template>
   <div class="relative overflow-hidden">
+    <UnifiedNavbar variant="default" />
     <!-- Background decorations -->
     <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-orange-500/10 to-orange-600/10 rounded-full blur-3xl -z-10"></div>
     <div class="absolute top-1/2 right-0 w-96 h-96 bg-gradient-to-br from-orange-400/10 to-orange-500/10 rounded-full blur-3xl -z-10"></div>

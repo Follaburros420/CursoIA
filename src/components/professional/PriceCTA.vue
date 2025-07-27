@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import WompiWidget from "@/components/WompiWidget.vue";
 import { 
   ShoppingCart, 
   Clock, 
@@ -30,6 +31,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   checkout: [];
+  paymentSuccess: [transactionId: string];
+  paymentError: [error: string];
 }>();
 
 // State
@@ -47,6 +50,21 @@ const formatCurrency = (amount: number) => {
 
 const handleCheckout = () => {
   emit('checkout');
+};
+
+// Wompi widget handlers
+const handlePaymentSuccess = (transactionId: string) => {
+  console.log('✅ Payment successful:', transactionId);
+  emit('paymentSuccess', transactionId);
+};
+
+const handlePaymentError = (error: string) => {
+  console.error('❌ Payment error:', error);
+  emit('paymentError', error);
+};
+
+const handlePaymentLoading = (loading: boolean) => {
+  console.log('⏳ Payment loading:', loading);
 };
 
 const handleScroll = () => {
@@ -143,16 +161,15 @@ const guarantees = [
 
             <!-- Main CTA -->
             <div class="space-y-4">
-              <Button
-                @click="handleCheckout"
+              <WompiWidget
+                :amount="amount"
+                :currency="currency"
                 :disabled="loading"
-                size="lg"
-                class="w-full py-6 text-xl font-bold bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02] group"
-              >
-                <ShoppingCart class="w-6 h-6 mr-3" />
-                {{ loading ? 'Procesando...' : buttonText }}
-                <ArrowRight class="w-6 h-6 ml-3 transition-transform group-hover:translate-x-1" />
-              </Button>
+                :button-text="loading ? 'Procesando...' : buttonText"
+                @success="handlePaymentSuccess"
+                @error="handlePaymentError"
+                @loading="handlePaymentLoading"
+              />
               
               <p class="text-center text-sm text-muted-foreground">
                 <CheckCircle class="w-4 h-4 inline mr-1 text-green-500" />
@@ -204,16 +221,17 @@ const guarantees = [
             </div>
 
             <!-- CTA Button -->
-            <Button
-              @click="handleCheckout"
-              :disabled="loading"
-              size="lg"
-              class="px-8 py-3 bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 transition-all duration-300 shadow-lg font-bold group"
-            >
-              <ShoppingCart class="w-5 h-5 mr-2" />
-              {{ loading ? 'Procesando...' : 'Comprar' }}
-              <ArrowRight class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <div class="min-w-[200px]">
+              <WompiWidget
+                :amount="amount"
+                :currency="currency"
+                :disabled="loading"
+                button-text="Comprar"
+                @success="handlePaymentSuccess"
+                @error="handlePaymentError"
+                @loading="handlePaymentLoading"
+              />
+            </div>
           </div>
         </div>
       </div>

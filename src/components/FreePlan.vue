@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import UnifiedNavbar from './UnifiedNavbar.vue';
+</script>
+
 <template>
-  <section class="py-12 bg-gray-50 dark:bg-black">
+  <div class="min-h-screen bg-background">
+    <UnifiedNavbar variant="default" :show-back-button="true" />
+    <section class="py-12 pt-28 bg-gray-50 dark:bg-black">
     <div class="max-w-4xl mx-auto p-6 bg-white dark:bg-black rounded-lg shadow-lg">
       <h1 class="text-5xl font-extrabold mb-8 text-center text-primary uppercase tracking-wide">
         Curso de IA para Abogados - Plan Gratuito
@@ -25,6 +31,7 @@
       </div>
     </div>
   </section>
+  </div>
 </template>
 
 <style scoped>
