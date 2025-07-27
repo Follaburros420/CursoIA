@@ -90,34 +90,27 @@ const initializeWidget = async () => {
     // Clear container
     widgetContainer.value.innerHTML = '';
 
-    // Create the widget HTML directly
-    const widgetHTML = `
-      <form id="${widgetId.value}">
-        <script
-          src="https://checkout.wompi.co/widget.js"
-          data-render="button"
-          data-public-key="${publicKey}"
-          data-currency="${props.currency}"
-          data-amount-in-cents="${props.amount}"
-          data-reference="${reference}"
-          data-signature:integrity="${signature}"
-          data-redirect-url="${redirectUrl}"
-        ></script>
-      </form>
-    `;
+    // Clear container and create form
+    widgetContainer.value.innerHTML = '';
 
-    // Insert the widget
-    widgetContainer.value.innerHTML = widgetHTML;
+    // Create form element
+    const form = document.createElement('form');
+    form.id = widgetId.value;
 
-    // Re-execute the script to initialize the widget
-    const scripts = widgetContainer.value.querySelectorAll('script');
-    scripts.forEach(script => {
-      const newScript = document.createElement('script');
-      Array.from(script.attributes).forEach(attr => {
-        newScript.setAttribute(attr.name, attr.value);
-      });
-      script.parentNode?.replaceChild(newScript, script);
-    });
+    // Create script element
+    const script = document.createElement('script');
+    script.src = 'https://checkout.wompi.co/widget.js';
+    script.setAttribute('data-render', 'button');
+    script.setAttribute('data-public-key', publicKey);
+    script.setAttribute('data-currency', props.currency);
+    script.setAttribute('data-amount-in-cents', props.amount.toString());
+    script.setAttribute('data-reference', reference);
+    script.setAttribute('data-signature:integrity', signature);
+    script.setAttribute('data-redirect-url', redirectUrl);
+
+    // Append script to form and form to container
+    form.appendChild(script);
+    widgetContainer.value.appendChild(form);
 
     console.log('✅ Wompi widget initialized successfully');
 
