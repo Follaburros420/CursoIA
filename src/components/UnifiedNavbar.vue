@@ -97,10 +97,8 @@ const closeSheet = () => {
 
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
@@ -112,17 +110,13 @@ import {
 } from "@/components/ui/sheet";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
-import { 
-  Menu, 
-  ArrowLeft, 
+import {
+  Menu,
+  ArrowLeft,
   ShoppingCart,
-  BookOpen,
-  HelpCircle,
   Award,
-  Clock,
   Crown,
   Zap
 } from "lucide-vue-next";

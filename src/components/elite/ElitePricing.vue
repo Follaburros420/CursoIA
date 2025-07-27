@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import WompiWidget from "@/components/WompiWidget.vue";
 import { 
   Crown,
@@ -10,7 +9,6 @@ import {
   Calendar,
   Shield,
   Zap,
-  ArrowRight,
   AlertTriangle,
   CheckCircle,
   Star
@@ -100,9 +98,7 @@ const emit = defineEmits<{
   paymentError: [error: string];
 }>();
 
-const handleReserveSpot = () => {
-  emit('reserveSpot');
-};
+// Removed unused function - now using WompiWidget directly
 
 // Wompi widget handlers
 const handlePaymentSuccess = (transactionId: string) => {

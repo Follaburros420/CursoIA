@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import WompiWidget from "@/components/WompiWidget.vue";
-import { 
-  ShoppingCart, 
-  Clock, 
-  Shield, 
+import {
+  Clock,
+  Shield,
   Zap,
-  ArrowRight,
   Star,
   CheckCircle
 } from "lucide-vue-next";
@@ -48,9 +45,7 @@ const formatCurrency = (amount: number) => {
   });
 };
 
-const handleCheckout = () => {
-  emit('checkout');
-};
+// Removed unused function - now using WompiWidget directly
 
 // Wompi widget handlers
 const handlePaymentSuccess = (transactionId: string) => {

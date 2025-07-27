@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
-import { useRouter } from 'vue-router';
 
 interface Props {
   amount: number; // Amount in cents
@@ -33,7 +32,6 @@ const emit = defineEmits<{
   loading: [loading: boolean];
 }>();
 
-const router = useRouter();
 const widgetContainer = ref<HTMLElement>();
 const isLoading = ref(false);
 
