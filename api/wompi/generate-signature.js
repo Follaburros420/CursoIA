@@ -17,19 +17,37 @@ module.exports = function handler(req, res) {
 
   try {
     const { reference, amount, currency, expirationTime } = req.body;
-    
+
+    console.log('🔧 Generate signature request:', {
+      reference,
+      amount,
+      currency,
+      hasExpirationTime: !!expirationTime
+    });
+
     // Validate required fields
     if (!reference || !amount || !currency) {
-      return res.status(400).json({ 
-        error: 'Missing required fields: reference, amount, currency' 
+      console.error('❌ Missing required fields:', { reference, amount, currency });
+      return res.status(400).json({
+        error: 'Missing required fields: reference, amount, currency',
+        received: { reference: !!reference, amount: !!amount, currency: !!currency }
+      });
+    }
+
+    // Validate amount is a positive number
+    if (typeof amount !== 'number' || amount <= 0) {
+      console.error('❌ Invalid amount:', amount);
+      return res.status(400).json({
+        error: 'Amount must be a positive number',
+        received: { amount, type: typeof amount }
       });
     }
 
     const integritySecret = process.env.WEBHOOK_INTEGRITY_SECRET;
 
     if (!integritySecret) {
-      console.error('Missing WEBHOOK_INTEGRITY_SECRET environment variable');
-      return res.status(500).json({ error: 'Server configuration error' });
+      console.error('❌ Missing WEBHOOK_INTEGRITY_SECRET environment variable');
+      return res.status(500).json({ error: 'Server configuration error: Missing integrity secret' });
     }
 
     // Build integrity payload according to Wompi documentation
@@ -45,16 +63,21 @@ module.exports = function handler(req, res) {
     // Generate SHA256 hash
     const signature = crypto.createHash('sha256').update(integrityPayload).digest('hex');
 
-    console.log('✅ Signature generated for reference:', reference);
-    console.log('   Amount:', amount, 'Currency:', currency);
-    console.log('   Signature:', signature.substring(0, 10) + '...');
+    console.log('✅ Signature generated successfully:', {
+      reference,
+      amount,
+      currency,
+      signaturePreview: signature.substring(0, 10) + '...',
+      payloadLength: integrityPayload.length
+    });
 
-    return res.json({ 
+    return res.json({
       signature,
       reference,
       amount,
       currency,
-      expirationTime: expirationTime || null
+      expirationTime: expirationTime || null,
+      success: true
     });
   } catch (error) {
     console.error('❌ Error generating signature:', error);
