@@ -1,19 +1,11 @@
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue';
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
 interface Props {
   amount: number; // Amount in cents
   currency?: string;
   reference?: string;
   redirectUrl?: string;
-  customerData?: {
-    email?: string;
-    fullName?: string;
-    phoneNumber?: string;
-    phoneNumberPrefix?: string;
-    legalId?: string;
-    legalIdType?: string;
-  };
   buttonText?: string;
   disabled?: boolean;
 }
@@ -34,6 +26,7 @@ const emit = defineEmits<{
 
 const widgetContainer = ref<HTMLElement>();
 const isLoading = ref(false);
+const widgetId = ref(`wompi-widget-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`);
 
 // Generate unique reference if not provided
 const generateReference = () => {
@@ -43,8 +36,6 @@ const generateReference = () => {
 // Generate integrity signature
 const generateIntegritySignature = async (reference: string, amount: number, currency: string) => {
   try {
-    // This should be done on the server side for security
-    // For now, we'll use a placeholder or call our API
     const response = await fetch('/api/wompi/generate-signature', {
       method: 'POST',
       headers: {
@@ -64,14 +55,8 @@ const generateIntegritySignature = async (reference: string, amount: number, cur
     const data = await response.json();
     return data.signature;
   } catch (error) {
-    console.error('Error generating signature:', error);
-    // Fallback: generate a basic signature (NOT SECURE - only for development)
-    const payload = `${reference}${amount}${currency}test_integrity_secret`;
-    const encoder = new TextEncoder();
-    const data = encoder.encode(payload);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    console.error('❌ Error generating signature:', error);
+    throw error;
   }
 };
 
@@ -85,65 +70,56 @@ const initializeWidget = async () => {
   try {
     const reference = generateReference();
     const redirectUrl = props.redirectUrl || `${window.location.origin}/pagos/wompi/redirect`;
-    
+    const publicKey = import.meta.env.VITE_WOMPI_PUBLIC_KEY;
+
+    if (!publicKey) {
+      throw new Error('Wompi public key not configured');
+    }
+
+    console.log('🔧 Initializing Wompi widget with:', {
+      reference,
+      amount: props.amount,
+      currency: props.currency,
+      publicKey: publicKey.substring(0, 20) + '...',
+      redirectUrl
+    });
+
     // Generate integrity signature
     const signature = await generateIntegritySignature(reference, props.amount, props.currency);
 
     // Clear container
     widgetContainer.value.innerHTML = '';
 
-    // Create form element
-    const form = document.createElement('form');
-    
-    // Create script element with Wompi widget
-    const script = document.createElement('script');
-    script.src = 'https://checkout.wompi.co/widget.js';
-    script.setAttribute('data-render', 'button');
-    script.setAttribute('data-public-key', import.meta.env.VITE_WOMPI_PUBLIC_KEY || 'pub_test_X0zDA9xoKdePzhd8a0x9HAez7HgGO2fH');
-    script.setAttribute('data-currency', props.currency);
-    script.setAttribute('data-amount-in-cents', props.amount.toString());
-    script.setAttribute('data-reference', reference);
-    script.setAttribute('data-signature:integrity', signature);
-    script.setAttribute('data-redirect-url', redirectUrl);
+    // Create the widget HTML directly
+    const widgetHTML = `
+      <form id="${widgetId.value}">
+        <script
+          src="https://checkout.wompi.co/widget.js"
+          data-render="button"
+          data-public-key="${publicKey}"
+          data-currency="${props.currency}"
+          data-amount-in-cents="${props.amount}"
+          data-reference="${reference}"
+          data-signature:integrity="${signature}"
+          data-redirect-url="${redirectUrl}"
+        ></script>
+      </form>
+    `;
 
-    // Add customer data if provided
-    if (props.customerData) {
-      if (props.customerData.email) {
-        script.setAttribute('data-customer-data:email', props.customerData.email);
-      }
-      if (props.customerData.fullName) {
-        script.setAttribute('data-customer-data:full-name', props.customerData.fullName);
-      }
-      if (props.customerData.phoneNumber) {
-        script.setAttribute('data-customer-data:phone-number', props.customerData.phoneNumber);
-      }
-      if (props.customerData.phoneNumberPrefix) {
-        script.setAttribute('data-customer-data:phone-number-prefix', props.customerData.phoneNumberPrefix);
-      }
-      if (props.customerData.legalId) {
-        script.setAttribute('data-customer-data:legal-id', props.customerData.legalId);
-      }
-      if (props.customerData.legalIdType) {
-        script.setAttribute('data-customer-data:legal-id-type', props.customerData.legalIdType);
-      }
-    }
+    // Insert the widget
+    widgetContainer.value.innerHTML = widgetHTML;
 
-    // Add script to form
-    form.appendChild(script);
-    
-    // Add form to container
-    widgetContainer.value.appendChild(form);
-
-    // Listen for widget events
-    window.addEventListener('message', handleWidgetMessage);
-
-    console.log('✅ Wompi widget initialized:', {
-      reference,
-      amount: props.amount,
-      currency: props.currency,
-      redirectUrl,
-      signature: signature.substring(0, 10) + '...'
+    // Re-execute the script to initialize the widget
+    const scripts = widgetContainer.value.querySelectorAll('script');
+    scripts.forEach(script => {
+      const newScript = document.createElement('script');
+      Array.from(script.attributes).forEach(attr => {
+        newScript.setAttribute(attr.name, attr.value);
+      });
+      script.parentNode?.replaceChild(newScript, script);
     });
+
+    console.log('✅ Wompi widget initialized successfully');
 
   } catch (error) {
     console.error('❌ Error initializing Wompi widget:', error);
@@ -162,32 +138,38 @@ const handleWidgetMessage = (event: MessageEvent) => {
 
   switch (event.data.type) {
     case 'TRANSACTION_SUCCESS':
+      console.log('✅ Transaction successful:', event.data.transactionId);
       emit('success', event.data.transactionId);
       break;
     case 'TRANSACTION_ERROR':
+      console.log('❌ Transaction error:', event.data.error);
       emit('error', event.data.error || 'Transaction failed');
       break;
     case 'WIDGET_CLOSED':
       console.log('🔒 Widget closed by user');
       break;
+    default:
+      console.log('📨 Other widget event:', event.data);
   }
 };
 
-// Cleanup
-const cleanup = () => {
-  window.removeEventListener('message', handleWidgetMessage);
-};
-
 onMounted(() => {
+  // Add event listener for widget messages
+  window.addEventListener('message', handleWidgetMessage);
+
   nextTick(() => {
     initializeWidget();
   });
 });
 
+// Cleanup on unmount
+onUnmounted(() => {
+  window.removeEventListener('message', handleWidgetMessage);
+});
+
 // Expose methods
 defineExpose({
-  reinitialize: initializeWidget,
-  cleanup
+  reinitialize: initializeWidget
 });
 </script>
 

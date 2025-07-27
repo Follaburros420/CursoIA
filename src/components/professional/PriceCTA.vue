@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
-import WompiWidget from "@/components/WompiWidget.vue";
+import WompiButton from "@/components/WompiButton.vue";
 import {
   Clock,
   Shield,
@@ -156,14 +156,9 @@ const guarantees = [
 
             <!-- Main CTA -->
             <div class="space-y-4">
-              <WompiWidget
+              <WompiButton
                 :amount="amount"
                 :currency="currency"
-                :disabled="loading"
-                :button-text="loading ? 'Procesando...' : buttonText"
-                @success="handlePaymentSuccess"
-                @error="handlePaymentError"
-                @loading="handlePaymentLoading"
               />
               
               <p class="text-center text-sm text-muted-foreground">
@@ -217,14 +212,9 @@ const guarantees = [
 
             <!-- CTA Button -->
             <div class="min-w-[200px]">
-              <WompiWidget
+              <WompiButton
                 :amount="amount"
                 :currency="currency"
-                :disabled="loading"
-                button-text="Comprar"
-                @success="handlePaymentSuccess"
-                @error="handlePaymentError"
-                @loading="handlePaymentLoading"
               />
             </div>
           </div>

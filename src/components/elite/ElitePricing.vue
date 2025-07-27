@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
-import WompiWidget from "@/components/WompiWidget.vue";
+import WompiButton from "@/components/WompiButton.vue";
 import { 
   Crown,
   Clock,
@@ -245,12 +245,9 @@ const handlePaymentError = (error: string) => {
 
             <!-- Main CTA -->
             <div class="space-y-4 mb-8">
-              <WompiWidget
+              <WompiButton
                 :amount="120000000"
                 currency="USD"
-                button-text="¡Reservar Plaza Elite!"
-                @success="handlePaymentSuccess"
-                @error="handlePaymentError"
               />
               
               <p class="text-center text-sm text-muted-foreground">
