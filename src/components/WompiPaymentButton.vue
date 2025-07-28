@@ -128,26 +128,36 @@ const createWompiWidget = async () => {
     script.setAttribute('data-signature:integrity', signature.value);
     script.setAttribute('data-redirect-url', redirectUrlValue);
 
+    // Add event listeners for widget loading
+    script.onload = () => {
+      console.log('✅ Wompi widget script loaded');
+      setTimeout(() => {
+        widgetReady.value = true;
+      }, 500);
+    };
+
+    script.onerror = () => {
+      console.error('❌ Error loading Wompi widget script');
+      widgetReady.value = false;
+    };
+
     // Append script to form and form to container
     form.appendChild(script);
     widgetContainer.value.appendChild(form);
-
-    // Wait a bit for the widget to load
-    await nextTick();
-    setTimeout(() => {
-      widgetReady.value = true;
-    }, 1000);
 
     console.log('✅ Wompi widget created successfully:', {
       reference: reference.value,
       amount: props.amount,
       currency: props.currency,
-      signature: signature.value.substring(0, 10) + '...'
+      signature: signature.value.substring(0, 10) + '...',
+      publicKey: publicKeyValue.substring(0, 20) + '...',
+      redirectUrl: redirectUrlValue
     });
 
   } catch (err) {
     console.error('❌ Error creating Wompi widget:', err);
     error.value = 'Error al crear el widget de pago';
+    widgetReady.value = false;
   }
 };
 
@@ -170,9 +180,8 @@ const retrySetup = () => {
 };
 
 onMounted(() => {
-  if (props.useWidget) {
-    setupPayment();
-  }
+  // Always setup payment, but widget creation depends on useWidget prop
+  setupPayment();
 });
 </script>
 
@@ -210,19 +219,35 @@ onMounted(() => {
         <!-- Wompi widget will be inserted here -->
       </div>
 
+      <!-- Loading indicator for widget -->
+      <div v-if="!widgetReady && !isLoading && !error" class="mt-4 text-center">
+        <div class="animate-pulse">
+          <div class="h-12 bg-gradient-to-r from-blue-200 to-purple-200 rounded-lg mb-2"></div>
+          <div class="text-sm text-gray-500">Cargando widget de pago...</div>
+        </div>
+      </div>
+
       <!-- Fallback button if widget doesn't load -->
-      <div v-if="!widgetReady && !isLoading" class="mt-4">
-        <div class="text-center text-sm text-gray-600 mb-2">
-          ¿El widget no se carga? Usa el checkout directo:
+      <div v-if="!widgetReady && !isLoading && !error" class="mt-6">
+        <div class="text-center text-sm text-gray-600 mb-3">
+          <span class="inline-flex items-center">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            ¿El widget no se carga? Usa el checkout directo:
+          </span>
         </div>
         <button
           @click="openCheckout"
-          class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center"
+          class="premium-payment-button w-full group"
         >
-          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-          </svg>
-          Abrir Checkout
+          <div class="flex items-center justify-center">
+            <svg class="w-5 h-5 mr-2 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+            </svg>
+            <span class="font-semibold">Abrir Checkout Seguro</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
         </button>
       </div>
     </div>
@@ -231,12 +256,18 @@ onMounted(() => {
     <div v-else>
       <button
         @click="openCheckout"
-        class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center"
+        class="premium-payment-button w-full group"
       >
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
-        </svg>
-        {{ buttonText }}
+        <div class="flex items-center justify-center">
+          <svg class="w-5 h-5 mr-3 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+          </svg>
+          <span class="font-semibold">{{ buttonText }}</span>
+          <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
       </button>
     </div>
   </div>
@@ -256,34 +287,121 @@ onMounted(() => {
   min-height: 50px;
 }
 
+/* Premium Payment Button Styles */
+.premium-payment-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 16px 24px;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow:
+    0 8px 25px rgba(102, 126, 234, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transform: translateY(0);
+}
+
+.premium-payment-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.premium-payment-button:hover::before {
+  left: 100%;
+}
+
+.premium-payment-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 15px 35px rgba(102, 126, 234, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.premium-payment-button:active {
+  transform: translateY(-1px) scale(1.01);
+  transition: all 0.1s ease;
+}
+
 /* Style the Wompi widget button when it loads */
 :deep(.wompi-button) {
   width: 100% !important;
-  border-radius: 8px !important;
+  border-radius: 12px !important;
   font-weight: 600 !important;
-  padding: 12px 24px !important;
+  padding: 16px 24px !important;
   font-size: 16px !important;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%) !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
   border: none !important;
   color: white !important;
   cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  box-shadow:
+    0 8px 25px rgba(102, 126, 234, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+:deep(.wompi-button::before) {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+  transition: left 0.6s !important;
+}
+
+:deep(.wompi-button:hover::before) {
+  left: 100% !important;
 }
 
 :deep(.wompi-button:hover) {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 8px 15px rgba(59, 130, 246, 0.4) !important;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow:
+    0 15px 35px rgba(102, 126, 234, 0.4),
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
 }
 
 :deep(.wompi-button:active) {
-  transform: translateY(0) !important;
+  transform: translateY(-1px) scale(1.01) !important;
+  transition: all 0.1s ease !important;
 }
 
 /* Style the Wompi form container */
 :deep(form) {
   width: 100% !important;
   margin: 0 !important;
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-pulse {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
 }
 </style>

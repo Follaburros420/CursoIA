@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
-import WompiPaymentButton from "@/components/WompiPaymentButton.vue";
+import WompiButtonSimple from "@/components/WompiButtonSimple.vue";
 import {
   CheckCircle,
   Video,
@@ -273,11 +273,10 @@ const programStructure = [
                       </p>
                     </div>
                     
-                    <WompiPaymentButton
+                    <WompiButtonSimple
                       :amount="120000000"
                       currency="USD"
-                      button-text="Reservar mi plaza"
-                      :use-widget="true"
+                      button-text="🎯 Reservar mi plaza"
                     />
                     
                     <div class="flex items-center justify-center gap-2 text-sm text-muted-foreground">
