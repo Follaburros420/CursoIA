@@ -77,11 +77,7 @@ const programStructure = [
   }
 ];
 
-const emit = defineEmits<{
-  getStarted: []
-}>();
-
-// Removed unused function - now using WompiPaymentButton directly
+// Removed unused emit and function - now using WompiPaymentButton directly
 </script>
 
 <template>
