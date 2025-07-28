@@ -18,10 +18,7 @@ const props = withDefaults(defineProps<Props>(), {
   buttonClass: 'w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-lg transition-colors'
 });
 
-const emit = defineEmits<{
-  success: [transactionId: string];
-  error: [error: string];
-}>();
+// Removed unused emit - widget handles everything internally
 
 const isLoading = ref(true);
 const signature = ref('');

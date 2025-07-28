@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import WompiPaymentButton from "@/components/WompiPaymentButton.vue";
 import {
   CheckCircle,
@@ -10,9 +9,7 @@ import {
   BookOpen,
   Target,
   Lightbulb,
-  ArrowRight,
   Crown,
-  Calendar,
   Clock
 } from "lucide-vue-next";
 
@@ -84,9 +81,7 @@ const emit = defineEmits<{
   getStarted: []
 }>();
 
-const handleGetStarted = () => {
-  emit('getStarted');
-};
+// Removed unused function - now using WompiPaymentButton directly
 </script>
 
 <template>
