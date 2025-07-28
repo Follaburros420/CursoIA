@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
-import WompiButton from "@/components/WompiButton.vue";
-import EnvTest from "@/components/EnvTest.vue";
-import WompiTest from "@/components/WompiTest.vue";
+import WompiPaymentButton from "@/components/WompiPaymentButton.vue";
 import {
   Clock,
   Shield,
@@ -137,17 +135,12 @@ const guarantees = [
               </div>
             </div>
 
-            <!-- Environment Test (temporary) -->
-            <EnvTest />
-
-            <!-- Wompi Test (temporary) -->
-            <WompiTest />
-
             <!-- Main CTA -->
             <div class="space-y-4">
-              <WompiButton
+              <WompiPaymentButton
                 :amount="amount"
                 :currency="currency"
+                button-text="Comprar Plan Profesional"
               />
               
               <p class="text-center text-sm text-muted-foreground">
@@ -201,9 +194,10 @@ const guarantees = [
 
             <!-- CTA Button -->
             <div class="min-w-[200px]">
-              <WompiButton
+              <WompiPaymentButton
                 :amount="amount"
                 :currency="currency"
+                button-text="Comprar"
               />
             </div>
           </div>

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  CheckCircle, 
-  Video, 
+import WompiPaymentButton from "@/components/WompiPaymentButton.vue";
+import {
+  CheckCircle,
+  Video,
   Play,
   Users,
   BookOpen,
@@ -281,15 +282,11 @@ const handleGetStarted = () => {
                       </p>
                     </div>
                     
-                    <Button 
-                      @click="handleGetStarted"
-                      size="lg"
-                      class="bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90 shadow-lg group"
-                    >
-                      <Calendar class="w-5 h-5 mr-2" />
-                      Reservar mi plaza
-                      <ArrowRight class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
-                    </Button>
+                    <WompiPaymentButton
+                      :amount="120000000"
+                      currency="USD"
+                      button-text="Reservar mi plaza"
+                    />
                     
                     <div class="flex items-center justify-center gap-2 text-sm text-muted-foreground">
                       <Clock class="w-4 h-4" />

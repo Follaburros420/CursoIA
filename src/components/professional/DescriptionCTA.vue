@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Target, TrendingUp } from "lucide-vue-next";
+import WompiPaymentButton from "@/components/WompiPaymentButton.vue";
 
 interface Props {
   title?: string;
@@ -64,15 +65,12 @@ const benefits = [
           </p>
 
           <!-- Primary CTA -->
-          <div class="flex justify-center mt-8">
-            <Button 
-              @click="handleButtonClick"
-              size="lg" 
-              class="group px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              {{ buttonText }}
-              <ArrowRight class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+          <div class="flex justify-center mt-8 max-w-md mx-auto">
+            <WompiPaymentButton
+              :amount="5000000"
+              currency="COP"
+              :button-text="buttonText"
+            />
           </div>
         </div>
 

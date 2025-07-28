@@ -1,18 +1,27 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted } from 'vue';
 
 interface Props {
   amount: number; // Amount in cents
   currency?: string;
   reference?: string;
   redirectUrl?: string;
+  buttonText?: string;
+  buttonClass?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   currency: 'COP',
   reference: '',
-  redirectUrl: ''
+  redirectUrl: '',
+  buttonText: 'Pagar con Wompi',
+  buttonClass: 'w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-3 px-6 rounded-lg transition-colors'
 });
+
+const emit = defineEmits<{
+  success: [transactionId: string];
+  error: [error: string];
+}>();
 
 const isLoading = ref(true);
 const signature = ref('');
@@ -28,30 +37,19 @@ const generateReference = () => {
 // Generate signature and setup widget
 const setupWidget = async () => {
   try {
-    // Verificar que tenemos todos los datos necesarios
+    // Verify required data
     if (!props.amount || props.amount <= 0) {
       throw new Error('Monto inválido');
     }
-
-    if (!props.currency) {
-      throw new Error('Moneda no especificada');
-    }
-
-    // Verificar clave pública
+    
     const publicKeyValue = import.meta.env.VITE_WOMPI_PUBLIC_KEY;
     if (!publicKeyValue) {
       throw new Error('Clave pública de Wompi no configurada');
     }
-
+    
     reference.value = generateReference();
-
-    console.log('🔧 Setting up Wompi widget:', {
-      reference: reference.value,
-      amount: props.amount,
-      currency: props.currency,
-      publicKey: publicKeyValue.substring(0, 20) + '...'
-    });
-
+    
+    // Generate signature
     const response = await fetch('/api/wompi/generate-signature', {
       method: 'POST',
       headers: {
@@ -65,27 +63,20 @@ const setupWidget = async () => {
     });
 
     if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Error del servidor: ${response.status} - ${errorText}`);
+      throw new Error(`Error del servidor: ${response.status}`);
     }
 
     const data = await response.json();
-
+    
     if (!data.signature) {
-      throw new Error('No se recibió la firma de integridad del servidor');
+      throw new Error('No se recibió la firma de integridad');
     }
-
+    
     signature.value = data.signature;
-
-    console.log('✅ Wompi widget ready:', {
-      reference: reference.value,
-      signature: signature.value.substring(0, 10) + '...',
-      publicKey: publicKeyValue.substring(0, 20) + '...'
-    });
-
-    // Create the widget with JavaScript
+    
+    // Create the widget
     await createWompiWidget();
-
+    
   } catch (err) {
     console.error('❌ Error setting up Wompi widget:', err);
     error.value = err instanceof Error ? err.message : 'Error al configurar el pago';
@@ -97,17 +88,17 @@ const setupWidget = async () => {
 // Create Wompi widget with JavaScript
 const createWompiWidget = async () => {
   if (!widgetContainer.value) return;
-
+  
   try {
     const publicKeyValue = import.meta.env.VITE_WOMPI_PUBLIC_KEY;
     const redirectUrlValue = props.redirectUrl || `${window.location.origin}/pagos/wompi/redirect`;
-
+    
     // Clear container
     widgetContainer.value.innerHTML = '';
-
+    
     // Create form
     const form = document.createElement('form');
-
+    
     // Create script element
     const script = document.createElement('script');
     script.src = 'https://checkout.wompi.co/widget.js';
@@ -118,19 +109,17 @@ const createWompiWidget = async () => {
     script.setAttribute('data-reference', reference.value);
     script.setAttribute('data-signature:integrity', signature.value);
     script.setAttribute('data-redirect-url', redirectUrlValue);
-
+    
     // Append to form and container
     form.appendChild(script);
     widgetContainer.value.appendChild(form);
-
-    console.log('✅ Wompi widget created with signature:', {
+    
+    console.log('✅ Wompi widget created successfully:', {
       reference: reference.value,
-      signature: signature.value.substring(0, 10) + '...',
-      publicKey: publicKeyValue.substring(0, 20) + '...',
       amount: props.amount,
       currency: props.currency
     });
-
+    
   } catch (err) {
     console.error('❌ Error creating Wompi widget:', err);
     error.value = 'Error al crear el widget de pago';
@@ -147,47 +136,39 @@ const retrySetup = () => {
 onMounted(() => {
   setupWidget();
 });
-
-// Computed values
-const publicKey = computed(() => import.meta.env.VITE_WOMPI_PUBLIC_KEY);
-const redirectUrl = computed(() => props.redirectUrl || `${window.location.origin}/pagos/wompi/redirect`);
-const isReady = computed(() => !isLoading.value && signature.value && reference.value && publicKey.value && redirectUrl.value);
 </script>
 
 <template>
-  <div class="wompi-button-container">
+  <div class="wompi-payment-button">
     <!-- Loading state -->
-    <div v-if="isLoading" class="flex items-center justify-center p-4 border border-gray-300 rounded-lg">
+    <div v-if="isLoading" class="flex items-center justify-center p-4">
       <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-primary mr-2"></div>
       <span class="text-sm text-gray-600">Preparando pago...</span>
     </div>
     
     <!-- Error state -->
-    <div v-else-if="error" class="p-4 border border-red-300 rounded-lg bg-red-50 text-red-700">
-      <div class="text-center font-medium mb-2">Error al cargar el pago</div>
-      <div class="text-sm text-center">{{ error }}</div>
-      <button
-        @click="retrySetup"
-        class="mt-3 w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded text-sm transition-colors"
+    <div v-else-if="error" class="text-center">
+      <div class="p-3 border border-red-300 rounded-lg bg-red-50 text-red-700 mb-3">
+        <div class="font-medium mb-1">Error al cargar el pago</div>
+        <div class="text-sm">{{ error }}</div>
+      </div>
+      <button 
+        @click="retrySetup" 
+        class="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded text-sm transition-colors"
       >
         Reintentar
       </button>
     </div>
     
     <!-- Wompi Widget -->
-    <div v-else-if="isReady" class="wompi-widget" ref="widgetContainer">
+    <div v-else class="wompi-widget" ref="widgetContainer">
       <!-- Widget will be inserted here by JavaScript -->
-    </div>
-    
-    <!-- Fallback -->
-    <div v-else class="p-4 border border-gray-300 rounded-lg bg-gray-50 text-gray-600 text-center">
-      No se pudo cargar el botón de pago
     </div>
   </div>
 </template>
 
 <style scoped>
-.wompi-button-container {
+.wompi-payment-button {
   width: 100%;
   min-height: 50px;
 }
