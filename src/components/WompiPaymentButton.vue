@@ -47,7 +47,7 @@ const setupWidget = async () => {
     reference.value = generateReference();
     
     // Generate signature
-    const response = await fetch('/api/wompi/generate-signature', {
+    const response = await fetch('/api/wompi/generate-signature.cjs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
