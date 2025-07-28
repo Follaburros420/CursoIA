@@ -1,4 +1,4 @@
-module.exports = function handler(req, res) {
+export default function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -68,4 +68,4 @@ module.exports = function handler(req, res) {
     console.error('Error validating coupon:', error);
     return res.status(500).json({ error: 'Error validating coupon' });
   }
-};
+}

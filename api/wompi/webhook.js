@@ -1,6 +1,6 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
-module.exports = function handler(req, res) {
+export default function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
@@ -64,4 +64,4 @@ module.exports = function handler(req, res) {
     console.error('Error processing webhook:', error);
     return res.status(500).json({ error: 'Error processing webhook' });
   }
-};
+}

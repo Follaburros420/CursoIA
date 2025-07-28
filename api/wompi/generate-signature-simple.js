@@ -1,6 +1,6 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
-module.exports = function handler(req, res) {
+export default function handler(req, res) {
   console.log('🔧 Simple signature generator called');
   
   // CORS headers
@@ -71,4 +71,4 @@ module.exports = function handler(req, res) {
       message: error.message
     });
   }
-};
+}
