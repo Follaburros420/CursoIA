@@ -246,14 +246,14 @@ onUnmounted(() => {
               <button
                 v-if="option.id === 'chatbot'"
                 @click="() => { console.log('🔘 Chatbot button clicked!'); openChat(); }"
-                class="w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 p-1"
+                class="w-12 h-12 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 p-1 relative overflow-hidden"
                 :aria-label="option.label"
               >
-                <div class="w-full h-full rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
+                <div class="w-full h-full rounded-full overflow-hidden bg-white/10 backdrop-blur-sm pointer-events-none">
                   <img
                     src="/bot.png"
                     alt="Chat Bot"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-cover pointer-events-none"
                   />
                 </div>
               </button>

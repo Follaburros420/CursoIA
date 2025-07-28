@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import Navbar from "./components/Navbar.vue";
+import UnifiedNavbar from "./components/UnifiedNavbar.vue";
 import { RouterView } from 'vue-router';
 import FloatingContactHub from "./components/FloatingContactHub.vue";
 import Footer from "./components/Footer.vue";
 
 const route = useRoute();
 
-// Rutas que tienen su propia navbar personalizada
+// Rutas que tienen su propia navbar personalizada con variantes específicas
 const routesWithCustomNavbar = ['/plan-profesional', '/elite'];
 
 const showDefaultNavbar = computed(() => {
@@ -21,7 +21,7 @@ const showDefaultFooter = computed(() => {
 </script>
 
 <template>
-  <Navbar v-if="showDefaultNavbar" />
+  <UnifiedNavbar v-if="showDefaultNavbar" />
   <RouterView />
   <FloatingContactHub />
   <Footer v-if="showDefaultFooter" />
