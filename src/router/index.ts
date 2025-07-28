@@ -4,7 +4,7 @@ import ProfessionalPlan from '../components/ProfessionalPlan.vue';
 import ElitePlan from '../components/ElitePlan.vue';
 import EbookForm from '../components/EbookForm.vue';
 import PrivacyPolicy from '../components/PrivacyPolicy.vue';
-import WompiRedirect from '../views/WompiRedirect.vue';
+import WompiRedirect from '../pages/pagos/wompi/redirect.vue';
 
 import Home from '../components/Home.vue';
 
