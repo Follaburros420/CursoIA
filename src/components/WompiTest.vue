@@ -7,16 +7,16 @@ const isLoading = ref(false);
 const testWompiAPI = async () => {
   isLoading.value = true;
   testResult.value = 'Testing...';
-  
+
   try {
     const testData = {
       reference: 'TEST_' + Date.now(),
       amount: 5000000,
       currency: 'COP'
     };
-    
+
     console.log('🧪 Testing Wompi API with:', testData);
-    
+
     const response = await fetch('/api/wompi/generate-signature', {
       method: 'POST',
       headers: {
@@ -24,9 +24,9 @@ const testWompiAPI = async () => {
       },
       body: JSON.stringify(testData)
     });
-    
+
     const result = await response.json();
-    
+
     if (response.ok) {
       testResult.value = `✅ SUCCESS!\n${JSON.stringify(result, null, 2)}`;
       console.log('✅ API Test successful:', result);
@@ -37,6 +37,44 @@ const testWompiAPI = async () => {
   } catch (error) {
     testResult.value = `❌ NETWORK ERROR!\n${error instanceof Error ? error.message : 'Unknown error'}`;
     console.error('❌ Network error:', error);
+  } finally {
+    isLoading.value = false;
+  }
+};
+
+const testSimpleAPI = async () => {
+  isLoading.value = true;
+  testResult.value = 'Testing simple API...';
+
+  try {
+    const testData = {
+      reference: 'SIMPLE_TEST_' + Date.now(),
+      amount: 5000000,
+      currency: 'COP'
+    };
+
+    console.log('🧪 Testing Simple Wompi API with:', testData);
+
+    const response = await fetch('/api/wompi/generate-signature-simple', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(testData)
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      testResult.value = `✅ SIMPLE API SUCCESS!\n${JSON.stringify(result, null, 2)}`;
+      console.log('✅ Simple API Test successful:', result);
+    } else {
+      testResult.value = `❌ SIMPLE API ERROR!\nStatus: ${response.status}\n${JSON.stringify(result, null, 2)}`;
+      console.error('❌ Simple API Test failed:', result);
+    }
+  } catch (error) {
+    testResult.value = `❌ SIMPLE API NETWORK ERROR!\n${error instanceof Error ? error.message : 'Unknown error'}`;
+    console.error('❌ Simple API Network error:', error);
   } finally {
     isLoading.value = false;
   }
@@ -117,12 +155,20 @@ const testWompiWidget = () => {
         🔍 Test Environment
       </button>
       
-      <button 
+      <button
         @click="testWompiAPI"
         :disabled="isLoading"
         class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded text-sm disabled:opacity-50"
       >
         🔧 Test API
+      </button>
+
+      <button
+        @click="testSimpleAPI"
+        :disabled="isLoading"
+        class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded text-sm disabled:opacity-50"
+      >
+        🔧 Test Simple API
       </button>
       
       <button 
