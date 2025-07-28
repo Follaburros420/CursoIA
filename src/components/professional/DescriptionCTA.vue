@@ -70,6 +70,7 @@ const benefits = [
               :amount="5000000"
               currency="COP"
               :button-text="buttonText"
+              :use-widget="true"
             />
           </div>
         </div>

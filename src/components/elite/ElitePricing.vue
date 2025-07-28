@@ -232,6 +232,7 @@ const urgencyIndicators = [
                 :amount="120000000"
                 currency="USD"
                 button-text="¡Reservar Plaza Elite!"
+                :use-widget="true"
               />
               
               <p class="text-center text-sm text-muted-foreground">

@@ -277,6 +277,7 @@ const programStructure = [
                       :amount="120000000"
                       currency="USD"
                       button-text="Reservar mi plaza"
+                      :use-widget="true"
                     />
                     
                     <div class="flex items-center justify-center gap-2 text-sm text-muted-foreground">

@@ -141,6 +141,7 @@ const guarantees = [
                 :amount="amount"
                 :currency="currency"
                 button-text="Comprar Plan Profesional"
+                :use-widget="true"
               />
               
               <p class="text-center text-sm text-muted-foreground">
@@ -198,6 +199,7 @@ const guarantees = [
                 :amount="amount"
                 :currency="currency"
                 button-text="Comprar"
+                :use-widget="true"
               />
             </div>
           </div>
