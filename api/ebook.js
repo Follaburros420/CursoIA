@@ -1,56 +1,41 @@
-module.exports = async function handler(req, res) {
+module.exports = function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
+    return res.status(200).end();
   }
 
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  console.log('📧 Ebook webhook called');
+
   try {
     const payload = req.body;
-    
-    // Validate payload
-    if (!payload || typeof payload !== 'object') {
-      return res.status(400).json({ error: 'Invalid payload' });
+
+    if (!payload) {
+      console.error('❌ No payload received');
+      return res.status(400).json({ error: 'No payload' });
     }
 
-    // Forward to CoinEstate webhook
-    const response = await fetch(
-      'https://webhook.coinestate.com.co/webhook/96e0fead-eaa4-466d-8f0f-6de162fe8c48',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      }
-    );
+    console.log('📥 Payload received:', payload);
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('CoinEstate webhook error:', response.status, errorText);
-      throw new Error(`CoinEstate webhook failed: ${response.status}`);
-    }
-
-    const result = await response.json();
-    console.log('Ebook submission forwarded successfully:', result);
-
-    return res.json({ 
-      success: true, 
-      message: 'Ebook submission processed successfully' 
+    // Simple response for now - webhook forwarding can be added later
+    return res.status(200).json({
+      success: true,
+      message: 'Ebook request received',
+      timestamp: new Date().toISOString()
     });
+
   } catch (error) {
-    console.error('Error forwarding ebook submission:', error);
-    return res.status(500).json({ 
-      error: 'Error processing ebook submission',
-      details: error.message 
+    console.error('❌ Ebook webhook error:', error.message);
+    return res.status(500).json({
+      error: 'Server error',
+      message: error.message
     });
   }
 };
