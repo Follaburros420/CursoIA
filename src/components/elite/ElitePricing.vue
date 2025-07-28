@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
-import WompiButtonSimple from "@/components/WompiButtonSimple.vue";
+import WompiEmbeddedWidget from "@/components/WompiEmbeddedWidget.vue";
 import { 
   Crown,
   Clock,
@@ -228,7 +228,7 @@ const urgencyIndicators = [
 
             <!-- Main CTA -->
             <div class="space-y-4 mb-8">
-              <WompiButtonSimple
+              <WompiEmbeddedWidget
                 :amount="120000000"
                 currency="USD"
                 button-text="👑 ¡Reservar Plaza Elite!"

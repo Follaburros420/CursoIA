@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Target, TrendingUp } from "lucide-vue-next";
-import WompiButtonSimple from "@/components/WompiButtonSimple.vue";
+import WompiEmbeddedWidget from "@/components/WompiEmbeddedWidget.vue";
 
 interface Props {
   title?: string;
@@ -66,7 +66,7 @@ const benefits = [
 
           <!-- Primary CTA -->
           <div class="flex justify-center mt-8 max-w-md mx-auto">
-            <WompiButtonSimple
+            <WompiEmbeddedWidget
               :amount="5000000"
               currency="COP"
               :button-text="`⚡ ${buttonText}`"
