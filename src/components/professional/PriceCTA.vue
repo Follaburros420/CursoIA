@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import WompiButton from "@/components/WompiButton.vue";
 import EnvTest from "@/components/EnvTest.vue";
 import WompiTest from "@/components/WompiTest.vue";
-import WompiDebug from "@/components/WompiDebug.vue";
 import {
   Clock,
   Shield,
