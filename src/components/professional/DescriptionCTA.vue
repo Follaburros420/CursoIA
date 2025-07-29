@@ -67,7 +67,7 @@ const benefits = [
           <!-- Primary CTA -->
           <div class="flex justify-center mt-8 max-w-md mx-auto">
             <WompiEmbeddedWidget
-              :amount="5000000"
+              :amount="40000000"
               currency="COP"
               :button-text="`⚡ ${buttonText}`"
             />

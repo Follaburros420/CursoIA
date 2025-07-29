@@ -85,47 +85,107 @@ const initializeWidget = async () => {
   }
 };
 
-// Create Wompi embedded widget
+// Detect if mobile device
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+         window.innerWidth <= 768;
+};
+
+// Create Wompi embedded widget or redirect for mobile
 const createWompiWidget = async () => {
   if (!widgetContainer.value || !signature.value) return;
-  
+
   try {
     const publicKey = import.meta.env.VITE_WOMPI_PUBLIC_KEY;
     const redirectUrl = `${window.location.origin}/pagos/wompi/redirect`;
-    
+
     // Clear container
     widgetContainer.value.innerHTML = '';
-    
-    // Create form element
-    const form = document.createElement('form');
-    form.style.width = '100%';
-    
-    // Create script element with Wompi widget
-    const script = document.createElement('script');
-    script.src = 'https://checkout.wompi.co/widget.js';
-    script.setAttribute('data-render', 'button');
-    script.setAttribute('data-public-key', publicKey);
-    script.setAttribute('data-currency', props.currency);
-    script.setAttribute('data-amount-in-cents', props.amount.toString());
-    script.setAttribute('data-reference', paymentReference.value);
-    script.setAttribute('data-signature:integrity', signature.value);
-    script.setAttribute('data-redirect-url', redirectUrl);
-    
-    // Add event listeners
-    script.onload = () => {
-      console.log('✅ Wompi widget script loaded');
+
+    // For mobile devices, use direct checkout instead of widget
+    if (isMobile()) {
+      console.log('📱 Mobile device detected, using direct checkout');
+
+      // Create mobile-friendly checkout button
+      const checkoutButton = document.createElement('button');
+      checkoutButton.innerHTML = `
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+          </svg>
+          <span>Pagar con Wompi</span>
+        </div>
+      `;
+      checkoutButton.style.cssText = `
+        width: 100%;
+        padding: 16px 24px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+      `;
+
+      checkoutButton.onclick = () => {
+        // Build checkout URL for mobile
+        const params = new URLSearchParams({
+          'public-key': publicKey,
+          'amount-in-cents': props.amount.toString(),
+          'currency': props.currency,
+          'reference': paymentReference.value,
+          'signature:integrity': signature.value,
+          'redirect-url': redirectUrl
+        });
+
+        const checkoutUrl = `https://checkout.wompi.co/p/?${params.toString()}`;
+        console.log('📱 Opening mobile checkout:', checkoutUrl);
+
+        // Open in same window for better mobile experience
+        window.location.href = checkoutUrl;
+      };
+
+      widgetContainer.value.appendChild(checkoutButton);
       widgetReady.value = true;
-    };
-    
-    script.onerror = () => {
-      console.error('❌ Error loading Wompi widget script');
-      error.value = 'Error al cargar el widget de pago';
-    };
-    
-    // Append script to form and form to container
-    form.appendChild(script);
-    widgetContainer.value.appendChild(form);
-    
+
+    } else {
+      // Desktop: Use embedded widget
+      console.log('💻 Desktop device detected, using embedded widget');
+
+      // Create form element
+      const form = document.createElement('form');
+      form.style.width = '100%';
+
+      // Create script element with Wompi widget
+      const script = document.createElement('script');
+      script.src = 'https://checkout.wompi.co/widget.js';
+      script.setAttribute('data-render', 'button');
+      script.setAttribute('data-public-key', publicKey);
+      script.setAttribute('data-currency', props.currency);
+      script.setAttribute('data-amount-in-cents', props.amount.toString());
+      script.setAttribute('data-reference', paymentReference.value);
+      script.setAttribute('data-signature:integrity', signature.value);
+      script.setAttribute('data-redirect-url', redirectUrl);
+
+      // Add event listeners
+      script.onload = () => {
+        console.log('✅ Wompi widget script loaded');
+        widgetReady.value = true;
+      };
+
+      script.onerror = () => {
+        console.error('❌ Error loading Wompi widget script');
+        error.value = 'Error al cargar el widget de pago';
+      };
+
+      // Append script to form and form to container
+      form.appendChild(script);
+      widgetContainer.value.appendChild(form);
+    }
+
   } catch (err) {
     console.error('❌ Error creating Wompi widget:', err);
     error.value = 'Error al crear el widget de pago';
@@ -212,8 +272,12 @@ const closeWidget = () => {
           <p class="text-sm text-gray-600">
             Procesado por Wompi - Plataforma de pagos certificada
           </p>
+          <!-- Mobile info -->
+          <p v-if="isMobile()" class="text-xs text-blue-600 mt-2 bg-blue-50 p-2 rounded">
+            📱 En móviles serás redirigido a la página segura de Wompi
+          </p>
         </div>
-        <button 
+        <button
           @click="closeWidget"
           class="text-gray-400 hover:text-gray-600 transition-colors p-2"
           title="Cerrar"
