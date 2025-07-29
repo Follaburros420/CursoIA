@@ -44,6 +44,12 @@ const routes: Array<RouteRecordRaw> = [
     name: 'WompiRedirect',
     component: WompiRedirect,
   },
+  // Catch all route - must be last
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    redirect: '/'
+  }
 ];
 
 const router = createRouter({

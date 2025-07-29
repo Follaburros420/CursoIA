@@ -24,7 +24,10 @@ export default defineConfig(({ mode }) => {
     },
     server: {
       port: 5174,
-      host: true
+      host: true,
+      historyApiFallback: {
+        index: '/index.html',
+      },
     },
     build: {
       rollupOptions: {
