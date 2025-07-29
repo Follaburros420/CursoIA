@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
-import WompiEmbeddedWidget from "@/components/WompiEmbeddedWidget.vue";
+import WompiDirectWidget from "@/components/WompiDirectWidget.vue";
 import {
   CheckCircle,
   Video,
@@ -273,7 +273,7 @@ const programStructure = [
                       </p>
                     </div>
                     
-                    <WompiEmbeddedWidget
+                    <WompiDirectWidget
                       :amount="120000000"
                       currency="USD"
                       button-text="🎯 Reservar mi plaza"

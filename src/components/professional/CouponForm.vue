@@ -54,7 +54,7 @@ const discountPercentage = computed(() => {
 });
 
 const isValidCoupon = computed(() => {
-  return couponCode.value.length >= 3 && /^[A-Z0-9]+$/i.test(couponCode.value);
+  return couponCode.value.length >= 3 && /^[A-Z0-9\-]+$/i.test(couponCode.value);
 });
 
 const canApply = computed(() => {

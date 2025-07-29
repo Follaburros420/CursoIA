@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue';
 import { Badge } from "@/components/ui/badge";
-import WompiEmbeddedWidget from "@/components/WompiEmbeddedWidget.vue";
+import WompiDirectWidget from "@/components/WompiDirectWidget.vue";
 import {
   Clock,
   Shield,
@@ -137,7 +137,7 @@ const guarantees = [
 
             <!-- Main CTA -->
             <div class="space-y-4">
-              <WompiEmbeddedWidget
+              <WompiDirectWidget
                 :amount="amount"
                 :currency="currency"
                 button-text="🚀 Comprar Plan Profesional"
@@ -194,7 +194,7 @@ const guarantees = [
 
             <!-- CTA Button -->
             <div class="min-w-[200px]">
-              <WompiEmbeddedWidget
+              <WompiDirectWidget
                 :amount="amount"
                 :currency="currency"
                 button-text="💳 Comprar"
