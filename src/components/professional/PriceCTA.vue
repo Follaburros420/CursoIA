@@ -20,7 +20,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  currency: 'COP',
+  currency: 'USD',
   loading: false,
   buttonText: 'Comprar ahora',
   showSticky: true
@@ -35,9 +35,10 @@ const mainElement = ref<HTMLElement>();
 
 // Methods
 const formatCurrency = (amount: number) => {
-  return (amount / 100).toLocaleString('es-CO', { 
-    style: 'currency', 
-    currency: props.currency 
+  const locale = props.currency === 'USD' ? 'en-US' : 'es-CO';
+  return (amount / 100).toLocaleString(locale, {
+    style: 'currency',
+    currency: props.currency
   });
 };
 
@@ -158,7 +159,7 @@ const guarantees = [
                 </div>
                 <div class="flex items-center gap-2">
                   <Star class="w-4 h-4 text-yellow-500" />
-                  <span>500+ estudiantes</span>
+                  <span>+200 abogados</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <CheckCircle class="w-4 h-4 text-blue-500" />

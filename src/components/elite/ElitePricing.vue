@@ -247,7 +247,7 @@ const urgencyIndicators = [
               </div>
               <div class="flex items-center gap-2">
                 <Star class="w-4 h-4 text-yellow-500" />
-                <span>500+ estudiantes</span>
+                <span>+200 abogados</span>
               </div>
               <div class="flex items-center gap-2">
                 <CheckCircle class="w-4 h-4 text-blue-500" />

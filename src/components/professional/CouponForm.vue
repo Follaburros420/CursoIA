@@ -21,7 +21,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  currency: 'COP',
+  currency: 'USD',
   placeholder: 'Código de cupón',
   disabled: false
 });
@@ -104,9 +104,10 @@ const removeCoupon = () => {
 };
 
 const formatCurrency = (amount: number) => {
-  return (amount / 100).toLocaleString('es-CO', { 
-    style: 'currency', 
-    currency: props.currency 
+  const locale = props.currency === 'USD' ? 'en-US' : 'es-CO';
+  return (amount / 100).toLocaleString(locale, {
+    style: 'currency',
+    currency: props.currency
   });
 };
 

@@ -14,8 +14,8 @@ import ProfessionalFooter from './professional/ProfessionalFooter.vue';
 
 // State management
 const loading = ref(false);
-const originalAmount = ref(40000000); // 400,000 COP in centavos
-const currentAmount = ref(originalAmount.value);
+const originalAmount = ref(30000); // 300 USD in centavos
+const currentAmount = ref(9900); // 99 USD in centavos
 
 // Event handlers
 const handleAmountChanged = (newAmount: number) => {
@@ -40,7 +40,7 @@ async function handleCheckout() {
     const reference = `PLAN_PROF_${Date.now()}`;
     const response = await apiService.wompiCreateSession({
       amount_in_cents: currentAmount.value,
-      currency: 'COP',
+      currency: 'USD',
       reference,
       redirect_url: `${window.location.origin}/pagos/wompi/redirect`
     });
@@ -95,6 +95,7 @@ async function handleCheckout() {
           <!-- Coupon Form -->
           <CouponForm
             :original-amount="originalAmount"
+            currency="USD"
             @amount-changed="handleAmountChanged"
             @coupon-applied="handleCouponApplied"
             @coupon-removed="handleCouponRemoved"
@@ -106,6 +107,7 @@ async function handleCheckout() {
             :amount="currentAmount"
             :original-amount="originalAmount"
             :loading="loading"
+            currency="USD"
           />
         </div>
       </div>

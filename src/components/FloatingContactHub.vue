@@ -34,18 +34,10 @@ const contactOptions = [
   },
   {
     id: 'chatbot',
-    label: 'Chat IA',
+    label: 'Robotino',
     icon: 'bot-image', // Special identifier for bot image
     color: 'bg-blue-500 hover:bg-blue-600',
     description: 'Asistente inteligente'
-  },
-  {
-    id: 'email',
-    label: 'Email',
-    icon: Mail,
-    color: 'bg-purple-500 hover:bg-purple-600',
-    href: 'mailto:info@cursoiaabogados.com',
-    description: 'Soporte especializado'
   }
 ];
 
@@ -72,7 +64,7 @@ const openChat = () => {
     setTimeout(() => {
       messages.value.push({
         role: 'bot',
-        content: '¡Hola! 👋 Soy tu asistente de IA especializado en cursos legales. ¿En qué puedo ayudarte hoy?',
+        content: '¡Hola! 👋 Soy Robotino, tu asistente de IA especializado en cursos legales. ¿En qué puedo ayudarte hoy?',
         timestamp: new Date()
       });
       setTimeout(scrollToBottom, 100);
@@ -209,7 +201,7 @@ onUnmounted(() => {
             </div>
             <div class="flex-1">
               <p class="text-sm text-foreground font-medium mb-1">
-                ¡Hola! 👋 Soy tu asistente IA
+                ¡Hola! 👋 Soy Robotino
               </p>
               <p class="text-sm text-muted-foreground">
                 ¿En qué puedo ayudarte hoy? 😊
@@ -335,7 +327,7 @@ onUnmounted(() => {
               </div>
             </div>
             <div>
-              <h3 class="font-semibold text-foreground">Asistente IA</h3>
+              <h3 class="font-semibold text-foreground">Robotino</h3>
               <p class="text-xs text-muted-foreground">
                 <span class="inline-block w-2 h-2 bg-green-500 rounded-full mr-1 animate-pulse"></span>
                 {{ loading ? 'Escribiendo...' : 'En línea' }}

@@ -68,7 +68,7 @@ const additionalTestimonials = [
 
 const socialProofStats = [
   {
-    number: "500+",
+    number: "+200",
     label: "Abogados formados",
     icon: Users,
     description: "Profesionales que han transformado su práctica"
