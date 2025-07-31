@@ -80,11 +80,26 @@ export const apiService = {
 
   async chatbot(data: { message: string }) {
     try {
+      console.log('🤖 Calling chatbot API with:', data);
       const response = await api.post('/api/chatbot', data);
+      console.log('✅ Chatbot API response:', response.data);
       return response.data;
     } catch (error) {
-      console.warn('API call failed, using mock response:', error);
-      return mockResponses.chatbot(data);
+      console.error('❌ Chatbot API call failed:', error);
+      console.error('❌ Error details:', {
+        message: error.message,
+        status: error.response?.status,
+        data: error.response?.data
+      });
+
+      // Only use mock if it's a network error, not a server error
+      if (error.response?.status >= 500 || !error.response) {
+        console.warn('🔄 Using mock response due to server/network error');
+        return mockResponses.chatbot(data);
+      } else {
+        // Re-throw client errors (4xx) to handle them properly
+        throw error;
+      }
     }
   },
 
