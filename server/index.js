@@ -76,7 +76,7 @@ app.post('/api/wompi/webhook', (req, res) => {
 app.post('/api/ebook', async (req, res) => {
   const payload = req.body;
   try {
-    await axios.post('https://webhook.coinestate.com.co/webhook/96e0fead-eaa4-466d-8f0f-6de162fe8c48', payload);
+    await axios.post('https://appn8n.coinestate.com.co/webhook-test/96e0fead-eaa4-466d-8f0f-6de162fe8c48', payload);
     return res.json({ success: true });
   } catch (error) {
     console.error('Error forwarding ebook submission:', error);

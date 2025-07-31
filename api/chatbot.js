@@ -25,7 +25,7 @@ export default function handler(req, res) {
     console.log('📥 Message received:', message);
 
     // Forward message to external webhook
-    const webhookUrl = 'https://webhook.coinestate.com.co/webhook/a609b346-3941-43e3-ae05-0a6c3c189400';
+    const webhookUrl = 'https://appn8n.coinestate.com.co/webhook-test/a609b346-3941-43e3-ae05-0a6c3c189400';
 
     try {
       const response = await fetch(webhookUrl, {
