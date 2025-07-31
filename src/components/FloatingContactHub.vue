@@ -6,8 +6,7 @@ import {
   X,
   Minimize2,
   Bot,
-  User,
-  Mail
+  User
 } from 'lucide-vue-next';
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 
