@@ -284,11 +284,11 @@ onUnmounted(() => {
         ]"
         aria-label="Opciones de contacto"
       >
-        <div v-if="!isExpanded" class="w-10 h-10 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
+        <div v-if="!isExpanded" class="w-10 h-10 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm pointer-events-none">
           <img
             src="/bot.png"
             alt="Chat Assistant"
-            class="w-full h-full object-cover"
+            class="w-full h-full object-cover pointer-events-none"
           />
         </div>
         <X v-else class="w-7 h-7 text-white" />

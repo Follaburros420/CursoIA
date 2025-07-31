@@ -172,18 +172,18 @@ const features: Feature[] = [
             <div class="space-y-4">
               <div class="flex justify-center items-center gap-2 text-primary font-semibold">
                 <Award class="w-5 h-5" />
-                <span>Valor total del paquete: $800.000 COP</span>
+                <span>Valor total del paquete: $600 USD</span>
               </div>
-              
+
               <div class="text-3xl font-bold text-foreground">
-                Tu precio hoy: 
+                Tu precio hoy:
                 <span class="text-transparent bg-gradient-to-r from-primary to-orange-600 bg-clip-text">
-                  $400.000 COP
+                  $99 USD
                 </span>
               </div>
-              
+
               <p class="text-muted-foreground">
-                Ahorra $400.000 COP con esta oferta especial de lanzamiento
+                Ahorra $201 USD con esta oferta especial de lanzamiento
               </p>
             </div>
           </div>
