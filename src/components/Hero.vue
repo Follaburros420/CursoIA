@@ -19,12 +19,11 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
       <div class="text-center space-y-8">
         <Badge
           variant="outline"
-          class="text-sm py-2 animate-pulse hover:scale-105 transition-all duration-300 cursor-pointer"
+          class="text-sm py-2 px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5"
         >
-          <span class="mr-2 text-orange-600">
-            <Badge class="animate-bounce">Nuevo</Badge>
+          <span class="text-orange-600 font-semibold">
+            +200 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
           </span>
-          <span> Inscripciones abiertas </span>
         </Badge>
 
         <div
