@@ -21,7 +21,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  currency: 'USD',
+  currency: 'COP',
   placeholder: 'Código de cupón',
   disabled: false
 });

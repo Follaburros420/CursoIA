@@ -26,9 +26,9 @@ export default function handler(req, res) {
     // Define available coupons
     const coupons = {
       'ABOGADOS-IA': {
-        discount: 50,
+        discount: 40,
         type: 'percentage',
-        message: 'Cupón aplicado correctamente - 50% de descuento'
+        message: 'Cupón aplicado correctamente - 40% de descuento'
       },
       'DESCUENTO20': {
         discount: 20,

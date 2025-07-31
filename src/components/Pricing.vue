@@ -43,14 +43,14 @@ const plans: PlanProps[] = [
   {
     title: "Profesional",
     popular: 1,
-    price: "99 USD",
+    price: "400.000 COP",
     description:
       "Aprende como integrar de manera correcta y efectiva la inteligencia artificial en tu trabajo",
     buttonText: "¿Que contiene?",
     benefitList: [
       "Sesiones prácticas en vivo y ejemplos aplicados a despachos legales",
       "Soporte prioritario",
-      "Precio original: 300 USD",
+      "Con cupón ABOGADOS-IA: 240.000 COP",
     ],
   },
   {

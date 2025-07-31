@@ -20,7 +20,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  currency: 'USD',
+  currency: 'COP',
   loading: false,
   buttonText: 'Comprar ahora',
   showSticky: true
