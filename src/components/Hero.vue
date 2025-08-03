@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useColorMode } from "@vueuse/core";
-const mode = useColorMode();
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
+
+// Video ID de YouTube
+const videoId = '1dPhWNbfZ6I';
 </script>
 
 <template>
@@ -72,17 +72,23 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
-        <img
-          class="w-full md:w-[1200px] mx-auto rounded-lg relative rouded-lg leading-none flex items-center border border-t-2 border-t-orange-500/30 img-border-animation"
-          :src="
-            mode == 'light' ? 'hero-image-light.jpg' : 'hero-image-dark.jpg'
-          "
-          alt="dashboard using shadcn-vue"
-        />
+        <!-- Video container with responsive aspect ratio -->
+        <div class="video-wrapper w-full md:w-[1200px] mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden">
+          <iframe
+            width="100%"
+            height="100%"
+            :src="'https://www.youtube.com/embed/' + videoId"
+            title="Curso de IA para Abogados - Video Preview"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            class="rounded-lg"
+          ></iframe>
+        </div>
 
-        <!-- gradient effect img -->
+        <!-- gradient effect overlay -->
         <div
-          class="absolute bottom-0 left-0 w-full h-20 md:h-28 bg-gradient-to-b from-background/0 via-background/50 to-background rounded-lg"
+          class="absolute bottom-0 left-0 w-full h-20 md:h-28 bg-gradient-to-b from-background/0 via-background/50 to-background rounded-lg pointer-events-none"
         ></div>
       </div>
     </div>
@@ -147,6 +153,22 @@ import WhatsappIcon from "@/icons/WhatsappIcon.vue";
     linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 50px 50px;
+}
+
+/* Video wrapper for responsive aspect ratio */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Reduce motion for accessibility */
