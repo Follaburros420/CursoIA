@@ -73,7 +73,7 @@ const videoId = '1dPhWNbfZ6I';
         ></div>
 
         <!-- Video container with responsive aspect ratio -->
-        <div class="video-wrapper w-full md:w-[1200px] mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden">
+        <div class="video-wrapper w-full max-w-4xl mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden">
           <iframe
             width="100%"
             height="100%"

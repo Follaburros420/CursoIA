@@ -10,22 +10,20 @@ import { Moon, Sun } from "lucide-vue-next";
     @click="mode = mode === 'dark' ? 'light' : 'dark'"
     size="sm"
     variant="ghost"
-    class="w-full justify-start"
+    class="w-10 h-10 p-0"
   >
     <div
       v-if="mode == 'light'"
-      class="flex gap-2"
+      class="flex items-center justify-center"
     >
       <Moon class="size-5" />
-      <span class="block lg:hidden"> Dark </span>
     </div>
 
     <div
       v-else="mode == 'dark'"
-      class="flex gap-2"
+      class="flex items-center justify-center"
     >
       <Sun class="size-5" />
-      <span class="block lg:hidden">Light</span>
     </div>
 
     <span class="sr-only">Toggle theme</span>

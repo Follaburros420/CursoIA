@@ -14,8 +14,8 @@ import Footer from './Footer.vue';
 
 // State management
 const loading = ref(false);
-const originalAmount = ref(16000000); // 160,000 COP in centavos (equivalent to $39 USD)
-const currentAmount = ref(16000000); // 160,000 COP in centavos
+const originalAmount = ref(16333300); // 163,333 COP in centavos (equivalent to $40 USD, with 40% discount = $24 USD = 98,400 COP)
+const currentAmount = ref(16333300); // 163,333 COP in centavos
 
 // Event handlers
 const handleAmountChanged = (newAmount: number) => {
@@ -45,7 +45,7 @@ const handleCouponError = (message: string) => {
     <UnifiedNavbar variant="professional" :show-back-button="true" />
 
     <!-- Hero Section -->
-    <div class="pt-20">
+    <div class="pt-20 md:pt-20">
       <ProfessionalHero
         :title="'CURSO DE IA PARA ABOGADOS – PLAN PROFESIONAL'"
         :subtitle="'⚖️ Aprende a utilizar la IA en el mundo jurídico y diferénciate en tu ejercicio profesional.'"

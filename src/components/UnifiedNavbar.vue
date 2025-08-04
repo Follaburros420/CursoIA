@@ -118,7 +118,7 @@ import ToggleTheme from "./ToggleTheme.vue";
 <template>
   <nav :class="navbarClasses">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between h-16">
+      <div class="flex items-center justify-between h-14 md:h-16">
         
         <!-- Left side: Logo/Back button -->
         <div class="flex items-center space-x-4">

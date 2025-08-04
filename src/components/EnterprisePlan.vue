@@ -14,7 +14,9 @@ import Footer from './Footer.vue';
     <UnifiedNavbar variant="default" :show-back-button="true" />
 
     <!-- Hero Section -->
-    <EnterpriseHero />
+    <div class="pt-20 md:pt-20">
+      <EnterpriseHero />
+    </div>
 
     <!-- Automatizaciones Section -->
     <EnterpriseAutomations />
