@@ -94,6 +94,11 @@ const setupWidget = async () => {
   }
 };
 
+// Detect if device is mobile
+const isMobile = () => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+};
+
 // Create Wompi widget with JavaScript
 const createWompiWidget = async () => {
   if (!widgetContainer.value) return;
@@ -111,7 +116,11 @@ const createWompiWidget = async () => {
     // Create script element
     const script = document.createElement('script');
     script.src = 'https://checkout.wompi.co/widget.js';
-    script.setAttribute('data-render', 'button');
+
+    // Use modal for desktop, button for mobile
+    const renderMode = isMobile() ? 'button' : 'modal';
+    script.setAttribute('data-render', renderMode);
+
     script.setAttribute('data-public-key', publicKeyValue);
     script.setAttribute('data-currency', props.currency);
     script.setAttribute('data-amount-in-cents', props.amount.toString());
@@ -128,7 +137,9 @@ const createWompiWidget = async () => {
       signature: signature.value.substring(0, 10) + '...',
       publicKey: publicKeyValue.substring(0, 20) + '...',
       amount: props.amount,
-      currency: props.currency
+      currency: props.currency,
+      renderMode: renderMode,
+      isMobile: isMobile()
     });
 
   } catch (err) {

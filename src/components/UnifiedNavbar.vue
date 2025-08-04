@@ -109,7 +109,6 @@ import { Separator } from "@/components/ui/separator";
 import {
   Menu,
   ArrowLeft,
-  ShoppingCart,
   Award,
   Zap
 } from "lucide-vue-next";
@@ -171,19 +170,8 @@ import ToggleTheme from "./ToggleTheme.vue";
           </NavigationMenu>
         </div>
 
-        <!-- Right side: CTA + Theme + Mobile menu -->
+        <!-- Right side: Theme + Mobile menu -->
         <div class="flex items-center space-x-3">
-          <!-- CTA Button -->
-          <Button
-            @click="router.push('/plan-profesional')"
-            variant="default"
-            size="sm"
-            class="hidden sm:flex"
-          >
-            <ShoppingCart class="w-4 h-4 mr-2" />
-            Comprar Curso
-          </Button>
-
           <!-- Theme Toggle -->
           <ToggleTheme />
 
@@ -214,13 +202,7 @@ import ToggleTheme from "./ToggleTheme.vue";
                 
                 <Separator class="my-4" />
                 
-                <Button
-                  @click="() => { router.push('/plan-profesional'); closeSheet(); }"
-                  class="w-full"
-                >
-                  <ShoppingCart class="w-4 h-4 mr-2" />
-                  Comprar Curso
-                </Button>
+
               </div>
               
               <SheetFooter>

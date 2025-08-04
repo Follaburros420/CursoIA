@@ -18,7 +18,7 @@ const mockResponses = {
   
   couponValidate: (data: any) => {
     const coupons: Record<string, any> = {
-      'ABOGADOS-IA': { discount: 50, type: 'percentage' },
+      'ABOGADOS-IA': { discount: 40, type: 'percentage' },
       'DESCUENTO20': { discount: 20, type: 'percentage' },
       'PROMO30': { discount: 30, type: 'percentage' }
     };

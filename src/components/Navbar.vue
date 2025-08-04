@@ -93,7 +93,7 @@ const isOpen = ref<boolean>(false);
       <ChevronsDown
         class="bg-gradient-to-tr from-orange-500 via-orange-600 to-orange-700 rounded-lg w-9 h-9 mr-2 border text-white transition-all duration-300 group-hover:rotate-180 group-hover:shadow-lg group-hover:shadow-orange-500/25"
       />
-      <span class="transition-all duration-300 group-hover:text-orange-600">LexIA</span>
+      <span class="transition-all duration-300 group-hover:text-orange-600">AprenderIA</span>
     </a>
 
     <!-- Mobile menu -->
@@ -114,7 +114,7 @@ const isOpen = ref<boolean>(false);
                   <ChevronsDown
                     class="bg-gradient-to-tr from-orange-500 via-orange-600 to-orange-700 rounded-lg size-9 mr-2 border text-white transition-all duration-300 group-hover:rotate-180"
                   />
-                  <span class="transition-all duration-300 group-hover:text-orange-600">LexIA</span>
+                  <span class="transition-all duration-300 group-hover:text-orange-600">AprenderIA</span>
                 </a>
               </SheetTitle>
             </SheetHeader>
