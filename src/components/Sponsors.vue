@@ -7,6 +7,10 @@ import QdrantIcon from "@/icons/QdrantIcon.vue";
 import SupabaseIcon from "@/icons/SupabaseIcon.vue";
 import ChatwootIcon from "@/icons/ChatwootIcon.vue";
 import RedisIcon from "@/icons/RedisIcon.vue";
+import ChatGPTIcon from "@/icons/ChatGPTIcon.vue";
+import GeminiIcon from "@/icons/GeminiIcon.vue";
+import GrokIcon from "@/icons/GrokIcon.vue";
+import OllamaIcon from "@/icons/OllamaIcon.vue";
 
 interface sponsorsProps {
   icon: string;
@@ -14,14 +18,22 @@ interface sponsorsProps {
 }
 
 const sponsors: sponsorsProps[] = [
+  { icon: "chatgpt", name: "ChatGPT" },
+  { icon: "gemini", name: "Gemini" },
+  { icon: "grok", name: "Grok" },
+  { icon: "ollama", name: "Ollama" },
   { icon: "n8n", name: "n8n" },
-  { icon: "qdrant", name: "qdrant" },
-  { icon: "supabase", name: "supabase" },
-  { icon: "chatwoot", name: "chatwoot" },
-  { icon: "redis", name: "redis" },
+  { icon: "qdrant", name: "Qdrant" },
+  { icon: "supabase", name: "Supabase" },
+  { icon: "chatwoot", name: "Chatwoot" },
+  { icon: "redis", name: "Redis" },
 ];
 
 const iconMap: Record<string, any> = {
+  chatgpt: ChatGPTIcon,
+  gemini: GeminiIcon,
+  grok: GrokIcon,
+  ollama: OllamaIcon,
   n8n: N8nIcon,
   qdrant: QdrantIcon,
   supabase: SupabaseIcon,
@@ -33,7 +45,7 @@ const iconMap: Record<string, any> = {
 <template>
   <section
     id="sponsors"
-    class="max-w-[75%] mx-auto pb-24 sm:pb-32"
+    class="max-w-[75%] mx-auto pb-12 sm:pb-16"
   >
     <h2 class="text-lg md:text-xl text-center mb-6">Herramientas que aprenderás</h2>
 

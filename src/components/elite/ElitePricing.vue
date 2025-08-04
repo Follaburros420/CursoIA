@@ -85,7 +85,7 @@ const urgencyIndicators = [
   {
     icon: Clock,
     text: "Early Bird hasta 31 agosto",
-    subtext: "Ahorra $400 USD",
+    subtext: "Ahorra 400 USD",
     color: "text-green-600 dark:text-green-400",
     bgColor: "bg-green-50 dark:bg-green-950/20",
     borderColor: "border-green-200 dark:border-green-800"
@@ -195,17 +195,17 @@ const urgencyIndicators = [
               <div class="space-y-2 mb-6">
                 <!-- Regular price (crossed out) -->
                 <div class="text-lg text-muted-foreground">
-                  <span class="line-through">Precio regular: $1,600 USD</span>
+                  <span class="line-through">Precio regular: 1600 USD</span>
                 </div>
-                
+
                 <!-- Early bird price -->
                 <div class="text-5xl md:text-6xl font-bold text-transparent bg-gradient-to-r from-primary to-purple-600 bg-clip-text">
-                  $1,200 USD
+                  1200 USD
                 </div>
-                
+
                 <div class="flex items-center justify-center gap-2">
                   <Badge class="bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400">
-                    Ahorra $400 USD
+                    Ahorra 400 USD
                   </Badge>
                   <span class="text-sm text-muted-foreground">Early Bird hasta 31 agosto</span>
                 </div>

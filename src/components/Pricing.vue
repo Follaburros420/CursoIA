@@ -32,40 +32,41 @@ const plans: PlanProps[] = [
     popular: 0,
     price: "Gratis",
     description:
-      "Introducción gratuita al uso de IA en el ámbito legal.",
+      "Introducción práctica a la IA legal",
     buttonText: "Comenzar gratis",
     benefitList: [
-      "Acceso a fundamentos de IA para el sector legal",
-      "Material teórico de introducción",
-      "Acceso a comunidad de apoyo",
+      "Fundamentos claros: qué es IA, límites y casos de uso realistas en derecho",
+      "Plantillas básicas + Ebook Gratuito",
+      "Acceso a comunidad y ejercicios cortos de aplicación",
     ],
   },
   {
     title: "Profesional",
     popular: 1,
-    price: "400.000 COP",
+    price: "$39 USD",
     description:
-      "Aprende como integrar de manera correcta y efectiva la inteligencia artificial en tu trabajo",
-    buttonText: "¿Que contiene?",
+      "Integra IA en tu práctica con control",
+    buttonText: "Inscribirme",
     benefitList: [
-      "Sesiones prácticas en vivo y ejemplos aplicados a despachos legales",
-      "Soporte prioritario",
-      "Con cupón ABOGADOS-IA: 240.000 COP",
+      "Curso guiado (5 módulos) con casos prácticos y plantillas avanzadas",
+      "Redacción legal inteligente + validación de riesgos con IA",
+      "Búsquedas jurídicas eficientes para responder consultas",
     ],
   },
   {
-    title: "Élite",
+    title: "Empresarial",
     popular: 0,
-    price: "870 USD",
+    price: "A convenir",
     description:
-      "Formación in-house y consultoría dedicada para equipos jurídicos.",
-    buttonText: "Conoce más",
+      "Automatizaciones y escala para despachos",
+    buttonText: "Agendar cita",
     benefitList: [
-      "Integración a medida de IA y flujos de trabajo automáticos",
-      "Acceso a actualizaciones y roadmap",
-      "Formación in-house y consultoría dedicada",
+      "Implementaciones a medida (onboarding, monitoreo normativo, auditoría contractual)",
+      "Integración con sistemas internos y gobernanza de workflows",
+      "Soporte dedicado + acceso al catálogo verificado de automatizaciones",
     ],
   },
+
 ];
 </script>
 
@@ -85,7 +86,7 @@ const plans: PlanProps[] = [
       Accede a materiales y soporte según tus necesidades.
     </h3>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-4">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-6 max-w-6xl mx-auto">
       <Card
         v-tilt
         v-for="{
@@ -145,7 +146,7 @@ const plans: PlanProps[] = [
             <router-link v-else-if="title === 'Básico'" to="/plan-gratuito">
               {{ buttonText }}
             </router-link>
-            <router-link v-else-if="title === 'Élite'" to="/elite">
+            <router-link v-else-if="title === 'Empresarial'" to="/plan-empresarial">
               {{ buttonText }}
             </router-link>
             <a v-else href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">

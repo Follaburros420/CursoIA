@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+
 import { CheckCircle } from "lucide-vue-next";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   title: "CURSO DE IA PARA ABOGADOS – PLAN PROFESIONAL",
   subtitle: "⚖️ Aprende a utilizar la IA en el mundo jurídico y diferénciate en tu ejercicio profesional.",
-  features: () => ['5 módulos intensivos', 'Certificado oficial', 'Contenido 100% práctico']
+  features: () => ['5 módulos intensivos', 'Certificado del curso', 'Contenido 100% práctico']
 });
 </script>
 
@@ -61,53 +61,7 @@ withDefaults(defineProps<Props>(), {
           </div>
         </div>
 
-        <!-- Hero image -->
-        <div class="relative group mt-8 w-full max-w-4xl">
-          <!-- Gradient shadow -->
-          <div class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[60%] bg-primary/30 blur-3xl rounded-full animate-pulse"></div>
-          
-          <!-- Main image -->
-          <div class="relative overflow-hidden rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm">
-            <img
-              src="/profesional.png"
-              alt="Curso IA para Abogados - Plan Profesional"
-              class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            
-            <!-- Overlay gradient -->
-            <div class="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent"></div>
-            
-            <!-- Floating elements -->
-            <div class="absolute top-4 left-4 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
-              Plan Profesional
-            </div>
-            
-            <div class="absolute bottom-4 right-4 bg-card/90 backdrop-blur-sm border border-border/50 rounded-lg p-3">
-              <div class="flex items-center gap-2">
-                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span class="text-sm font-medium">Disponible ahora</span>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 mt-8">
-          <Button 
-            size="lg" 
-            class="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 transition-all duration-300 shadow-lg hover:shadow-xl"
-          >
-            Comprar ahora
-          </Button>
-          
-          <Button 
-            variant="outline" 
-            size="lg" 
-            class="px-8 py-4 text-lg font-semibold border-primary/20 hover:bg-primary/5 transition-all duration-300"
-          >
-            Ver detalles
-          </Button>
-        </div>
       </div>
     </div>
   </section>

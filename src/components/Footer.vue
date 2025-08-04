@@ -67,11 +67,15 @@ import Separator from "./ui/separator/Separator.vue";
   <a href="/politica-de-privacidad" class="text-orange-600 hover:underline">Política de privacidad</a>
 </div>
 <Separator class="my-6" />
-      <section className="">
-        <h3 class="">
+      <section class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <h3 class="text-sm text-muted-foreground">
           &copy; 2024 Designed and developed by
           <span class="text-orange-600">Pedro Ardila</span>
         </h3>
+
+        <div class="flex items-center gap-4 text-sm text-muted-foreground">
+          <span>Hecho con ❤️ para abogados innovadores</span>
+        </div>
       </section>
     </div>
   </footer>

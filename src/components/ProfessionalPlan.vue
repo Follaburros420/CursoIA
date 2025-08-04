@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { apiService } from '@/services/api';
+
 // Import new components
 import UnifiedNavbar from './UnifiedNavbar.vue';
 import ProfessionalHero from './professional/ProfessionalHero.vue';
@@ -10,12 +10,12 @@ import FeaturesList from './professional/FeaturesList.vue';
 import CouponForm from './professional/CouponForm.vue';
 import PriceCTA from './professional/PriceCTA.vue';
 import ProfessionalFAQ from './professional/ProfessionalFAQ.vue';
-import ProfessionalFooter from './professional/ProfessionalFooter.vue';
+import Footer from './Footer.vue';
 
 // State management
 const loading = ref(false);
-const originalAmount = ref(40000000); // 400,000 COP in centavos
-const currentAmount = ref(40000000); // 400,000 COP in centavos
+const originalAmount = ref(16000000); // 160,000 COP in centavos (equivalent to $39 USD)
+const currentAmount = ref(16000000); // 160,000 COP in centavos
 
 // Event handlers
 const handleAmountChanged = (newAmount: number) => {
@@ -34,26 +34,7 @@ const handleCouponError = (message: string) => {
   console.error('Error de cupón:', message);
 };
 
-async function handleCheckout() {
-  loading.value = true;
-  try {
-    const reference = `PLAN_PROF_${Date.now()}`;
-    const response = await apiService.wompiCreateSession({
-      amount_in_cents: currentAmount.value,
-      currency: 'COP',
-      reference,
-      redirect_url: `${window.location.origin}/pagos/wompi/redirect`
-    });
-    const { checkoutUrl } = response;
-    console.log('Redirecting to checkout:', checkoutUrl);
-    window.location.href = checkoutUrl;
-  } catch (error) {
-    console.error('Error iniciando pago:', error);
-    alert('Error al iniciar pago. Por favor, intenta de nuevo.');
-  } finally {
-    loading.value = false;
-  }
-}
+
 
 // Removed unused payment handlers - WompiButton handles everything directly
 </script>
@@ -68,24 +49,12 @@ async function handleCheckout() {
       <ProfessionalHero
         :title="'CURSO DE IA PARA ABOGADOS – PLAN PROFESIONAL'"
         :subtitle="'⚖️ Aprende a utilizar la IA en el mundo jurídico y diferénciate en tu ejercicio profesional.'"
-        :features="['5 módulos intensivos', 'Certificado oficial', 'Contenido 100% práctico']"
+        :features="['5 módulos intensivos', 'Certificado del curso', 'Contenido 100% práctico']"
       />
     </div>
 
     <!-- Description and CTA -->
-    <DescriptionCTA
-      @button-click="handleCheckout"
-    />
-
-    <!-- Modules Grid -->
-    <div id="modules" class="scroll-mt-20">
-      <ModulesGrid />
-    </div>
-
-    <!-- Features List -->
-    <div id="features" class="scroll-mt-20">
-      <FeaturesList />
-    </div>
+    <DescriptionCTA />
 
     <!-- Coupon and Pricing Section -->
     <section id="pricing" class="py-16 md:py-24 bg-muted/20 scroll-mt-20">
@@ -113,13 +82,25 @@ async function handleCheckout() {
       </div>
     </section>
 
+    <!-- Modules Grid -->
+    <div id="modules" class="scroll-mt-20">
+      <ModulesGrid />
+    </div>
+
+    <!-- Features List -->
+    <div id="features" class="scroll-mt-20">
+      <FeaturesList />
+    </div>
+
+
+
     <!-- FAQ Section -->
     <div id="faq" class="scroll-mt-20">
       <ProfessionalFAQ />
     </div>
 
-    <!-- Professional Footer -->
-    <ProfessionalFooter />
+    <!-- Footer -->
+    <Footer />
   </div>
 </template>
 

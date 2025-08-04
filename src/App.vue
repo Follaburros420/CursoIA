@@ -9,7 +9,7 @@ import Footer from "./components/Footer.vue";
 const route = useRoute();
 
 // Rutas que tienen su propia navbar personalizada con variantes específicas
-const routesWithCustomNavbar = ['/plan-profesional', '/elite'];
+const routesWithCustomNavbar = ['/plan-profesional', '/plan-gratuito', '/ebook-gratis', '/plan-empresarial'];
 
 const showDefaultNavbar = computed(() => {
   return !routesWithCustomNavbar.includes(route.path);

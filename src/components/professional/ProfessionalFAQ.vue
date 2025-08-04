@@ -46,13 +46,7 @@ const faqs: FAQ[] = [
     category: 'support',
     icon: Users
   },
-  {
-    id: 'item-4',
-    question: '¿El certificado tiene validez oficial?',
-    answer: 'Sí, recibes un certificado digital verificable que avala tus conocimientos en IA aplicada al derecho. Este certificado es reconocido por colegios de abogados y puede ser incluido en tu CV profesional.',
-    category: 'general',
-    icon: Award
-  },
+
   {
     id: 'item-5',
     question: '¿Qué herramientas específicas aprenderé a usar?',

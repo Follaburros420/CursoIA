@@ -38,8 +38,8 @@ const features: Feature[] = [
   },
   {
     icon: Award,
-    title: "Certificado profesional",
-    description: "Certificado oficial que avala tus conocimientos en IA aplicada al derecho, reconocido por instituciones legales."
+    title: "Certificado del curso",
+    description: "Certificado que avala tus conocimientos en IA aplicados al derecho."
   },
   {
     icon: Clock,
@@ -166,28 +166,7 @@ const features: Feature[] = [
           </div>
         </div>
 
-        <!-- Bottom CTA section -->
-        <div class="mt-16 text-center">
-          <div class="inline-block p-8 bg-gradient-to-br from-primary/10 to-orange-500/10 rounded-3xl border border-primary/20">
-            <div class="space-y-4">
-              <div class="flex justify-center items-center gap-2 text-primary font-semibold">
-                <Award class="w-5 h-5" />
-                <span>Valor total del paquete: $800.000 COP</span>
-              </div>
 
-              <div class="text-3xl font-bold text-foreground">
-                Tu precio hoy:
-                <span class="text-transparent bg-gradient-to-r from-primary to-orange-600 bg-clip-text">
-                  $400.000 COP
-                </span>
-              </div>
-
-              <p class="text-muted-foreground">
-                Ahorra $400.000 COP con esta oferta especial de lanzamiento
-              </p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>

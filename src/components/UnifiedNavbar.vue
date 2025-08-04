@@ -9,7 +9,7 @@ const router = useRouter();
 
 // Props para personalización
 interface Props {
-  variant?: 'default' | 'professional' | 'elite';
+  variant?: 'default' | 'professional';
   showBackButton?: boolean;
   customTitle?: string;
 }
@@ -52,9 +52,6 @@ const navbarClasses = computed(() => {
     case 'professional':
       variantClasses = "border-b-2 border-primary/20";
       break;
-    case 'elite':
-      variantClasses = "border-b-2 border-yellow-500/20";
-      break;
     default:
       variantClasses = "";
   }
@@ -66,8 +63,6 @@ const logoClasses = computed(() => {
   switch (props.variant) {
     case 'professional':
       return "text-primary";
-    case 'elite':
-      return "text-yellow-500";
     default:
       return "text-foreground";
   }
@@ -78,8 +73,7 @@ const navigationItems = [
   { href: "/", label: "Inicio" },
   { href: "/plan-gratuito", label: "Plan Gratuito" },
   { href: "/plan-profesional", label: "Plan Profesional" },
-  { href: "/elite", label: "Elite" },
-  { href: "/ebook-gratis", label: "Ebook Gratis" }
+  { href: "/plan-empresarial", label: "Plan Empresarial" }
 ];
 
 // Methods
@@ -117,7 +111,6 @@ import {
   ArrowLeft,
   ShoppingCart,
   Award,
-  Crown,
   Zap
 } from "lucide-vue-next";
 import ToggleTheme from "./ToggleTheme.vue";
@@ -148,16 +141,14 @@ import ToggleTheme from "./ToggleTheme.vue";
             class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
           >
             <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
-              <Crown v-if="variant === 'elite'" class="w-5 h-5 text-white" />
-              <Award v-else-if="variant === 'professional'" class="w-5 h-5 text-white" />
+              <Award v-if="variant === 'professional'" class="w-5 h-5 text-white" />
               <Zap v-else class="w-5 h-5 text-white" />
             </div>
             <div>
               <h1 :class="`text-xl font-bold ${logoClasses}`">
-                {{ customTitle || 'CursoIA' }}
+                {{ customTitle || 'AprenderIA' }}
               </h1>
-              <p v-if="variant === 'elite'" class="text-xs text-yellow-500/80">Elite Program</p>
-              <p v-else-if="variant === 'professional'" class="text-xs text-primary/80">Professional</p>
+              <p v-if="variant === 'professional'" class="text-xs text-primary/80">Professional</p>
             </div>
           </div>
         </div>
@@ -183,15 +174,14 @@ import ToggleTheme from "./ToggleTheme.vue";
         <!-- Right side: CTA + Theme + Mobile menu -->
         <div class="flex items-center space-x-3">
           <!-- CTA Button -->
-          <Button 
-            @click="router.push(variant === 'elite' ? '/elite' : '/plan-profesional')"
-            :variant="variant === 'elite' ? 'default' : 'default'"
+          <Button
+            @click="router.push('/plan-profesional')"
+            variant="default"
             size="sm"
             class="hidden sm:flex"
-            :class="variant === 'elite' ? 'bg-yellow-500 hover:bg-yellow-600 text-black' : ''"
           >
             <ShoppingCart class="w-4 h-4 mr-2" />
-            {{ variant === 'elite' ? 'Reservar Plaza' : 'Comprar Curso' }}
+            Comprar Curso
           </Button>
 
           <!-- Theme Toggle -->
@@ -224,19 +214,18 @@ import ToggleTheme from "./ToggleTheme.vue";
                 
                 <Separator class="my-4" />
                 
-                <Button 
-                  @click="() => { router.push(variant === 'elite' ? '/elite' : '/plan-profesional'); closeSheet(); }"
-                  :class="variant === 'elite' ? 'bg-yellow-500 hover:bg-yellow-600 text-black' : ''"
+                <Button
+                  @click="() => { router.push('/plan-profesional'); closeSheet(); }"
                   class="w-full"
                 >
                   <ShoppingCart class="w-4 h-4 mr-2" />
-                  {{ variant === 'elite' ? 'Reservar Plaza' : 'Comprar Curso' }}
+                  Comprar Curso
                 </Button>
               </div>
               
               <SheetFooter>
                 <div class="text-center text-sm text-muted-foreground">
-                  <p>© 2024 CursoIA</p>
+                  <p>© 2024 AprenderIA</p>
                   <p>Todos los derechos reservados</p>
                 </div>
               </SheetFooter>

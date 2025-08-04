@@ -61,8 +61,8 @@ const guarantees = [
   },
   {
     icon: Award,
-    title: "Certificado oficial",
-    description: "Reconocido por instituciones legales"
+    title: "Certificado del curso",
+    description: "¡Avala tus conocimientos en IA!"
   }
 ];
 </script>

@@ -84,16 +84,16 @@ export const apiService = {
       const response = await api.post('/api/chatbot', data);
       console.log('✅ Chatbot API response:', response.data);
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       console.error('❌ Chatbot API call failed:', error);
       console.error('❌ Error details:', {
-        message: error.message,
-        status: error.response?.status,
-        data: error.response?.data
+        message: error?.message,
+        status: error?.response?.status,
+        data: error?.response?.data
       });
 
       // Only use mock if it's a network error, not a server error
-      if (error.response?.status >= 500 || !error.response) {
+      if (error?.response?.status >= 500 || !error?.response) {
         console.warn('🔄 Using mock response due to server/network error');
         return mockResponses.chatbot(data);
       } else {
@@ -107,7 +107,7 @@ export const apiService = {
     try {
       const response = await api.post('/api/ebook', data);
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       console.warn('API call failed, using mock response:', error);
       return mockResponses.ebook(data);
     }

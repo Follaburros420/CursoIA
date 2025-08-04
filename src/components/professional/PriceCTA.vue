@@ -35,11 +35,10 @@ const mainElement = ref<HTMLElement>();
 
 // Methods
 const formatCurrency = (amount: number) => {
-  const locale = props.currency === 'USD' ? 'en-US' : 'es-CO';
-  return (amount / 100).toLocaleString(locale, {
-    style: 'currency',
-    currency: props.currency
-  });
+  // Always show USD to the user, regardless of internal currency
+  // Convert COP centavos to USD for display
+  const usdAmount = amount === 16000000 ? 39 : amount === 9900000 ? 24 : (amount / 100) / 4100; // Approximate conversion
+  return `${Math.round(usdAmount)} USD`;
 };
 
 // Removed unused functions - WompiButton handles everything directly
@@ -163,7 +162,7 @@ const guarantees = [
                 </div>
                 <div class="flex items-center gap-2">
                   <CheckCircle class="w-4 h-4 text-blue-500" />
-                  <span>Certificado oficial</span>
+                  <span>Certificado del curso</span>
                 </div>
               </div>
             </div>

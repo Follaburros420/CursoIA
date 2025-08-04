@@ -1,32 +1,15 @@
 <script setup lang="ts">
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Target, TrendingUp } from "lucide-vue-next";
-import WompiDirectWidget from "@/components/WompiDirectWidget.vue";
+import { Zap, Target, TrendingUp } from "lucide-vue-next";
 
 interface Props {
   title?: string;
   description?: string;
-  buttonText?: string;
-  onButtonClick?: () => void;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   title: "Transforma tu práctica legal con herramientas de inteligencia artificial.",
-  description: "Aprende a automatizar procesos y ofrecer un servicio de alto impacto.",
-  buttonText: "Comprar ahora"
+  description: "Aprende a automatizar procesos y ofrecer un servicio de alto impacto."
 });
-
-const emit = defineEmits<{
-  buttonClick: []
-}>();
-
-const handleButtonClick = () => {
-  if (props.onButtonClick) {
-    props.onButtonClick();
-  } else {
-    emit('buttonClick');
-  }
-};
 
 const benefits = [
   {
@@ -48,29 +31,63 @@ const benefits = [
 </script>
 
 <template>
-  <section class="py-16 md:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20">
-    <div class="container">
-      <div class="max-w-6xl mx-auto">
-        
-        <!-- Main content -->
-        <div class="text-center space-y-8 mb-16">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight max-w-4xl mx-auto">
-            <span class="text-transparent bg-gradient-to-r from-foreground to-primary bg-clip-text">
-              {{ title }}
-            </span>
-          </h2>
-          
-          <p class="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            {{ description }}
-          </p>
+  <section class="py-16 md:py-24 bg-gradient-to-br from-muted/30 via-background to-muted/20 relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
 
-          <!-- Primary CTA -->
-          <div class="flex justify-center mt-8 max-w-md mx-auto">
-            <WompiDirectWidget
-              :amount="40000000"
-              currency="COP"
-              :button-text="`⚡ ${buttonText}`"
-            />
+    <div class="container relative z-10">
+      <div class="max-w-7xl mx-auto">
+
+        <!-- Main content with image -->
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-16">
+
+          <!-- Text content -->
+          <div class="space-y-8">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <span class="text-transparent bg-gradient-to-r from-foreground to-primary bg-clip-text">
+                {{ props.title }}
+              </span>
+            </h2>
+
+            <p class="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+              {{ props.description }}
+            </p>
+
+            <!-- Quick stats -->
+            <div class="grid grid-cols-2 gap-6 pt-4">
+              <div class="text-center lg:text-left">
+                <div class="text-2xl font-bold text-primary">8+</div>
+                <div class="text-sm text-muted-foreground">Horas de contenido</div>
+              </div>
+              <div class="text-center lg:text-left">
+                <div class="text-2xl font-bold text-primary">5</div>
+                <div class="text-sm text-muted-foreground">Módulos intensivos</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Decorative image -->
+          <div class="relative group order-first lg:order-last">
+            <!-- Subtle background glow -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-orange-500/10 rounded-3xl blur-2xl opacity-50"></div>
+
+            <!-- Image container -->
+            <div class="relative overflow-hidden rounded-2xl border border-border/30 bg-card/20 backdrop-blur-sm shadow-lg">
+              <img
+                src="/profesional.png"
+                alt="Curso IA para Abogados - Plan Profesional"
+                class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105 opacity-90"
+              />
+
+              <!-- Subtle overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-transparent"></div>
+
+              <!-- Small floating badge -->
+              <div class="absolute top-4 right-4 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">
+                Plan Profesional
+              </div>
+            </div>
           </div>
         </div>
 
@@ -114,26 +131,16 @@ const benefits = [
           </div>
         </div>
 
-        <!-- Secondary CTA section -->
+        <!-- Stats section -->
         <div class="mt-16 text-center">
           <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm font-medium text-primary mb-4">
             <div class="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-            Oferta por tiempo limitado
+            Programa intensivo y práctico
           </div>
-          
-          <p class="text-muted-foreground mb-6">
-            Únete a más de <span class="font-semibold text-foreground">500+ abogados</span> que ya están transformando su práctica legal
+
+          <p class="text-muted-foreground">
+            Únete a más de <span class="font-semibold text-foreground">+200 abogados</span> que ya están transformando su práctica legal
           </p>
-          
-          <Button 
-            @click="handleButtonClick"
-            variant="outline" 
-            size="lg"
-            class="group border-primary/20 hover:bg-primary/5 transition-all duration-300"
-          >
-            Comenzar ahora
-            <ArrowRight class="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Button>
         </div>
       </div>
     </div>

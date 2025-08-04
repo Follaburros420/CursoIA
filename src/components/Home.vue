@@ -5,7 +5,7 @@ import HowItWorks from './HowItWorks.vue';
 import Benefits from './Benefits.vue';
 import Pricing from './Pricing.vue';
 import FAQ from './FAQ.vue';
-import Contact from './Contact.vue';
+
 import Testimonials from './Testimonials.vue';
 import Community from './Community.vue';
 import Sponsors from './Sponsors.vue';
@@ -26,15 +26,11 @@ import Services from './Services.vue';
     </section>
 
     <section class="section-transition">
-      <Services />
-    </section>
-
-    <section class="section-transition">
       <Sponsors />
     </section>
 
     <section class="section-transition">
-      <HowItWorks />
+      <Services />
     </section>
 
     <section class="section-transition">
@@ -43,6 +39,10 @@ import Services from './Services.vue';
 
     <section class="section-transition">
       <Pricing />
+    </section>
+
+    <section class="section-transition">
+      <HowItWorks />
     </section>
 
     <section class="section-transition">
@@ -55,10 +55,6 @@ import Services from './Services.vue';
 
     <section class="section-transition">
       <FAQ />
-    </section>
-
-    <section class="section-transition">
-      <Contact />
     </section>
   </div>
 </template>
