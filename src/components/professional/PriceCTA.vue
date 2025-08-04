@@ -37,7 +37,7 @@ const mainElement = ref<HTMLElement>();
 const formatCurrency = (amount: number) => {
   // Always show USD to the user, regardless of internal currency
   // Convert COP centavos to USD for display
-  const usdAmount = amount === 16333300 ? 40 : amount === 9800000 ? 24 : (amount / 100) / 4100; // Approximate conversion
+  const usdAmount = amount === 16333400 ? 40 : amount === 9800000 ? 24 : (amount / 100) / 4100; // Approximate conversion
   return `${Math.round(usdAmount)} USD`;
 };
 

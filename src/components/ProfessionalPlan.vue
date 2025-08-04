@@ -14,8 +14,8 @@ import Footer from './Footer.vue';
 
 // State management
 const loading = ref(false);
-const originalAmount = ref(16333300); // 163,333 COP in centavos (equivalent to $40 USD, with 40% discount = $24 USD = 98,400 COP)
-const currentAmount = ref(16333300); // 163,333 COP in centavos
+const originalAmount = ref(16333400); // 163,334 COP in centavos (with 40% discount = exactly 98,000 COP)
+const currentAmount = ref(16333400); // 163,334 COP in centavos
 
 // Event handlers
 const handleAmountChanged = (newAmount: number) => {

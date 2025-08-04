@@ -314,34 +314,34 @@ const getLevelColor = (level: string) => {
               <!-- Module header - clickable -->
               <div
                 @click="toggleModule(module.id)"
-                class="flex items-center justify-between p-6 cursor-pointer hover:bg-muted/20 transition-colors duration-200 rounded-t-2xl"
+                class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-muted/20 transition-colors duration-200 rounded-t-2xl"
               >
-                <div class="flex items-center gap-6">
+                <div class="flex items-center gap-3 md:gap-6 min-w-0 flex-1">
                   <!-- Module number -->
-                  <div class="w-12 h-12 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
+                  <div class="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-sm md:text-lg shadow-md flex-shrink-0">
                     {{ module.id }}
                   </div>
 
                   <!-- Icon -->
-                  <div class="w-14 h-14 bg-gradient-to-br from-primary/20 to-orange-500/20 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                  <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-primary/20 to-orange-500/20 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
                     <component
                       :is="module.icon"
-                      class="w-7 h-7 text-primary group-hover:text-orange-600 transition-colors duration-300"
+                      class="w-6 h-6 md:w-7 md:h-7 text-primary group-hover:text-orange-600 transition-colors duration-300"
                     />
                   </div>
 
                   <!-- Title and basic info -->
-                  <div class="flex-1">
-                    <div class="flex items-center gap-3 mb-2">
-                      <h3 class="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <div class="flex-1 min-w-0">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
+                      <h3 class="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                         {{ module.title }}
                       </h3>
-                      <Badge :class="getLevelColor(module.level)" class="text-xs font-medium">
+                      <Badge :class="getLevelColor(module.level)" class="text-xs font-medium self-start sm:self-center">
                         {{ module.level }}
                       </Badge>
                     </div>
 
-                    <p class="text-muted-foreground text-sm leading-relaxed mb-2">
+                    <p class="text-muted-foreground text-xs md:text-sm leading-relaxed mb-2 line-clamp-2 md:line-clamp-none">
                       {{ module.description }}
                     </p>
 
@@ -356,7 +356,7 @@ const getLevelColor = (level: string) => {
                 <!-- Expand/collapse icon -->
                 <ChevronDown
                   :class="[
-                    'w-5 h-5 text-muted-foreground transition-transform duration-300',
+                    'w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0',
                     expandedModules.has(module.id) ? 'rotate-180' : ''
                   ]"
                 />
@@ -365,7 +365,7 @@ const getLevelColor = (level: string) => {
               <!-- Expandable content -->
               <div
                 v-if="expandedModules.has(module.id)"
-                class="border-t border-border/50 p-6 space-y-8 animate-in slide-in-from-top-2 duration-300"
+                class="border-t border-border/50 p-4 md:p-6 space-y-6 md:space-y-8 animate-in slide-in-from-top-2 duration-300"
               >
                 <!-- Objective -->
                 <div class="bg-primary/5 rounded-xl p-4">
@@ -412,25 +412,25 @@ const getLevelColor = (level: string) => {
         </div>
 
         <!-- Summary stats -->
-        <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center space-y-2">
-            <div class="text-3xl font-bold text-primary">8+</div>
-            <div class="text-sm text-muted-foreground">Horas de contenido</div>
+        <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
+          <div class="text-center space-y-1 md:space-y-2">
+            <div class="text-2xl md:text-3xl font-bold text-primary">8+</div>
+            <div class="text-xs md:text-sm text-muted-foreground">Horas de contenido</div>
           </div>
 
-          <div class="text-center space-y-2">
-            <div class="text-3xl font-bold text-primary">25+</div>
-            <div class="text-sm text-muted-foreground">Microsesiones (5-20 min)</div>
+          <div class="text-center space-y-1 md:space-y-2">
+            <div class="text-2xl md:text-3xl font-bold text-primary">25+</div>
+            <div class="text-xs md:text-sm text-muted-foreground">Microsesiones (5-20 min)</div>
           </div>
 
-          <div class="text-center space-y-2">
-            <div class="text-3xl font-bold text-primary">5</div>
-            <div class="text-sm text-muted-foreground">Casos prácticos</div>
+          <div class="text-center space-y-1 md:space-y-2">
+            <div class="text-2xl md:text-3xl font-bold text-primary">5</div>
+            <div class="text-xs md:text-sm text-muted-foreground">Casos prácticos</div>
           </div>
 
-          <div class="text-center space-y-2">
-            <div class="text-3xl font-bold text-primary">5,000+</div>
-            <div class="text-sm text-muted-foreground">Workflows verificados</div>
+          <div class="text-center space-y-1 md:space-y-2">
+            <div class="text-2xl md:text-3xl font-bold text-primary">5,000+</div>
+            <div class="text-xs md:text-sm text-muted-foreground">Workflows verificados</div>
           </div>
         </div>
 
