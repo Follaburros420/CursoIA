@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import axios from 'axios';
-import { api } from '@/services/api';
+import apiService from '@/services/api';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -70,7 +69,7 @@ const applyCoupon = async () => {
   isLoading.value = true;
 
   try {
-    const data = await api.couponValidate({
+    const data = await apiService.validateCoupon({
       code: couponCode.value.toUpperCase(),
       originalAmount: props.originalAmount
     });

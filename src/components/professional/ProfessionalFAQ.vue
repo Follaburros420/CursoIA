@@ -3,11 +3,10 @@ import { ref } from 'vue';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  HelpCircle, 
-  MessageCircle, 
-  Clock, 
-  Award,
+import {
+  HelpCircle,
+  MessageCircle,
+  Clock,
   Users,
   Shield,
   Zap,
