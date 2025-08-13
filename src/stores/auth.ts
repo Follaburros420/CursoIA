@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { supabase } from '@/lib/supabase'
+import { supabase, isSupabaseConfigured } from '@/lib/supabase'
 import type { User, Session } from '@supabase/supabase-js'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -19,6 +19,12 @@ export const useAuthStore = defineStore('auth', () => {
   const initialize = async () => {
     try {
       loading.value = true
+      
+      // Skip auth initialization if Supabase is not configured
+      if (!isSupabaseConfigured) {
+        console.warn('Supabase not configured, skipping auth initialization')
+        return
+      }
       
       // Get initial session
       const { data: { session: initialSession } } = await supabase.auth.getSession()

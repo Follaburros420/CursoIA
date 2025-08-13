@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 
-// Video ID de YouTube - Asegúrate de que este video existe y es público
-const videoId = 'dQw4w9WgXcQ'; // Cambia este ID por el de tu video actual
+// Video ID de YouTube
+const videoId = '1dPhWNbfZ6I';
 </script>
 
 <template>
