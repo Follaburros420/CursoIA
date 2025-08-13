@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 
-// Video ID de YouTube
-const videoId = '1dPhWNbfZ6I';
+// Video ID de YouTube - Asegúrate de que este video existe y es público
+const videoId = 'dQw4w9WgXcQ'; // Cambia este ID por el de tu video actual
 </script>
 
 <template>
@@ -77,12 +77,13 @@ const videoId = '1dPhWNbfZ6I';
           <iframe
             width="100%"
             height="100%"
-            :src="'https://www.youtube.com/embed/' + videoId"
+            :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`"
             title="Curso de IA para Abogados - Video Preview"
             frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
             class="rounded-lg"
+            loading="lazy"
           ></iframe>
         </div>
 
@@ -161,6 +162,7 @@ const videoId = '1dPhWNbfZ6I';
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
+  background: #000; /* Fondo negro mientras carga el video */
 }
 
 .video-wrapper iframe {
@@ -169,6 +171,7 @@ const videoId = '1dPhWNbfZ6I';
   left: 0;
   width: 100%;
   height: 100%;
+  border: none;
 }
 
 /* Reduce motion for accessibility */

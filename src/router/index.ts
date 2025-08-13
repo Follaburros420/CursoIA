@@ -8,6 +8,11 @@ import PrivacyPolicy from '../components/PrivacyPolicy.vue';
 import WompiRedirect from '../pages/pagos/wompi/redirect.vue';
 
 import Home from '../components/Home.vue';
+import AuthCallback from '../components/auth/AuthCallback.vue';
+import VectorSearch from '../components/VectorSearch.vue';
+import LLMChat from '../components/LLMChat.vue';
+import PIIAnonymizer from '../components/PIIAnonymizer.vue';
+import Dashboard from '../components/Dashboard.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -45,6 +50,31 @@ const routes: Array<RouteRecordRaw> = [
     path: '/pagos/wompi/redirect',
     name: 'WompiRedirect',
     component: WompiRedirect,
+  },
+  {
+    path: '/auth/callback',
+    name: 'AuthCallback',
+    component: AuthCallback,
+  },
+  {
+    path: '/busqueda-vectorial',
+    name: 'VectorSearch',
+    component: VectorSearch,
+  },
+  {
+    path: '/chat-ia',
+    name: 'LLMChat',
+    component: LLMChat,
+  },
+  {
+    path: '/anonimizador-pii',
+    name: 'PIIAnonymizer',
+    component: PIIAnonymizer,
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
   },
   // Catch all route - must be last
   {
