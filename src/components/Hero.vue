@@ -3,9 +3,31 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
+import { ref, onMounted } from 'vue';
 
 // Video ID de YouTube
 const videoId = '1dPhWNbfZ6I';
+const videoLoaded = ref(false);
+const showFallback = ref(false);
+
+// Función para manejar la carga del video
+const handleVideoLoad = () => {
+  videoLoaded.value = true;
+};
+
+// Función para manejar errores del video
+const handleVideoError = () => {
+  showFallback.value = true;
+};
+
+// Verificar si el video se carga correctamente después de un tiempo
+onMounted(() => {
+  setTimeout(() => {
+    if (!videoLoaded.value) {
+      showFallback.value = true;
+    }
+  }, 5000); // 5 segundos de timeout
+});
 </script>
 
 <template>
@@ -74,16 +96,55 @@ const videoId = '1dPhWNbfZ6I';
 
         <!-- Video container with responsive aspect ratio -->
         <div class="video-wrapper w-full max-w-4xl mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden">
+          <!-- Loading placeholder -->
+          <div 
+            v-if="!videoLoaded && !showFallback" 
+            class="absolute inset-0 flex items-center justify-center bg-gray-900 rounded-lg"
+          >
+            <div class="flex flex-col items-center space-y-4">
+              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+              <p class="text-white text-sm">Cargando video...</p>
+            </div>
+          </div>
+
+          <!-- Video thumbnail fallback -->
+          <div 
+            v-if="showFallback" 
+            class="absolute inset-0 flex items-center justify-center bg-gray-900 rounded-lg cursor-pointer"
+            @click="showFallback = false; videoLoaded = false"
+          >
+            <div class="flex flex-col items-center space-y-4 text-center p-8">
+              <img 
+                :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`"
+                :alt="'Thumbnail del video'"
+                class="w-full h-auto rounded-lg opacity-80"
+                @error="$event.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`"
+              />
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="bg-red-600 rounded-full p-4 hover:bg-red-700 transition-colors">
+                  <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+                  </svg>
+                </div>
+              </div>
+              <p class="text-white text-sm mt-4">Haz clic para reproducir el video</p>
+            </div>
+          </div>
+
+          <!-- YouTube iframe -->
           <iframe
+            v-show="!showFallback"
             width="100%"
             height="100%"
-            :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0`"
+            :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=0&enablejsapi=1`"
             title="Curso de IA para Abogados - Video Preview"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
             class="rounded-lg"
-            loading="lazy"
+            loading="eager"
+            @load="handleVideoLoad"
+            @error="handleVideoError"
           ></iframe>
         </div>
 
