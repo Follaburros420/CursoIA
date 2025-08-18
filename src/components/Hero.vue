@@ -118,7 +118,10 @@ onMounted(() => {
                 :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`"
                 :alt="'Thumbnail del video'"
                 class="w-full h-auto rounded-lg opacity-80"
-                @error="$event.target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`"
+                @error="(event) => {
+                  const target = event.target as HTMLImageElement;
+                  if (target) target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                }"
               />
               <div class="absolute inset-0 flex items-center justify-center">
                 <div class="bg-red-600 rounded-full p-4 hover:bg-red-700 transition-colors">
