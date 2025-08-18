@@ -72,17 +72,12 @@ const videoId = '1dPhWNbfZ6I';
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
-        <!-- Video Preview Container - DEFINITIVO -->
-        <div class="video-container-hero w-full max-w-5xl mx-auto rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black p-1 shadow-2xl">
-          <!-- Texto de debug temporal -->
-          <div class="text-white text-center py-2 text-sm bg-orange-600">
-            📹 Video: Curso de IA para Abogados
-          </div>
-          
+        <!-- Video Preview Container - Formato Horizontal 16:9 -->
+        <div class="video-container-hero w-full max-w-6xl mx-auto rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black shadow-2xl">
           <iframe
-            class="video-iframe w-full rounded-lg"
-            width="100%"
-            height="350"
+            class="video-iframe w-full"
+            width="960"
+            height="540"
             :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
             title="Curso de IA para Abogados - Preview"
             frameborder="0"
@@ -161,14 +156,14 @@ const videoId = '1dPhWNbfZ6I';
   background-size: 50px 50px;
 }
 
-/* Video container - FORZAR VISIBILIDAD TOTAL */
+/* Video container - FORMATO HORIZONTAL 16:9 */
 .video-container-hero {
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  min-height: 380px !important;
   position: relative !important;
   z-index: 10 !important;
+  aspect-ratio: 16/9 !important;
 }
 
 .video-iframe {
@@ -176,30 +171,34 @@ const videoId = '1dPhWNbfZ6I';
   display: block !important;
   visibility: visible !important;
   opacity: 1 !important;
-  min-height: 350px !important;
   background: #000 !important;
   position: relative !important;
   z-index: 5 !important;
+  aspect-ratio: 16/9 !important;
 }
 
-/* Responsive video heights */
+/* Responsive video heights - Formato Horizontal */
+@media (max-width: 767px) {
+  .video-iframe {
+    height: 300px !important;
+  }
+}
+
 @media (min-width: 768px) {
   .video-iframe {
-    height: 400px !important;
-    min-height: 400px !important;
-  }
-  .video-container-hero {
-    min-height: 430px !important;
+    height: 450px !important;
   }
 }
 
 @media (min-width: 1024px) {
   .video-iframe {
-    height: 450px !important;
-    min-height: 450px !important;
+    height: 540px !important;
   }
-  .video-container-hero {
-    min-height: 480px !important;
+}
+
+@media (min-width: 1280px) {
+  .video-iframe {
+    height: 600px !important;
   }
 }
 
