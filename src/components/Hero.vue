@@ -72,20 +72,20 @@ const videoId = '1dPhWNbfZ6I';
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
-        <!-- Video Preview Container - Implementación Simple y Directa -->
-        <div class="w-full max-w-4xl mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden bg-black">
-          <!-- YouTube Video Embed con altura fija -->
-          <iframe
-            class="w-full rounded-lg"
-            width="100%"
-            height="450"
-            :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
-            title="Curso de IA para Abogados - Preview"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            loading="eager"
-          ></iframe>
+        <!-- Video Preview Container - Formato Horizontal 16:9 -->
+        <div class="w-full max-w-5xl mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden bg-black">
+          <!-- Aspect ratio container 16:9 para formato horizontal -->
+          <div class="relative w-full" style="padding-bottom: 56.25%; height: 0;">
+            <iframe
+              class="absolute top-0 left-0 w-full h-full rounded-lg"
+              :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
+              title="Curso de IA para Abogados - Preview"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              loading="eager"
+            ></iframe>
+          </div>
         </div>
 
         <!-- gradient effect overlay -->
