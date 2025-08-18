@@ -21,7 +21,7 @@ import Services from './Services.vue';
     <div class="absolute bottom-0 left-1/2 w-96 h-96 bg-gradient-to-br from-orange-600/10 to-orange-700/10 rounded-full blur-3xl -z-10"></div>
 
     <!-- Sections with improved spacing and transitions -->
-    <section class="section-transition">
+    <section class="section-transition hero-section">
       <Hero />
     </section>
 
@@ -66,6 +66,13 @@ import Services from './Services.vue';
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: calc(var(--section-index, 0) * 0.1s);
+}
+
+/* Hero section should be visible immediately */
+.hero-section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  animation-delay: 0s !important;
 }
 
 .section-transition:nth-child(1) { --section-index: 1; }
