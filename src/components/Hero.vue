@@ -72,20 +72,24 @@ const videoId = '1dPhWNbfZ6I';
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
-        <!-- Video Preview Container - Formato Horizontal 16:9 -->
-        <div class="w-full max-w-5xl mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden bg-black">
-          <!-- Aspect ratio container 16:9 para formato horizontal -->
-          <div class="relative w-full" style="padding-bottom: 56.25%; height: 0;">
-            <iframe
-              class="absolute top-0 left-0 w-full h-full rounded-lg"
-              :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
-              title="Curso de IA para Abogados - Preview"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              loading="eager"
-            ></iframe>
+        <!-- Video Preview Container - DEFINITIVO -->
+        <div class="video-container-hero w-full max-w-5xl mx-auto rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black p-1 shadow-2xl">
+          <!-- Texto de debug temporal -->
+          <div class="text-white text-center py-2 text-sm bg-orange-600">
+            📹 Video: Curso de IA para Abogados
           </div>
+          
+          <iframe
+            class="video-iframe w-full rounded-lg"
+            width="100%"
+            height="350"
+            :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
+            title="Curso de IA para Abogados - Preview"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="eager"
+          ></iframe>
         </div>
 
         <!-- gradient effect overlay -->
@@ -157,9 +161,46 @@ const videoId = '1dPhWNbfZ6I';
   background-size: 50px 50px;
 }
 
-/* Video embed styles */
-iframe {
-  border: none;
+/* Video container - FORZAR VISIBILIDAD TOTAL */
+.video-container-hero {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 380px !important;
+  position: relative !important;
+  z-index: 10 !important;
+}
+
+.video-iframe {
+  border: none !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  min-height: 350px !important;
+  background: #000 !important;
+  position: relative !important;
+  z-index: 5 !important;
+}
+
+/* Responsive video heights */
+@media (min-width: 768px) {
+  .video-iframe {
+    height: 400px !important;
+    min-height: 400px !important;
+  }
+  .video-container-hero {
+    min-height: 430px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .video-iframe {
+    height: 450px !important;
+    min-height: 450px !important;
+  }
+  .video-container-hero {
+    min-height: 480px !important;
+  }
 }
 
 /* Reduce motion for accessibility */
