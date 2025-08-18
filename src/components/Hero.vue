@@ -1,33 +1,28 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-vue-next";
+import { ArrowRight, Play } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 
 // Video ID de YouTube
 const videoId = '1dPhWNbfZ6I';
-const videoLoaded = ref(false);
-const showFallback = ref(false);
+const showVideo = ref(false);
+const thumbnailError = ref(false);
 
-// Función para manejar la carga del video
-const handleVideoLoad = () => {
-  videoLoaded.value = true;
+// Función para mostrar el video
+const playVideo = () => {
+  showVideo.value = true;
 };
 
-// Función para manejar errores del video
-const handleVideoError = () => {
-  showFallback.value = true;
+// Función para manejar error de thumbnail
+const handleThumbnailError = (event: Event) => {
+  const target = event.target as HTMLImageElement;
+  if (target && !thumbnailError.value) {
+    thumbnailError.value = true;
+    target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+  }
 };
-
-// Verificar si el video se carga correctamente después de un tiempo
-onMounted(() => {
-  setTimeout(() => {
-    if (!videoLoaded.value) {
-      showFallback.value = true;
-    }
-  }, 5000); // 5 segundos de timeout
-});
 </script>
 
 <template>
@@ -94,61 +89,63 @@ onMounted(() => {
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
-        <!-- Video container with responsive aspect ratio -->
+        <!-- Video Preview Container -->
         <div class="video-wrapper w-full max-w-4xl mx-auto rounded-lg relative border border-t-2 border-t-orange-500/30 img-border-animation overflow-hidden">
-          <!-- Loading placeholder -->
+          
+          <!-- Video Thumbnail Preview (Always shown initially) -->
           <div 
-            v-if="!videoLoaded && !showFallback" 
-            class="absolute inset-0 flex items-center justify-center bg-gray-900 rounded-lg"
+            v-if="!showVideo"
+            class="relative cursor-pointer group"
+            @click="playVideo"
           >
-            <div class="flex flex-col items-center space-y-4">
-              <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
-              <p class="text-white text-sm">Cargando video...</p>
-            </div>
-          </div>
-
-          <!-- Video thumbnail fallback -->
-          <div 
-            v-if="showFallback" 
-            class="absolute inset-0 flex items-center justify-center bg-gray-900 rounded-lg cursor-pointer"
-            @click="showFallback = false; videoLoaded = false"
-          >
-            <div class="flex flex-col items-center space-y-4 text-center p-8">
-              <img 
-                :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`"
-                :alt="'Thumbnail del video'"
-                class="w-full h-auto rounded-lg opacity-80"
-                @error="(event) => {
-                  const target = event.target as HTMLImageElement;
-                  if (target) target.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-                }"
-              />
-              <div class="absolute inset-0 flex items-center justify-center">
-                <div class="bg-red-600 rounded-full p-4 hover:bg-red-700 transition-colors">
-                  <svg class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
-                  </svg>
-                </div>
+            <!-- Video Thumbnail -->
+            <img 
+              :src="`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`"
+              :alt="'Preview del Curso de IA para Abogados'"
+              class="w-full h-auto rounded-lg transition-all duration-300 group-hover:scale-105"
+              @error="handleThumbnailError"
+            />
+            
+            <!-- Play Button Overlay -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="bg-red-600 rounded-full p-6 group-hover:bg-red-700 transition-all duration-300 group-hover:scale-110 shadow-2xl">
+                <Play class="w-12 h-12 text-white ml-1" fill="currentColor" />
               </div>
-              <p class="text-white text-sm mt-4">Haz clic para reproducir el video</p>
             </div>
+            
+            <!-- Video Info Overlay -->
+            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 rounded-b-lg">
+              <h3 class="text-white text-xl font-bold mb-2">Curso de IA para Abogados</h3>
+              <p class="text-gray-200 text-sm">Descubre cómo la inteligencia artificial puede transformar tu práctica legal</p>
+            </div>
+            
+            <!-- Hover effect overlay -->
+            <div class="absolute inset-0 bg-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
           </div>
 
-          <!-- YouTube iframe -->
-          <iframe
-            v-show="!showFallback"
-            width="100%"
-            height="100%"
-            :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1&cc_load_policy=0&iv_load_policy=3&autohide=0&enablejsapi=1`"
-            title="Curso de IA para Abogados - Video Preview"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-            class="rounded-lg"
-            loading="eager"
-            @load="handleVideoLoad"
-            @error="handleVideoError"
-          ></iframe>
+          <!-- YouTube iframe (shown when play is clicked) -->
+          <div v-if="showVideo" class="relative">
+            <iframe
+              width="100%"
+              height="100%"
+              :src="`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
+              title="Curso de IA para Abogados - Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="rounded-lg"
+            ></iframe>
+            
+            <!-- Close button -->
+            <button 
+              @click="showVideo = false"
+              class="absolute top-4 right-4 bg-black/70 hover:bg-black/90 text-white rounded-full p-2 transition-all duration-200 z-10"
+            >
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
         </div>
 
         <!-- gradient effect overlay -->
