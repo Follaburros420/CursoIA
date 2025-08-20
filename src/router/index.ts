@@ -12,7 +12,15 @@ import AuthCallback from '../components/auth/AuthCallback.vue';
 import VectorSearch from '../components/VectorSearch.vue';
 import LLMChat from '../components/LLMChat.vue';
 import PIIAnonymizer from '../components/PIIAnonymizer.vue';
-import Dashboard from '../components/Dashboard.vue';
+
+// Auth and Course components
+import Login from '../views/Login.vue';
+import CourseDashboard from '../views/Dashboard.vue';
+import FundamentosIA from '../views/modules/FundamentosIA.vue';
+import HerramientasUtiles from '../views/modules/HerramientasUtiles.vue';
+import RedaccionLegal from '../views/modules/RedaccionLegal.vue';
+import BusquedaJuridica from '../views/modules/BusquedaJuridica.vue';
+import Automatizaciones from '../views/modules/Automatizaciones.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -71,10 +79,41 @@ const routes: Array<RouteRecordRaw> = [
     name: 'PIIAnonymizer',
     component: PIIAnonymizer,
   },
+  // Auth and Course routes
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
   {
     path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
+    name: 'CourseDashboard',
+    component: CourseDashboard,
+  },
+  {
+    path: '/modulo/fundamentos-ia',
+    name: 'FundamentosIA',
+    component: FundamentosIA,
+  },
+  {
+    path: '/modulo/herramientas-utiles',
+    name: 'HerramientasUtiles',
+    component: HerramientasUtiles,
+  },
+  {
+    path: '/modulo/redaccion-legal',
+    name: 'RedaccionLegal',
+    component: RedaccionLegal,
+  },
+  {
+    path: '/modulo/busqueda-juridica',
+    name: 'BusquedaJuridica',
+    component: BusquedaJuridica,
+  },
+  {
+    path: '/modulo/automatizaciones',
+    name: 'Automatizaciones',
+    component: Automatizaciones,
   },
   // Catch all route - must be last
   {

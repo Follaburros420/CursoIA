@@ -170,8 +170,16 @@ import ToggleTheme from "./ToggleTheme.vue";
           </NavigationMenu>
         </div>
 
-        <!-- Right side: Theme + Mobile menu -->
+        <!-- Right side: Login + Theme + Mobile menu -->
         <div class="flex items-center space-x-3">
+          <!-- Login Button -->
+          <Button
+            @click="router.push('/login')"
+            class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium px-4 py-2 rounded-lg transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg"
+          >
+            Inicia sesión
+          </Button>
+          
           <!-- Theme Toggle -->
           <ToggleTheme />
 
@@ -202,6 +210,13 @@ import ToggleTheme from "./ToggleTheme.vue";
                 
                 <Separator class="my-4" />
                 
+                <!-- Login Button Mobile -->
+                <Button
+                  @click="() => { router.push('/login'); closeSheet(); }"
+                  class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium"
+                >
+                  Inicia sesión
+                </Button>
 
               </div>
               
