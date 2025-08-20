@@ -43,7 +43,7 @@ const plans: PlanProps[] = [
   {
     title: "Profesional",
     popular: 1,
-    price: "$39 USD",
+    price: "$39,000 COP",
     description:
       "Integra IA en tu práctica con control",
     buttonText: "Inscribirme",

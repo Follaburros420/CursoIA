@@ -35,10 +35,9 @@ const mainElement = ref<HTMLElement>();
 
 // Methods
 const formatCurrency = (amount: number) => {
-  // Always show USD to the user, regardless of internal currency
-  // Convert COP centavos to USD for display
-  const usdAmount = amount === 16333400 ? 40 : amount === 9800000 ? 24 : (amount / 100) / 4100; // Approximate conversion
-  return `${Math.round(usdAmount)} USD`;
+  // Show price in Colombian pesos
+  const copAmount = amount / 100; // Convert centavos to pesos
+  return `$${copAmount.toLocaleString('es-CO')} COP`;
 };
 
 // Removed unused functions - WompiButton handles everything directly

@@ -104,13 +104,9 @@ const removeCoupon = () => {
 };
 
 const formatCurrency = (amount: number) => {
-  // Always show USD to the user, regardless of internal currency
-  // Convert COP centavos to USD for display
-  const usdAmount = amount === 16000000 ? 39 :
-                   amount === 9900000 ? 24 :
-                   amount === 6100000 ? 15 : // Discount amount
-                   (amount / 100) / 4100; // Approximate conversion for other amounts
-  return `${Math.round(usdAmount)} USD`;
+  // Show price in Colombian pesos
+  const copAmount = amount / 100; // Convert centavos to pesos
+  return `$${copAmount.toLocaleString('es-CO')} COP`;
 };
 
 // Watch for external changes
