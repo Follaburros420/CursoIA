@@ -45,7 +45,7 @@ const modules: Module[] = [
     title: "Fundamentos de IA",
     description: "Que el abogado entienda qué es la IA, cómo funciona por debajo, sus límites, riesgos legales/éticos y qué aplicaciones reales tiene en su práctica.",
     objective: "Desmitificar la IA y establecer bases sólidas para su aplicación ética en el derecho",
-    duration: "6 horas",
+    duration: "2 horas",
     level: "Básico",
     microSessions: [
       {
@@ -96,7 +96,7 @@ const modules: Module[] = [
     title: "Herramientas más útiles (LLMs, RAG y bases de datos)",
     description: "Enseñar el ecosistema técnico operativo: qué herramientas usar, cómo combinarlas y qué puedes lograr con ellas en una práctica legal escalable.",
     objective: "Dominar las herramientas fundamentales para implementar IA en la práctica legal",
-    duration: "8 horas",
+    duration: "2 horas",
     level: "Intermedio",
     microSessions: [
       {
@@ -135,7 +135,7 @@ const modules: Module[] = [
     title: "Redacción legal inteligente",
     description: "Dominar la generación, adaptación y control de textos legales con IA, minimizando errores y preservando voz y responsabilidad.",
     objective: "Crear documentos legales de alta calidad con asistencia de IA manteniendo estándares profesionales",
-    duration: "7 horas",
+    duration: "+3 horas",
     level: "Avanzado",
     microSessions: [
       {
@@ -180,7 +180,7 @@ const modules: Module[] = [
     title: "Búsqueda de información jurídica",
     description: "Dominar cómo localizar, evaluar y organizar información jurídica de forma eficiente y fiable usando IA como potenciador.",
     objective: "Optimizar la investigación legal con herramientas de IA manteniendo rigor académico",
-    duration: "6 horas",
+    duration: "+2 horas",
     level: "Intermedio",
     microSessions: [
       {
@@ -219,7 +219,7 @@ const modules: Module[] = [
     title: "Automatizaciones en acción",
     description: "Construir y desplegar automatizaciones prácticas que conviertan flujos legales repetitivos en sistemas semi-autónomos.",
     objective: "Implementar automatizaciones que transformen la eficiencia del despacho",
-    duration: "9 horas",
+    duration: "+3 horas",
     level: "Avanzado",
     microSessions: [
       {
@@ -414,7 +414,7 @@ const getLevelColor = (level: string) => {
         <!-- Summary stats -->
         <div class="mt-12 md:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
           <div class="text-center space-y-1 md:space-y-2">
-            <div class="text-2xl md:text-3xl font-bold text-primary">8+</div>
+            <div class="text-2xl md:text-3xl font-bold text-primary">12+</div>
             <div class="text-xs md:text-sm text-muted-foreground">Horas de contenido</div>
           </div>
 

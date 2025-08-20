@@ -57,7 +57,7 @@ const benefits = [
             <!-- Quick stats -->
             <div class="grid grid-cols-2 gap-6 pt-4">
               <div class="text-center lg:text-left">
-                <div class="text-2xl font-bold text-primary">8+</div>
+                <div class="text-2xl font-bold text-primary">12+</div>
                 <div class="text-sm text-muted-foreground">Horas de contenido</div>
               </div>
               <div class="text-center lg:text-left">
