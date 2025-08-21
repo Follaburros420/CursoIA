@@ -10,9 +10,9 @@ const route = useRoute();
 
 // Rutas que tienen su propia navbar personalizada con variantes específicas
 const routesWithCustomNavbar = [
-  '/plan-profesional', 
-  '/plan-gratuito', 
-  '/ebook-gratis', 
+  '/plan-profesional',
+  '/plan-gratuito',
+  '/ebook-gratis',
   '/plan-empresarial',
   '/login',
   '/dashboard',
@@ -21,7 +21,18 @@ const routesWithCustomNavbar = [
   '/modulo/redaccion-legal',
   '/modulo/busqueda-juridica',
   '/modulo/automatizaciones',
-  '/modulo/fundamentos-ia/microsesion-1'
+  '/modulo/fundamentos-ia/microsesion-1',
+  '/modulo/fundamentos-ia/microsesion-2',
+  '/modulo/fundamentos-ia/microsesion-3',
+  '/modulo/fundamentos-ia/microsesion-4',
+  '/modulo/fundamentos-ia/microsesion-5',
+  '/modulo/fundamentos-ia/microsesion-6',
+  '/modulo/herramientas-utiles/microsesion-4',
+  '/modulo/herramientas-utiles/microsesion-5',
+  '/modulo/herramientas-utiles/microsesion-6',
+  '/modulo/herramientas-utiles/microsesion-7',
+  '/modulo/herramientas-utiles/microsesion-8',
+  '/modulo/herramientas-utiles/microsesion-9'
 ];
 
 const showDefaultNavbar = computed(() => {

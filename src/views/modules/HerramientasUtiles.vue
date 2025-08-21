@@ -39,11 +39,52 @@ const microSessions = [
     completed: false
   },
   {
-    title: "Integraciones prácticas y conectores",
-    objective: "Conectar herramientas con sistemas existentes.",
-    content: "Conectar LLM con Google Docs / Notion / sistema interno. Automatizar ingestion (scanning, OCR, extracción).",
-    exercise: "Esquematizar cómo entra un documento nuevo y termina como un insight en el sistema.",
-    completed: false
+    title: "Introducción a Gemini",
+    objective: "Dominar el modelo de Google para tareas legales específicas.",
+    content: "Características únicas, fortalezas en razonamiento, integración con Google Workspace, mejores prácticas.",
+    exercise: "Usar Gemini para analizar un contrato y comparar con otros modelos.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-4'
+  },
+  {
+    title: "Introducción a ChatGPT",
+    objective: "Aprovechar las capacidades conversacionales y de razonamiento de OpenAI.",
+    content: "Versiones disponibles, plugins, Code Interpreter, mejores prompts para derecho.",
+    exercise: "Crear una conversación legal compleja usando las capacidades avanzadas de ChatGPT.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-5'
+  },
+  {
+    title: "Introducción a Grok",
+    objective: "Explorar las capacidades del modelo de X (Twitter) para análisis legal.",
+    content: "Características distintivas, acceso a información en tiempo real, casos de uso legales.",
+    exercise: "Usar Grok para investigar tendencias legales recientes y generar insights.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-6'
+  },
+  {
+    title: "Introducción a Claude",
+    objective: "Utilizar las fortalezas de Anthropic en análisis y redacción legal.",
+    content: "Capacidades de análisis profundo, manejo de documentos largos, principios de seguridad.",
+    exercise: "Analizar un documento legal extenso usando las capacidades de Claude.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-7'
+  },
+  {
+    title: "Introducción a Perplexity",
+    objective: "Aprovechar las capacidades de búsqueda y síntesis de información legal.",
+    content: "Motor de búsqueda con IA, verificación de fuentes, síntesis de información jurídica.",
+    exercise: "Realizar una investigación legal completa usando Perplexity y verificar fuentes.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-8'
+  },
+  {
+    title: "Introducción a Ollama",
+    objective: "Implementar modelos locales para máxima privacidad y control.",
+    content: "Instalación local, modelos disponibles, ventajas de privacidad, casos de uso confidenciales.",
+    exercise: "Configurar un modelo local con Ollama para análisis de documentos confidenciales.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-9'
   }
 ];
 
@@ -52,8 +93,15 @@ const practicalCase = {
   description: "El alumno debe diseñar e implementar un flujo RAG donde se ingieren 10 documentos normativos/precedentes, una pregunta del cliente se responde combinando esos documentos con un resumen generado, incluyendo evaluación de confianza y explicación para el cliente."
 };
 
-const toggleSessionComplete = (index: number) => {
-  microSessions[index].completed = !microSessions[index].completed;
+const handleSessionClick = (index: number) => {
+  const session = microSessions[index];
+  if (session.route) {
+    // Navegar a la microsesión específica
+    router.push(session.route);
+  } else {
+    // Solo marcar como completada si no tiene ruta específica
+    microSessions[index].completed = !microSessions[index].completed;
+  }
 };
 </script>
 
@@ -144,7 +192,7 @@ const toggleSessionComplete = (index: number) => {
               v-for="(session, index) in microSessions"
               :key="index"
               class="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/30"
-              @click="toggleSessionComplete(index)"
+              @click="handleSessionClick(index)"
             >
               <CardHeader>
                 <div class="flex items-start justify-between">

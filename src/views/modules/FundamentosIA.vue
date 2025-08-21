@@ -41,35 +41,40 @@ const microSessions = [
     objective: "Saber cuándo una solución es basada en reglas vs. aprendizaje.",
     content: "Sistemas basados en reglas, machine learning, deep learning, redes neuronales vs. árboles de decisión.",
     exercise: "Dado un problema legal (ej. clasificar cláusulas riesgosas), decidir si se resolvería mejor con reglas, ML o LLM y justificar.",
-    completed: false
+    completed: false,
+    route: '/modulo/fundamentos-ia/microsesion-2'
   },
   {
     title: "Machine Learning y Deep Learning",
     objective: "Entender sobre entrenamiento, sobreajuste, generalización y por qué los modelos cometen errores.",
     content: "Datos de entrenamiento, etiquetas, 'garbage in garbage out', interpretabilidad.",
     exercise: "Revisar un ejemplo de output incorrecto y proponer qué pudo fallar en el entrenamiento o en el prompt.",
-    completed: false
+    completed: false,
+    route: '/modulo/fundamentos-ia/microsesion-3'
   },
   {
     title: "Procesamiento de Lenguaje Natural (NLP)",
     objective: "Saber qué hace posible que los modelos entiendan y generen texto legal.",
     content: "Tokenización, embeddings, similitud semántica, resumen, extracción de entidades.",
     exercise: "Generar embeddings de dos textos similares y medir con la IA su distancia/igualdad.",
-    completed: false
+    completed: false,
+    route: '/modulo/fundamentos-ia/microsesion-4'
   },
   {
     title: "Sesgos y ética",
     objective: "Reconocer y mitigar sesgos en outputs legales.",
     content: "Tipos de sesgo (de datos, confirmación, de género, cultural), impacto en decisiones jurídicas, human in the loop.",
     exercise: "Detectar un sesgo en una recomendación automatizada y reescribir el prompt para mitigarlo.",
-    completed: false
+    completed: false,
+    route: '/modulo/fundamentos-ia/microsesion-5'
   },
   {
     title: "Marco regulatorio y legal",
     objective: "Conocer restricciones, responsabilidades y estándares de uso de IA en el ejercicio legal.",
     content: "Protección de datos (Habeas Data), responsabilidad profesional, uso de algoritmos en decisiones, comparación con EU/EEUU.",
     exercise: "Analizar un caso hipotético donde un abogado depende de IA y hay un error: ¿quién responde y qué protocolos previos debía tener?",
-    completed: false
+    completed: false,
+    route: '/modulo/fundamentos-ia/microsesion-6'
   }
 ];
 
