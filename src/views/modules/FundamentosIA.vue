@@ -33,7 +33,8 @@ const microSessions = [
     objective: "Desmitificar y alinear expectativas.",
     content: "Distinción entre IA débil/fuerte, generación vs. clasificación, diferencia entre asistente y autor.",
     exercise: "Pregunta a un LLM '¿Qué puede y qué no puede hacer la IA en un análisis jurídico?' y anota 3 limitaciones clave.",
-    completed: false
+    completed: false,
+    route: '/modulo/fundamentos-ia/microsesion-1'
   },
   {
     title: "Tipos de IA",
@@ -78,7 +79,14 @@ const practicalCase = {
 };
 
 const handleSessionClick = (index: number) => {
-  toggleSessionComplete(MODULE_ID, index);
+  const session = microSessions[index];
+  if (session.route) {
+    // Navegar a la microsesión específica
+    router.push(session.route);
+  } else {
+    // Solo marcar como completada si no tiene ruta específica
+    toggleSessionComplete(MODULE_ID, index);
+  }
 };
 
 const handlePracticalCaseClick = () => {

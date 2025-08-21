@@ -20,7 +20,8 @@ const routesWithCustomNavbar = [
   '/modulo/herramientas-utiles',
   '/modulo/redaccion-legal',
   '/modulo/busqueda-juridica',
-  '/modulo/automatizaciones'
+  '/modulo/automatizaciones',
+  '/modulo/fundamentos-ia/microsesion-1'
 ];
 
 const showDefaultNavbar = computed(() => {
