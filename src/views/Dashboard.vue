@@ -29,8 +29,7 @@ const isAuthenticated = ref(false);
 const { 
   getModuleProgress, 
   isModuleCompleted, 
-  areAllModulesCompleted, 
-  getCourseStats 
+  areAllModulesCompleted
 } = useCourseProgress();
 
 // Verificar autenticación al montar el componente

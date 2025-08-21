@@ -14,7 +14,7 @@ const isLoading = ref(false);
 const error = ref('');
 const success = ref(false);
 
-const VALID_CODE = '000000';
+const VALID_CODES = ['000000', '484643', '141155'];
 
 const handleLogin = async () => {
   if (!code.value) {
@@ -27,7 +27,7 @@ const handleLogin = async () => {
 
   // Simular validación
   setTimeout(() => {
-    if (code.value === VALID_CODE) {
+    if (VALID_CODES.includes(code.value)) {
       success.value = true;
       // Guardar estado de autenticación
       localStorage.setItem('isAuthenticated', 'true');
