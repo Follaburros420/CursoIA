@@ -1,12 +1,23 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { useCourseProgress } from '@/composables/useCourseProgress';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Brain, ArrowLeft, Clock, Target, BookOpen, CheckCircle, Play } from "lucide-vue-next";
 
 const router = useRouter();
+
+// Sistema de progreso
+const { 
+  toggleSessionComplete, 
+  togglePracticalCaseComplete, 
+  isSessionCompleted, 
+  isPracticalCaseCompleted 
+} = useCourseProgress();
+
+const MODULE_ID = 1;
 
 // Verificar autenticación
 onMounted(() => {
@@ -66,8 +77,12 @@ const practicalCase = {
   description: "Se da un borrador generado por IA (opinión legal con recomendaciones contradictorias). El alumno debe identificar errores, sesgos y supuestos no explícitos, corregir el prompt/entrada para mejorar la calidad, y escribir un short memo de por qué se puede confiar (o no) en esa recomendación."
 };
 
-const toggleSessionComplete = (index: number) => {
-  microSessions[index].completed = !microSessions[index].completed;
+const handleSessionClick = (index: number) => {
+  toggleSessionComplete(MODULE_ID, index);
+};
+
+const handlePracticalCaseClick = () => {
+  togglePracticalCaseComplete(MODULE_ID);
 };
 </script>
 
@@ -112,6 +127,30 @@ const toggleSessionComplete = (index: number) => {
     <div class="container mx-auto px-4 py-8">
       <div class="max-w-4xl mx-auto space-y-8">
         
+        <!-- Video Section -->
+        <Card class="overflow-hidden">
+          <CardHeader class="text-center">
+            <CardTitle class="text-2xl font-bold text-transparent bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text">
+              Video Introductorio
+            </CardTitle>
+            <CardDescription>
+              Fundamentos de Inteligencia Artificial para Abogados
+            </CardDescription>
+          </CardHeader>
+          <CardContent class="p-0">
+            <div class="relative w-full" style="padding-bottom: 56.25%; /* 16:9 aspect ratio */">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full rounded-b-lg"
+                src="https://www.youtube.com/embed/yEBKbrxs1Dg"
+                title="Fundamentos de IA para Abogados"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </CardContent>
+        </Card>
+        
         <!-- Module overview -->
         <Card class="bg-gradient-to-br from-blue-50 to-blue-100/50 dark:from-blue-950/20 dark:to-blue-900/10 border-blue-200 dark:border-blue-800">
           <CardHeader>
@@ -137,7 +176,7 @@ const toggleSessionComplete = (index: number) => {
               v-for="(session, index) in microSessions"
               :key="index"
               class="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/30"
-              @click="toggleSessionComplete(index)"
+              @click="handleSessionClick(index)"
             >
               <CardHeader>
                 <div class="flex items-start justify-between">
@@ -156,12 +195,12 @@ const toggleSessionComplete = (index: number) => {
                   </div>
                   
                   <div class="flex items-center space-x-2">
-                    <CheckCircle 
-                      :class="[
-                        'w-6 h-6 transition-colors duration-300',
-                        session.completed ? 'text-green-500' : 'text-muted-foreground'
-                      ]"
-                    />
+                                      <CheckCircle 
+                    :class="[
+                      'w-6 h-6 transition-colors duration-300',
+                      isSessionCompleted(MODULE_ID, index) ? 'text-green-500' : 'text-muted-foreground'
+                    ]"
+                  />
                   </div>
                 </div>
               </CardHeader>
@@ -179,11 +218,11 @@ const toggleSessionComplete = (index: number) => {
 
                 <Button
                   size="sm"
-                  :variant="session.completed ? 'secondary' : 'default'"
+                  :variant="isSessionCompleted(MODULE_ID, index) ? 'secondary' : 'default'"
                   class="w-full mt-4"
                 >
                   <Play class="w-4 h-4 mr-2" />
-                  {{ session.completed ? 'Completado' : 'Comenzar sesión' }}
+                  {{ isSessionCompleted(MODULE_ID, index) ? 'Completado' : 'Comenzar sesión' }}
                 </Button>
               </CardContent>
             </Card>
@@ -205,9 +244,17 @@ const toggleSessionComplete = (index: number) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white">
-              <Target class="w-4 h-4 mr-2" />
-              Resolver Caso Práctico
+            <Button 
+              @click="handlePracticalCaseClick"
+              :class="[
+                'w-full transition-all duration-300',
+                isPracticalCaseCompleted(MODULE_ID)
+                  ? 'bg-green-500 hover:bg-green-600 text-white'
+                  : 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white'
+              ]"
+            >
+              <component :is="isPracticalCaseCompleted(MODULE_ID) ? CheckCircle : Target" class="w-4 h-4 mr-2" />
+              {{ isPracticalCaseCompleted(MODULE_ID) ? 'Caso Completado' : 'Resolver Caso Práctico' }}
             </Button>
           </CardContent>
         </Card>

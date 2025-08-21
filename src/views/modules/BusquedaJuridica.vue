@@ -90,6 +90,30 @@ const toggleSessionComplete = (index: number) => {
     <div class="container mx-auto px-4 py-8">
       <div class="max-w-4xl mx-auto space-y-8">
         
+        <!-- Video Section -->
+        <Card class="overflow-hidden">
+          <CardHeader class="text-center">
+            <CardTitle class="text-2xl font-bold text-transparent bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text">
+              Video Introductorio
+            </CardTitle>
+            <CardDescription>
+              Búsqueda de información jurídica con IA
+            </CardDescription>
+          </CardHeader>
+          <CardContent class="p-0">
+            <div class="relative w-full" style="padding-bottom: 56.25%; /* 16:9 aspect ratio */">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full rounded-b-lg"
+                src="https://www.youtube.com/embed/9pep5qRCEM4"
+                title="Búsqueda de información jurídica con IA"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </CardContent>
+        </Card>
+        
         <!-- Module overview -->
         <Card class="bg-gradient-to-br from-orange-50 to-orange-100/50 dark:from-orange-950/20 dark:to-orange-900/10 border-orange-200 dark:border-orange-800">
           <CardHeader>

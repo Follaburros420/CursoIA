@@ -95,6 +95,30 @@ const toggleSessionComplete = (index: number) => {
     <div class="container mx-auto px-4 py-8">
       <div class="max-w-4xl mx-auto space-y-8">
         
+        <!-- Video Section -->
+        <Card class="overflow-hidden">
+          <CardHeader class="text-center">
+            <CardTitle class="text-2xl font-bold text-transparent bg-gradient-to-r from-green-500 to-green-600 bg-clip-text">
+              Video Introductorio
+            </CardTitle>
+            <CardDescription>
+              Herramientas más útiles: LLMs, RAG y bases de datos
+            </CardDescription>
+          </CardHeader>
+          <CardContent class="p-0">
+            <div class="relative w-full" style="padding-bottom: 56.25%; /* 16:9 aspect ratio */">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full rounded-b-lg"
+                src="https://www.youtube.com/embed/f4oTllU1-yQ"
+                title="Herramientas más útiles para Abogados"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </CardContent>
+        </Card>
+        
         <!-- Module overview -->
         <Card class="bg-gradient-to-br from-green-50 to-green-100/50 dark:from-green-950/20 dark:to-green-900/10 border-green-200 dark:border-green-800">
           <CardHeader>

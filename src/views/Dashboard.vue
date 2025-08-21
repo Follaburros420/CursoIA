@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { useCourseProgress } from '@/composables/useCourseProgress';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
 import { 
   Brain, 
   Database, 
@@ -15,11 +17,21 @@ import {
   LogOut,
   User,
   CheckCircle,
-  Play
+  Play,
+  Download,
+  Trophy
 } from "lucide-vue-next";
 
 const router = useRouter();
 const isAuthenticated = ref(false);
+
+// Sistema de progreso
+const { 
+  getModuleProgress, 
+  isModuleCompleted, 
+  areAllModulesCompleted, 
+  getCourseStats 
+} = useCourseProgress();
 
 // Verificar autenticación al montar el componente
 onMounted(() => {
@@ -129,6 +141,12 @@ const getLevelColor = (level: string) => {
 const goToModule = (route: string) => {
   router.push(route);
 };
+
+const generateCertificate = () => {
+  // Aquí se implementaría la lógica para generar el certificado
+  alert('¡Certificado generado exitosamente! Se descargará en breve.');
+  // TODO: Implementar generación real del certificado PDF
+};
 </script>
 
 <template>
@@ -209,9 +227,16 @@ const goToModule = (route: string) => {
         <Card
           v-for="module in modules"
           :key="module.id"
-          class="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30"
+          class="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 relative"
           @click="goToModule(module.route)"
         >
+          <!-- Completion badge -->
+          <div v-if="isModuleCompleted(module.id)" class="absolute -top-2 -right-2 z-10">
+            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
+              <CheckCircle class="w-5 h-5 text-white" />
+            </div>
+          </div>
+
           <CardHeader class="text-center">
             <!-- Module number and icon -->
             <div class="flex items-center justify-center space-x-4 mb-4">
@@ -243,17 +268,67 @@ const goToModule = (route: string) => {
               {{ module.description }}
             </CardDescription>
 
+            <!-- Progress bar -->
+            <div class="mb-4">
+              <div class="flex justify-between text-xs text-muted-foreground mb-1">
+                <span>Progreso</span>
+                <span>{{ getModuleProgress(module.id).percentage }}%</span>
+              </div>
+              <div class="w-full bg-muted rounded-full h-2">
+                <div 
+                  class="bg-gradient-to-r from-primary to-orange-600 h-2 rounded-full transition-all duration-500"
+                  :style="`width: ${getModuleProgress(module.id).percentage}%`"
+                ></div>
+              </div>
+            </div>
+
             <!-- Action button -->
             <Button
-              class="w-full bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 text-white group-hover:scale-105 transition-all duration-300"
+              :class="[
+                'w-full group-hover:scale-105 transition-all duration-300',
+                isModuleCompleted(module.id) 
+                  ? 'bg-green-500 hover:bg-green-600 text-white' 
+                  : 'bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 text-white'
+              ]"
             >
-              <Play class="w-4 h-4 mr-2" />
-              Comenzar Módulo
+              <component :is="isModuleCompleted(module.id) ? CheckCircle : Play" class="w-4 h-4 mr-2" />
+              {{ isModuleCompleted(module.id) ? 'Completado' : 'Comenzar Módulo' }}
             </Button>
           </CardContent>
 
           <!-- Hover effect -->
           <div :class="`absolute inset-0 rounded-lg ${module.bgColor} opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none`"></div>
+        </Card>
+      </div>
+
+      <!-- Certificate Section -->
+      <div v-if="areAllModulesCompleted" class="mt-12">
+        <Card class="bg-gradient-to-br from-yellow-50 to-yellow-100/50 dark:from-yellow-950/20 dark:to-yellow-900/10 border-yellow-200 dark:border-yellow-800 text-center">
+          <CardHeader>
+            <div class="flex justify-center mb-4">
+              <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center shadow-lg">
+                <Trophy class="w-8 h-8 text-white" />
+              </div>
+            </div>
+            <CardTitle class="text-2xl text-yellow-800 dark:text-yellow-400">
+              ¡Felicitaciones!
+            </CardTitle>
+            <CardDescription class="text-yellow-700 dark:text-yellow-300">
+              Has completado todos los módulos y casos prácticos del curso
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button
+              @click="generateCertificate"
+              class="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-bold py-3 px-8 text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            >
+              <Download class="w-5 h-5 mr-3" />
+              Generar Certificado del Curso
+            </Button>
+            <p class="text-xs text-yellow-600 dark:text-yellow-400 mt-3">
+              Tu certificado oficial del Curso de IA para Abogados
+            </p>
+          </CardContent>
         </Card>
       </div>
 
