@@ -24,6 +24,17 @@ import Automatizaciones from '../views/modules/Automatizaciones.vue';
 
 // Microsessions
 import FundamentosIA_Microsesion1 from '../views/modules/microsessions/FundamentosIA_Microsesion1.vue';
+import FundamentosIA_Microsesion2 from '../views/modules/microsessions/FundamentosIA_Microsesion2.vue';
+import FundamentosIA_Microsesion3 from '../views/modules/microsessions/FundamentosIA_Microsesion3.vue';
+import FundamentosIA_Microsesion4 from '../views/modules/microsessions/FundamentosIA_Microsesion4.vue';
+import FundamentosIA_Microsesion5 from '../views/modules/microsessions/FundamentosIA_Microsesion5.vue';
+import FundamentosIA_Microsesion6 from '../views/modules/microsessions/FundamentosIA_Microsesion6.vue';
+import HerramientasUtiles_Microsesion4 from '../views/modules/microsessions/HerramientasUtiles_Microsesion4.vue';
+import HerramientasUtiles_Microsesion5 from '../views/modules/microsessions/HerramientasUtiles_Microsesion5.vue';
+import HerramientasUtiles_Microsesion6 from '../views/modules/microsessions/HerramientasUtiles_Microsesion6.vue';
+import HerramientasUtiles_Microsesion7 from '../views/modules/microsessions/HerramientasUtiles_Microsesion7.vue';
+import HerramientasUtiles_Microsesion8 from '../views/modules/microsessions/HerramientasUtiles_Microsesion8.vue';
+import HerramientasUtiles_Microsesion9 from '../views/modules/microsessions/HerramientasUtiles_Microsesion9.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -123,6 +134,63 @@ const routes: Array<RouteRecordRaw> = [
     path: '/modulo/fundamentos-ia/microsesion-1',
     name: 'FundamentosIA_Microsesion1',
     component: FundamentosIA_Microsesion1,
+  },
+  {
+    path: '/modulo/fundamentos-ia/microsesion-2',
+    name: 'FundamentosIA_Microsesion2',
+    component: FundamentosIA_Microsesion2,
+  },
+  {
+    path: '/modulo/fundamentos-ia/microsesion-3',
+    name: 'FundamentosIA_Microsesion3',
+    component: FundamentosIA_Microsesion3,
+  },
+  {
+    path: '/modulo/fundamentos-ia/microsesion-4',
+    name: 'FundamentosIA_Microsesion4',
+    component: FundamentosIA_Microsesion4,
+  },
+  {
+    path: '/modulo/fundamentos-ia/microsesion-5',
+    name: 'FundamentosIA_Microsesion5',
+    component: FundamentosIA_Microsesion5,
+  },
+  {
+    path: '/modulo/fundamentos-ia/microsesion-6',
+    name: 'FundamentosIA_Microsesion6',
+    component: FundamentosIA_Microsesion6,
+  },
+
+  // Herramientas Útiles Microsessions routes
+  {
+    path: '/modulo/herramientas-utiles/microsesion-4',
+    name: 'HerramientasUtiles_Microsesion4',
+    component: HerramientasUtiles_Microsesion4,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-5',
+    name: 'HerramientasUtiles_Microsesion5',
+    component: HerramientasUtiles_Microsesion5,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-6',
+    name: 'HerramientasUtiles_Microsesion6',
+    component: HerramientasUtiles_Microsesion6,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-7',
+    name: 'HerramientasUtiles_Microsesion7',
+    component: HerramientasUtiles_Microsesion7,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-8',
+    name: 'HerramientasUtiles_Microsesion8',
+    component: HerramientasUtiles_Microsesion8,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-9',
+    name: 'HerramientasUtiles_Microsesion9',
+    component: HerramientasUtiles_Microsesion9,
   },
   // Catch all route - must be last
   {

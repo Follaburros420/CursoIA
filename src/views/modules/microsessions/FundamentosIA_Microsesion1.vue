@@ -427,8 +427,8 @@ const completeMicrosession = () => {
 };
 
 const goToNextSession = () => {
-  // Por ahora redirigir al módulo principal, después se puede crear la siguiente microsesión
-  router.push('/modulo/fundamentos-ia');
+  // Navegar a la microsesión 2
+  router.push('/modulo/fundamentos-ia/microsesion-2');
 };
 </script>
 
