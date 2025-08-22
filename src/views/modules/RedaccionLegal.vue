@@ -17,39 +17,76 @@ onMounted(() => {
 
 const microSessions = [
   {
-    title: "Mejores modelos para redacción legal",
+    title: "Principios de la redacción legal con IA",
+    objective: "Establecer fundamentos sólidos para la redacción legal asistida por IA.",
+    content: "Principios éticos, estándares de calidad, responsabilidad profesional, mejores prácticas.",
+    exercise: "Definir un protocolo personal de uso de IA para redacción legal.",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-1'
+  },
+  {
+    title: "Mejores modelos para la redacción legal",
     objective: "Identificar qué modelos destacan en coherencia, precisión y seguimiento de instrucciones.",
     content: "Comparación de modelos, evaluación de capacidades específicas para textos legales.",
     exercise: "Probar 2 prompts con distinto modelo y evaluar resultados.",
-    completed: false
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-2'
   },
   {
-    title: "Estructuras de documentos",
-    objective: "Dominar plantillas para diferentes tipos de documentos legales.",
-    content: "Plantillas: memo, opinión, contrato, cláusula, carta.",
+    title: "Prompts altamente efectivos",
+    objective: "Dominar técnicas avanzadas de prompting para redacción legal.",
+    content: "Estructuras de prompts, técnicas de refinamiento, ejemplos específicos para derecho.",
+    exercise: "Crear una biblioteca personal de prompts para diferentes tipos de documentos.",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-3'
+  },
+  {
+    title: "Estructuración de documentos jurídicos",
+    objective: "Dominar plantillas y estructuras para diferentes tipos de documentos legales.",
+    content: "Plantillas: memo, opinión, contrato, cláusula, carta, demanda, recurso.",
     exercise: "Elegir una plantilla y pedir a la IA que la rellene parcialmente con inputs dados.",
-    completed: false
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-4'
   },
   {
-    title: "Prompts y plantillas",
-    objective: "Construir prompts efectivos para generación legal.",
-    content: "Arquitectura de prompts (instrucción + contexto + ejemplo + restricción).",
-    exercise: "Construir un prompt para generar una cláusula específica con tono formal y cláusulas de escape.",
-    completed: false
+    title: "Adaptación de tono, estilo y precisión",
+    objective: "Ajustar el output según audiencia, contexto y nivel de formalidad.",
+    content: "Técnicas para variar formalidad, precisión, longitud, registro jurídico.",
+    exercise: "Tomar un párrafo legal y adaptarlo para 3 audiencias distintas (cliente, juez, colega).",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-5'
   },
   {
-    title: "Adaptar tono y estilo",
-    objective: "Preservar la voz del despacho/abogado en diferentes contextos.",
-    content: "Preservar la voz del despacho/abogado, ajustes formales vs. coloquiales.",
-    exercise: "Generar una misma opinión en tono 'corporativo', 'amistoso' y 'urgente'.",
-    completed: false
+    title: "Flujo de trabajo para el mejor resultado",
+    objective: "Establecer procesos sistemáticos para redacción legal con IA.",
+    content: "Metodologías iterativas, revisión por capas, control de calidad, flujos optimizados.",
+    exercise: "Implementar un flujo completo desde brief inicial hasta documento final.",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-6'
   },
   {
-    title: "Detección de riesgos e inconsistencias",
-    objective: "Identificar y corregir problemas en textos generados.",
-    content: "Uso de prompts para interrogatorios (ej. '¿Qué supuestos implícitos hay aquí?').",
-    exercise: "Hacer que la IA audite su propio texto y sugiera correcciones.",
-    completed: false
+    title: "Limitaciones de la IA y problemas de privacidad",
+    objective: "Identificar riesgos y limitaciones críticas en el uso de IA para redacción legal.",
+    content: "Limitaciones técnicas, riesgos de privacidad, problemas de confidencialidad, sesgos.",
+    exercise: "Evaluar un caso real donde el uso de IA podría comprometer la confidencialidad.",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-7'
+  },
+  {
+    title: "Mitigar el riesgo de privacidad",
+    objective: "Implementar estrategias para proteger información confidencial.",
+    content: "Técnicas de anonimización, modelos locales, protocolos de seguridad, mejores prácticas.",
+    exercise: "Crear un protocolo de anonimización para documentos sensibles.",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-8'
+  },
+  {
+    title: "Detección de inconsistencias, revisión crítica y validación",
+    objective: "Identificar y corregir problemas en textos generados por IA.",
+    content: "Técnicas de auditoría, prompts de validación, revisión sistemática, control de calidad.",
+    exercise: "Hacer que la IA audite su propio texto y sugiera correcciones específicas.",
+    completed: false,
+    route: '/modulo/redaccion-legal/microsesion-9'
   }
 ];
 
@@ -58,8 +95,15 @@ const practicalCase = {
   description: "Ejercicio integral: recoger inputs, generar borrador, adaptar tono, detectar y corregir riesgos, anonimizar datos sensibles, y traducir resumen para un stakeholder internacional."
 };
 
-const toggleSessionComplete = (index: number) => {
-  microSessions[index].completed = !microSessions[index].completed;
+const handleSessionClick = (index: number) => {
+  const session = microSessions[index];
+  if (session.route) {
+    // Navegar a la microsesión específica
+    router.push(session.route);
+  } else {
+    // Solo marcar como completada si no tiene ruta específica
+    microSessions[index].completed = !microSessions[index].completed;
+  }
 };
 </script>
 
@@ -122,7 +166,7 @@ const toggleSessionComplete = (index: number) => {
               v-for="(session, index) in microSessions"
               :key="index"
               class="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/30"
-              @click="toggleSessionComplete(index)"
+              @click="handleSessionClick(index)"
             >
               <CardHeader>
                 <div class="flex items-start justify-between">

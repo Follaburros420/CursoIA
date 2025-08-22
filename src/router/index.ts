@@ -35,6 +35,23 @@ import HerramientasUtiles_Microsesion6 from '../views/modules/microsessions/Herr
 import HerramientasUtiles_Microsesion7 from '../views/modules/microsessions/HerramientasUtiles_Microsesion7.vue';
 import HerramientasUtiles_Microsesion8 from '../views/modules/microsessions/HerramientasUtiles_Microsesion8.vue';
 import HerramientasUtiles_Microsesion9 from '../views/modules/microsessions/HerramientasUtiles_Microsesion9.vue';
+import RedaccionLegal_Microsesion1 from '../views/modules/microsessions/RedaccionLegal_Microsesion1.vue';
+import RedaccionLegal_Microsesion2 from '../views/modules/microsessions/RedaccionLegal_Microsesion2.vue';
+import RedaccionLegal_Microsesion3 from '../views/modules/microsessions/RedaccionLegal_Microsesion3.vue';
+import RedaccionLegal_Microsesion4 from '../views/modules/microsessions/RedaccionLegal_Microsesion4.vue';
+import RedaccionLegal_Microsesion5 from '../views/modules/microsessions/RedaccionLegal_Microsesion5.vue';
+import RedaccionLegal_Microsesion6 from '../views/modules/microsessions/RedaccionLegal_Microsesion6.vue';
+import RedaccionLegal_Microsesion7 from '../views/modules/microsessions/RedaccionLegal_Microsesion7.vue';
+import RedaccionLegal_Microsesion8 from '../views/modules/microsessions/RedaccionLegal_Microsesion8.vue';
+import RedaccionLegal_Microsesion9 from '../views/modules/microsessions/RedaccionLegal_Microsesion9.vue';
+import BusquedaJuridica_Microsesion1 from '../views/modules/microsessions/BusquedaJuridica_Microsesion1.vue';
+import BusquedaJuridica_Microsesion2 from '../views/modules/microsessions/BusquedaJuridica_Microsesion2.vue';
+import BusquedaJuridica_Microsesion3 from '../views/modules/microsessions/BusquedaJuridica_Microsesion3.vue';
+import BusquedaJuridica_Microsesion4 from '../views/modules/microsessions/BusquedaJuridica_Microsesion4.vue';
+import BusquedaJuridica_Microsesion5 from '../views/modules/microsessions/BusquedaJuridica_Microsesion5.vue';
+import BusquedaJuridica_Microsesion6 from '../views/modules/microsessions/BusquedaJuridica_Microsesion6.vue';
+import BusquedaJuridica_Microsesion7 from '../views/modules/microsessions/BusquedaJuridica_Microsesion7.vue';
+import BusquedaJuridica_Microsesion8 from '../views/modules/microsessions/BusquedaJuridica_Microsesion8.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -191,6 +208,95 @@ const routes: Array<RouteRecordRaw> = [
     path: '/modulo/herramientas-utiles/microsesion-9',
     name: 'HerramientasUtiles_Microsesion9',
     component: HerramientasUtiles_Microsesion9,
+  },
+
+  // Redacción Legal Microsessions routes
+  {
+    path: '/modulo/redaccion-legal/microsesion-1',
+    name: 'RedaccionLegal_Microsesion1',
+    component: RedaccionLegal_Microsesion1,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-2',
+    name: 'RedaccionLegal_Microsesion2',
+    component: RedaccionLegal_Microsesion2,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-3',
+    name: 'RedaccionLegal_Microsesion3',
+    component: RedaccionLegal_Microsesion3,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-4',
+    name: 'RedaccionLegal_Microsesion4',
+    component: RedaccionLegal_Microsesion4,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-5',
+    name: 'RedaccionLegal_Microsesion5',
+    component: RedaccionLegal_Microsesion5,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-6',
+    name: 'RedaccionLegal_Microsesion6',
+    component: RedaccionLegal_Microsesion6,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-7',
+    name: 'RedaccionLegal_Microsesion7',
+    component: RedaccionLegal_Microsesion7,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-8',
+    name: 'RedaccionLegal_Microsesion8',
+    component: RedaccionLegal_Microsesion8,
+  },
+  {
+    path: '/modulo/redaccion-legal/microsesion-9',
+    name: 'RedaccionLegal_Microsesion9',
+    component: RedaccionLegal_Microsesion9,
+  },
+
+  // Búsqueda Jurídica Microsessions routes
+  {
+    path: '/modulo/busqueda-juridica/microsesion-1',
+    name: 'BusquedaJuridica_Microsesion1',
+    component: BusquedaJuridica_Microsesion1,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-2',
+    name: 'BusquedaJuridica_Microsesion2',
+    component: BusquedaJuridica_Microsesion2,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-3',
+    name: 'BusquedaJuridica_Microsesion3',
+    component: BusquedaJuridica_Microsesion3,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-4',
+    name: 'BusquedaJuridica_Microsesion4',
+    component: BusquedaJuridica_Microsesion4,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-5',
+    name: 'BusquedaJuridica_Microsesion5',
+    component: BusquedaJuridica_Microsesion5,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-6',
+    name: 'BusquedaJuridica_Microsesion6',
+    component: BusquedaJuridica_Microsesion6,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-7',
+    name: 'BusquedaJuridica_Microsesion7',
+    component: BusquedaJuridica_Microsesion7,
+  },
+  {
+    path: '/modulo/busqueda-juridica/microsesion-8',
+    name: 'BusquedaJuridica_Microsesion8',
+    component: BusquedaJuridica_Microsesion8,
   },
   // Catch all route - must be last
   {

@@ -32,7 +32,24 @@ const routesWithCustomNavbar = [
   '/modulo/herramientas-utiles/microsesion-6',
   '/modulo/herramientas-utiles/microsesion-7',
   '/modulo/herramientas-utiles/microsesion-8',
-  '/modulo/herramientas-utiles/microsesion-9'
+  '/modulo/herramientas-utiles/microsesion-9',
+  '/modulo/redaccion-legal/microsesion-1',
+  '/modulo/redaccion-legal/microsesion-2',
+  '/modulo/redaccion-legal/microsesion-3',
+  '/modulo/redaccion-legal/microsesion-4',
+  '/modulo/redaccion-legal/microsesion-5',
+  '/modulo/redaccion-legal/microsesion-6',
+  '/modulo/redaccion-legal/microsesion-7',
+  '/modulo/redaccion-legal/microsesion-8',
+  '/modulo/redaccion-legal/microsesion-9',
+  '/modulo/busqueda-juridica/microsesion-1',
+  '/modulo/busqueda-juridica/microsesion-2',
+  '/modulo/busqueda-juridica/microsesion-3',
+  '/modulo/busqueda-juridica/microsesion-4',
+  '/modulo/busqueda-juridica/microsesion-5',
+  '/modulo/busqueda-juridica/microsesion-6',
+  '/modulo/busqueda-juridica/microsesion-7',
+  '/modulo/busqueda-juridica/microsesion-8'
 ];
 
 const showDefaultNavbar = computed(() => {

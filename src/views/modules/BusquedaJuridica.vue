@@ -17,32 +17,68 @@ onMounted(() => {
 
 const microSessions = [
   {
-    title: "Fuentes primarias, secundarias y doctrina",
-    objective: "Distinguir tipos de fuentes y cuándo usar cada una.",
-    content: "Jerarquía normativa, qué tiene peso, cómo se interpreta. Fuentes primarias vs. secundarias.",
-    exercise: "Clasificar un conjunto de fuentes y determinar su peso jurídico.",
-    completed: false
+    title: "Fuentes del derecho",
+    objective: "Distinguir tipos de fuentes jurídicas y comprender su jerarquía normativa.",
+    content: "Fuentes primarias, secundarias, doctrina, jurisprudencia, jerarquía normativa, peso jurídico.",
+    exercise: "Clasificar un conjunto de fuentes y determinar su peso jurídico en un caso específico.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-1'
   },
   {
-    title: "Mejores modelos y herramientas de búsqueda",
-    objective: "Seleccionar herramientas optimizadas para recuperación legal.",
-    content: "Modelos optimizados para recuperación, comparadores de motores semánticos.",
-    exercise: "Comparar resultados de búsqueda entre diferentes herramientas.",
-    completed: false
+    title: "Fundamentos de la búsqueda con IA",
+    objective: "Comprender los principios básicos de la búsqueda jurídica asistida por IA.",
+    content: "Búsqueda semántica vs. tradicional, vectorización, embeddings, relevancia contextual.",
+    exercise: "Comparar resultados de búsqueda tradicional vs. búsqueda semántica con IA.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-2'
+  },
+  {
+    title: "Mejores modelos y herramientas inteligentes",
+    objective: "Seleccionar herramientas y modelos optimizados para recuperación legal.",
+    content: "Modelos especializados en legal, herramientas de búsqueda, comparadores de motores semánticos.",
+    exercise: "Comparar resultados de búsqueda entre diferentes herramientas y modelos.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-3'
   },
   {
     title: "Técnicas avanzadas de búsqueda",
-    objective: "Aplicar técnicas sofisticadas para búsquedas precisas.",
-    content: "Chain-of-thought para refinar búsquedas, reformulación automática, expansión de consultas.",
-    exercise: "Refinar una consulta compleja usando técnicas de reformulación.",
-    completed: false
+    objective: "Aplicar técnicas sofisticadas para búsquedas precisas y comprehensivas.",
+    content: "Chain-of-thought, reformulación automática, expansión de consultas, búsqueda iterativa.",
+    exercise: "Refinar una consulta compleja usando técnicas de reformulación y expansión.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-4'
+  },
+  {
+    title: "Prompts para consultas legales efectivas",
+    objective: "Dominar la construcción de prompts específicos para búsquedas jurídicas.",
+    content: "Estructuras de prompts para búsqueda, contexto legal, especificidad jurisdiccional.",
+    exercise: "Crear una biblioteca de prompts para diferentes tipos de consultas legales.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-5'
+  },
+  {
+    title: "Extracción de líneas jurisprudenciales y doctrina probable",
+    objective: "Identificar y extraer patrones jurisprudenciales y tendencias doctrinales.",
+    content: "Análisis de precedentes, líneas jurisprudenciales, doctrina probable, tendencias judiciales.",
+    exercise: "Extraer líneas jurisprudenciales de un conjunto de sentencias sobre un tema específico.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-6'
   },
   {
     title: "Filtrado y validación de información",
-    objective: "Asegurar calidad y vigencia de la información encontrada.",
-    content: "Verificación cruzada, scoring de credibilidad, fechas de vigencia.",
-    exercise: "Validar un conjunto de fuentes y asignar scores de confiabilidad.",
-    completed: false
+    objective: "Asegurar calidad, vigencia y confiabilidad de la información encontrada.",
+    content: "Verificación cruzada, scoring de credibilidad, fechas de vigencia, validación de fuentes.",
+    exercise: "Validar un conjunto de fuentes y asignar scores de confiabilidad sistemáticamente.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-7'
+  },
+  {
+    title: "Ética y confidencialidad",
+    objective: "Aplicar principios éticos y mantener confidencialidad en la búsqueda jurídica.",
+    content: "Privacidad en búsquedas, anonimización de consultas, ética en investigación legal.",
+    exercise: "Desarrollar un protocolo ético para búsquedas de información sensible.",
+    completed: false,
+    route: '/modulo/busqueda-juridica/microsesion-8'
   }
 ];
 
@@ -51,8 +87,15 @@ const practicalCase = {
   description: "Escenario: '¿Qué obligaciones contractuales tiene una empresa colombiana bajo una cláusula de fuerza mayor en contratos con contraparte extranjera durante una crisis sanitaria?' Formular estrategia de búsqueda, recolectar fuentes, validar y filtrar, entregar brief con citas correctas y resumen ejecutivo."
 };
 
-const toggleSessionComplete = (index: number) => {
-  microSessions[index].completed = !microSessions[index].completed;
+const handleSessionClick = (index: number) => {
+  const session = microSessions[index];
+  if (session.route) {
+    // Navegar a la microsesión específica
+    router.push(session.route);
+  } else {
+    // Solo marcar como completada si no tiene ruta específica
+    microSessions[index].completed = !microSessions[index].completed;
+  }
 };
 </script>
 
@@ -139,7 +182,7 @@ const toggleSessionComplete = (index: number) => {
               v-for="(session, index) in microSessions"
               :key="index"
               class="group cursor-pointer transition-all duration-300 hover:shadow-lg hover:border-primary/30"
-              @click="toggleSessionComplete(index)"
+              @click="handleSessionClick(index)"
             >
               <CardHeader>
                 <div class="flex items-start justify-between">
