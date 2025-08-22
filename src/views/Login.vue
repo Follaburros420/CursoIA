@@ -14,7 +14,7 @@ const isLoading = ref(false);
 const error = ref('');
 const success = ref(false);
 
-const VALID_CODES = ['000000', '484643', '141155', '424433', '768857'];
+const VALID_CODES = ['000000', '484643', '141155', '424433', '768857', '664379'];
 
 const handleLogin = async () => {
   if (!code.value) {
