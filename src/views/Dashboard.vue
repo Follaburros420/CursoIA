@@ -201,6 +201,11 @@ const generateCertificate = () => {
         </p>
       </div>
 
+      <!-- Image -->
+      <div class="flex justify-center mb-12">
+        <img src="/crew.png" alt="Crew" class="rounded-lg shadow-lg">
+      </div>
+
       <!-- Stats overview -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
         <div class="text-center p-4 bg-card/50 rounded-xl border border-border/50">
