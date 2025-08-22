@@ -51,9 +51,25 @@
         <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
           🎓 Microsesión 6: Marco regulatorio y legal
         </h1>
-        <p class="text-xl text-slate-600 dark:text-slate-400 font-medium">
+        <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-6">
           ¿Qué dice la ley sobre el uso de IA en la práctica jurídica?
         </p>
+
+        <!-- Video de YouTube -->
+        <div class="mb-8">
+          <div class="relative w-full max-w-4xl mx-auto">
+            <div class="relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-2xl bg-slate-100 dark:bg-slate-800">
+              <iframe
+                class="absolute top-0 left-0 w-full h-full rounded-xl"
+                src="https://www.youtube.com/embed/hNHP_am6IIk"
+                title="Marco regulatorio y legal de IA"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Contenido de la microsesión -->
