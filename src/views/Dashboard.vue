@@ -72,7 +72,8 @@ const modules = [
     route: "/modulo/fundamentos-ia",
     color: "from-blue-500 to-blue-600",
     bgColor: "bg-blue-50 dark:bg-blue-950/20",
-    borderColor: "border-blue-200 dark:border-blue-800"
+    borderColor: "border-blue-200 dark:border-blue-800",
+    image: "/modulo1.png"
   },
   {
     id: 2,
@@ -84,7 +85,8 @@ const modules = [
     route: "/modulo/herramientas-utiles",
     color: "from-green-500 to-green-600",
     bgColor: "bg-green-50 dark:bg-green-950/20",
-    borderColor: "border-green-200 dark:border-green-800"
+    borderColor: "border-green-200 dark:border-green-800",
+    image: "/modulo2.png"
   },
   {
     id: 3,
@@ -96,7 +98,8 @@ const modules = [
     route: "/modulo/redaccion-legal",
     color: "from-purple-500 to-purple-600",
     bgColor: "bg-purple-50 dark:bg-purple-950/20",
-    borderColor: "border-purple-200 dark:border-purple-800"
+    borderColor: "border-purple-200 dark:border-purple-800",
+    image: "/modulo3.png"
   },
   {
     id: 4,
@@ -108,7 +111,8 @@ const modules = [
     route: "/modulo/busqueda-juridica",
     color: "from-orange-500 to-orange-600",
     bgColor: "bg-orange-50 dark:bg-orange-950/20",
-    borderColor: "border-orange-200 dark:border-orange-800"
+    borderColor: "border-orange-200 dark:border-orange-800",
+    image: "/modulo4.png"
   },
   {
     id: 5,
@@ -120,7 +124,8 @@ const modules = [
     route: "/modulo/automatizaciones",
     color: "from-red-500 to-red-600",
     bgColor: "bg-red-50 dark:bg-red-950/20",
-    borderColor: "border-red-200 dark:border-red-800"
+    borderColor: "border-red-200 dark:border-red-800",
+    image: "/modulo5.png"
   }
 ];
 
@@ -242,17 +247,16 @@ const generateCertificate = () => {
           </div>
 
           <CardHeader class="text-center">
-            <!-- Module number and icon -->
-            <div class="flex items-center justify-center space-x-4 mb-4">
-              <div class="w-12 h-12 bg-gradient-to-br from-primary to-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-md">
-                {{ module.id }}
-              </div>
-              <div :class="`w-14 h-14 bg-gradient-to-br ${module.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`">
-                <component :is="module.icon" class="w-7 h-7 text-white" />
-              </div>
+            <!-- Module Image -->
+            <div class="mb-6">
+              <img
+                :src="module.image"
+                :alt="`Imagen del ${module.title}`"
+                class="w-full h-40 object-contain rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105"
+              />
             </div>
 
-            <CardTitle class="text-lg group-hover:text-primary transition-colors duration-300">
+            <CardTitle class="text-lg group-hover:text-primary transition-colors duration-300 mb-2">
               {{ module.title }}
             </CardTitle>
             
