@@ -14,8 +14,8 @@ import Footer from './Footer.vue';
 
 // State management
 const loading = ref(false);
-const originalAmount = ref(3900000); // 39,000 COP in centavos
-const currentAmount = ref(3900000); // 39,000 COP in centavos
+const originalAmount = ref(9900000); // 99,000 COP in centavos
+const currentAmount = ref(9900000); // 99,000 COP in centavos
 
 // Event handlers
 const handleAmountChanged = (newAmount: number) => {

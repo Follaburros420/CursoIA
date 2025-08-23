@@ -22,7 +22,7 @@ const videoId = '1dPhWNbfZ6I';
           class="text-sm py-2 px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5"
         >
           <span class="text-orange-600 font-semibold">
-            +200 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
+            +350 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
           </span>
         </Badge>
 
