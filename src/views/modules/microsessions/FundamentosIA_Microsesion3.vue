@@ -16,7 +16,7 @@
             </Button>
             <div class="h-6 w-px bg-slate-300 dark:bg-slate-600"></div>
             <h1 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Microsesión 3: Machine Learning y Deep Learning
+              Microsesión 3: Procesamiento de Lenguaje Natural (NLP)
             </h1>
           </div>
           <div class="flex items-center space-x-4">
@@ -49,10 +49,10 @@
           </Badge>
         </div>
         <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-          🎓 Microsesión 3: Machine Learning y Deep Learning
+          🎓 Microsesión 3: Procesamiento de Lenguaje Natural (NLP)
         </h1>
         <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-6">
-          Cómo aprenden los modelos… y por qué se equivocan
+          Cómo los modelos entienden y generan texto legal
         </p>
 
         <!-- Video de YouTube -->
@@ -83,34 +83,34 @@
           </CardHeader>
           <CardContent class="space-y-4">
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-              Comprender los fundamentos del entrenamiento de modelos de IA, sus errores más comunes, y cómo esto afecta la precisión en tareas legales.
+              Entender cómo los modelos de IA procesan, comprenden y generan texto legal, incluyendo conceptos clave como tokenización, embeddings y similitud semántica.
             </p>
           </CardContent>
         </Card>
 
-        <!-- Cómo aprende una IA -->
+        <!-- ¿Qué es NLP? -->
         <Card class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-200 dark:border-blue-800">
           <CardHeader>
             <CardTitle class="flex items-center text-xl text-blue-700 dark:text-blue-300">
-              🤖 ¿Cómo "aprende" una IA?
+              🔤 ¿Qué es el Procesamiento de Lenguaje Natural?
             </CardTitle>
           </CardHeader>
           <CardContent class="space-y-4">
             <div class="bg-white/60 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
               <p class="text-blue-800 dark:text-blue-200 font-medium mb-3">
-                No aprende como un humano. No estudia doctrina ni jurisprudencia.
+                Es la rama de la IA que permite a las máquinas entender, interpretar y generar lenguaje humano.
               </p>
               <p class="text-blue-800 dark:text-blue-200 leading-relaxed mb-3">
-                La IA aprende patrones estadísticos a partir de muchos ejemplos.
+                En el contexto legal, NLP permite que la IA comprenda documentos jurídicos, contratos, sentencias y normativas.
               </p>
               <div class="bg-blue-100 dark:bg-blue-900/30 p-3 rounded border border-blue-300 dark:border-blue-600">
-                <p class="text-blue-900 dark:text-blue-100 font-medium mb-2">Por ejemplo:</p>
+                <p class="text-blue-900 dark:text-blue-100 font-medium mb-2">Aplicaciones en derecho:</p>
                 <p class="text-blue-800 dark:text-blue-200 italic">
-                  Si le das 10.000 contratos con su clasificación (seguros vs. riesgosos), aprende qué palabras o estructuras suelen aparecer en los riesgosos.
+                  Análisis de contratos, extracción de cláusulas, búsqueda semántica en jurisprudencia, generación de documentos legales.
                 </p>
               </div>
               <p class="text-blue-800 dark:text-blue-200 font-medium mt-3">
-                Este proceso se llama <span class="bg-blue-200 dark:bg-blue-800 px-2 py-1 rounded">entrenamiento</span>.
+                Todo esto es posible gracias a técnicas como <span class="bg-blue-200 dark:bg-blue-800 px-2 py-1 rounded">tokenización</span> y <span class="bg-blue-200 dark:bg-blue-800 px-2 py-1 rounded">embeddings</span>.
               </p>
             </div>
           </CardContent>
@@ -124,30 +124,30 @@
             </CardTitle>
           </CardHeader>
           <CardContent class="space-y-6">
-            <!-- Datos de entrenamiento -->
+            <!-- Tokenización -->
             <div class="border-l-4 border-l-green-500 pl-4">
               <h3 class="text-lg font-semibold text-green-700 dark:text-green-300 mb-2">
-                📍 Datos de entrenamiento
+                🔤 Tokenización
               </h3>
               <p class="text-slate-700 dark:text-slate-300">
-                Lo que la IA ve mientras aprende. Si están mal, la IA aprenderá mal.
+                Proceso de dividir el texto en unidades más pequeñas (tokens) que la IA puede procesar. En textos legales, esto incluye palabras, términos jurídicos y símbolos.
               </p>
             </div>
 
-            <!-- Etiquetas -->
+            <!-- Embeddings -->
             <div class="border-l-4 border-l-amber-500 pl-4">
               <h3 class="text-lg font-semibold text-amber-700 dark:text-amber-300 mb-2">
-                🏷️ Etiquetas
+                🧠 Embeddings
               </h3>
               <p class="text-slate-700 dark:text-slate-300">
-                Son las "respuestas correctas" que se le dan al modelo para que aprenda a predecirlas.
+                Representaciones numéricas de palabras o frases que capturan su significado. Permiten que la IA entienda que "contrato" y "acuerdo" son conceptos similares.
               </p>
             </div>
 
-            <!-- Garbage in, garbage out -->
+            <!-- Similitud semántica -->
             <div class="border-l-4 border-l-red-500 pl-4">
               <h3 class="text-lg font-semibold text-red-700 dark:text-red-300 mb-2">
-                🗑️ "Garbage in, garbage out"
+                🔍 Similitud semántica
               </h3>
               <p class="text-slate-700 dark:text-slate-300 mb-2">
                 Si entrenas con ejemplos irrelevantes o erróneos, el modelo será inútil.

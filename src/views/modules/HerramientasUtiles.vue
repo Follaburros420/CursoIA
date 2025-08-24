@@ -22,21 +22,24 @@ const microSessions = [
     objective: "Comprender diferencias entre proveedores y optimizar su uso.",
     content: "Qué son, diferencias entre proveedores (open vs. fine-tuned), temperatura, tokens, costos de uso.",
     exercise: "Comparar la misma pregunta legal en dos modelos y analizar diferencias de respuesta y consistencia.",
-    completed: false
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-1'
   },
   {
     title: "RAG (Retrieval-Augmented Generation)",
     objective: "Combinar conocimiento específico con generación.",
     content: "Cómo funciona el pipeline: vector store + búsqueda semántica + generación con contexto.",
     exercise: "Montar (aunque sea conceptual/manual) un RAG simple para un conjunto de precedentes y hacer una consulta.",
-    completed: false
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-2'
   },
   {
-    title: "Bases de datos y almacenamiento de conocimiento",
-    objective: "Estructurar información legal para consulta eficiente.",
-    content: "Tipos: vectoriales vs. tradicionales, versionado de documentos, gestión de fuentes.",
-    exercise: "Diseñar la estructura mínima para almacenar opiniones previas, precedentes y versiones de documentos.",
-    completed: false
+    title: "Fundamentos de ingeniería de prompting",
+    objective: "Dominar técnicas para crear prompts efectivos en tareas legales.",
+    content: "Técnicas fundamentales: zero-shot, few-shot, chain-of-thought, prompts especializados para abogados.",
+    exercise: "Crear y optimizar prompts para análisis contractual, investigación jurídica y redacción legal.",
+    completed: false,
+    route: '/modulo/herramientas-utiles/microsesion-3'
   },
   {
     title: "Introducción a Gemini",

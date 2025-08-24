@@ -29,6 +29,9 @@ import FundamentosIA_Microsesion3 from '../views/modules/microsessions/Fundament
 import FundamentosIA_Microsesion4 from '../views/modules/microsessions/FundamentosIA_Microsesion4.vue';
 import FundamentosIA_Microsesion5 from '../views/modules/microsessions/FundamentosIA_Microsesion5.vue';
 import FundamentosIA_Microsesion6 from '../views/modules/microsessions/FundamentosIA_Microsesion6.vue';
+import HerramientasUtiles_Microsesion1 from '../views/modules/microsessions/HerramientasUtiles_Microsesion1.vue';
+import HerramientasUtiles_Microsesion2 from '../views/modules/microsessions/HerramientasUtiles_Microsesion2.vue';
+import HerramientasUtiles_Microsesion3 from '../views/modules/microsessions/HerramientasUtiles_Microsesion3.vue';
 import HerramientasUtiles_Microsesion4 from '../views/modules/microsessions/HerramientasUtiles_Microsesion4.vue';
 import HerramientasUtiles_Microsesion5 from '../views/modules/microsessions/HerramientasUtiles_Microsesion5.vue';
 import HerramientasUtiles_Microsesion6 from '../views/modules/microsessions/HerramientasUtiles_Microsesion6.vue';
@@ -179,6 +182,21 @@ const routes: Array<RouteRecordRaw> = [
   },
 
   // Herramientas Útiles Microsessions routes
+  {
+    path: '/modulo/herramientas-utiles/microsesion-1',
+    name: 'HerramientasUtiles_Microsesion1',
+    component: HerramientasUtiles_Microsesion1,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-2',
+    name: 'HerramientasUtiles_Microsesion2',
+    component: HerramientasUtiles_Microsesion2,
+  },
+  {
+    path: '/modulo/herramientas-utiles/microsesion-3',
+    name: 'HerramientasUtiles_Microsesion3',
+    component: HerramientasUtiles_Microsesion3,
+  },
   {
     path: '/modulo/herramientas-utiles/microsesion-4',
     name: 'HerramientasUtiles_Microsesion4',

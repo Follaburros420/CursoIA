@@ -45,18 +45,18 @@ const microSessions = [
     route: '/modulo/fundamentos-ia/microsesion-2'
   },
   {
-    title: "Machine Learning y Deep Learning",
-    objective: "Entender sobre entrenamiento, sobreajuste, generalización y por qué los modelos cometen errores.",
-    content: "Datos de entrenamiento, etiquetas, 'garbage in garbage out', interpretabilidad.",
-    exercise: "Revisar un ejemplo de output incorrecto y proponer qué pudo fallar en el entrenamiento o en el prompt.",
+    title: "Procesamiento de Lenguaje Natural (NLP)",
+    objective: "Saber qué hace posible que los modelos entiendan y generen texto legal.",
+    content: "Tokenización, embeddings, similitud semántica, resumen, extracción de entidades aplicadas al derecho.",
+    exercise: "Generar embeddings de dos textos legales similares y medir con la IA su distancia/igualdad semántica.",
     completed: false,
     route: '/modulo/fundamentos-ia/microsesion-3'
   },
   {
-    title: "Procesamiento de Lenguaje Natural (NLP)",
-    objective: "Saber qué hace posible que los modelos entiendan y generen texto legal.",
-    content: "Tokenización, embeddings, similitud semántica, resumen, extracción de entidades.",
-    exercise: "Generar embeddings de dos textos similares y medir con la IA su distancia/igualdad.",
+    title: "Aplicaciones de la IA en el Derecho",
+    objective: "Conocer las principales aplicaciones prácticas de la IA en la profesión legal.",
+    content: "Automatización de documentos, análisis predictivo, investigación jurídica, due diligence, compliance.",
+    exercise: "Identificar 3 aplicaciones de IA que podrían implementarse en tu área de práctica legal específica.",
     completed: false,
     route: '/modulo/fundamentos-ia/microsesion-4'
   },
