@@ -126,6 +126,20 @@ const modules = [
     bgColor: "bg-red-50 dark:bg-red-950/20",
     borderColor: "border-red-200 dark:border-red-800",
     image: "/modulo5.png"
+  },
+  {
+    id: 6,
+    icon: Trophy,
+    title: "Trabajando arduamente",
+    description: "Nos encontramos plenamente comprometidos y trabajando arduamente por mejorar la experiencia y ofrecer contenido de mayor calidad",
+    duration: "Próximamente",
+    level: "En desarrollo",
+    route: null, // No clickeable
+    color: "from-amber-500 to-yellow-600",
+    bgColor: "bg-amber-50 dark:bg-amber-950/20",
+    borderColor: "border-amber-200 dark:border-amber-800",
+    image: "/hardwork.png",
+    isComingSoon: true
   }
 ];
 
@@ -137,13 +151,18 @@ const getLevelColor = (level: string) => {
       return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400';
     case 'Avanzado':
       return 'bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400';
+    case 'En desarrollo':
+      return 'bg-amber-100 text-amber-800 dark:bg-amber-900/20 dark:text-amber-400';
     default:
       return 'bg-gray-100 text-gray-800 dark:bg-gray-900/20 dark:text-gray-400';
   }
 };
 
-const goToModule = (route: string) => {
-  router.push(route);
+const goToModule = (route: string | null) => {
+  if (route) {
+    router.push(route);
+  }
+  // Si route es null, no hace nada (para módulos "En desarrollo")
 };
 
 const generateCertificate = () => {
@@ -236,11 +255,16 @@ const generateCertificate = () => {
         <Card
           v-for="module in modules"
           :key="module.id"
-          class="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 relative"
+          :class="[
+            'group transition-all duration-300 bg-card/50 backdrop-blur-sm border-border/50 relative',
+            module.isComingSoon
+              ? 'opacity-80 cursor-default'
+              : 'cursor-pointer hover:shadow-xl hover:-translate-y-2 hover:border-primary/30'
+          ]"
           @click="goToModule(module.route)"
         >
-          <!-- Completion badge -->
-          <div v-if="isModuleCompleted(module.id)" class="absolute -top-2 -right-2 z-10">
+          <!-- Completion badge (solo para módulos normales) -->
+          <div v-if="!module.isComingSoon && isModuleCompleted(module.id)" class="absolute -top-2 -right-2 z-10">
             <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-lg">
               <CheckCircle class="w-5 h-5 text-white" />
             </div>
@@ -252,15 +276,21 @@ const generateCertificate = () => {
               <img
                 :src="module.image"
                 :alt="`Imagen del ${module.title}`"
-                class="w-full h-40 object-contain rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300 group-hover:scale-105"
+                :class="[
+                  'w-full h-40 object-contain rounded-lg shadow-md transition-all duration-300',
+                  module.isComingSoon
+                    ? 'filter grayscale-0'
+                    : 'group-hover:shadow-lg group-hover:scale-105'
+                ]"
               />
             </div>
 
             <CardTitle class="text-lg group-hover:text-primary transition-colors duration-300 mb-2">
               {{ module.title }}
             </CardTitle>
-            
-            <div class="flex items-center justify-center space-x-2">
+
+            <!-- Solo mostrar badges para módulos normales -->
+            <div v-if="!module.isComingSoon" class="flex items-center justify-center space-x-2">
               <Badge :class="getLevelColor(module.level)" class="text-xs">
                 {{ module.level }}
               </Badge>
@@ -276,26 +306,27 @@ const generateCertificate = () => {
               {{ module.description }}
             </CardDescription>
 
-            <!-- Progress bar -->
-            <div class="mb-4">
+            <!-- Progress bar (solo para módulos normales) -->
+            <div v-if="!module.isComingSoon" class="mb-4">
               <div class="flex justify-between text-xs text-muted-foreground mb-1">
                 <span>Progreso</span>
                 <span>{{ getModuleProgress(module.id).percentage }}%</span>
               </div>
               <div class="w-full bg-muted rounded-full h-2">
-                <div 
+                <div
                   class="bg-gradient-to-r from-primary to-orange-600 h-2 rounded-full transition-all duration-500"
                   :style="`width: ${getModuleProgress(module.id).percentage}%`"
                 ></div>
               </div>
             </div>
 
-            <!-- Action button -->
+            <!-- Action button (solo para módulos normales) -->
             <Button
+              v-if="!module.isComingSoon"
               :class="[
                 'w-full group-hover:scale-105 transition-all duration-300',
-                isModuleCompleted(module.id) 
-                  ? 'bg-green-500 hover:bg-green-600 text-white' 
+                isModuleCompleted(module.id)
+                  ? 'bg-green-500 hover:bg-green-600 text-white'
                   : 'bg-gradient-to-r from-primary to-orange-600 hover:from-primary/90 hover:to-orange-600/90 text-white'
               ]"
             >
