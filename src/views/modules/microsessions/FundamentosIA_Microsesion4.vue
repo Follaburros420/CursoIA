@@ -16,7 +16,7 @@
             </Button>
             <div class="h-6 w-px bg-slate-300 dark:bg-slate-600"></div>
             <h1 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
-              Microsesión 4: Procesamiento de Lenguaje Natural (NLP)
+              Microsesión 4: Aplicaciones de la IA en el Derecho
             </h1>
           </div>
           <div class="flex items-center space-x-4">
@@ -49,10 +49,10 @@
           </Badge>
         </div>
         <h1 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">
-          🎓 Microsesión 4: Procesamiento de Lenguaje Natural (NLP)
+          🎓 Microsesión 4: Aplicaciones de la IA en el Derecho
         </h1>
         <p class="text-xl text-slate-600 dark:text-slate-400 font-medium mb-6">
-          ¿Cómo entienden el lenguaje los modelos de IA?
+          Casos de uso prácticos de la IA en la profesión legal
         </p>
 
         <!-- Video de YouTube -->
@@ -62,7 +62,7 @@
               <iframe
                 class="absolute top-0 left-0 w-full h-full rounded-xl"
                 src="https://www.youtube.com/embed/EOqgC9fHRIA"
-                title="Procesamiento de Lenguaje Natural (NLP)"
+                title="Aplicaciones de la IA en el Derecho"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen
@@ -83,214 +83,180 @@
           </CardHeader>
           <CardContent class="space-y-4">
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
-              Comprender qué mecanismos hacen posible que la IA procese, entienda y genere texto jurídico.
+              Conocer las principales aplicaciones prácticas de la IA en la profesión legal y cómo pueden transformar tu práctica diaria.
             </p>
             <p class="text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
-              Ya no hablamos de magia, hablamos de estructuras matemáticas muy bien diseñadas.
+              De la teoría a la práctica: casos de uso reales que puedes implementar hoy.
             </p>
           </CardContent>
         </Card>
 
-        <!-- Qué es el NLP -->
+        <!-- Panorama de aplicaciones -->
         <Card class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-blue-200 dark:border-blue-800">
           <CardHeader>
             <CardTitle class="flex items-center text-xl text-blue-700 dark:text-blue-300">
-              📘 ¿Qué es el NLP?
+              🚀 Panorama de Aplicaciones de IA en el Derecho
             </CardTitle>
           </CardHeader>
           <CardContent class="space-y-4">
             <p class="text-blue-800 dark:text-blue-200 leading-relaxed">
-              Procesamiento de Lenguaje Natural (Natural Language Processing) es la rama de la IA que permite a las máquinas trabajar con texto y lenguaje humano.
+              La IA está transformando la práctica legal en múltiples áreas, desde la automatización de tareas rutinarias hasta el análisis predictivo de casos.
             </p>
-            
+
             <div class="bg-white/60 dark:bg-slate-800/60 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
               <p class="text-blue-800 dark:text-blue-200 font-medium mb-3">
-                Gracias al NLP, hoy una IA puede:
+                Principales áreas de aplicación:
               </p>
-              <div class="grid gap-2 md:grid-cols-2">
-                <div class="flex items-center space-x-2">
-                  <span class="text-blue-600 dark:text-blue-400">•</span>
-                  <span class="text-blue-700 dark:text-blue-300">Detectar cláusulas en un contrato</span>
+              <div class="grid gap-3 md:grid-cols-2">
+                <div class="flex items-start space-x-2">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">📄</span>
+                  <span class="text-blue-700 dark:text-blue-300">Automatización de documentos legales</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                  <span class="text-blue-600 dark:text-blue-400">•</span>
-                  <span class="text-blue-700 dark:text-blue-300">Resumir una sentencia</span>
+                <div class="flex items-start space-x-2">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">🔍</span>
+                  <span class="text-blue-700 dark:text-blue-300">Investigación jurídica inteligente</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                  <span class="text-blue-600 dark:text-blue-400">•</span>
-                  <span class="text-blue-700 dark:text-blue-300">Traducir leyes</span>
+                <div class="flex items-start space-x-2">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">📊</span>
+                  <span class="text-blue-700 dark:text-blue-300">Análisis predictivo de casos</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                  <span class="text-blue-600 dark:text-blue-400">•</span>
-                  <span class="text-blue-700 dark:text-blue-300">Clasificar textos jurídicos</span>
+                <div class="flex items-start space-x-2">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">🛡️</span>
+                  <span class="text-blue-700 dark:text-blue-300">Compliance y gestión de riesgos</span>
                 </div>
-                <div class="flex items-center space-x-2">
-                  <span class="text-blue-600 dark:text-blue-400">•</span>
-                  <span class="text-blue-700 dark:text-blue-300">Extraer fechas, nombres o riesgos</span>
+                <div class="flex items-start space-x-2">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">⚖️</span>
+                  <span class="text-blue-700 dark:text-blue-300">Due diligence automatizada</span>
+                </div>
+                <div class="flex items-start space-x-2">
+                  <span class="text-blue-600 dark:text-blue-400 mt-1">💬</span>
+                  <span class="text-blue-700 dark:text-blue-300">Asistentes legales virtuales</span>
                 </div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <!-- Los ladrillos del lenguaje -->
+        <!-- Aplicaciones por área legal -->
         <Card>
           <CardHeader>
             <CardTitle class="flex items-center text-xl">
-              🧱 Los ladrillos del lenguaje para la IA
+              ⚖️ Aplicaciones por Área Legal
             </CardTitle>
           </CardHeader>
           <CardContent class="space-y-6">
-            <!-- Tokenización -->
+            <!-- Derecho Corporativo -->
             <div class="border-l-4 border-l-orange-500 pl-4">
               <h3 class="text-lg font-semibold text-orange-700 dark:text-orange-300 mb-3">
-                1. ✂️ Tokenización
+                🏢 Derecho Corporativo
               </h3>
               <p class="text-slate-700 dark:text-slate-300 mb-3">
-                El texto se divide en unidades mínimas (palabras, sílabas o hasta partes de palabra).
+                Automatización de contratos, análisis de riesgos corporativos y due diligence en fusiones y adquisiciones.
               </p>
               <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg border border-orange-200 dark:border-orange-800">
-                <p class="text-orange-800 dark:text-orange-200 font-medium mb-2">Ejemplo:</p>
-                <div class="font-mono text-sm bg-white dark:bg-slate-800 p-3 rounded border">
-                  <p class="text-slate-700 dark:text-slate-300">"El contrato terminó." →</p>
-                  <p class="text-orange-600 dark:text-orange-400">["El", "contr", "ato", "termin", "ó", "."]</p>
+                <p class="text-orange-800 dark:text-orange-200 font-medium mb-2">Casos de uso:</p>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span class="text-orange-700 dark:text-orange-300">Revisión automatizada de contratos</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span class="text-orange-700 dark:text-orange-300">Análisis de cláusulas de riesgo</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-orange-600 dark:text-orange-400">•</span>
+                    <span class="text-orange-700 dark:text-orange-300">Due diligence documental</span>
+                  </div>
                 </div>
               </div>
-              <div class="bg-orange-100 dark:bg-orange-900/30 p-3 rounded border border-orange-300 dark:border-orange-600 mt-3">
-                <p class="text-orange-900 dark:text-orange-100 font-medium">
-                  🔍 Todo lo que hace un modelo parte de esos fragmentos llamados tokens.
-                </p>
-              </div>
             </div>
 
-            <!-- Embeddings -->
+            <!-- Litigios -->
             <div class="border-l-4 border-l-purple-500 pl-4">
               <h3 class="text-lg font-semibold text-purple-700 dark:text-purple-300 mb-3">
-                2. 🧭 Embeddings
+                ⚖️ Litigios y Contencioso
               </h3>
               <p class="text-slate-700 dark:text-slate-300 mb-3">
-                Cada token o conjunto de tokens se convierte en un vector numérico, que representa su significado en un espacio multidimensional.
+                Análisis predictivo de casos, investigación de precedentes y preparación automatizada de argumentos.
               </p>
               <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg border border-purple-200 dark:border-purple-800">
-                <p class="text-purple-800 dark:text-purple-200 font-medium">
-                  💡 Así, el modelo no compara palabras, compara vectores, como si fueran puntos en un mapa del significado.
-                </p>
+                <div class="space-y-2">
+                  <div class="flex items-center space-x-2">
+                    <span class="text-purple-600 dark:text-purple-400">•</span>
+                    <span class="text-purple-700 dark:text-purple-300">Predicción de resultados de casos</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-purple-600 dark:text-purple-400">•</span>
+                    <span class="text-purple-700 dark:text-purple-300">Búsqueda inteligente de precedentes</span>
+                  </div>
+                  <div class="flex items-center space-x-2">
+                    <span class="text-purple-600 dark:text-purple-400">•</span>
+                    <span class="text-purple-700 dark:text-purple-300">Análisis de estrategias legales</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Similitud semántica -->
+            <!-- Compliance -->
             <div class="border-l-4 border-l-green-500 pl-4">
               <h3 class="text-lg font-semibold text-green-700 dark:text-green-300 mb-3">
-                3. 🔍 Similitud semántica
+                🛡️ Compliance y Regulatorio
               </h3>
               <p class="text-slate-700 dark:text-slate-300 mb-3">
-                Gracias a los embeddings, una IA puede detectar que:
+                Monitoreo automático de cumplimiento normativo y detección de riesgos regulatorios.
               </p>
               <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800 space-y-2">
                 <div class="flex items-center space-x-2">
-                  <span class="text-green-600 dark:text-green-400 font-bold">✅</span>
-                  <span class="text-green-800 dark:text-green-200">"contrato" y "acuerdo" están cerca</span>
+                  <span class="text-green-600 dark:text-green-400">•</span>
+                  <span class="text-green-700 dark:text-green-300">Monitoreo de cambios normativos</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                  <span class="text-red-600 dark:text-red-400 font-bold">❌</span>
-                  <span class="text-green-800 dark:text-green-200">"demanda" y "oración" no, aunque en español pueden parecer iguales</span>
+                  <span class="text-green-600 dark:text-green-400">•</span>
+                  <span class="text-green-700 dark:text-green-300">Auditorías automatizadas</span>
                 </div>
-              </div>
-              <div class="bg-green-100 dark:bg-green-900/30 p-3 rounded border border-green-300 dark:border-green-600 mt-3">
-                <p class="text-green-900 dark:text-green-100 font-medium">
-                  Esto es clave para que el modelo no se confunda con ambigüedades legales.
-                </p>
-              </div>
-            </div>
-
-            <!-- Resumen y extracción -->
-            <div class="border-l-4 border-l-indigo-500 pl-4">
-              <h3 class="text-lg font-semibold text-indigo-700 dark:text-indigo-300 mb-3">
-                4. 🧾 Resumen y extracción
-              </h3>
-              <p class="text-slate-700 dark:text-slate-300 mb-3">
-                A través de NLP, los modelos pueden:
-              </p>
-              <div class="bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg border border-indigo-200 dark:border-indigo-800">
-                <div class="grid gap-2 md:grid-cols-2">
-                  <div class="flex items-center space-x-2">
-                    <span class="text-indigo-600 dark:text-indigo-400">•</span>
-                    <span class="text-indigo-800 dark:text-indigo-200">Resumir textos largos</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-indigo-600 dark:text-indigo-400">•</span>
-                    <span class="text-indigo-800 dark:text-indigo-200">Detectar entidades: nombres, fechas, montos, lugares, etc.</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <span class="text-indigo-600 dark:text-indigo-400">•</span>
-                    <span class="text-indigo-800 dark:text-indigo-200">Clasificar tipos de documentos</span>
-                  </div>
+                <div class="flex items-center space-x-2">
+                  <span class="text-green-600 dark:text-green-400">•</span>
+                  <span class="text-green-700 dark:text-green-300">Gestión de riesgos regulatorios</span>
                 </div>
-              </div>
-              <div class="bg-indigo-100 dark:bg-indigo-900/30 p-3 rounded border border-indigo-300 dark:border-indigo-600 mt-3">
-                <p class="text-indigo-900 dark:text-indigo-100 font-medium">
-                  🎯 Todo esto con potencial aplicación en derecho corporativo, litigio, propiedad intelectual y más.
-                </p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <!-- Aplicación al trabajo legal -->
+        <!-- Herramientas y Tecnologías -->
         <Card class="bg-gradient-to-r from-amber-50 to-yellow-50 dark:from-amber-900/20 dark:to-yellow-900/20 border-amber-200 dark:border-amber-800">
           <CardHeader>
             <CardTitle class="flex items-center text-xl text-amber-700 dark:text-amber-300">
-              👨‍⚖️ Aplicación al trabajo legal
+              🛠️ Herramientas y Tecnologías Disponibles
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div class="overflow-x-auto">
-              <table class="w-full border-collapse">
-                <thead>
-                  <tr class="bg-amber-100 dark:bg-amber-900/30">
-                    <th class="border border-amber-300 dark:border-amber-600 px-4 py-3 text-left font-semibold text-amber-900 dark:text-amber-100">
-                      Tarea jurídica
-                    </th>
-                    <th class="border border-amber-300 dark:border-amber-600 px-4 py-3 text-left font-semibold text-amber-900 dark:text-amber-100">
-                      ¿Cómo lo hace la IA?
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="hover:bg-amber-50 dark:hover:bg-amber-900/10">
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 font-medium text-amber-900 dark:text-amber-100">
-                      Resumir una sentencia
-                    </td>
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 text-amber-800 dark:text-amber-200">
-                      Detecta ideas centrales vía embeddings
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-amber-50 dark:hover:bg-amber-900/10">
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 font-medium text-amber-900 dark:text-amber-100">
-                      Clasificar cláusulas peligrosas
-                    </td>
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 text-amber-800 dark:text-amber-200">
-                      Usa vectores para medir riesgo semántico
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-amber-50 dark:hover:bg-amber-900/10">
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 font-medium text-amber-900 dark:text-amber-100">
-                      Redactar un borrador de contrato
-                    </td>
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 text-amber-800 dark:text-amber-200">
-                      Predice tokens jurídicos coherentes
-                    </td>
-                  </tr>
-                  <tr class="hover:bg-amber-50 dark:hover:bg-amber-900/10">
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 font-medium text-amber-900 dark:text-amber-100">
-                      Buscar jurisprudencia similar
-                    </td>
-                    <td class="border border-amber-300 dark:border-amber-600 px-4 py-3 text-amber-800 dark:text-amber-200">
-                      Compara vectores de casos previamente vistos
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="space-y-4">
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white/60 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200 dark:border-amber-700">
+                  <h4 class="font-semibold text-amber-800 dark:text-amber-200 mb-2">🤖 LLMs Generales</h4>
+                  <ul class="text-sm space-y-1 text-amber-700 dark:text-amber-300">
+                    <li>• ChatGPT, Claude, Gemini</li>
+                    <li>• Redacción y análisis general</li>
+                    <li>• Fácil implementación</li>
+                  </ul>
+                </div>
+                <div class="bg-white/60 dark:bg-slate-800/60 p-4 rounded-lg border border-amber-200 dark:border-amber-700">
+                  <h4 class="font-semibold text-amber-800 dark:text-amber-200 mb-2">⚖️ Herramientas Legales</h4>
+                  <ul class="text-sm space-y-1 text-amber-700 dark:text-amber-300">
+                    <li>• Westlaw Edge, Lexis+</li>
+                    <li>• Contract analysis tools</li>
+                    <li>• Specialized legal AI</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="mt-4 p-4 bg-amber-100 dark:bg-amber-900/30 rounded-lg border border-amber-300 dark:border-amber-600">
+                <p class="text-amber-900 dark:text-amber-100 font-medium">
+                  💡 <strong>Clave:</strong> La implementación exitosa requiere entender tanto las capacidades como las limitaciones de cada tecnología.
+                </p>
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -305,26 +271,23 @@
           <CardContent class="space-y-4">
             <div class="bg-white/80 dark:bg-slate-800/80 p-4 rounded-lg border border-cyan-200 dark:border-cyan-700">
               <p class="text-cyan-800 dark:text-cyan-200 font-semibold mb-4">
-                Te damos dos fragmentos de texto legal muy similares en contenido pero escritos de forma distinta.
+                Identifica 3 aplicaciones de IA que podrías implementar en tu área de práctica legal específica.
               </p>
 
               <div class="space-y-4">
                 <div class="bg-cyan-100 dark:bg-cyan-900/30 p-4 rounded border border-cyan-300 dark:border-cyan-600">
                   <p class="text-cyan-900 dark:text-cyan-100 font-medium mb-3">🎯 Tarea:</p>
                   <ol class="space-y-2 text-cyan-800 dark:text-cyan-200 list-decimal list-inside">
-                    <li>Genera los embeddings de ambos textos usando una herramienta de IA (puede ser OpenAI, Hugging Face, etc.).</li>
-                    <li>Mide la distancia semántica entre ellos (la IA te puede dar un número de similitud).</li>
-                    <li class="font-medium">Reflexiona:</li>
+                    <li>Selecciona tu área de especialización legal (corporativo, litigios, compliance, etc.)</li>
+                    <li>Identifica 3 tareas repetitivas o que consumen mucho tiempo en tu práctica</li>
+                    <li>Para cada tarea, propón una aplicación de IA que podría ayudar</li>
+                    <li>Evalúa la viabilidad y el impacto potencial de cada aplicación</li>
                   </ol>
-                  <div class="ml-6 mt-2 space-y-1 text-cyan-700 dark:text-cyan-300">
-                    <p>• ¿Qué tan parecidos son realmente, según el modelo?</p>
-                    <p>• ¿Coincide con tu percepción como abogado?</p>
-                  </div>
                 </div>
 
                 <div class="bg-cyan-100 dark:bg-cyan-900/30 p-3 rounded border border-cyan-300 dark:border-cyan-600">
                   <p class="text-cyan-900 dark:text-cyan-100 font-medium">
-                    💬 Sube tu análisis al espacio de comentarios.
+                    💡 <strong>Ejemplo:</strong> Si trabajas en derecho corporativo, podrías identificar: revisión de contratos (IA para análisis de cláusulas), due diligence (automatización de revisión documental), compliance (monitoreo automático de regulaciones).
                   </p>
                 </div>
               </div>
@@ -343,19 +306,25 @@
             <div class="flex items-start space-x-3">
               <span class="text-emerald-600 dark:text-emerald-400 font-bold">✅</span>
               <p class="text-emerald-800 dark:text-emerald-200">
-                Entiendes cómo la IA convierte texto legal en vectores comparables
+                Conoces las principales aplicaciones de IA en diferentes áreas del derecho
               </p>
             </div>
             <div class="flex items-start space-x-3">
               <span class="text-emerald-600 dark:text-emerald-400 font-bold">✅</span>
               <p class="text-emerald-800 dark:text-emerald-200">
-                Sabes qué procesos permiten que la IA resuma, clasifique o extraiga datos
+                Puedes identificar oportunidades de automatización en tu práctica legal
               </p>
             </div>
             <div class="flex items-start space-x-3">
               <span class="text-emerald-600 dark:text-emerald-400 font-bold">✅</span>
               <p class="text-emerald-800 dark:text-emerald-200">
-                Puedes prever cuándo una herramienta basada en NLP será útil o no
+                Entiendes las herramientas disponibles y sus capacidades específicas
+              </p>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-emerald-600 dark:text-emerald-400 font-bold">✅</span>
+              <p class="text-emerald-800 dark:text-emerald-200">
+                Tienes una visión clara de cómo la IA puede transformar tu práctica legal
               </p>
             </div>
           </CardContent>
