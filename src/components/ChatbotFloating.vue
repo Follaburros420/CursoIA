@@ -19,7 +19,7 @@ async function sendMessage() {
   loading.value = true;
   try {
     const res = await fetch(
-      'https://appn8n.coinestate.com.co/webhook-test/a609b346-3941-43e3-ae05-0a6c3c189400',
+      'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

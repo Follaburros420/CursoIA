@@ -3,7 +3,7 @@
 // Direct webhook test script
 console.log('🧪 Testing webhook directly...\n');
 
-const webhookUrl = 'https://appn8n.coinestate.com.co/webhook-test/a609b346-3941-43e3-ae05-0a6c3c189400';
+const webhookUrl = 'https://webhook.aprenderia.site/webhook/c686333a-8931-4cce-b290-ce9efbfee338';
 const testMessage = 'Test message from direct script';
 
 async function testWebhook() {

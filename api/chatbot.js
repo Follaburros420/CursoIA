@@ -24,11 +24,16 @@ export default function handler(req, res) {
 
     console.log('📥 Message received:', message);
 
-    // Forward message to external webhook
-    const webhookUrl = 'https://appn8n.coinestate.com.co/webhook-test/a609b346-3941-43e3-ae05-0a6c3c189400';
+    // Primary webhook URL
+    const primaryWebhookUrl = 'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338';
+    // Backup webhook URL
+    const backupWebhookUrl = 'https://webhook.aprenderia.site/webhook/c686333a-8931-4cce-b290-ce9efbfee338';
 
-    console.log('🔄 Attempting to send to webhook:', webhookUrl);
+    console.log('🔄 Attempting to send to primary webhook:', primaryWebhookUrl);
     console.log('📤 Payload:', { message });
+
+    let webhookUrl = primaryWebhookUrl;
+    let webhookError = null;
 
     try {
       // Create AbortController for timeout
@@ -83,24 +88,83 @@ export default function handler(req, res) {
       });
 
     } catch (webhookError) {
-      console.error('❌ Webhook error details:', {
+      console.error('❌ Primary webhook error details:', {
         message: webhookError.message,
         name: webhookError.name,
         stack: webhookError.stack
       });
+
+      webhookError = webhookError;
+      
+      // Try backup webhook
+      console.log('🔄 Trying backup webhook:', backupWebhookUrl);
+      try {
+        const backupController = new AbortController();
+        const backupTimeoutId = setTimeout(() => backupController.abort(), 10000);
+
+        const backupResponse = await fetch(backupWebhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'User-Agent': 'CursoIA-Chatbot/1.0',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            message: message,
+            timestamp: new Date().toISOString(),
+            source: 'robotino-chat'
+          }),
+          signal: backupController.signal
+        });
+
+        clearTimeout(backupTimeoutId);
+
+        console.log('📡 Backup webhook response status:', backupResponse.status);
+
+        if (backupResponse.ok) {
+          const backupResponseText = await backupResponse.text();
+          console.log('📥 Backup webhook response:', backupResponseText);
+
+          let backupData;
+          try {
+            backupData = JSON.parse(backupResponseText);
+          } catch (parseError) {
+            backupData = { output: backupResponseText };
+          }
+
+          return res.status(200).json({
+            success: true,
+            output: backupData.output || backupData.message || backupData.response || backupResponseText || 'Mensaje procesado correctamente.',
+            timestamp: new Date().toISOString(),
+            webhookStatus: 'backup-success'
+          });
+        }
+      } catch (backupError) {
+        console.error('❌ Backup webhook also failed:', backupError.message);
+      }
 
       // Check if it's a timeout error
       if (webhookError.name === 'AbortError') {
         console.error('⏰ Webhook timeout after 10 seconds');
       }
 
-      // Fallback response if webhook fails
+      // Fallback response if both webhooks fail
+      const fallbackResponses = [
+        '¡Hola! Soy Robotino, tu asistente de IA. Estoy aquí para ayudarte con información sobre nuestros cursos de IA para abogados. ¿En qué puedo asistirte?',
+        'Gracias por tu mensaje. Puedo ayudarte con información sobre nuestros cursos, precios, inscripciones y más. ¿Qué te gustaría saber?',
+        '¡Perfecto! Soy especialista en cursos de IA legal. Puedo ayudarte con preguntas sobre nuestros programas, metodología o proceso de inscripción.',
+        'Excelente, estoy aquí para ayudarte. ¿Te interesa conocer más sobre nuestros cursos de IA aplicada al derecho?',
+        '¡Hola! Soy Robotino. Puedo ayudarte con información sobre nuestros cursos, precios, descuentos disponibles y proceso de inscripción.'
+      ];
+      
+      const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
+      
       return res.status(200).json({
         success: true,
-        output: 'Gracias por tu mensaje. Un asesor se pondrá en contacto contigo pronto.',
+        output: randomResponse,
         timestamp: new Date().toISOString(),
-        webhookStatus: 'failed',
-        error: webhookError.message
+        webhookStatus: 'fallback',
+        note: 'Webhooks no disponibles, usando respuesta local'
       });
     }
 
