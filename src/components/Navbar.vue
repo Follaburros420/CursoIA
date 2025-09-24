@@ -89,15 +89,28 @@ const isOpen = ref<boolean>(false);
       mode === 'light' ? 'shadow-light' : 'shadow-dark'
     ]"
   >
-    <a href="/" class="font-bold text-lg flex items-center group transition-all duration-300 hover:scale-105">
+    <!-- Logo solo para desktop -->
+    <a href="/" class="font-bold text-lg flex items-center group transition-all duration-300 hover:scale-105 hidden lg:flex">
       <ChevronsDown
         class="bg-gradient-to-tr from-orange-500 via-orange-600 to-orange-700 rounded-lg w-9 h-9 mr-2 border text-white transition-all duration-300 group-hover:rotate-180 group-hover:shadow-lg group-hover:shadow-orange-500/25"
       />
       <span class="transition-all duration-300 group-hover:text-orange-600">AprenderIA</span>
     </a>
 
-    <!-- Mobile menu -->
-    <div class="flex items-center lg:hidden">
+    <!-- Mobile menu - Solo 3 componentes: Login, Toggle tema, Navegación -->
+    <div class="flex items-center gap-3 lg:hidden">
+      <!-- Botón de Login con más protagonismo -->
+      <Button 
+        as-child
+        class="bg-orange-600 hover:bg-orange-700 text-white font-semibold px-4 py-2 text-sm transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-orange-500/25"
+      >
+        <a href="/login">Iniciar Sesión</a>
+      </Button>
+
+      <!-- Toggle de tema -->
+      <ToggleTheme />
+
+      <!-- Menú de navegación (hamburguesa) -->
       <Sheet v-model:open="isOpen">
         <SheetTrigger as-child>
           <Menu @click="isOpen = true" class="cursor-pointer" />
@@ -136,7 +149,6 @@ const isOpen = ref<boolean>(false);
 
           <SheetFooter class="flex-col sm:flex-col justify-start items-start">
             <Separator class="mb-2" />
-            <ToggleTheme />
           </SheetFooter>
         </SheetContent>
       </Sheet>
