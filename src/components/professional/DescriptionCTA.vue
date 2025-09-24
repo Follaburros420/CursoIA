@@ -139,7 +139,7 @@ const benefits = [
           </div>
 
           <p class="text-muted-foreground">
-            Únete a más de <span class="font-semibold text-foreground">+200 abogados</span> que ya están transformando su práctica legal
+            Únete a más de <span class="font-semibold text-foreground">+350 abogados</span> que ya están transformando su práctica legal
           </p>
         </div>
       </div>
