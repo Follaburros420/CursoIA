@@ -73,9 +73,9 @@ const videoId = '1dPhWNbfZ6I';
         ></div>
 
         <!-- Video Preview Container - Formato Horizontal 16:9 -->
-        <div class="video-container-hero w-full max-w-6xl mx-auto rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black shadow-2xl">
+        <div class="video-container-hero rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black shadow-2xl">
           <iframe
-            class="video-iframe w-full h-full"
+            class="video-iframe"
             :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
             title="Curso de IA para Abogados - Preview"
             frameborder="0"
@@ -164,6 +164,7 @@ const videoId = '1dPhWNbfZ6I';
   aspect-ratio: 16/9 !important;
   width: 100% !important;
   max-width: 100% !important;
+  margin: 0 auto !important;
 }
 
 .video-iframe {
@@ -172,43 +173,44 @@ const videoId = '1dPhWNbfZ6I';
   visibility: visible !important;
   opacity: 1 !important;
   background: #000 !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
   width: 100% !important;
   height: 100% !important;
   z-index: 5 !important;
 }
 
-/* Responsive adjustments for mobile */
+/* Responsive adjustments for mobile - Video completo pero más pequeño */
 @media (max-width: 767px) {
   .video-container-hero {
-    width: 95vw !important;
-    max-width: 95vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    aspect-ratio: 16/9 !important;
-  }
-  
-  /* Ajuste adicional para pantallas muy pequeñas */
-  @media (max-width: 480px) {
-    .video-container-hero {
-      aspect-ratio: 9/16 !important; /* Vertical para móviles muy pequeños */
-      max-height: 70vh !important;
-    }
+    width: 85vw !important; /* 85% del ancho de la ventana en móviles */
+    max-width: 85vw !important;
+    aspect-ratio: 16/9 !important; /* Siempre mantiene formato horizontal */
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .video-container-hero {
-    width: 90vw !important;
-    max-width: 90vw !important;
+    width: 80vw !important; /* 80% en tablets */
+    max-width: 80vw !important;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .video-container-hero {
-    max-width: 1200px !important;
+    max-width: 900px !important; /* Tamaño mediano en laptops */
+  }
+}
+
+@media (min-width: 1280px) {
+  .video-container-hero {
+    max-width: 1000px !important; /* Tamaño grande en desktop */
+  }
+}
+
+/* Extra pequeño para móviles muy pequeños */
+@media (max-width: 380px) {
+  .video-container-hero {
+    width: 75vw !important; /* 75% para móviles muy pequeños */
+    max-width: 75vw !important;
   }
 }
 
