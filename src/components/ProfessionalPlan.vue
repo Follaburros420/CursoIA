@@ -14,8 +14,8 @@ import Footer from './Footer.vue';
 
 // State management
 const loading = ref(false);
-const originalAmount = ref(44900000); // 449,000 COP in centavos
-const currentAmount = ref(44900000); // 449,000 COP in centavos
+const originalAmount = ref(35000000); // 350.000 COP in centavos
+const currentAmount = ref(35000000); // 350.000 COP in centavos
 
 // Event handlers
 const handleAmountChanged = (newAmount: number) => {
@@ -103,5 +103,3 @@ const handleCouponError = (message: string) => {
     <Footer />
   </div>
 </template>
-
-
