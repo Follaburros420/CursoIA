@@ -68,6 +68,10 @@ const routes: Array<RouteRecordRaw> = [
     component: FreePlan,
   },
   {
+    path: '/plan-profesiional',
+    redirect: '/plan-profesional',
+  },
+  {
     path: '/plan-profesional',
     name: 'ProfessionalPlan',
     component: ProfessionalPlan,
