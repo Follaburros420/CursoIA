@@ -5,6 +5,7 @@ import { useCourseProgress } from '@/composables/useCourseProgress';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import FloatingContactHub from "@/components/FloatingContactHub.vue";
 
 import { 
   Brain, 
@@ -382,6 +383,9 @@ const generateCertificate = () => {
         </p>
       </div>
     </div>
+
+    <!-- Floating Contact Hub con Robotino -->
+    <FloatingContactHub />
   </div>
 </template>
 

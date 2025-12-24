@@ -72,8 +72,7 @@ const logoClasses = computed(() => {
 const navigationItems = [
   { href: "/", label: "Inicio" },
   { href: "/plan-gratuito", label: "Plan Gratuito" },
-  { href: "/plan-profesional", label: "Plan Profesional" },
-  { href: "/plan-empresarial", label: "Plan Empresarial" }
+  { href: "/plan-profesional", label: "Plan Profesional" }
 ];
 
 // Methods
@@ -108,9 +107,7 @@ import { Separator } from "@/components/ui/separator";
 
 import {
   Menu,
-  ArrowLeft,
-  Award,
-  Zap
+  ArrowLeft
 } from "lucide-vue-next";
 import ToggleTheme from "./ToggleTheme.vue";
 </script>
@@ -139,9 +136,12 @@ import ToggleTheme from "./ToggleTheme.vue";
             @click="goHome" 
             class="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
           >
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center">
-              <Award v-if="variant === 'professional'" class="w-5 h-5 text-white" />
-              <Zap v-else class="w-5 h-5 text-white" />
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center overflow-hidden">
+              <img 
+                src="/bot.png" 
+                alt="Logo" 
+                class="w-full h-full object-cover"
+              />
             </div>
             <div>
               <h1 :class="`text-xl font-bold ${logoClasses}`">

@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import FreePlan from '../components/FreePlan.vue';
 import ProfessionalPlan from '../components/ProfessionalPlan.vue';
-import EnterprisePlan from '../components/EnterprisePlan.vue';
 
 import EbookForm from '../components/EbookForm.vue';
 import PrivacyPolicy from '../components/PrivacyPolicy.vue';
@@ -71,11 +70,6 @@ const routes: Array<RouteRecordRaw> = [
     path: '/plan-profesional',
     name: 'ProfessionalPlan',
     component: ProfessionalPlan,
-  },
-  {
-    path: '/plan-empresarial',
-    name: 'EnterprisePlan',
-    component: EnterprisePlan,
   },
 
   {

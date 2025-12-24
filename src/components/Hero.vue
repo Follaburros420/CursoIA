@@ -14,12 +14,13 @@ const videoId = '1dPhWNbfZ6I';
     <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
     <div
-      class="grid place-items-center lg:max-w-screen-xl gap-8 mx-auto py-20 md:py-32 relative z-10"
+      class="grid lg:grid-cols-2 lg:max-w-screen-xl gap-8 lg:gap-12 mx-auto py-20 md:py-32 relative z-10 items-center"
     >
-      <div class="text-center space-y-8">
+      <!-- Columna izquierda: Texto -->
+      <div class="text-center lg:text-left space-y-8 order-2 lg:order-1">
         <Badge
           variant="outline"
-          class="text-sm py-2 px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5"
+          class="text-sm py-2 px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5 inline-block"
         >
           <span class="text-orange-600 font-semibold">
             +350 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
@@ -27,29 +28,35 @@ const videoId = '1dPhWNbfZ6I';
         </Badge>
 
         <div
-          class="max-w-screen-md mx-auto text-center text-5xl md:text-6xl font-bold"
+          class="max-w-screen-md lg:max-w-none mx-auto lg:mx-0 text-center lg:text-left text-4xl md:text-5xl font-bold"
         >
           <h1 class="leading-tight">
-            <span class="inline-block animate-fade-in-up" style="animation-delay: 0.2s;">Domina la</span>
+            <span class="inline animate-fade-in-up" style="animation-delay: 0.2s;">Los </span>
             <span
-              class="text-transparent bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text inline-block animate-fade-in-up hover:scale-105 transition-transform duration-300"
-              style="animation-delay: 0.4s;"
-              >Inteligencia Artificial
+              class="text-transparent bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text inline animate-fade-in-up hover:scale-105 transition-transform duration-300"
+              style="animation-delay: 0.3s;"
+              >Abogados
             </span>
-            <span class="inline-block animate-fade-in-up" style="animation-delay: 0.6s;">para abogados</span>
-            <span class="block animate-fade-in-up" style="animation-delay: 0.8s;">de cero a experto</span>
+            <span class="inline animate-fade-in-up" style="animation-delay: 0.4s;"> que no integren </span>
+            <span
+              class="text-transparent bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text inline animate-fade-in-up hover:scale-105 transition-transform duration-300"
+              style="animation-delay: 0.5s;"
+              >IA
+            </span>
+            <span class="inline animate-fade-in-up" style="animation-delay: 0.6s;"> en su práctica perderán competitividad en los próximos </span>
+            <span class="block animate-fade-in-up" style="animation-delay: 0.8s;">12–24 meses.</span>
           </h1>
         </div>
 
-        <p class="max-w-screen-sm mx-auto text-xl text-muted-foreground animate-fade-in-up" style="animation-delay: 1s;">
-          Aprende desde los fundamentos hasta implementar automatizaciones legales con herramientas open source.
+        <p class="max-w-screen-sm lg:max-w-none mx-auto lg:mx-0 text-xl text-muted-foreground animate-fade-in-up" style="animation-delay: 1s;">
+          Automatiza documentos, mejora tu criterio jurídico con IA y adquiere habilidades de alto valor que ya son indispensables en firmas y departamentos legales.
         </p>
 
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-4 animate-fade-in-up" style="animation-delay: 1.2s;">
-          <Button class="w-60 font-bold group/arrow flex items-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" as-child>
+        <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-in-up" style="animation-delay: 1.2s;">
+          <Button class="w-auto min-w-[280px] px-6 font-bold group/arrow flex items-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" as-child>
             <a href="https://wa.me/message/22XPE3IWTKONL1" class="flex items-center" target="_blank">
-              <WhatsappIcon class="size-5 mr-2 group-hover/arrow:scale-110 transition-transform" />
-              Agenda tu reunión
+              <WhatsappIcon class="size-7 mr-3 group-hover/arrow:scale-110 transition-transform" />
+              Quiero ser un abogado competitivo en la era de la IA
             </a>
             <ArrowRight
               class="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform"
@@ -61,12 +68,13 @@ const videoId = '1dPhWNbfZ6I';
             variant="secondary"
             class="w-60 font-bold hover:scale-105 transition-all duration-300 hover:bg-orange-500/10 hover:text-orange-600"
           >
-            <a href="#features">Ver programa</a>
+            <a href="#features">Ver cómo funciona el programa</a>
           </Button>
         </div>
       </div>
 
-      <div class="relative group mt-14">
+      <!-- Columna derecha: Video -->
+      <div class="relative group w-full flex justify-center items-center order-1 lg:order-2 mt-8 lg:mt-0">
         <!-- gradient shadow -->
         <div
           class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
@@ -165,6 +173,7 @@ const videoId = '1dPhWNbfZ6I';
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
+  min-height: 300px !important; /* Altura mínima para evitar colapso */
 }
 
 .video-iframe {
@@ -175,7 +184,9 @@ const videoId = '1dPhWNbfZ6I';
   background: #000 !important;
   width: 100% !important;
   height: 100% !important;
+  min-height: 300px !important; /* Altura mínima para asegurar visibilidad */
   z-index: 5 !important;
+  position: relative !important;
 }
 
 /* Responsive adjustments for mobile - Video completo pero más pequeño */
@@ -196,13 +207,17 @@ const videoId = '1dPhWNbfZ6I';
 
 @media (min-width: 1024px) and (max-width: 1279px) {
   .video-container-hero {
-    max-width: 900px !important; /* Tamaño mediano en laptops */
+    width: 100% !important;
+    max-width: 100% !important; /* Se ajusta a la columna */
+    min-width: 0 !important;
   }
 }
 
 @media (min-width: 1280px) {
   .video-container-hero {
-    max-width: 1000px !important; /* Tamaño grande en desktop */
+    width: 100% !important;
+    max-width: 100% !important; /* Se ajusta a la columna */
+    min-width: 0 !important;
   }
 }
 

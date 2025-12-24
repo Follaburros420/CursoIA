@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 
 import { Check } from "lucide-vue-next";
+import { Badge } from "@/components/ui/badge";
 import { tilt as vTilt } from "@/directives/tilt";
 
 enum PopularPlan {
@@ -21,6 +22,8 @@ interface PlanProps {
   title: string;
   popular: PopularPlan;
   price: string;
+  originalPrice?: string;
+  discount?: number;
   description: string;
   buttonText: string;
   benefitList: string[];
@@ -41,9 +44,11 @@ const plans: PlanProps[] = [
     ],
   },
   {
-    title: "Profesional",
+    title: "Profesional Mensual",
     popular: 1,
-    price: "$350.000 COP",
+    price: "$49.000 COP",
+    originalPrice: "$54.444 COP",
+    discount: 10,
     description:
       "Integra IA en tu práctica con control",
     buttonText: "Inscribirme",
@@ -51,19 +56,23 @@ const plans: PlanProps[] = [
       "Curso guiado (5 módulos) con casos prácticos y plantillas avanzadas",
       "Redacción legal inteligente + validación de riesgos con IA",
       "Búsquedas jurídicas eficientes para responder consultas",
+      "Pago mensual recurrente",
     ],
   },
   {
-    title: "Empresarial",
+    title: "Profesional Anual",
     popular: 0,
-    price: "A convenir",
+    price: "$350.000 COP",
+    originalPrice: "$653.328 COP",
+    discount: 46,
     description:
-      "Automatizaciones y escala para despachos",
-    buttonText: "Agendar cita",
+      "Integra IA en tu práctica con control",
+    buttonText: "Inscribirme",
     benefitList: [
-      "Implementaciones a medida (onboarding, monitoreo normativo, auditoría contractual)",
-      "Integración con sistemas internos y gobernanza de workflows",
-      "Soporte dedicado + acceso al catálogo verificado de automatizaciones",
+      "Curso guiado (5 módulos) con casos prácticos y plantillas avanzadas",
+      "Redacción legal inteligente + validación de riesgos con IA",
+      "Búsquedas jurídicas eficientes para responder consultas",
+      "Pago único anual - Ahorra más",
     ],
   },
 
@@ -93,6 +102,8 @@ const plans: PlanProps[] = [
           title,
           popular,
           price,
+          originalPrice,
+          discount,
           description,
           buttonText,
           benefitList,
@@ -113,8 +124,17 @@ const plans: PlanProps[] = [
 
           <CardDescription class="pb-4">{{ description }}</CardDescription>
 
-          <div>
-            <span class="text-3xl font-bold">{{ price }}</span>
+          <div class="space-y-2">
+            <div v-if="originalPrice && discount" class="flex items-center gap-2">
+              <span class="text-lg text-muted-foreground line-through">{{ originalPrice }}</span>
+              <Badge class="bg-red-100 text-red-800 dark:bg-red-900/20 dark:text-red-400">
+                -{{ discount }}%
+              </Badge>
+            </div>
+            <div>
+              <span class="text-3xl font-bold">{{ price }}</span>
+              <span v-if="title === 'Profesional Mensual'" class="text-sm text-muted-foreground ml-2">/mes</span>
+            </div>
           </div>
         </CardHeader>
 
@@ -138,15 +158,12 @@ const plans: PlanProps[] = [
             as-child
           >
             <router-link
-              v-if="title === 'Profesional'"
+              v-if="title === 'Profesional Mensual' || title === 'Profesional Anual'"
               to="/plan-profesional"
             >
               {{ buttonText }}
             </router-link>
             <router-link v-else-if="title === 'Básico'" to="/plan-gratuito">
-              {{ buttonText }}
-            </router-link>
-            <router-link v-else-if="title === 'Empresarial'" to="/plan-empresarial">
               {{ buttonText }}
             </router-link>
             <a v-else href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">

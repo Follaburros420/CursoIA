@@ -23,23 +23,23 @@ const serviceList: ServiceProps[] = [
   {
     title: "Fundamentos de IA",
     description:
-      "Comprende las bases tecnológicas y legales para aplicar IA.",
+      "Comprende las bases tecnológicas para usar IA con criterio jurídico y evitar errores que pueden costarte reputación o clientes.",
     pro: 0,
   },
   {
     title: "Automatización de documentos",
     description:
-      "Aprende a generar contratos y escritos de forma automática.",
+      "Aprende a generar contratos y escritos de forma automática para producir más sin aumentar horas ni sacrificar calidad jurídica.",
     pro: 0,
   },
   {
     title: "Análisis de jurisprudencia",
-    description: "Utiliza modelos para extraer y resumir sentencias.",
+    description: "Utiliza modelos para identificar líneas jurisprudenciales reiteradas y argumentar con mayor solidez, Potenciando el as bajo la manga del jurista colombiano, la doctrina probable.",
     pro: 0,
   },
   {
     title: "Integración con herramientas open source",
-    description: "Configura pipelines de trabajo sin pagar licencias.",
+    description: "Configura soluciones de grado corporativo que hoy usan firmas y equipos legales avanzados.",
     pro: 1,
   },
 ];
@@ -59,10 +59,19 @@ const serviceList: ServiceProps[] = [
       </h2>
 
       <h2 class="text-3xl md:text-4xl text-center font-bold mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">
-        Lleva tu práctica al siguiente nivel
+        Dos tipos de abogados en los próximos años
       </h2>
+      
+      <div class="flex justify-center mb-6 animate-fade-in-up" style="animation-delay: 0.3s;">
+        <img 
+          src="/comparativa.jpg" 
+          alt="Comparativa entre abogado tradicional y abogado del futuro" 
+          class="max-w-[75%] h-auto rounded-lg shadow-lg"
+        />
+      </div>
+      
       <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8 animate-fade-in-up" style="animation-delay: 0.4s;">
-        Te guiamos paso a paso para incorporar IA en tu día a día profesional.
+        Te guiamos para que no seas el abogado que pierde competitividad mientras otros producen más, mejor y con menos esfuerzo.
       </h3>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>

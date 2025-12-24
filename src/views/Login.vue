@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Lock, Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-vue-next";
+import { Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-vue-next";
 
 const router = useRouter();
 const code = ref('');
@@ -58,7 +58,7 @@ const toggleShowCode = () => {
       <!-- Header -->
       <div class="text-center mb-8">
         <div class="w-16 h-16 bg-gradient-to-br from-primary to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-          <Lock class="w-8 h-8 text-white" />
+          <img src="/bot.png" alt="Bot" class="w-14 h-14" />
         </div>
         <h1 class="text-3xl font-bold text-foreground mb-2">Acceso al Curso</h1>
         <p class="text-muted-foreground">Ingresa tu código de acceso para continuar</p>

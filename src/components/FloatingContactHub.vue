@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
 import { apiService } from '@/services/api';
+import { useAuthStore } from '@/stores/auth';
 import {
   Send,
   X,
@@ -9,6 +10,27 @@ import {
   User
 } from 'lucide-vue-next';
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
+
+// Auth store
+const authStore = useAuthStore();
+// Verificar autenticación tanto del store como de localStorage (para Dashboard)
+const isAuthenticated = computed(() => {
+  // Verificar store de Supabase
+  if (authStore.isAuthenticated) return true;
+  
+  // Verificar localStorage (sistema de autenticación del Dashboard)
+  const authStatus = localStorage.getItem('isAuthenticated');
+  const loginTime = localStorage.getItem('loginTime');
+  
+  if (authStatus === 'true' && loginTime) {
+    const currentTime = Date.now();
+    const sessionTime = parseInt(loginTime);
+    const hoursPassed = (currentTime - sessionTime) / (1000 * 60 * 60);
+    return hoursPassed < 24; // Sesión válida por 24 horas
+  }
+  
+  return false;
+});
 
 // State management
 const isExpanded = ref(false);
@@ -162,15 +184,17 @@ const handleClickOutside = (event: MouseEvent) => {
 onMounted(() => {
   document.addEventListener('click', handleClickOutside);
 
-  // Show welcome bubble after 3 seconds
-  setTimeout(() => {
-    showWelcomeBubble.value = true;
-  }, 3000);
+  // Show welcome bubble after 3 seconds (solo para usuarios autenticados)
+  if (isAuthenticated.value) {
+    setTimeout(() => {
+      showWelcomeBubble.value = true;
+    }, 3000);
 
-  // Hide welcome bubble after 15 seconds total
-  setTimeout(() => {
-    showWelcomeBubble.value = false;
-  }, 15000);
+    // Hide welcome bubble after 15 seconds total
+    setTimeout(() => {
+      showWelcomeBubble.value = false;
+    }, 15000);
+  }
 });
 
 onUnmounted(() => {
@@ -180,15 +204,15 @@ onUnmounted(() => {
 
 <template>
   <div class="floating-contact-hub">
-    <!-- Welcome bubble -->
+    <!-- Welcome bubble (solo para usuarios autenticados) -->
     <Transition name="welcome-bubble">
       <div
-        v-if="showWelcomeBubble && !isExpanded && !isChatOpen"
+        v-if="isAuthenticated && showWelcomeBubble && !isExpanded && !isChatOpen"
         class="fixed bottom-24 left-8 z-[60] max-w-xs"
       >
         <div class="relative bg-card/95 backdrop-blur-lg border border-border/50 rounded-2xl p-4 shadow-xl animate-breathe">
           <!-- Speech bubble tail -->
-          <div class="absolute -bottom-2 left-6 w-4 h-4 bg-card/95 border-r border-b border-border/50 transform rotate-45"></div>
+          <div class="absolute -bottom-2 right-6 w-4 h-4 bg-card/95 border-r border-b border-border/50 transform rotate-45"></div>
 
           <div class="flex items-start gap-3">
             <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border-2 border-orange-500/20">
@@ -218,6 +242,20 @@ onUnmounted(() => {
       </div>
     </Transition>
 
+    <!-- Botón de WhatsApp para usuarios NO autenticados -->
+    <div v-if="!isAuthenticated" class="fixed bottom-6 right-6 z-50">
+      <a
+        href="https://wa.me/573208098523"
+        target="_blank"
+        class="w-14 h-14 rounded-full shadow-lg transition-all duration-300 transform flex items-center justify-center bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 hover:scale-110"
+        aria-label="Contactar por WhatsApp"
+      >
+        <WhatsappIcon class="w-8 h-8 text-white" />
+      </a>
+    </div>
+
+    <!-- Funcionalidad completa del bot para usuarios autenticados -->
+    <template v-if="isAuthenticated">
     <!-- Main floating button -->
     <div class="fixed bottom-6 left-6 z-50">
       <!-- Contact options (expanded state) -->
@@ -233,6 +271,12 @@ onUnmounted(() => {
             class="contact-option-item"
           >
             <div class="flex items-center gap-3 group">
+              <!-- Option label -->
+              <div class="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-3 py-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div class="text-sm font-medium text-foreground">{{ option.label }}</div>
+                <div class="text-xs text-muted-foreground">{{ option.description }}</div>
+              </div>
+              
               <!-- Option button -->
               <button
                 v-if="option.id === 'chatbot'"
@@ -261,12 +305,6 @@ onUnmounted(() => {
               >
                 <component :is="option.icon" class="w-6 h-6" />
               </a>
-              
-              <!-- Option label -->
-              <div class="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-3 py-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <div class="text-sm font-medium text-foreground">{{ option.label }}</div>
-                <div class="text-xs text-muted-foreground">{{ option.description }}</div>
-              </div>
             </div>
           </div>
         </div>
@@ -284,7 +322,7 @@ onUnmounted(() => {
         ]"
         aria-label="Opciones de contacto"
       >
-        <div v-if="!isExpanded" class="w-10 h-10 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm pointer-events-none">
+        <div v-if="!isExpanded" class="w-12 h-12 rounded-full overflow-hidden pointer-events-none">
           <img
             src="/bot.png"
             alt="Chat Assistant"
@@ -294,11 +332,12 @@ onUnmounted(() => {
         <X v-else class="w-7 h-7 text-white" />
       </button>
     </div>
+    </template>
 
-    <!-- Chat window -->
+    <!-- Chat window (solo para usuarios autenticados) -->
     <Transition name="chat-window">
       <div 
-        v-if="isChatOpen"
+        v-if="isAuthenticated && isChatOpen"
         :class="[
           'fixed z-50 bg-card/95 backdrop-blur-lg border border-border/50 rounded-2xl shadow-2xl transition-all duration-300',
           isMinimized 

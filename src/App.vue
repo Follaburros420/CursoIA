@@ -13,7 +13,6 @@ const routesWithCustomNavbar = [
   '/plan-profesional',
   '/plan-gratuito',
   '/ebook-gratis',
-  '/plan-empresarial',
   '/login',
   '/dashboard',
   '/modulo/fundamentos-ia',
