@@ -20,6 +20,7 @@ import HerramientasUtiles from '../views/modules/HerramientasUtiles.vue';
 import RedaccionLegal from '../views/modules/RedaccionLegal.vue';
 import BusquedaJuridica from '../views/modules/BusquedaJuridica.vue';
 import Automatizaciones from '../views/modules/Automatizaciones.vue';
+import ConsigueClientesMeta from '../views/modules/ConsigueClientesMeta.vue';
 
 // Microsessions
 import FundamentosIA_Microsesion1 from '../views/modules/microsessions/FundamentosIA_Microsesion1.vue';
@@ -142,6 +143,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/modulo/automatizaciones',
     name: 'Automatizaciones',
     component: Automatizaciones,
+  },
+  {
+    path: '/modulo/consigue-clientes-meta',
+    name: 'ConsigueClientesMeta',
+    component: ConsigueClientesMeta,
   },
   // Microsessions routes
   {

@@ -251,6 +251,99 @@ const modules: Module[] = [
       title: "Implementar una automatización completa",
       description: "Elegir una de las tres automatizaciones estudiadas e implementar un prototipo funcional que incluya: ingesta de datos, procesamiento con IA, validación humana, y entrega de resultados. Acceso a biblioteca de 5,000+ workflows verificados para adaptación."
     }
+  },
+  {
+    id: 6,
+    icon: Target,
+    title: "Consigue clientes con meta",
+    description: "Aprende a utilizar Meta (Facebook e Instagram) para atraer y convertir clientes potenciales en tu despacho legal",
+    objective: "Dominar Meta Ads para generar clientes potenciales en servicios legales",
+    duration: "+2 horas",
+    level: "Intermedio",
+    microSessions: [
+      {
+        title: "Video de Introducción - El Despegue: Tu Mapa de Ruta hacia el Éxito Digital",
+        objective: "Entender el 'por qué' de este curso, la metodología que seguiremos y cómo este conocimiento cambiará la forma en que haces negocios.",
+        content: "Una bienvenida estratégica donde entenderás el 'por qué' de este curso, la metodología que seguiremos y cómo este conocimiento cambiará la forma en que haces negocios.",
+        exercise: "Actividad de Introspección: Escribe tus 3 objetivos principales para el curso y define tu situación actual (ventas/seguidores) para medir el progreso al final."
+      },
+      {
+        title: "Crear cuenta publicitaria - Tu Centro de Operaciones: Activando el Business Manager",
+        objective: "Crear y configurar correctamente tu cuenta publicitaria, asegurando que tu estructura sea profesional y segura frente a bloqueos.",
+        content: "Paso a paso técnico para crear y configurar correctamente tu cuenta publicitaria, asegurando que tu estructura sea profesional y segura frente a bloqueos.",
+        exercise: "Checklist de Seguridad: Entrega una lista de verificación con los pasos de seguridad (autenticación en dos pasos, datos de facturación) que debes marcar al completar."
+      },
+      {
+        title: "Crear y conectar IG y FB - Ecosistema Sincronizado: Uniendo tus Redes de Poder",
+        objective: "Vincular tu Fan Page de Facebook con tu cuenta de Instagram para que tus anuncios se distribuyan de forma fluida en todo el inventario de Meta.",
+        content: "Aprende a vincular tu Fan Page de Facebook con tu cuenta de Instagram para que tus anuncios se distribuyan de forma fluida en todo el inventario de Meta.",
+        exercise: "Auditoría de Perfil: Verifica que tu biografía de IG y tu info de FB sean coherentes antes de lanzar publicidad."
+      },
+      {
+        title: "Crear y Conectar WhatsApp Business - Ventas al Chat: El Puente Directo con tu Cliente",
+        objective: "Configurar WhatsApp Business como destino de tus anuncios para facilitar el cierre de ventas mediante la conversación directa.",
+        content: "Configuración de WhatsApp Business como destino de tus anuncios para facilitar el cierre de ventas mediante la conversación directa.",
+        exercise: "Script de Bienvenida: Diseña un mensaje de respuesta automática que reciba a los prospectos que lleguen desde los anuncios."
+      },
+      {
+        title: "Resumen Módulo 2 - Cimientos Listos: Recuento de tu Infraestructura",
+        objective: "Repaso rápido de los activos creados y verificación de que toda la conexión técnica funciona antes de pasar a la estrategia de pauta.",
+        content: "Repaso rápido de los activos creados y verificación de que toda la conexión técnica funciona antes de pasar a la estrategia de pauta.",
+        exercise: "Autoevaluación: Un breve cuestionario de 3 preguntas para confirmar que entiendes la diferencia entre perfil personal y cuenta comercial."
+      },
+      {
+        title: "Introducción a Meta Ads - Dominando el Algoritmo: El ADN de una Campaña Ganadora",
+        objective: "Explicación de la estructura de campañas (Campaña, Conjunto de Anuncios y Anuncio) y cómo funciona la subasta de Meta.",
+        content: "Explicación de la estructura de campañas (Campaña, Conjunto de Anuncios y Anuncio) y cómo funciona la subasta de Meta.",
+        exercise: "Mapa Conceptual: Dibuja o esquematiza la jerarquía de una campaña para entender dónde se elige el presupuesto y dónde el diseño."
+      },
+      {
+        title: "Crea tu primera campaña de ventas - Fórmula de Conversión: Tu Primera Campaña de Ventas",
+        objective: "Lanzar una campaña enfocada en transacciones, optimizando para el público con mayor intención de compra.",
+        content: "Guía práctica para lanzar una campaña enfocada en transacciones, optimizando para el público con mayor intención de compra.",
+        exercise: "Definición de Oferta Irresistible: Redacta cuál será la oferta principal (descuento, bono, beneficio) que promocionarás en esta campaña."
+      },
+      {
+        title: "Tip extra: Ahorra tiempo en tus campañas - Hack de Productividad: Automatiza y Escala sin Esfuerzo",
+        objective: "Consejos avanzados para duplicar anuncios, usar plantillas y atajos del Administrador que te ahorrarán horas de trabajo manual.",
+        content: "Consejos avanzados para duplicar anuncios, usar plantillas y atajos del Administrador que te ahorrarán horas de trabajo manual.",
+        exercise: "Ejercicio de Duplicación: Practica la creación de un nuevo conjunto de anuncios usando la función 'Duplicado rápido'."
+      },
+      {
+        title: "Crea tus anuncios IA en minutos - Publicidad Inteligente: Usando la IA para Anuncios Magnéticos",
+        objective: "Aprovechar las herramientas de Inteligencia Artificial de Meta (Advantage+) para mejorar imágenes, redactar textos y optimizar creativos automáticamente.",
+        content: "Cómo aprovechar las herramientas de Inteligencia Artificial de Meta (Advantage+) para mejorar imágenes, redactar textos y optimizar creativos automáticamente.",
+        exercise: "Test A/B IA: Crea un anuncio tradicional y uno asistido por IA para comparar cuál genera mayor CTR (clics) en el futuro."
+      },
+      {
+        title: "Crea tu primera campaña de interacción - Conexión y Comunidad: Campañas para Generar Confianza",
+        objective: "Configurar campañas para obtener likes, comentarios y mensajes, ideales para calentar audiencias y construir prueba social.",
+        content: "Configuración de campañas para obtener likes, comentarios y mensajes, ideales para calentar audiencias y construir prueba social.",
+        exercise: "El Gancho (Hook): Escribe 3 títulos diferentes que usarías para detener el 'scroll' de un usuario en Instagram."
+      },
+      {
+        title: "Crea tu primera campaña de clientes potenciales (Lead Gen) - Máquina de Prospectos: Capturando Datos de Calidad",
+        objective: "Crear formularios instantáneos dentro de Facebook y capturar nombres, correos y teléfonos de interesados sin que salgan de la app.",
+        content: "Tutorial para crear formularios instantáneos dentro de Facebook y capturar nombres, correos y teléfonos de interesados sin que salgan de la app.",
+        exercise: "Diseño del Lead Magnet: Define qué regalo o información valiosa le darás al usuario a cambio de sus datos (ej: un PDF, una asesoría, un catálogo)."
+      },
+      {
+        title: "Resumen Módulo 3 - Estrategia en Marcha: Tu Ecosistema de Anuncios Activo",
+        objective: "Consolidación de todas las campañas creadas y revisión de la coherencia entre el mensaje y el objetivo elegido.",
+        content: "Consolidación de todas las campañas creadas y revisión de la coherencia entre el mensaje y el objetivo elegido.",
+        exercise: "Planificador de Campañas: Rellena una hoja de ruta con las fechas de inicio, presupuestos y audiencias de las campañas configuradas."
+      },
+      {
+        title: "Lee tus métricas - Lectura de Datos: Traduciendo Clics en Dinero Real",
+        objective: "Aprender a interpretar el CTR, CPC, ROAS y CPA para saber qué anuncios apagar y en cuáles invertir más dinero.",
+        content: "Aprende a interpretar el CTR, CPC, ROAS y CPA para saber qué anuncios apagar y en cuáles invertir más dinero.",
+        exercise: "El Semáforo de Métricas: Clasifica tus métricas: Verde (Buen desempeño), Amarillo (Por mejorar) y Rojo (Apagar anuncio), basándote en tus costos por resultado."
+      }
+    ],
+    practicalCase: {
+      title: "Lanzar una campaña completa de Meta Ads",
+      description: "Diseñar, configurar y lanzar una campaña completa de Meta Ads para tu despacho que incluya: configuración de cuenta y píxel, creación de audiencias, diseño de creativos, configuración de campaña, y plan de medición y optimización. Incluir presupuesto estimado y proyección de resultados."
+    }
   }
 ];
 
@@ -292,7 +385,7 @@ const getLevelColor = (level: string) => {
 
           <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
             <span class="text-transparent bg-gradient-to-r from-foreground to-primary bg-clip-text">
-              5 Módulos Intensivos
+              6 Módulos Intensivos
             </span>
           </h2>
 

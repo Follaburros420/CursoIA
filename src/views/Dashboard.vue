@@ -20,7 +20,8 @@ import {
   CheckCircle,
   Play,
   Download,
-  Trophy
+  Trophy,
+  Target
 } from "lucide-vue-next";
 
 const router = useRouter();
@@ -130,17 +131,16 @@ const modules = [
   },
   {
     id: 6,
-    icon: Trophy,
-    title: "Trabajando arduamente",
-    description: "Nos encontramos plenamente comprometidos y trabajando arduamente por mejorar la experiencia y ofrecer contenido de mayor calidad",
-    duration: "Próximamente",
-    level: "En desarrollo",
-    route: null, // No clickeable
-    color: "from-amber-500 to-yellow-600",
-    bgColor: "bg-amber-50 dark:bg-amber-950/20",
-    borderColor: "border-amber-200 dark:border-amber-800",
-    image: "/hardwork.png",
-    isComingSoon: true
+    icon: Target,
+    title: "Consigue clientes con meta",
+    description: "Aprende a utilizar Meta (Facebook e Instagram) para atraer y convertir clientes potenciales en tu despacho legal",
+    duration: "+2 horas",
+    level: "Intermedio",
+    route: "/modulo/consigue-clientes-meta",
+    color: "from-indigo-500 to-indigo-600",
+    bgColor: "bg-indigo-50 dark:bg-indigo-950/20",
+    borderColor: "border-indigo-200 dark:border-indigo-800",
+    image: "/modulo 6.png"
   }
 ];
 
@@ -238,7 +238,7 @@ const generateCertificate = () => {
           <div class="text-sm text-muted-foreground">Horas de contenido</div>
         </div>
         <div class="text-center p-4 bg-card/50 rounded-xl border border-border/50">
-          <div class="text-2xl font-bold text-primary">5</div>
+          <div class="text-2xl font-bold text-primary">6</div>
           <div class="text-sm text-muted-foreground">Módulos</div>
         </div>
         <div class="text-center p-4 bg-card/50 rounded-xl border border-border/50">

@@ -20,6 +20,7 @@ const routesWithCustomNavbar = [
   '/modulo/redaccion-legal',
   '/modulo/busqueda-juridica',
   '/modulo/automatizaciones',
+  '/modulo/consigue-clientes-meta',
   '/modulo/fundamentos-ia/microsesion-1',
   '/modulo/fundamentos-ia/microsesion-2',
   '/modulo/fundamentos-ia/microsesion-3',
@@ -54,12 +55,19 @@ const routesWithCustomNavbar = [
   '/modulo/busqueda-juridica/microsesion-8'
 ];
 
+// Verificar si la ruta actual es un módulo (más eficiente que listar todas)
+const isModuleRoute = computed(() => {
+  return route.path.startsWith('/modulo/');
+});
+
 const showDefaultNavbar = computed(() => {
-  return !routesWithCustomNavbar.includes(route.path);
+  // No mostrar navbar si es una ruta de módulo o está en la lista de rutas personalizadas
+  return !isModuleRoute.value && !routesWithCustomNavbar.includes(route.path);
 });
 
 const showDefaultFooter = computed(() => {
-  return !routesWithCustomNavbar.includes(route.path);
+  // No mostrar footer si es una ruta de módulo o está en la lista de rutas personalizadas
+  return !isModuleRoute.value && !routesWithCustomNavbar.includes(route.path);
 });
 </script>
 

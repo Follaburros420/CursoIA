@@ -54,10 +54,6 @@ const serviceList: ServiceProps[] = [
     <div class="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-orange-600/5 rounded-3xl blur-3xl"></div>
 
     <div class="relative z-10">
-      <h2 class="text-lg text-orange-600 text-center mb-2 tracking-wider animate-fade-in-up">
-        Módulos del curso
-      </h2>
-
       <h2 class="text-3xl md:text-4xl text-center font-bold mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">
         Dos tipos de abogados en los próximos años
       </h2>
@@ -73,6 +69,10 @@ const serviceList: ServiceProps[] = [
       <h3 class="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8 animate-fade-in-up" style="animation-delay: 0.4s;">
         Te guiamos para que no seas el abogado que pierde competitividad mientras otros producen más, mejor y con menos esfuerzo.
       </h3>
+
+      <h2 class="text-lg text-orange-600 text-center mb-2 tracking-wider animate-fade-in-up" style="animation-delay: 0.5s;">
+        Módulos del curso
+      </h2>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
 
