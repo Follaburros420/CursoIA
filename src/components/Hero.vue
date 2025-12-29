@@ -14,21 +14,21 @@ const videoId = '1dPhWNbfZ6I';
     <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
     <div
-      class="grid lg:grid-cols-2 lg:max-w-screen-xl gap-8 lg:gap-12 mx-auto py-20 md:py-32 relative z-10 items-center"
+      class="grid lg:grid-cols-2 lg:max-w-screen-xl gap-6 sm:gap-8 lg:gap-12 mx-auto py-12 sm:py-20 md:py-32 relative z-10 items-center px-4 sm:px-6"
     >
       <!-- Columna izquierda: Texto -->
-      <div class="text-center lg:text-left space-y-8 order-2 lg:order-1">
+      <div class="text-center lg:text-left space-y-6 md:space-y-8 order-2 lg:order-1 px-4 sm:px-0">
         <Badge
           variant="outline"
-          class="text-sm py-2 px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5 inline-block"
+          class="text-xs sm:text-sm py-2 px-3 sm:px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5 inline-block max-w-full sm:max-w-none"
         >
-          <span class="text-orange-600 font-semibold">
+          <span class="text-orange-600 font-semibold break-words">
             +350 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
           </span>
         </Badge>
 
         <div
-          class="max-w-screen-md lg:max-w-none mx-auto lg:mx-0 text-center lg:text-left text-4xl md:text-5xl font-bold"
+          class="max-w-full sm:max-w-screen-md lg:max-w-none mx-auto lg:mx-0 text-center lg:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold px-2 sm:px-0"
         >
           <h1 class="leading-tight">
             <span class="inline animate-fade-in-up" style="animation-delay: 0.2s;">Los </span>
@@ -48,25 +48,25 @@ const videoId = '1dPhWNbfZ6I';
           </h1>
         </div>
 
-        <p class="max-w-screen-sm lg:max-w-none mx-auto lg:mx-0 text-xl text-muted-foreground animate-fade-in-up" style="animation-delay: 1s;">
+        <p class="max-w-full sm:max-w-screen-sm lg:max-w-none mx-auto lg:mx-0 text-base sm:text-lg md:text-xl text-muted-foreground animate-fade-in-up px-2 sm:px-0" style="animation-delay: 1s;">
           Automatiza documentos, mejora tu criterio jurídico con IA y adquiere habilidades de alto valor que ya son indispensables en firmas y departamentos legales.
         </p>
 
-        <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4 animate-fade-in-up" style="animation-delay: 1.2s;">
-          <Button class="w-auto min-w-[280px] px-6 font-bold group/arrow flex items-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl" as-child>
-            <a href="https://wa.me/message/22XPE3IWTKONL1" class="flex items-center" target="_blank">
-              <WhatsappIcon class="size-7 mr-3 group-hover/arrow:scale-110 transition-transform" />
-              Quiero ser un abogado competitivo en la era de la IA
+        <div class="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 animate-fade-in-up px-2 sm:px-0" style="animation-delay: 1.2s;">
+          <Button class="w-full sm:w-auto sm:min-w-[280px] px-4 sm:px-6 font-bold group/arrow flex items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base" as-child>
+            <a href="https://wa.me/message/22XPE3IWTKONL1" class="flex items-center justify-center" target="_blank">
+              <WhatsappIcon class="size-5 sm:size-7 mr-2 sm:mr-3 group-hover/arrow:scale-110 transition-transform flex-shrink-0" />
+              <span class="text-center">Quiero ser un abogado competitivo en la era de la IA</span>
             </a>
             <ArrowRight
-              class="size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform"
+              class="size-4 sm:size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform flex-shrink-0"
             />
           </Button>
 
           <Button
             as-child
             variant="secondary"
-            class="w-60 font-bold hover:scale-105 transition-all duration-300 hover:bg-orange-500/10 hover:text-orange-600"
+            class="w-full sm:w-60 font-bold hover:scale-105 transition-all duration-300 hover:bg-orange-500/10 hover:text-orange-600 text-sm sm:text-base"
           >
             <a href="#features">Ver cómo funciona el programa</a>
           </Button>
@@ -74,14 +74,14 @@ const videoId = '1dPhWNbfZ6I';
       </div>
 
       <!-- Columna derecha: Video -->
-      <div class="relative group w-full flex justify-center items-center order-1 lg:order-2 mt-8 lg:mt-0">
+      <div class="relative group w-full flex justify-center items-center order-1 lg:order-2 mt-4 sm:mt-8 lg:mt-0 px-4 sm:px-0">
         <!-- gradient shadow -->
         <div
-          class="absolute -top-6 right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
+          class="absolute -top-6 right-4 sm:right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
         ></div>
 
         <!-- Video Preview Container - Formato Horizontal 16:9 -->
-        <div class="video-container-hero rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black shadow-2xl">
+        <div class="video-container-hero rounded-lg border-2 border-orange-500/50 overflow-hidden bg-black shadow-2xl w-full max-w-full">
           <iframe
             class="video-iframe"
             :src="`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&showinfo=0&controls=1&fs=1`"
@@ -173,7 +173,7 @@ const videoId = '1dPhWNbfZ6I';
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
-  min-height: 300px !important; /* Altura mínima para evitar colapso */
+  min-height: 200px !important; /* Altura mínima reducida para móvil */
 }
 
 .video-iframe {
@@ -184,48 +184,34 @@ const videoId = '1dPhWNbfZ6I';
   background: #000 !important;
   width: 100% !important;
   height: 100% !important;
-  min-height: 300px !important; /* Altura mínima para asegurar visibilidad */
+  min-height: 200px !important; /* Altura mínima reducida para móvil */
   z-index: 5 !important;
   position: relative !important;
 }
 
-/* Responsive adjustments for mobile - Video completo pero más pequeño */
-@media (max-width: 767px) {
-  .video-container-hero {
-    width: 85vw !important; /* 85% del ancho de la ventana en móviles */
-    max-width: 85vw !important;
-    aspect-ratio: 16/9 !important; /* Siempre mantiene formato horizontal */
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .video-container-hero {
-    width: 80vw !important; /* 80% en tablets */
-    max-width: 80vw !important;
-  }
-}
-
-@media (min-width: 1024px) and (max-width: 1279px) {
+/* Responsive adjustments for mobile */
+@media (max-width: 640px) {
   .video-container-hero {
     width: 100% !important;
-    max-width: 100% !important; /* Se ajusta a la columna */
-    min-width: 0 !important;
+    max-width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    min-height: 200px !important;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 641px) and (max-width: 1023px) {
   .video-container-hero {
     width: 100% !important;
-    max-width: 100% !important; /* Se ajusta a la columna */
-    min-width: 0 !important;
+    max-width: 100% !important;
+    min-height: 250px !important;
   }
 }
 
-/* Extra pequeño para móviles muy pequeños */
-@media (max-width: 380px) {
+@media (min-width: 1024px) {
   .video-container-hero {
-    width: 75vw !important; /* 75% para móviles muy pequeños */
-    max-width: 75vw !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 300px !important;
   }
 }
 
