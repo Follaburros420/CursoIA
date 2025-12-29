@@ -34,6 +34,22 @@ const {
   areAllModulesCompleted
 } = useCourseProgress();
 
+// Tipo para los módulos
+interface Module {
+  id: number;
+  icon: any;
+  title: string;
+  description: string;
+  duration: string;
+  level: string;
+  route: string | null;
+  color: string;
+  bgColor: string;
+  borderColor: string;
+  image: string;
+  isComingSoon?: boolean;
+}
+
 // Verificar autenticación al montar el componente
 onMounted(() => {
   const authStatus = localStorage.getItem('isAuthenticated');
@@ -63,7 +79,7 @@ const handleLogout = () => {
   router.push('/');
 };
 
-const modules = [
+const modules: Module[] = [
   {
     id: 1,
     icon: Brain,

@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Target, ArrowLeft, Clock, BookOpen, CheckCircle, Play, Video, Layers, Rocket, BarChart3, ChevronDown } from "lucide-vue-next";
+import { Target, ArrowLeft, Clock, CheckCircle, Play, Video, Layers, Rocket, BarChart3, ChevronDown } from "lucide-vue-next";
 
 const router = useRouter();
 
