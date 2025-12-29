@@ -9,28 +9,41 @@ const videoId = '1dPhWNbfZ6I';
 </script>
 
 <template>
-  <section class="container relative overflow-hidden">
+  <section class="container relative overflow-hidden w-full">
     <!-- Background decoration -->
     <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
 
     <div
-      class="grid lg:grid-cols-2 lg:max-w-screen-xl gap-6 sm:gap-8 lg:gap-12 mx-auto py-12 sm:py-20 md:py-32 relative z-10 items-center px-4 sm:px-6"
+      class="grid lg:grid-cols-2 lg:max-w-screen-xl gap-6 sm:gap-8 lg:gap-12 mx-auto py-8 sm:py-12 md:py-20 lg:py-32 relative z-10 items-center px-4 sm:px-6"
     >
-      <!-- Columna izquierda: Texto -->
-      <div class="text-center lg:text-left space-y-6 md:space-y-8 order-2 lg:order-1 px-4 sm:px-0">
+      <!-- Badge - Arriba en móvil, dentro de la columna izquierda en desktop -->
+      <div class="text-center lg:hidden order-1 mb-4 px-2">
         <Badge
           variant="outline"
-          class="text-xs sm:text-sm py-2 px-3 sm:px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5 inline-block max-w-full sm:max-w-none"
+          class="text-xs sm:text-sm py-2 px-3 sm:px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5 inline-block max-w-full"
         >
           <span class="text-orange-600 font-semibold break-words">
             +350 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
           </span>
         </Badge>
+      </div>
+
+      <!-- Columna izquierda: Texto -->
+      <div class="text-center lg:text-left space-y-4 sm:space-y-6 md:space-y-8 order-3 lg:order-1 px-2 sm:px-0">
+        <!-- Badge solo visible en desktop dentro de esta columna -->
+        <Badge
+          variant="outline"
+          class="hidden lg:inline-block text-sm py-2 px-4 hover:scale-105 transition-all duration-300 cursor-pointer border-orange-500/30 bg-orange-500/5"
+        >
+          <span class="text-orange-600 font-semibold">
+            +350 abogados ya aplican la IA en su profesión ¿piensas quedarte atrás?
+          </span>
+        </Badge>
 
         <div
-          class="max-w-full sm:max-w-screen-md lg:max-w-none mx-auto lg:mx-0 text-center lg:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold px-2 sm:px-0"
+          class="max-w-full sm:max-w-screen-md lg:max-w-none mx-auto lg:mx-0 text-center lg:text-left text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold"
         >
-          <h1 class="leading-tight">
+          <h1 class="leading-tight px-1">
             <span class="inline animate-fade-in-up" style="animation-delay: 0.2s;">Los </span>
             <span
               class="text-transparent bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text inline animate-fade-in-up hover:scale-105 transition-transform duration-300"
@@ -48,11 +61,11 @@ const videoId = '1dPhWNbfZ6I';
           </h1>
         </div>
 
-        <p class="max-w-full sm:max-w-screen-sm lg:max-w-none mx-auto lg:mx-0 text-base sm:text-lg md:text-xl text-muted-foreground animate-fade-in-up px-2 sm:px-0" style="animation-delay: 1s;">
+        <p class="max-w-full sm:max-w-screen-sm lg:max-w-none mx-auto lg:mx-0 text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground animate-fade-in-up px-1" style="animation-delay: 1s;">
           Automatiza documentos, mejora tu criterio jurídico con IA y adquiere habilidades de alto valor que ya son indispensables en firmas y departamentos legales.
         </p>
 
-        <div class="mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 animate-fade-in-up px-2 sm:px-0" style="animation-delay: 1.2s;">
+        <div class="mt-4 sm:mt-6 md:mt-8 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 animate-fade-in-up" style="animation-delay: 1.2s;">
           <Button class="w-full sm:w-auto sm:min-w-[280px] px-4 sm:px-6 font-bold group/arrow flex items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base" as-child>
             <a href="https://wa.me/message/22XPE3IWTKONL1" class="flex items-center justify-center" target="_blank">
               <WhatsappIcon class="size-5 sm:size-7 mr-2 sm:mr-3 group-hover/arrow:scale-110 transition-transform flex-shrink-0" />
@@ -74,7 +87,7 @@ const videoId = '1dPhWNbfZ6I';
       </div>
 
       <!-- Columna derecha: Video -->
-      <div class="relative group w-full flex justify-center items-center order-1 lg:order-2 mt-4 sm:mt-8 lg:mt-0 px-4 sm:px-0">
+      <div class="relative group w-full flex justify-center items-center order-2 lg:order-2 mt-2 sm:mt-4 lg:mt-0 px-2 sm:px-4 lg:px-0">
         <!-- gradient shadow -->
         <div
           class="absolute -top-6 right-4 sm:right-12 w-[90%] h-12 lg:h-[80%] bg-orange-500/50 blur-3xl rounded-full img-shadow-animation"
