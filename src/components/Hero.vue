@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-vue-next";
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
 
 // Video ID de YouTube
@@ -71,9 +70,6 @@ const videoId = '1dPhWNbfZ6I';
               <WhatsappIcon class="size-4 sm:size-5 md:size-7 mr-1.5 sm:mr-2 md:mr-3 group-hover/arrow:scale-110 transition-transform flex-shrink-0" />
               <span class="text-center break-words">Quiero saber mas...</span>
             </a>
-            <ArrowRight
-              class="size-3 sm:size-4 md:size-5 ml-1.5 sm:ml-2 group-hover/arrow:translate-x-1 transition-transform flex-shrink-0"
-            />
           </Button>
 
           <Button
