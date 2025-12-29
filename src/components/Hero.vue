@@ -69,7 +69,7 @@ const videoId = '1dPhWNbfZ6I';
           <Button class="w-full sm:w-auto sm:min-w-[280px] px-4 sm:px-6 font-bold group/arrow flex items-center justify-center hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl text-sm sm:text-base" as-child>
             <a href="https://wa.me/message/22XPE3IWTKONL1" class="flex items-center justify-center" target="_blank">
               <WhatsappIcon class="size-5 sm:size-7 mr-2 sm:mr-3 group-hover/arrow:scale-110 transition-transform flex-shrink-0" />
-              <span class="text-center">Quiero ser un abogado competitivo en la era de la IA</span>
+              <span class="text-center">Quiero saber mas...</span>
             </a>
             <ArrowRight
               class="size-4 sm:size-5 ml-2 group-hover/arrow:translate-x-1 transition-transform flex-shrink-0"
