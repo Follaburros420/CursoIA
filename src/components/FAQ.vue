@@ -92,7 +92,7 @@ import { tilt as vTilt } from "@/directives/tilt";
               as-child
             >
               <a href="https://wa.me/message/22XPE3IWTKONL1" target="_blank">
-                Contáctame sin compromiso
+                resuelve tus dudas con un experto
               </a>
             </Button>
           </div>

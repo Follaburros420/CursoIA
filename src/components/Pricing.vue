@@ -38,33 +38,16 @@ const plans: PlanProps[] = [
       "Introducción práctica a la IA legal",
     buttonText: "Comenzar gratis",
     benefitList: [
-      "Acceso al primer módulo: Fundamentos de IA",
       "Ebook gratuito",
       "Acceso a comunidad global",
     ],
   },
   {
-    title: "Profesional Mensual",
-    popular: 0,
-    price: "$49.000 COP",
-    originalPrice: "$54.444 COP",
-    discount: 10,
-    description:
-      "Integra IA en tu práctica con control",
-    buttonText: "Inscribirme",
-    benefitList: [
-      "Curso guiado (5 módulos) con casos prácticos y plantillas avanzadas",
-      "Redacción legal inteligente + validación de riesgos con IA",
-      "Búsquedas jurídicas eficientes para responder consultas",
-      "Pago mensual recurrente",
-    ],
-  },
-  {
     title: "Profesional Anual",
     popular: 1,
-    price: "$350.000 COP",
-    originalPrice: "$653.328 COP",
-    discount: 46,
+    price: "$358.000 COP",
+    originalPrice: "$1.188.000 COP",
+    discount: 70,
     description:
       "Integra IA en tu práctica con control",
     buttonText: "Inscribirme",
@@ -74,6 +57,22 @@ const plans: PlanProps[] = [
       "Identifica líneas jurisprudenciales reiteradas para argumentar con mayor solidez",
       "Pago único anual - Ahorra más",
       "7 días de garantía",
+    ],
+  },
+  {
+    title: "Profesional Mensual",
+    popular: 0,
+    price: "$72.000 COP",
+    originalPrice: "$99.000 COP",
+    discount: 27,
+    description:
+      "Integra IA en tu práctica con control",
+    buttonText: "Inscribirme",
+    benefitList: [
+      "Curso guiado (5 módulos) con casos prácticos y plantillas avanzadas",
+      "Redacción legal inteligente + validación de riesgos con IA",
+      "Búsquedas jurídicas eficientes para responder consultas",
+      "Pago mensual recurrente",
     ],
   },
 
@@ -113,7 +112,7 @@ const plans: PlanProps[] = [
           :class="[
           'relative group bg-gray-50 dark:bg-black border-black/10 dark:border-white/20 hover:shadow-2xl transition-shadow p-6 rounded-xl',
           {
-            'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[2px] border-orange-500 shadow-orange-500/20 hover:shadow-orange-500/30 lg:scale-[1.05]':
+            'drop-shadow-xl shadow-black/10 dark:shadow-white/10 border-[2px] border-orange-500 shadow-orange-500/20 hover:shadow-orange-500/30 lg:scale-[1.08]':
               popular === PopularPlan?.YES,
             'hover:shadow-emerald-500/10': popular === PopularPlan?.NO,
           },
@@ -128,7 +127,7 @@ const plans: PlanProps[] = [
               v-if="title === 'Profesional Anual'"
               class="bg-orange-500 text-white text-xs"
             >
-              Mejor relación valor/precio
+              Recomendado
             </Badge>
           </div>
 
@@ -144,6 +143,10 @@ const plans: PlanProps[] = [
             <div>
               <span class="text-3xl font-bold">{{ price }}</span>
               <span v-if="title === 'Profesional Mensual'" class="text-sm text-muted-foreground ml-2">/mes</span>
+            </div>
+            <div v-if="title === 'Profesional Anual'" class="space-y-1 mt-3">
+              <div class="text-sm text-muted-foreground">Equivale a $29.167/mes</div>
+              <div class="text-sm font-medium text-green-600 dark:text-green-400">Ahorra $238.000/año vs mensual</div>
             </div>
           </div>
         </CardHeader>
@@ -163,11 +166,12 @@ const plans: PlanProps[] = [
 
         <CardFooter>
           <Button
-            :variant="popular === PopularPlan?.NO ? 'secondary' : 'default'"
+            :variant="popular === PopularPlan?.NO ? 'outline' : 'default'"
             :class="[
               'w-full',
               {
                 'bg-orange-500 hover:bg-orange-600 text-white': popular === PopularPlan?.YES,
+                'border-orange-500 text-orange-600 hover:bg-orange-50 dark:hover:bg-orange-950/20': popular === PopularPlan?.NO && title === 'Profesional Mensual',
               }
             ]"
             as-child

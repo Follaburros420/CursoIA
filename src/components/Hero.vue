@@ -77,7 +77,7 @@ const videoId = '1dPhWNbfZ6I';
             variant="secondary"
             class="w-full sm:w-auto sm:min-w-[200px] md:w-60 font-bold hover:scale-105 transition-all duration-300 hover:bg-orange-500/10 hover:text-orange-600 text-xs sm:text-sm md:text-base box-border"
           >
-            <a href="#features" class="break-words">Ver cómo funciona el programa</a>
+            <a href="#features" class="break-words">¿cómo funcionan?</a>
           </Button>
         </div>
       </div>
