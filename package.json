@@ -31,7 +31,8 @@
     "pre-build": "node pre-build-check.js",
     "deploy": "bash deploy.sh",
     "vercel:dev": "vercel dev",
-    "vercel:deploy": "npm run pre-build && npm run build && vercel --prod"
+    "vercel:deploy": "npm run pre-build && npm run build && vercel --prod",
+    "migrate:codes": "node scripts/migrate-valid-codes.js"
   },
   "dependencies": {
     "@selemondev/vue3-marquee": "^0.0.8",

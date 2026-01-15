@@ -41,6 +41,23 @@ export interface UserProfile {
   updated_at: string
 }
 
+export interface Customer {
+  id: string
+  email: string
+  phone?: string
+  access_code?: string
+  plan_type?: 'mensual' | 'vitalicio'
+  payment_source_id?: string
+  subscription_status?: 'activa' | 'cancelada' | 'vencida' | 'pendiente'
+  subscription_expires_at?: string | null
+  wompi_transaction_id?: string
+  wompi_reference?: string
+  amount_paid?: number
+  currency?: string
+  created_at: string
+  updated_at: string
+}
+
 // Vector search function
 export async function searchSimilarDocuments(
   query: string, 
@@ -122,5 +139,64 @@ export async function storeDocument(content: string, metadata: Record<string, an
   } catch (error) {
     console.error('Error in storeDocument:', error)
     throw error
+  }
+}
+
+// Function to validate access code
+export async function validateAccessCode(code: string): Promise<{ valid: boolean; customer?: Customer; error?: string }> {
+  try {
+    if (!code || code.length !== 6) {
+      return { valid: false, error: 'Código inválido' }
+    }
+
+    // Query customer by access_code
+    const { data, error } = await supabase
+      .from('customers')
+      .select('*')
+      .eq('access_code', code)
+      .single()
+
+    if (error) {
+      // If no record found, code is invalid
+      if (error.code === 'PGRST116') {
+        return { valid: false, error: 'Código de acceso no encontrado' }
+      }
+      console.error('Error validating access code:', error)
+      return { valid: false, error: 'Error al validar el código' }
+    }
+
+    if (!data) {
+      return { valid: false, error: 'Código de acceso no encontrado' }
+    }
+
+    const customer = data as Customer
+
+    // Check if subscription is active
+    if (customer.subscription_status !== 'activa') {
+      return { 
+        valid: false, 
+        error: customer.subscription_status === 'vencida' 
+          ? 'Tu suscripción ha vencido. Por favor, renueva tu plan.' 
+          : 'Tu suscripción no está activa.' 
+      }
+    }
+
+    // For monthly plans, check expiration date
+    if (customer.plan_type === 'mensual' && customer.subscription_expires_at) {
+      const expiresAt = new Date(customer.subscription_expires_at)
+      const now = new Date()
+      
+      if (expiresAt < now) {
+        return { 
+          valid: false, 
+          error: 'Tu suscripción mensual ha vencido. Por favor, renueva tu plan.' 
+        }
+      }
+    }
+
+    return { valid: true, customer }
+  } catch (error) {
+    console.error('Error in validateAccessCode:', error)
+    return { valid: false, error: 'Error al validar el código' }
   }
 }

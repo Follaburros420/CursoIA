@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Eye, EyeOff, AlertCircle, CheckCircle } from "lucide-vue-next";
+import { validateAccessCode } from "@/lib/supabase";
 
 const router = useRouter();
 const code = ref('');
@@ -14,7 +15,9 @@ const isLoading = ref(false);
 const error = ref('');
 const success = ref(false);
 
-const VALID_CODES = ['038373', '206304', '484643', '141155', '424433', '768857', '664379', '251143', '955567', '252931', '359932', '434187', '719782', '836543', '598785', '271272', '986701', '332139', '243541', '757132', '338524', '128497', '839336', '714834', '398533', '094928', '276912', '036133', '712549', '373308', '698108', '875968', '254933', '086583', '595314']
+// Códigos legacy para compatibilidad temporal durante migración
+// Estos serán migrados a Supabase y luego se eliminarán
+const LEGACY_VALID_CODES = ['038373', '206304', '484643', '141155', '424433', '768857', '664379', '251143', '955567', '252931', '359932', '434187', '719782', '836543', '598785', '271272', '986701', '332139', '243541', '757132', '338524', '128497', '839336', '714834', '398533', '094928', '276912', '036133', '712549', '373308', '698108', '875968', '254933', '086583', '595314'];
 
 const handleLogin = async () => {
   if (!code.value) {
@@ -25,22 +28,43 @@ const handleLogin = async () => {
   isLoading.value = true;
   error.value = '';
 
-  // Simular validación
-  setTimeout(() => {
-    if (VALID_CODES.includes(code.value)) {
+  try {
+    // Primero intentar validar desde Supabase
+    const validation = await validateAccessCode(code.value);
+    
+    if (validation.valid && validation.customer) {
+      // Código válido en Supabase
       success.value = true;
       // Guardar estado de autenticación
       localStorage.setItem('isAuthenticated', 'true');
       localStorage.setItem('loginTime', Date.now().toString());
+      localStorage.setItem('customerEmail', validation.customer.email || '');
+      localStorage.setItem('planType', validation.customer.plan_type || '');
       
       setTimeout(() => {
         router.push('/dashboard');
       }, 1500);
     } else {
-      error.value = 'Código de acceso incorrecto. Inténtalo de nuevo.';
+      // Si no está en Supabase, verificar códigos legacy (compatibilidad temporal)
+      if (LEGACY_VALID_CODES.includes(code.value)) {
+        success.value = true;
+        localStorage.setItem('isAuthenticated', 'true');
+        localStorage.setItem('loginTime', Date.now().toString());
+        
+        setTimeout(() => {
+          router.push('/dashboard');
+        }, 1500);
+      } else {
+        // Código inválido
+        error.value = validation.error || 'Código de acceso incorrecto. Inténtalo de nuevo.';
+      }
     }
+  } catch (err) {
+    console.error('Error during login:', err);
+    error.value = 'Error al validar el código. Por favor, intenta de nuevo.';
+  } finally {
     isLoading.value = false;
-  }, 800);
+  }
 };
 
 const toggleShowCode = () => {
