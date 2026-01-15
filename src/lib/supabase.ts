@@ -172,6 +172,8 @@ export async function validateAccessCode(code: string): Promise<{ valid: boolean
     const customer = data as Customer
 
     // Check if subscription is active
+    // TEMPORAL: Se permite acceso a cualquiera con código registrado
+    /*
     if (customer.subscription_status !== 'activa') {
       return { 
         valid: false, 
@@ -193,6 +195,7 @@ export async function validateAccessCode(code: string): Promise<{ valid: boolean
         }
       }
     }
+    */
 
     return { valid: true, customer }
   } catch (error) {
