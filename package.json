@@ -45,6 +45,7 @@
     "embla-carousel": "^8.3.0",
     "embla-carousel-vue": "^8.3.0",
     "lucide-vue-next": "^0.452.0",
+    "marked": "^17.0.1",
     "motion": "^12.23.1",
     "pinia": "^2.1.7",
     "radix-vue": "^1.9.7",
@@ -58,6 +59,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/marked": "^5.0.2",
     "@types/node": "^20.14.5",
     "@types/vue-router": "^2.0.0",
     "@vitejs/plugin-vue": "^5.0.5",

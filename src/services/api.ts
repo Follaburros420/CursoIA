@@ -7,7 +7,7 @@ const baseURL = isDevelopment ? '' : '';
 // Create axios instance
 const api = axios.create({
   baseURL,
-  timeout: 10000,
+  timeout: 360000,
 });
 
 // Mock responses for development
@@ -15,19 +15,19 @@ const mockResponses = {
   wompiCreateSession: (data: any) => ({
     checkoutUrl: `https://checkout.wompi.co/p/?public-key=pub_test_example&amount-in-cents=${data.amount_in_cents}&currency=${data.currency}&reference=${data.reference}&redirect-url=${encodeURIComponent(data.redirect_url)}`
   }),
-  
+
   couponValidate: (data: any) => {
     const coupons: Record<string, any> = {
       'ABOGADOS-IA': { discount: 40, type: 'percentage' },
       'DESCUENTO20': { discount: 20, type: 'percentage' },
       'PROMO30': { discount: 30, type: 'percentage' }
     };
-    
+
     const coupon = coupons[data.code?.toUpperCase()];
     if (!coupon) {
       return { valid: false, message: 'Cupón no válido' };
     }
-    
+
     const discountedAmount = Math.round(data.originalAmount * (1 - coupon.discount / 100));
     return {
       valid: true,
@@ -37,11 +37,11 @@ const mockResponses = {
       message: `Cupón aplicado correctamente - ${coupon.discount}% de descuento`
     };
   },
-  
+
   chatbot: (data: any) => ({
     output: `Hola! Recibí tu mensaje: "${data.message}". Soy tu asistente de IA especializado en cursos legales. ¿En qué más puedo ayudarte?`
   }),
-  
+
   ebook: (_data: any) => ({
     success: true,
     message: 'Ebook submission processed successfully'

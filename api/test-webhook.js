@@ -18,16 +18,16 @@ export default async function handler(req, res) {
   console.log('📥 Body:', req.body);
 
   try {
-    const webhookUrl = 'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338';
+    const webhookUrl = 'https://webhook.asistente-legal.pro/webhook/a50b085e-d472-4185-8ed8-54c80a2067ef';
     const testMessage = req.body?.message || 'Test message from CursoIA';
-    
+
     console.log('🔄 Testing webhook:', webhookUrl);
     console.log('📤 Test payload:', { message: testMessage });
-    
+
     // Create AbortController for timeout
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
-    
+
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         'User-Agent': 'CursoIA-Test/1.0',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         message: testMessage,
         timestamp: new Date().toISOString(),
         source: 'test-endpoint',
@@ -51,7 +51,7 @@ export default async function handler(req, res) {
 
     const responseText = await response.text();
     console.log('📥 Raw test response:', responseText);
-    
+
     let data;
     try {
       data = JSON.parse(responseText);

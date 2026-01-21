@@ -3,14 +3,14 @@
 // Direct webhook test script
 console.log('🧪 Testing webhook directly...\n');
 
-const webhookUrl = 'https://webhook.aprenderia.site/webhook/c686333a-8931-4cce-b290-ce9efbfee338';
+const webhookUrl = 'https://webhook.asistente-legal.pro/webhook/a50b085e-d472-4185-8ed8-54c80a2067ef';
 const testMessage = 'Test message from direct script';
 
 async function testWebhook() {
   try {
     console.log('🔄 Sending to:', webhookUrl);
     console.log('📤 Message:', testMessage);
-    
+
     const response = await fetch(webhookUrl, {
       method: 'POST',
       headers: {
@@ -18,7 +18,7 @@ async function testWebhook() {
         'User-Agent': 'CursoIA-DirectTest/1.0',
         'Accept': 'application/json'
       },
-      body: JSON.stringify({ 
+      body: JSON.stringify({
         message: testMessage,
         timestamp: new Date().toISOString(),
         source: 'direct-test'
@@ -30,7 +30,7 @@ async function testWebhook() {
 
     const responseText = await response.text();
     console.log('📥 Raw response:', responseText);
-    
+
     if (response.ok) {
       try {
         const data = JSON.parse(responseText);

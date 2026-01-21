@@ -26,7 +26,7 @@ export function apiPlugin() {
 
               // Simular la lógica del chatbot
               const response = await simulateChatbotResponse(data.message);
-              
+
               res.setHeader('Content-Type', 'application/json');
               res.setHeader('Access-Control-Allow-Origin', '*');
               res.end(JSON.stringify(response));
@@ -48,17 +48,17 @@ export function apiPlugin() {
 
 async function simulateChatbotResponse(message) {
   console.log('🔄 Processing message:', message);
-  
+
   // Intentar enviar a los webhooks de n8n
   const webhooks = [
-    'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338',
+    'https://webhook.asistente-legal.pro/webhook/a50b085e-d472-4185-8ed8-54c80a2067ef',
     'https://webhook.aprenderia.site/webhook/c686333a-8931-4cce-b290-ce9efbfee338'
   ];
 
   for (const webhookUrl of webhooks) {
     try {
       console.log('🔄 Trying webhook:', webhookUrl);
-      
+
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -70,7 +70,8 @@ async function simulateChatbotResponse(message) {
           message: message,
           timestamp: new Date().toISOString(),
           source: 'robotino-chat'
-        })
+        }),
+        signal: AbortSignal.timeout(360000)
       });
 
       console.log('📡 Webhook response status:', response.status);
@@ -106,9 +107,9 @@ async function simulateChatbotResponse(message) {
     'Excelente, estoy aquí para ayudarte. ¿Te interesa conocer más sobre nuestros cursos de IA aplicada al derecho?',
     '¡Hola! Soy Robotino. Puedo ayudarte con información sobre nuestros cursos, precios, descuentos disponibles y proceso de inscripción.'
   ];
-  
+
   const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-  
+
   return {
     success: true,
     output: randomResponse,

@@ -10,6 +10,7 @@ import {
   User
 } from 'lucide-vue-next';
 import WhatsappIcon from "@/icons/WhatsappIcon.vue";
+import { marked } from 'marked';
 
 // Auth store
 const authStore = useAuthStore();
@@ -63,6 +64,15 @@ const contactOptions = [
 ];
 
 // Functions
+const renderMarkdown = (text: string) => {
+  try {
+    return marked.parse(text);
+  } catch (e) {
+    console.error('Error parsing markdown:', e);
+    return text;
+  }
+};
+
 const toggleExpanded = () => {
   isExpanded.value = !isExpanded.value;
   if (!isExpanded.value) {
@@ -271,12 +281,6 @@ onUnmounted(() => {
             class="contact-option-item"
           >
             <div class="flex items-center gap-3 group">
-              <!-- Option label -->
-              <div class="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-3 py-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                <div class="text-sm font-medium text-foreground">{{ option.label }}</div>
-                <div class="text-xs text-muted-foreground">{{ option.description }}</div>
-              </div>
-              
               <!-- Option button -->
               <button
                 v-if="option.id === 'chatbot'"
@@ -305,6 +309,12 @@ onUnmounted(() => {
               >
                 <component :is="option.icon" class="w-6 h-6" />
               </a>
+
+              <!-- Option label -->
+              <div class="bg-card/95 backdrop-blur-sm border border-border/50 rounded-lg px-3 py-2 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                <div class="text-sm font-medium text-foreground">{{ option.label }}</div>
+                <div class="text-xs text-muted-foreground">{{ option.description }}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -420,7 +430,13 @@ onUnmounted(() => {
                     class="w-4 h-4 mt-0.5 flex-shrink-0" 
                   />
                   <div class="flex-1">
-                    <p class="text-sm leading-relaxed">{{ message.content }}</p>
+                    <div 
+                      v-if="message.role === 'bot'"
+                      class="markdown-content text-sm leading-relaxed" 
+                      v-html="renderMarkdown(message.content)"
+                    ></div>
+                    <p v-else class="text-sm leading-relaxed">{{ message.content }}</p>
+
                     <p 
                       :class="[
                         'text-xs mt-1',
@@ -470,43 +486,7 @@ onUnmounted(() => {
               </button>
             </div>
             
-            <!-- Quick actions -->
-            <div class="flex flex-wrap gap-2 mt-3">
-              <button
-                @click="input = '¿Qué cursos tienen disponibles?'"
-                class="text-xs bg-muted/30 hover:bg-muted/50 border border-border/50 rounded-lg px-3 py-1 transition-all duration-200 hover:scale-105"
-              >
-                📚 Ver cursos
-              </button>
-              <button
-                @click="input = '¿Cuáles son los precios?'"
-                class="text-xs bg-muted/30 hover:bg-muted/50 border border-border/50 rounded-lg px-3 py-1 transition-all duration-200 hover:scale-105"
-              >
-                💰 Precios
-              </button>
-              <button
-                @click="input = '¿Cómo puedo inscribirme?'"
-                class="text-xs bg-muted/30 hover:bg-muted/50 border border-border/50 rounded-lg px-3 py-1 transition-all duration-200 hover:scale-105"
-              >
-                ✍️ Inscripción
-              </button>
-              <button
-                @click="input = '¿Hay descuentos disponibles?'"
-                class="text-xs bg-muted/30 hover:bg-muted/50 border border-border/50 rounded-lg px-3 py-1 transition-all duration-200 hover:scale-105"
-              >
-                🎯 Descuentos
-              </button>
-            </div>
 
-            <!-- Chat info -->
-            <div class="flex items-center justify-between mt-3 pt-2 border-t border-border/30">
-              <div class="text-xs text-muted-foreground">
-                {{ messages.length }} mensajes
-              </div>
-              <div class="text-xs text-muted-foreground">
-                Respuesta promedio: ~2s
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -655,4 +635,28 @@ onUnmounted(() => {
     opacity: 0;
   }
 }
+
+/* Markdown Styles */
+.markdown-content :deep(p) { margin-bottom: 0.5rem; }
+.markdown-content :deep(p:last-child) { margin-bottom: 0; }
+.markdown-content :deep(strong) { font-weight: 600; color: hsl(var(--foreground)); }
+.markdown-content :deep(em) { font-style: italic; }
+.markdown-content :deep(h1), .markdown-content :deep(h2), .markdown-content :deep(h3), .markdown-content :deep(h4) { font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; color: hsl(var(--foreground)); }
+.markdown-content :deep(h1) { font-size: 1.25em; }
+.markdown-content :deep(h2) { font-size: 1.15em; }
+.markdown-content :deep(h3) { font-size: 1.1em; }
+.markdown-content :deep(ul) { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.markdown-content :deep(ol) { list-style-type: decimal; padding-left: 1.25rem; margin-bottom: 0.75rem; }
+.markdown-content :deep(li) { margin-bottom: 0.25rem; }
+.markdown-content :deep(blockquote) { border-left: 3px solid hsl(var(--primary) / 0.5); padding-left: 0.75rem; margin-left: 0; margin-right: 0; font-style: italic; color: hsl(var(--muted-foreground)); }
+.markdown-content :deep(pre) { background-color: hsl(var(--muted)/0.5); padding: 0.5rem; border-radius: 0.5rem; overflow-x: auto; font-family: monospace; font-size: 0.9em; margin-bottom: 0.75rem; }
+.markdown-content :deep(code) { background-color: hsl(var(--muted)/0.5); padding: 0.125rem 0.25rem; border-radius: 0.25rem; font-family: monospace; font-size: 0.9em; }
+.markdown-content :deep(table) { display: block; width: 100%; overflow-x: auto; border-collapse: collapse; margin-bottom: 1rem; font-size: 0.85em; background-color: hsl(var(--card)); border-radius: 0.5rem; border: 1px solid hsl(var(--border) / 0.5); }
+.markdown-content :deep(thead) { background-color: hsl(var(--muted)); }
+.markdown-content :deep(th), .markdown-content :deep(td) { border: 1px solid hsl(var(--border) / 0.5); padding: 0.5rem; text-align: left; min-width: 100px; }
+.markdown-content :deep(th) { font-weight: 600; color: hsl(var(--foreground)); }
+.markdown-content :deep(tr:nth-child(even)) { background-color: hsl(var(--muted) / 0.2); }
+.markdown-content :deep(hr) { border: 0; border-top: 1px solid hsl(var(--border) / 0.5); margin: 1rem 0; }
+.markdown-content :deep(a) { color: hsl(24.6 95% 53.1%); text-decoration: underline; text-underline-offset: 2px; }
+.markdown-content :deep(a:hover) { opacity: 0.8; }
 </style>

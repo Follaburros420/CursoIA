@@ -13,11 +13,11 @@ const testMessages = [
 
 async function testChatbotAPI() {
   console.log('🔄 Testing chatbot API endpoint...\n');
-  
+
   for (const message of testMessages) {
     try {
       console.log(`📤 Sending: "${message}"`);
-      
+
       const response = await fetch('http://localhost:3000/api/chatbot', {
         method: 'POST',
         headers: {
@@ -27,7 +27,7 @@ async function testChatbotAPI() {
       });
 
       const data = await response.json();
-      
+
       if (response.ok) {
         console.log(`✅ Response: "${data.output}"`);
         console.log(`📊 Status: ${data.webhookStatus}`);
@@ -38,12 +38,12 @@ async function testChatbotAPI() {
       } else {
         console.log(`❌ Error: ${data.error || 'Unknown error'}`);
       }
-      
+
       console.log('---');
-      
+
       // Wait 1 second between requests
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
     } catch (error) {
       console.error(`❌ Request failed: ${error.message}`);
       console.log('---');
@@ -53,16 +53,16 @@ async function testChatbotAPI() {
 
 async function testDirectWebhook() {
   console.log('\n🔄 Testing webhooks directly...\n');
-  
+
   const webhooks = [
-    'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338',
+    'https://webhook.asistente-legal.pro/webhook/a50b085e-d472-4185-8ed8-54c80a2067ef',
     'https://webhook.aprenderia.site/webhook/c686333a-8931-4cce-b290-ce9efbfee338'
   ];
-  
+
   for (const webhookUrl of webhooks) {
     try {
       console.log(`📤 Testing: ${webhookUrl}`);
-      
+
       const response = await fetch(webhookUrl, {
         method: 'POST',
         headers: {
@@ -77,7 +77,7 @@ async function testDirectWebhook() {
       });
 
       const responseText = await response.text();
-      
+
       if (response.ok) {
         console.log(`✅ Success: ${response.status}`);
         console.log(`📥 Response: ${responseText}`);
@@ -85,9 +85,9 @@ async function testDirectWebhook() {
         console.log(`❌ Error: ${response.status}`);
         console.log(`📥 Response: ${responseText}`);
       }
-      
+
       console.log('---');
-      
+
     } catch (error) {
       console.error(`❌ Webhook failed: ${error.message}`);
       console.log('---');
@@ -98,10 +98,10 @@ async function testDirectWebhook() {
 // Main test function
 async function runTests() {
   console.log('🚀 Starting chatbot integration tests...\n');
-  
+
   // Test direct webhooks first
   await testDirectWebhook();
-  
+
   // Note: The API test requires the server to be running
   console.log('\n💡 To test the full API integration:');
   console.log('1. Start your development server (npm run dev)');

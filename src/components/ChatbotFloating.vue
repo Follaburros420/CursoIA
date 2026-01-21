@@ -19,7 +19,7 @@ async function sendMessage() {
   loading.value = true;
   try {
     const res = await fetch(
-      'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338',
+      'https://webhook.asistente-legal.pro/webhook/a50b085e-d472-4185-8ed8-54c80a2067ef',
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

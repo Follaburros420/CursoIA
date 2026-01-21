@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+export default async function handler(req, res) {
   // Enable CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -25,7 +25,7 @@ export default function handler(req, res) {
     console.log('📥 Message received:', message);
 
     // Primary webhook URL
-    const primaryWebhookUrl = 'https://appn8n.aprenderia.site/webhook-test/c686333a-8931-4cce-b290-ce9efbfee338';
+    const primaryWebhookUrl = 'https://webhook.asistente-legal.pro/webhook/a50b085e-d472-4185-8ed8-54c80a2067ef';
     // Backup webhook URL
     const backupWebhookUrl = 'https://webhook.aprenderia.site/webhook/c686333a-8931-4cce-b290-ce9efbfee338';
 
@@ -38,7 +38,7 @@ export default function handler(req, res) {
     try {
       // Create AbortController for timeout
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+      const timeoutId = setTimeout(() => controller.abort(), 360000); // 6 minute timeout
 
       const response = await fetch(webhookUrl, {
         method: 'POST',
@@ -95,12 +95,12 @@ export default function handler(req, res) {
       });
 
       webhookError = webhookError;
-      
+
       // Try backup webhook
       console.log('🔄 Trying backup webhook:', backupWebhookUrl);
       try {
         const backupController = new AbortController();
-        const backupTimeoutId = setTimeout(() => backupController.abort(), 10000);
+        const backupTimeoutId = setTimeout(() => backupController.abort(), 360000);
 
         const backupResponse = await fetch(backupWebhookUrl, {
           method: 'POST',
@@ -156,9 +156,9 @@ export default function handler(req, res) {
         'Excelente, estoy aquí para ayudarte. ¿Te interesa conocer más sobre nuestros cursos de IA aplicada al derecho?',
         '¡Hola! Soy Robotino. Puedo ayudarte con información sobre nuestros cursos, precios, descuentos disponibles y proceso de inscripción.'
       ];
-      
+
       const randomResponse = fallbackResponses[Math.floor(Math.random() * fallbackResponses.length)];
-      
+
       return res.status(200).json({
         success: true,
         output: randomResponse,
